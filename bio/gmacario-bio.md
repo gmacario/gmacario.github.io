@@ -1,7 +1,7 @@
 Gianpaolo Macario - Bio
 =======================
 
-![Gianpaolo Macario](IMG_20140507_162311.jpg)
+![Gianpaolo Macario](img_2741.jpg)
 
 Gianpaolo Macario is a senior member of the Linux Services team of Mentor Graphics (http://www.mentor.com/embedded). 
 
