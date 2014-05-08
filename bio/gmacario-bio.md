@@ -5,7 +5,7 @@ Gianpaolo Macario - Bio
 
 Gianpaolo Macario is a senior member of the Linux Services team of Mentor Graphics (http://www.mentor.com/embedded). 
 
-Before joining Mentor Graphics he was a System Architect in the Infotainment and Telematics Business Unit of Magneti Marelli (http://www.magnetimarelli.com). 
+Before joining Mentor Graphics, Gianpaolo worked in the Infotainment and Telematics Business Unit of Magneti Marelli (http://www.magnetimarelli.com) where he was the System Architect for a Linux-based platform development of In-Vehicle Systems units. 
 
 Gianpaolo has been working with Embedded Linux and In-Vehicle Infotainment for the last several years and had the privilege of seeing and helping Linux evolve from a crazy idea to a solid foundation for delivering IVI services to the vehicle users.
 
