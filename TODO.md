@@ -6,6 +6,7 @@ Improvements and things still to be done
 * bio/gmacario-cv-en.html: Double check typos
 * CI (CloudBees): Validate `*/*.html`
 * CI (CloudBees): Check broken links inside `*/*.html`
+* Import old site from http://gmacario.altervista.org/
 * (maybe) mv bio/cv.css stylesheets/
 
 EOF
