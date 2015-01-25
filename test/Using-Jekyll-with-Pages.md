@@ -1,9 +1,15 @@
 ---
-title: This is my title
+title: Using Jekyill with GitHub Pages
 layout: post
 ---
 
-Here is my page.
+## Summary
+
+This post explains how I managed to install
+[Jekyll](http://jekyllrb.com/) to serve my GitHub pages locally on my laptop.
+
+This can be really useful for testing your website before it goes public,
+or to access your blog post, wiki while not online, etc.
 
 ## Installing Jekyll on itm-gmacario-w7
 
