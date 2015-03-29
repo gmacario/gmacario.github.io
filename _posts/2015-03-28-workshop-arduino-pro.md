@@ -1,6 +1,16 @@
-# Workshop Arduino PRO @Arduino DAY 2015
+# Notes from the Arduino Day 2015 @Officine Arduino Torno
 
-(2015-03-28 15:00-xx:xx CET)
+The Arduino Day 2015 in Torino took place at ToolBox Torino, home of FabLab Torino and Officine Arduino.
+
+I made a quick visit, mostly to attend the Arduino PRO workshop in the afternoon.
+
+## TODO
+
+TODO
+
+## Workshop Arduino PRO @Arduino DAY 2015
+
+(2015-03-28 15:00-17:00 CET)
 
 Reference: <http://www.eventbrite.it/e/biglietti-workshop-pro-arduino-day-2015-torino-16276959825>
 
@@ -19,42 +29,58 @@ Reference: <http://www.eventbrite.it/e/biglietti-workshop-pro-arduino-day-2015-t
 >
 > Per ogni informazione, contattare <mailto:arduinoday2015-it@arduino.cc>
 
-----------------
-## Preparation
+### Preparation
 
 See [my blog post](https://github.com/gmacario/gmacario.github.io/blob/master/_posts/2015-03-27-preparing-my-yun-for-the-arduino-day.md).
 
-----------------
-### Tinkerkit Workshop
+### Arduino PRO workshop
 
-* Box
-* Arduino YUN
-* Arduino Leonardo
-* [TinkerKit Sensor Shield](TODO)
-* [TinkerKit T00003x - Joystick](http://tinkerkit.com/T000030)
-* [TinkerKit T010010 - Relay](http://tinkerkit.com/T000010)
-* [TinkerKit T010011x - 5mm green LED](http://tinkerkit.com/T000011)
-* [TinkerKit T010011x - 10mm yellow LED](http://tinkerkit.com/T000011)
-* [TinkerKit T010011x - 5mm red LED](http://tinkerkit.com/T000011)
-* [TinkerKit T010011x - 5 x SMD LEDs](http://tinkerkit.com/T000011)
-* [TinkerKit T010015x - Linear Potentiometer](http://tinkerkit.com/T000050)
-* [TinkerKit T00001x - Photoresistor](http://tinkerkit.com/T0000xx)
-* [TinkerKit T00001x - Photoresistor](http://tinkerkit.com/T0000xx)
-* [TinkerKit T00001x - Tilt Sensor](http://tinkerkit.com/T0000xx)
-* [TinkerKit T00001x - Button](http://tinkerkit.com/T0000xx)
-* [TinkerKit T010011x - 10mm green LED](http://tinkerkit.com/T000011)
-* [TinkerKit T00001x - Thermistor](http://tinkerkit.com/T0000xx)
-* [TinkerKit T010011x - 5mm yellow LED](http://tinkerkit.com/T000011)
-* [TinkerKit T00001x - Potentiometer](http://tinkerkit.com/T0000xx)
-* [TinkerKit T010011x - 5mm green LED](http://tinkerkit.com/T000011)
-* N. 1 x 50cm long Cable for TinkerKit (3-pin jumper on both sides)
-* USB A-MicroUSB cable l=1m
+The worshop took place in FabLab Torino, aula workshop.
+
+About 30 participants were preregisterd and brought their own laptop.
+
+Each participant was provided with the following kit, then walked through
+some exercises to get familiar with the Arduino YUN and connect it to the web.
+
+Kudos to the few instructors who were very helpful to resolve the few issues - mainly because of each PC settings - which some of the participants encountered during the workshop.
+
+#### Contents of the TinkerKit box
+
+* 1 x Laser-cut wooden box
+* 1 x [Arduino YUN](http://store.arduino.cc/product/A000008)
+* 1 x [Arduino Leonardo with Headers](http://store.arduino.cc/product/A000057)
+* 1 x [TinkerKit Sensor Shield](TODO)
+* 1 x [TinkerKit Yellow LED [10mm]](http://store.arduino.cc/product/T010117)
+* 1 x [TinkerKit Green LED [10mm]](http://store.arduino.cc/product/T010116)
+* 1 x [TinkerKit Red LED [5mm]](http://store.arduino.cc/product/T010114)
+* 1 x [TinkerKit Yellow LED [5mm]](http://store.arduino.cc/product/T010113)
+* 2 x [TinkerKit Green LED [5mm]](http://store.arduino.cc/product/T010112)
+* 1 x [TinkerKit Power LED](http://store.arduino.cc/product/T010110)
+* 1 x [TinkerKit Relay Module](http://store.arduino.cc/product/T010010)
+* 1 x [TinkerKit Joystick](http://store.arduino.cc/product/T000030)
+* 1 x [TinkerKit Linear Potentiometer](http://store.arduino.cc/product/T000150)
+* 1 x [TinkerKit PushButton](http://store.arduino.cc/product/T000180)
+* 1 x [TinkerKit LDR Sensor](http://store.arduino.cc/product/T000090)
+* 1 x [TinkerKit Rotary Potentiometer](http://store.arduino.cc/product/T000140)
+* 1 x [TinkerKit Thermistor Module](http://store.arduino.cc/product/T000200)
+* 1 x [TinkerKit Tilt Sensor](http://store.arduino.cc/product/T000190)
+* 1 x [TinkerKit Cable [50cm]](http://store.arduino.cc/product/T020070) (3-pin jumper on both sides)
+* 1 x USB-A/MicroUSB cable l=1m
 
 Reference: <https://www1.elfa.se/data1/wwwroot/assets/datasheets/K000001_eng_tds.pdf>
 
-#### Reset
+#### Architecture of the Arduino YUN
 
-Debug:
+From <http://arduino.cc/en/Main/ArduinoBoardYun>
+
+![Arduino YUN Block Diagram](http://arduino.cc/en/uploads/Main/BridgeInShort.png)
+
+
+#### Restore Yun to factory settings
+
+Let us first upload a sketch to the ATmega to be able to debug the AR9331 side of the Arduino YUN.
+
+Start the Arduino IDE on your laptop - if you haven't installed yet, you may download it from <http://arduino.cc/en/main/software>.
 
 Arduino:
 
@@ -70,7 +96,9 @@ Check settings
 
 Plug YUN, wait for the blue WLAN LED to blink
 
-Press the "WiFi" button for 30 seconds to restore factory image and settings
+Press the "WiFi" button for 30 seconds to restore factory image and settings.
+
+Console log:
 
 ```
 U-Boot 1.1.4-g15f12ddd-dirty (Oct 14 2014 - 16:01:08)
@@ -333,13 +361,28 @@ wlan0     Link encap:Ethernet  HWaddr 90:A2:DA:F0:1B:D4
 root@Arduino:/#
 ```
 
-Connect to WiFi Network `Arduino YUN-90A2DAF01BD4`
+Look at "HWAddr" value for wlan0.
+
+When reset from factory, the YUN creates an access point named after the wlan0 MAC address.
+
+Connect to WiFi Network `Arduino YUN-xxxxxxxxxxxx` (in our case, this is `Arduino YUN-90A2DAF01BD4`).
+
+Once you are successfully connected to the YUN, browse the contents of <http://arduino.local> to access the YUN configuration page.
+
+Here I had some troubles, which I debugged as follows.
+
+As my laptop was running MS Windows 7 and I had Cygwin installed, I used the following commands
 
 ```
+$ ipconfig
+$ ping 192.168.240.1
+$ ping arduino.local
 $ ssh root@arduino.local
 ```
 
-TRICK: Set a static IP for your PC if you cannot get an IP address
+Apparently in my case I was unable to get an IP address in the 192.168.240.x range from the YUN.
+
+**TIP**: Set a static IP for your PC if you cannot get an IP address from the YUN.
 
 Open Network and Sharing Center
 
@@ -353,7 +396,6 @@ Open Network and Sharing Center
 Browse <http://192.168.240.1>
 * Password: `xxxx` (default: `arduino`)
 
->
 > WELCOME TO **ARDUINO**, YOUR ARDUINO YUN
 > ...
 >
@@ -423,7 +465,8 @@ wlan0     Link encap:Ethernet  HWaddr 90:A2:DA:F0:1B:D4
 root@AdayGmacario:/#
 ```
 
-The new IP address of my Yun is 192.168.1.246
+Look at field "inet addr" for interface "wlan0".
+In my case the new IP address of my Yun (assigned by the WiFi access point which both my YUN and my laptop are now connected) is 192.168.1.246
 
 ### How control I/O pin via web through a webserver running on the Yun
 
@@ -469,8 +512,5 @@ Change the intensity:
 * 25%: <http://adaygmacario.local/arduino/analog/3/64>
 * 12%: <http://adaygmacario.local/arduino/analog/3/32>
 * Off: <http://adaygmacario.local/arduino/analog/3/0>
-
-
-TODO
 
 <!-- EOF -->
