@@ -1,12 +1,29 @@
 # Notes from the Arduino Day 2015 @Officine Arduino Torno
 
-The Arduino Day 2015 in Torino took place at ToolBox Torino, home of FabLab Torino and Officine Arduino.
+The [Arduino Day 2015](https://day.arduino.cc/) in Torino took place at
+[Toolbox Coworking](http://www.toolboxoffice.it/), home of
+[FabLab Torino](http://fablabtorino.org/) and
+[Officine Arduino](http://local.arduino.cc/torino/).
 
 I made a quick visit, mostly to attend the Arduino PRO workshop in the afternoon.
 
-## TODO
+## Talks
 
-TODO
+I had some time to attend a few talks befor the Arduino PRO workshop stated
+
+### Arduino e l’Internet of Things
+
+(14:00-14:30)
+
+Speaker: Federico Vanzati
+
+Guest stars: Bruce Sterling and Jasmina - talking about Casa Jasmina
+
+### Il lato web di Arduino, dalle evoluzioni dei siti Arduino all’IoT
+
+(14:30-15:10)
+
+Speaker: Luca Cipriani
 
 ## Workshop Arduino PRO @Arduino DAY 2015
 
@@ -35,7 +52,7 @@ See [my blog post](https://github.com/gmacario/gmacario.github.io/blob/master/_p
 
 ### Arduino PRO workshop
 
-The worshop took place in FabLab Torino, aula workshop.
+The worshop took place in "sala didattica" of FabLab Torino.
 
 About 30 participants were preregisterd and brought their own laptop.
 
