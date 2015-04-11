@@ -90,4 +90,22 @@ END
 Then logout from the container and launch `./run.sh` again to make sure
 the environment variables are set correctly.
 
+### Using the Android SDK
+
+You should have the `android` command in PATH, therefore you may do the following:
+
+Get help
+
+    $ android --help
+
+List remote SDK repository
+
+    $ android list sdk
+
+Update the SDK specified
+
+    $ android update sdk --no-ui --filter 1,2,5
+
+You must read and accept the license by typing "y", then the download will start.
+
 <!-- EOF -->
