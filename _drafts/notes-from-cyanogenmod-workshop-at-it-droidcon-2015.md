@@ -187,4 +187,140 @@ cmbuild@c8226ae3ff79:~/android/cm12$ du -sh
 cmbuild@c8226ae3ff79:~/android/cm12$
 ```
 
+### Choose your device
+
+Source the `envsetup.sh` script to setup build environment
+
+    $ source build/envsetup.sh
+
+You need to choose your device. CM 12 has 107 targets so far
+See <https://github.com/CyanogenMod/hudson/blob/master/cm-build-targets>
+
+* Samsung Galaxy SII (i9100) ==> Only cm11
+* Emulated hardware (TBV whether they work with Lollypop, at least they worked with KitKat):
+  - Goldfish
+  - Standard x86 emulator
+  - (???) MIPS emulator
+* One working device for CM12 is hammerhead (Nexus 5)
+
+You need to use the `breakfast` command.
+
+The name of the command is a pun at the `lunch` command from AOSP, since
+this is more efficient and avoids fetching unneccessary repositories as `lunch` did.
+
+If you invoke the `breakfast` command without options you will get be requested which device to build for:
+
+```
+cmbuild@c8226ae3ff79:~/android/cm12$ breakfast
+including vendor/cm/vendorsetup.sh
+
+You're building on Linux
+
+Breakfast menu... pick a combo:
+ 1. full-eng                             55. cm_m8-userdebug
+ 2. cm_a5-userdebug                      56. cm_mako-userdebug
+ 3. cm_acclaim-userdebug                 57. cm_manta-userdebug
+ 4. cm_amami-userdebug                   58. cm_maserati-userdebug
+ 5. cm_bacon-userdebug                   59. cm_mb886-userdebug
+ 6. cm_castor-userdebug                  60. cm_memul-userdebug
+ 7. cm_castor_windy-userdebug            61. cm_mint-userdebug
+ 8. cm_condor-userdebug                  62. cm_mondrianwifi-userdebug
+ 9. cm_d800-userdebug                    63. cm_n3-userdebug
+ 10. cm_d801-userdebug                   64. cm_n5110-userdebug
+ 11. cm_d802-userdebug                   65. cm_nicki-userdebug
+ 12. cm_d850-userdebug                   66. cm_obake-userdebug
+ 13. cm_d851-userdebug                   67. cm_peregrine-userdebug
+ 14. cm_d852-userdebug                   68. cm_picassowifi-userdebug
+ 15. cm_d855-userdebug                   69. cm_pollux-userdebug
+ 16. cm_deb-userdebug                    70. cm_pollux_windy-userdebug
+ 17. cm_dlx-userdebug                    71. cm_quark-userdebug
+ 18. cm_e970-userdebug                   72. cm_scorpion-userdebug
+ 19. cm_e975-userdebug                   73. cm_scorpion_windy-userdebug
+ 20. cm_e980-userdebug                   74. cm_serrano3gxx-userdebug
+ 21. cm_evita-userdebug                  75. cm_serranoltexx-userdebug
+ 22. cm_falcon-userdebug                 76. cm_shamu-userdebug
+ 23. cm_find5-userdebug                  77. cm_sirius-userdebug
+ 24. cm_find7-userdebug                  78. cm_spyder-userdebug
+ 25. cm_find7s-userdebug                 79. cm_superior-userdebug
+ 26. cm_flo-userdebug                    80. cm_t0lte-userdebug
+ 27. cm_flounder-userdebug               81. cm_t6-userdebug
+ 28. cm_ghost-userdebug                  82. cm_t6spr-userdebug
+ 29. cm_grouper-userdebug                83. cm_t6vzw-userdebug
+ 30. cm_hammerhead-userdebug             84. cm_taoshan-userdebug
+ 31. cm_hammerheadcaf-userdebug          85. cm_targa-userdebug
+ 32. cm_hlte-userdebug                   86. cm_tf300t-userdebug
+ 33. cm_hltespr-userdebug                87. cm_tilapia-userdebug
+ 34. cm_hltetmo-userdebug                88. cm_titan-userdebug
+ 35. cm_honami-userdebug                 89. cm_togari-userdebug
+ 36. cm_i605-userdebug                   90. cm_togari_gpe-userdebug
+ 37. cm_i925-userdebug                   91. cm_trltespr-userdebug
+ 38. cm_jactivelte-userdebug             92. cm_trltetmo-userdebug
+ 39. cm_jewel-userdebug                  93. cm_trlteusc-userdebug
+ 40. cm_jflteatt-userdebug               94. cm_trltexx-userdebug
+ 41. cm_jfltespr-userdebug               95. cm_tsubasa-userdebug
+ 42. cm_jfltetmo-userdebug               96. cm_umts_spyder-userdebug
+ 43. cm_jfltevzw-userdebug               97. cm_v500-userdebug
+ 44. cm_jfltexx-userdebug                98. cm_victara-userdebug
+ 45. cm_klimtwifi-userdebug              99. cm_ville-userdebug
+ 46. cm_klte-userdebug                   100. cm_vs985-userdebug
+ 47. cm_kltespr-userdebug                101. cm_xt897-userdebug
+ 48. cm_ks01lte-userdebug                102. cm_xt907-userdebug
+ 49. cm_l900-userdebug                   103. cm_xt925-userdebug
+ 50. cm_ls970-userdebug                  104. cm_xt925_jbbl-userdebug
+ 51. cm_ls980-userdebug                  105. cm_xt926-userdebug
+ 52. cm_m7-userdebug                     106. cm_z3-userdebug
+ 53. cm_m7spr-userdebug                  107. cm_z3c-userdebug
+ 54. cm_m7vzw-userdebug
+... and don't forget the bacon!
+
+Which would you like? [aosp_arm-eng]
+```
+
+Alternatively you may specify the combo directly as a parameter:
+
+    $ breakfast hammerhead
+
+This causes breakfast to call
+[`roomservice.py`](https://github.com/CyanogenMod/android_build/blob/cm-12.0/tools/roomservice.py) to create `.repo/local_manifests/roomservice.xml`, then will fetch the additional repositories specific for your device.
+
+Result:
+
+```
+...
+Fetching projects:  50% (1/2)  From https://github.com/CyanogenMod/android_kernel_lge_hammerhead
+ * [new branch]      cm-12.0    -> github/cm-12.0
+Fetching projects: 100% (2/2), done.
+Checking out files: 100% (41864/41864), done.
+
+Looking for dependencies
+Dependencies file not found, bailing out.
+Looking for dependencies
+Dependencies file not found, bailing out.
+Done
+
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=5.0.2
+CM_VERSION=12-20150410-UNOFFICIAL-hammerhead
+TARGET_PRODUCT=cm_hammerhead
+TARGET_BUILD_VARIANT=userdebug
+TARGET_BUILD_TYPE=release
+TARGET_BUILD_APPS=
+TARGET_ARCH=arm
+TARGET_ARCH_VARIANT=armv7-a-neon
+TARGET_CPU_VARIANT=krait
+TARGET_2ND_ARCH=
+TARGET_2ND_ARCH_VARIANT=
+TARGET_2ND_CPU_VARIANT=
+HOST_ARCH=x86_64
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-3.13.0-46-generic-x86_64-with-Ubuntu-14.04-trusty
+HOST_BUILD_TYPE=release
+BUILD_ID=LRX22G
+OUT_DIR=/home/cmbuild/android/cm12/out
+============================================
+
+cmbuild@c8226ae3ff79:~/android/cm12$
+```
+
 <!-- EOF -->
