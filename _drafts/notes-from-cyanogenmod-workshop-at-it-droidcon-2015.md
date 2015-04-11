@@ -409,5 +409,73 @@ cmbuild@c8226ae3ff79:~/android/cm12$
 
 <!-- End: TODO -->
 
+### Inspecting build results
+
+Inspecting contents of output directory:
+
+```
+cmbuild@c8226ae3ff79:~/android/cm12$ ls -la out/target/product/hammerhead/
+total 1069396
+drwxrwxr-x 12 cmbuild cmbuild      4096 Apr 11 00:07 .
+drwxrwxr-x  3 cmbuild cmbuild      4096 Apr 10 22:01 ..
+-rw-rw-r--  1 cmbuild cmbuild        59 Apr 10 22:05 android-info.txt
+-rw-r--r--  1 cmbuild cmbuild   8880128 Apr 10 23:36 boot.img
+drwxrwxr-x  2 cmbuild cmbuild      4096 Apr 10 23:02 cache
+-rw-r--r--  1 cmbuild cmbuild  13668740 Apr 10 23:02 cache.img
+-rw-rw-r--  1 cmbuild cmbuild     58712 Apr 10 22:01 clean_steps.mk
+-rw-rw-r--  2 cmbuild cmbuild 244214934 Apr 11 00:07 cm-12-20150410-UNOFFICIAL-hammerhead.zip
+-rw-rw-r--  1 cmbuild cmbuild       132 Apr 11 00:07 cm-12-20150410-UNOFFICIAL-hammerhead.zip.md5sum
+-rw-rw-r--  2 cmbuild cmbuild 244214934 Apr 11 00:07 cm_hammerhead-ota-6eade6066f.zip
+drwxrwxr-x  3 cmbuild cmbuild      4096 Apr 10 23:41 data
+drwxrwxr-x  2 cmbuild cmbuild      4096 Apr 10 22:56 fake_packages
+drwxrwxr-x  4 cmbuild cmbuild      4096 Apr 10 22:04 gen
+drwxrwxr-x  3 cmbuild cmbuild      4096 Apr 10 22:44 install
+-rw-rw-r--  1 cmbuild cmbuild     78046 Apr 11 00:04 installed-files.txt
+-rw-rw-r--  1 cmbuild cmbuild   8080672 Apr 10 22:56 kernel
+drwxrwxr-x 20 cmbuild cmbuild      4096 Apr 11 00:04 obj
+-rw-rw-r--  1 cmbuild cmbuild         5 Apr 11 00:06 ota_override_device
+-rw-rw-r--  1 cmbuild cmbuild        49 Apr 11 00:06 ota_script_path
+-rw-rw-r--  1 cmbuild cmbuild       836 Apr 10 22:01 previous_build_config.mk
+-rw-rw-r--  1 cmbuild cmbuild   3471363 Apr 10 23:40 ramdisk-recovery.img
+-rw-rw-r--  1 cmbuild cmbuild    796064 Apr 10 23:34 ramdisk.img
+drwxrwxr-x  3 cmbuild cmbuild      4096 Apr 10 22:03 recovery
+-rw-r--r--  1 cmbuild cmbuild  11556864 Apr 10 23:41 recovery.img
+drwxrwxr-x  9 cmbuild cmbuild      4096 Apr 10 23:33 root
+drwxrwxr-x  7 cmbuild cmbuild      4096 Apr 10 23:40 symbols
+drwxrwxr-x 15 cmbuild cmbuild      4096 Apr 10 23:51 system
+-rw-r--r--  1 cmbuild cmbuild 419157960 Apr 11 00:04 system.img
+-rw-r--r--  1 cmbuild cmbuild 140786596 Apr 10 23:41 userdata.img
+cmbuild@c8226ae3ff79:~/android/cm12$
+```
+
+Inspecting contents of `cm-12-20150410-UNOFFICIAL-hammerhead.zip`
+
+```
+cmbuild@c8226ae3ff79:~/android/cm12$ unzip -v out/target/product/hammerhead/cm-12-20150410-UNOFFICIAL-hammerhead.zip
+Archive:  out/target/product/hammerhead/cm-12-20150410-UNOFFICIAL-hammerhead.zip
+signed by SignApk
+ Length   Method    Size  Cmpr    Date    Time   CRC-32   Name
+--------  ------  ------- ---- ---------- ----- --------  ----
+       0  Stored        0   0% 2008-02-29 02:33 00000000  system.patch.dat
+     149  Defl:N      123  17% 2008-02-29 02:33 a3a91293  META-INF/com/android/metadata
+  408960  Defl:N   265489  35% 2008-02-29 02:33 1de5a125  META-INF/com/google/android/update-binary
+    1831  Defl:N      590  68% 2008-02-29 02:33 dee0683f  META-INF/com/google/android/updater-script
+    2393  Defl:N      888  63% 2008-02-29 02:33 50280357  META-INF/org/cyanogenmod/releasekey
+ 8880128  Defl:N  7732336  13% 2008-02-29 02:33 d1fe8719  boot.img
+   19329  Defl:N     4273  78% 2008-02-29 02:33 480587f1  file_contexts
+     757  Defl:N      375  51% 2008-02-29 02:33 7353c0af  install/bin/backuptool.functions
+    2187  Defl:N      806  63% 2008-02-29 02:33 99e63141  install/bin/backuptool.sh
+     990  Defl:N      505  49% 2008-02-29 02:33 9ee1cdca  install/bin/otasigcheck.sh
+420360192  Defl:N 236200233  44% 2008-02-29 02:33 cfe4e5d7  system.new.dat
+     212  Defl:N      114  46% 2008-02-29 02:33 ecc0ae87  system.transfer.list
+    4357  Defl:N     1747  60% 2008-02-29 02:33 9dc6e7b9  system/build.prop
+    1675  Defl:N      943  44% 2008-02-29 02:33 c3fc0954  META-INF/com/android/otacert
+    1148  Defl:N      605  47% 2008-02-29 02:33 bb9d55c1  META-INF/MANIFEST.MF
+    1327  Defl:N      639  52% 2008-02-29 02:33 3d6de3c8  META-INF/CERT.SF
+    1714  Defl:N     1154  33% 2008-02-29 02:33 6dfe7d7a  META-INF/CERT.RSA
+--------          -------  ---                            -------
+429687349         244210820  43%                            17 files
+cmbuild@c8226ae3ff79:~/android/cm12$
+```
 
 <!-- EOF -->
