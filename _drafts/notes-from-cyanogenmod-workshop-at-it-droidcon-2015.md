@@ -53,4 +53,12 @@ cmbuild@c8226ae3ff79:~/android$
 
 Wow, plenty of resources to use! Let's move on...
 
+### Installing Repo
+
+Logged as cmbuild@container:
+
+    $ mkdir -p ~/bin
+    $ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+    $ chmod a+x ~/bin/repo
+
 <!-- EOF -->
