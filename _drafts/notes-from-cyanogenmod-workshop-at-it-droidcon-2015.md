@@ -323,4 +323,31 @@ OUT_DIR=/home/cmbuild/android/cm12/out
 cmbuild@c8226ae3ff79:~/android/cm12$
 ```
 
+### Get the proprietary stuff
+
+Look inside the device directory
+
+    $ croot
+    $ cd device/lge/hammerhead
+
+`extract-files.sh` is a simple script to process the binary blob
+copying the xxx - distribution becomes a little bit sketch.
+
+Alternatively you may create a file under `.repo/local_manifests`
+to fetch the proprietary stuff from your private repositories:
+
+<!--
+We obviously have a problem, guys are working on remote servers
+in Amsterdam. So for purely educational purposes a separate organization
+
+See <https://github.com/Themuppets>
+Example: proprietary_vendor_htc
+
+Another is <https://github.com/donkeycoyote>
+
+<http://www.replicant.us> is trying to address the problem differently.
+They are actually trying to recreate one by one the working binaries
+from sources.
+-->
+
 <!-- EOF -->
