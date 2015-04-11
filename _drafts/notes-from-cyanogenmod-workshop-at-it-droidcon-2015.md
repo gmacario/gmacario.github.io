@@ -61,4 +61,33 @@ Logged as cmbuild@container:
     $ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
     $ chmod a+x ~/bin/repo
 
+### Installing the Android SDK
+
+Download the latest version of the Android SDK for Linux (24.1.2 as of 2015-04-10)
+
+    $ mkdir -p ~/sdk
+    $ cd ~/sdk
+    $ curl -O http://dl.google.com/android/android-sdk_r24.1.2-linux.tgz
+
+If the previous fails for whatever reasons (i.e. you are in a location which blocks access to Google)
+
+    $ curl -O https://dl.dropboxusercontent.com/u/2834459/android-sdk_r24.1.2-linux.tgz
+
+After extracting the file your may remove the install tarball to save space:
+
+    $ tar zxvf android-sdk_r24.1.2-linux.tgz
+    $ rm android-sdk_r24.1.2-linux.tgz
+
+Update `~/.bashrc` with the following definitions:
+
+```
+$ cat <<END >>~/.bashrc
+export ANDROID_HOME="\$HOME/sdk/android-sdk-linux"
+export PATH="\$ANDROID_HOME/tools:\$ANDROID_HOME/platform-tools:\$PATH"
+END
+```
+
+Then logout from the container and launch `./run.sh` again to make sure
+the environment variables are set correctly.
+
 <!-- EOF -->
