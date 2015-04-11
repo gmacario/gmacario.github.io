@@ -108,7 +108,6 @@ Update the SDK specified
 
 You must read and accept the license by typing "y", then the download will start.
 
-
 ### Git config and repo init
 
 ```
@@ -477,5 +476,9 @@ signed by SignApk
 429687349         244210820  43%                            17 files
 cmbuild@c8226ae3ff79:~/android/cm12$
 ```
+
+Unfortunately I do not own a Nexus 5 where to try flashing the images, so I need to stop here.
+
+One of the next days I will give a try building CM11 for my Samsung Galaxy SII.
 
 <!-- EOF -->
