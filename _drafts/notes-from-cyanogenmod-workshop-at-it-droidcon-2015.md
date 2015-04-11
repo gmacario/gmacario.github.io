@@ -108,6 +108,7 @@ Update the SDK specified
 
 You must read and accept the license by typing "y", then the download will start.
 
+
 ### Git config and repo init
 
 ```
@@ -130,5 +131,60 @@ You may also repo init AOSP https://android.googlesource.com/...
 
 There is a GitHub mirror (not always up-to-date) of AOSP at
 <https://github.com/android>
+
+### Syncing the source code
+
+<!-- Start: 2015-04-10 20:53 CEST -->
+
+    $ repo sync –j16
+
+(and a lot of waiting)
+
+<!-- End: 2015-04-10 22:45 CEST -->
+
+Result:
+
+```
+cmbuild@c8226ae3ff79:~/android/cm12$ ls -la
+total 116
+drwxrwxr-x  28 cmbuild cmbuild 4096 Apr 10 20:41 .
+drwxrwxr-x   3 cmbuild cmbuild 4096 Apr 10 18:48 ..
+drwxrwxr-x   7 cmbuild cmbuild 4096 Apr 10 20:29 .repo
+-r--r--r--   1 cmbuild cmbuild   87 Apr 10 20:29 Makefile
+drwxrwxr-x   3 cmbuild cmbuild 4096 Apr 10 20:29 abi
+drwxrwxr-x   3 cmbuild cmbuild 4096 Apr 10 20:29 android
+drwxrwxr-x  14 cmbuild cmbuild 4096 Apr 10 20:29 art
+drwxrwxr-x  10 cmbuild cmbuild 4096 Apr 10 20:29 bionic
+drwxrwxr-x   3 cmbuild cmbuild 4096 Apr 10 20:29 bootable
+drwxrwxr-x   7 cmbuild cmbuild 4096 Apr 10 20:29 build
+drwxrwxr-x  12 cmbuild cmbuild 4096 Apr 10 20:29 cts
+drwxrwxr-x  13 cmbuild cmbuild 4096 Apr 10 20:29 dalvik
+drwxrwxr-x   6 cmbuild cmbuild 4096 Apr 10 20:29 developers
+drwxrwxr-x  20 cmbuild cmbuild 4096 Apr 10 20:29 development
+drwxrwxr-x   7 cmbuild cmbuild 4096 Apr 10 20:29 device
+drwxrwxr-x   3 cmbuild cmbuild 4096 Apr 10 20:29 docs
+drwxrwxr-x 237 cmbuild cmbuild 4096 Apr 10 20:33 external
+drwxrwxr-x  18 cmbuild cmbuild 4096 Apr 10 20:34 frameworks
+drwxrwxr-x  15 cmbuild cmbuild 4096 Apr 10 20:34 hardware
+drwxrwxr-x  16 cmbuild cmbuild 4096 Apr 10 20:34 libcore
+drwxrwxr-x   5 cmbuild cmbuild 4096 Apr 10 20:34 libnativehelper
+drwxrwxr-x   8 cmbuild cmbuild 4096 Apr 10 20:35 ndk
+drwxrwxr-x   9 cmbuild cmbuild 4096 Apr 10 20:36 packages
+drwxrwxr-x   6 cmbuild cmbuild 4096 Apr 10 20:36 pdk
+drwxrwxr-x  16 cmbuild cmbuild 4096 Apr 10 20:40 prebuilts
+drwxrwxr-x  27 cmbuild cmbuild 4096 Apr 10 20:40 sdk
+drwxrwxr-x  10 cmbuild cmbuild 4096 Apr 10 20:40 system
+drwxrwxr-x   3 cmbuild cmbuild 4096 Apr 10 20:40 tools
+drwxrwxr-x   4 cmbuild cmbuild 4096 Apr 10 20:41 vendor
+cmbuild@c8226ae3ff79:~/android/cm12$
+```
+
+Disk usage:
+
+```
+cmbuild@c8226ae3ff79:~/android/cm12$ du -sh
+29G     .
+cmbuild@c8226ae3ff79:~/android/cm12$
+```
 
 <!-- EOF -->
