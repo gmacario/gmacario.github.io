@@ -350,4 +350,64 @@ They are actually trying to recreate one by one the working binaries
 from sources.
 -->
 
+### Invoke brunch
+
+<!-- Start: 2015-04-11 00:02 CEST -->
+
+    $ croot
+    $ brunch hammerhead
+
+Result:
+
+```
+cmbuild@c8226ae3ff79:~/android/cm12$ brunch hammerhead
+including vendor/cm/vendorsetup.sh
+Looking for dependencies
+
+============================================
+PLATFORM_VERSION_CODENAME=REL
+PLATFORM_VERSION=5.0.2
+CM_VERSION=12-20150410-UNOFFICIAL-hammerhead
+TARGET_PRODUCT=cm_hammerhead
+TARGET_BUILD_VARIANT=userdebug
+TARGET_BUILD_TYPE=release
+TARGET_BUILD_APPS=
+TARGET_ARCH=arm
+TARGET_ARCH_VARIANT=armv7-a-neon
+TARGET_CPU_VARIANT=krait
+TARGET_2ND_ARCH=
+TARGET_2ND_ARCH_VARIANT=
+TARGET_2ND_CPU_VARIANT=
+HOST_ARCH=x86_64
+HOST_OS=linux
+HOST_OS_EXTRA=Linux-3.13.0-46-generic-x86_64-with-Ubuntu-14.04-trusty
+HOST_BUILD_TYPE=release
+BUILD_ID=LRX22G
+OUT_DIR=/home/cmbuild/android/cm12/out
+============================================
+
+...
+loaded device-specific extensions from /tmp/targetfiles-LWkAIq/META/releasetools.py
+using prebuilt recovery.img from IMAGES...
+using system.img from target-files
+Total of 262144 4096-byte output blocks in 1531 input chunks.
+Generating digraph...
+Finding vertex sequence...
+Removing backward edges...
+  0/0 dependencies (0.00%) were violated; 0 source blocks removed.
+Reticulating splines...
+using prebuilt boot.img from IMAGES...
+   boot size (8880128) is 38.49% of limit (23068672)
+no bootloader.img in target_files; skipping install
+no radio.img in target_files; skipping install
+  running:  openssl pkcs8 -in build/target/product/security/testkey.pk8 -inform DER -nocrypt
+  running:  java -Xmx2048m -jar /home/cmbuild/android/cm12/out/host/linux-x86/framework/signapk.jar -w build/target/product/security/testkey.x509.pem build/target/product/security/testkey.pk8 /tmp/tmp0iiLTP /home/cmbuild/android/cm12/out/target/product/hammerhead/cm_hammerhead-ota-6eade6066f.zip
+done.
+Package Complete: /home/cmbuild/android/cm12/out/target/product/hammerhead/cm-12-20150410-UNOFFICIAL-hammerhead.zip
+cmbuild@c8226ae3ff79:~/android/cm12$
+```
+
+<!-- End: TODO -->
+
+
 <!-- EOF -->
