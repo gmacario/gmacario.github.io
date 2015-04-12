@@ -2,7 +2,7 @@
 title: gmacario.github.io
 #email: gmacario@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Gianpaolo Macario public rants 
+  Gianpaolo Macario public rants
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://gmacario.github.io" # the base hostname & protocol for your site
 twitter_username: gpmacario
@@ -10,3 +10,8 @@ github_username:  gmacario
 
 # Build settings
 markdown: kramdown
+
+kramdown:
+  input: GFM
+
+# EOF
