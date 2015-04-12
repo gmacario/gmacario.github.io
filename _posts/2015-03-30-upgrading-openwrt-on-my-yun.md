@@ -1,4 +1,8 @@
-# Upgrading OpenWrt on my Arduino Yun
+---
+layout: post
+title:  "Upgrading OpenWrt on my Arduino Yun"
+categories: arduino howto
+---
 
 Read instructions at <http://arduino.cc/en/Tutorial/YunSysupgrade>
 
