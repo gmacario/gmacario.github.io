@@ -1,4 +1,8 @@
-# Notes from CyanogenMod Workshop at IT Droidcon 2015
+---
+layout: post
+title:  "Notes from CyanogenMod Workshop at IT Droidcon 2015"
+categories: android howto
+---
 
 Here are a few notes which I took when attending the
 [Cyanogen Workshop](http://it.droidcon.com/2015/sessions/cyanogen-workshop/)
