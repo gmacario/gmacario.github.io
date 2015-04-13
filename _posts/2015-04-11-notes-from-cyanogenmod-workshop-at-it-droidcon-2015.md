@@ -124,7 +124,7 @@ $ cd ~/android/cm12/
 $ repo init -u https://github.com/CyanogenMod/android.git -b cm-12.0
 ```
 
-You may also repo init AOSP <https://android.googlesource.com/...>
+You may also repo init AOSP pointing to the following URL instead: <https://android.googlesource.com/platform/manifest>
 
 There is a GitHub mirror (not always up-to-date) of AOSP at <https://github.com/android>
 
