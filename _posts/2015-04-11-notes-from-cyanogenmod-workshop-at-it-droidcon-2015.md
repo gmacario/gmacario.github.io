@@ -4,17 +4,13 @@ title:  "Notes from CyanogenMod Workshop at IT Droidcon 2015"
 categories: android howto
 ---
 
-Here are a few notes which I took when attending the
-[Cyanogen Workshop](http://it.droidcon.com/2015/sessions/cyanogen-workshop/)
-during the [IT Droidcon 2015](http://it.droidcon.com/2015/) which took place in Torino on 2015-04-10.
+Here are a few notes which I took when attending the [Cyanogen Workshop](http://it.droidcon.com/2015/sessions/cyanogen-workshop/) during the [IT Droidcon 2015](http://it.droidcon.com/2015/) which took place in Torino on 2015-04-10.
 
 The workshop was led by [Abhisek Devkota](https://twitter.com/ciwrl), Senior Engineering and Community Manager at Cyanogen Inc., who was extremely good in driving the workshop forward and answered a lot of questions from the audience.
 
 ### Preparing the development environment
 
-Due to some issues in the VPS that was provided to the participants
-I used one machine which I had available - that had the additional benefit
-to make sure I could reproduce all the steps - including provisioning the build environment!
+Due to some issues when creating the VPS instances that were going to the participants I instead used one machine which I had already available. That had the additional benefit to make sure I could reproduce all the steps - including provisioning the build environment!
 
 I had a Ubuntu 14.04 64-bit server available via SSH with Docker installed.
 
@@ -22,16 +18,14 @@ After logging in to the server, I cloned the "docker-cyanogenmod" project
 
     $ git clone https://github.com/gmacario/docker-cyanogenmod.git -b test-droidcon
 
-Note: the "test-droidcon" branch on my fork is used in order to install
-exactly the packages which Abhisek had installed in his VPS instances.
+Note: the "test-droidcon" branch on my fork is used in order to install exactly the packages which Abhisek had installed in his VPS instances.
 
 Then run the following commands to create a Docker container with all the needed software automagically installed:
 
     $ cd docker-cyanogenmod
     $ ./run.sh
 
-The first time it will take a few minutes to create the Docker image
-and start the container, but subsequent runs will be much faster!
+The first time it will take a few minutes to create the Docker image and start the container, but subsequent runs will be much faster!
 
 As a result I eventually got a shell inside the container:
 
@@ -130,10 +124,9 @@ $ cd ~/android/cm12/
 $ repo init -u https://github.com/CyanogenMod/android.git -b cm-12.0
 ```
 
-You may also repo init AOSP https://android.googlesource.com/...
+You may also repo init AOSP <https://android.googlesource.com/...>
 
-There is a GitHub mirror (not always up-to-date) of AOSP at
-<https://github.com/android>
+There is a GitHub mirror (not always up-to-date) of AOSP at <https://github.com/android>
 
 ### Syncing the source code
 
@@ -196,7 +189,7 @@ Source the `envsetup.sh` script to setup build environment
 
     $ source build/envsetup.sh
 
-You need to choose your device. CM 12 has 107 targets so far
+You need to choose your device. CM 12 has 107 targets so far.
 See <https://github.com/CyanogenMod/hudson/blob/master/cm-build-targets>
 
 * Samsung Galaxy SII (i9100) ==> Only cm11
@@ -208,8 +201,7 @@ See <https://github.com/CyanogenMod/hudson/blob/master/cm-build-targets>
 
 You need to use the `breakfast` command.
 
-The name of the command is a pun at the `lunch` command from AOSP, since
-this is more efficient and avoids fetching unneccessary repositories as `lunch` did.
+The name of the command is a pun at the `lunch` command from AOSP, since this is more efficient and avoids fetching unneccessary repositories as `lunch` did.
 
 If you invoke the `breakfast` command without options you will get be requested which device to build for:
 
@@ -283,8 +275,7 @@ Alternatively you may specify the combo directly as a parameter:
 
     $ breakfast hammerhead
 
-This causes breakfast to call
-[`roomservice.py`](https://github.com/CyanogenMod/android_build/blob/cm-12.0/tools/roomservice.py) to create `.repo/local_manifests/roomservice.xml`, then will fetch the additional repositories specific for your device.
+This causes breakfast to call [`roomservice.py`](https://github.com/CyanogenMod/android_build/blob/cm-12.0/tools/roomservice.py) to create `.repo/local_manifests/roomservice.xml`, then will fetch the additional repositories specific for your device.
 
 Result:
 
@@ -333,11 +324,9 @@ Look inside the device directory
     $ croot
     $ cd device/lge/hammerhead
 
-`extract-files.sh` is a simple script to process the binary blob
-copying the xxx - distribution becomes a little bit sketch.
+`extract-files.sh` is a simple script to process the binary blob copying the xxx - distribution becomes a little bit sketch.
 
-Alternatively you may create a file under `.repo/local_manifests`
-to fetch the proprietary stuff from your private repositories:
+Alternatively you may create a file under `.repo/local_manifests` to fetch the proprietary stuff from your private repositories:
 
 <!--
 We obviously have a problem, guys are working on remote servers
@@ -483,6 +472,6 @@ cmbuild@c8226ae3ff79:~/android/cm12$
 
 Unfortunately I do not own a Nexus 5 where to try flashing the images, so I need to stop here.
 
-One of the next days I will give a try building CM11 for my Samsung Galaxy SII.
+One of the next days I will try building CM11 for my Samsung Galaxy SII.
 
 <!-- EOF -->
