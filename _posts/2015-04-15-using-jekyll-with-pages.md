@@ -7,17 +7,15 @@ layout: post
 
 <!-- 2015-04-12 11:35 CEST -->
 
-This post explains how I managed to install
-[Jekyll](http://jekyllrb.com/) to serve my GitHub pages locally on my laptop.
+This post explains how I managed to install [Jekyll](http://jekyllrb.com/) to serve my GitHub pages locally on my laptop.
 
-This can be really useful for testing your website before it goes public,
-or to access your blog post, wiki while not online, etc.
+This can be really useful for testing your website before it goes public, or to access your blog post, wiki while not online, etc.
 
 ## Installing Jekyll on itm-gmacario-w7
 
 Installing on my laptop (OS: MS Windows 7 64-bit)
 
-Reference: https://help.github.com/articles/using-jekyll-with-pages/
+Reference: <https://help.github.com/articles/using-jekyll-with-pages/>
 
 ### Install Ruby
 
@@ -35,6 +33,7 @@ $
 ### Install Bundler
 
 Invoke command `gem install bundler`:
+
 ```
 gmacario@ITM-GMACARIO-W7 ~
 $ gem install bundler
@@ -52,6 +51,7 @@ $
 ### Install Jekyll
 
 In the root of your site repository, create a file with the following contents:
+
 ```
 source 'https://rubygems.org'
 
@@ -72,6 +72,7 @@ $
 ```
 
 Then invoke `bundle install`:
+
 ```
 gmacario@ITM-GMACARIO-W7 /cygdrive/e/data/MYGIT/gmacario.github.io
 $ bundle install
@@ -162,16 +163,16 @@ If the previous command fails, run Cygwin `setup-x86_64.exe` and make sure the f
 
 ## Configure Jekyll
 
-Fix Jekyll under windows
+Fix Jekyll under MS Windows
 
     $ echo "export COMSPEC=/cygdrive/c/Windows/System32/cmd.exe" >> ~/.bashrc
 
-See more at: https://necurity.co.uk/linux/2014/07/06/2014-07-06-Cygwin_and_Jekyll.md.html
+See more at <https://necurity.co.uk/linux/2014/07/06/2014-07-06-Cygwin_and_Jekyll.md.html>
 
-TODO
+You can now start the built-in http server
 
     $ bundle exec jekyll serve
 
-Now browse <http://localhost:4000/>
+Now browse <http://localhost:4000/> to see the pages rendered by Jekyll.
 
 <!-- EOF -->
