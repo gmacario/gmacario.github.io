@@ -168,10 +168,10 @@ Fix Jekyll under windows
 
 See more at: https://necurity.co.uk/linux/2014/07/06/2014-07-06-Cygwin_and_Jekyll.md.html
 
-TODO
+You can now start the built-in http server
 
     $ bundle exec jekyll serve
 
-Now browse <http://localhost:4000/>
+Now browse <http://localhost:4000/> to see the pages rendered by Jekyll.
 
 <!-- EOF -->
