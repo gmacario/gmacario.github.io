@@ -87,7 +87,8 @@ Select components to install (or simply accept defaults), then click "Next >"
 Read the License Agreement(s), then click "I Agree"
 
 Choose Install Locations
-* Android Studio Insallation Location: `E:\opt\Android\Android_Studio` (was `C:\Program Files\Android\Android Studio`)
+
+* Android Studio Installation Location: `E:\opt\Android\Android_Studio` (was `C:\Program Files\Android\Android Studio`)
 * Android SDK Installation Location: `E:\opt\Android\sdk` (was `C:\Users\gmacario\AppData\Local\Android\sdk`)
 
 In the Emulator Setup menu, set the maximum amount of RAM available for the Intel Hardware Accelerated Manager (HAXM) to use for all x86 emulator instances
@@ -125,6 +126,7 @@ Launch Android Studio, the following window will be displayed
 > Welcome to Android Studio
 >
 > Quick Start
+>
 > * Start a new Android Studio project
 > * Open an existing Android Studio project
 > * Import an Android code sample
@@ -235,6 +237,6 @@ The emulator takes a lot of time to start and frequently hangs.
 
 I feel this is due to the limited memory (8 GB) I have on my laptop.
 
-I will probably have a try at Genymotion and will report in a future blog post.
+I will probably have a try at [Genymotion](https://www.genymotion.com/) and will report my results in a future blog post.
 
 <!-- EOF -->
