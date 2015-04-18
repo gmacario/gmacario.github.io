@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Trying Android Studio on itm-gmacario-w7"
-date:   2015-04-16 12:40:00
+date:   2015-04-18 17:30:00
 categories: android howto development
 ---
 
@@ -231,24 +231,10 @@ From Android Studio: Run > Run 'app'
 
 Then click "OK".
 
+The emulator takes a lot of time to start and frequently hangs.
 
+I feel this is due to the limited memory (8 GB) I have on my laptop.
 
-
-------------------
-## TODO
-
-Configure Git from Android Studio
-
-
-### Installing Genymotion
-
-TODO: Move to a separate page
-
-
-
-
-------------------
-# LEFTOVERS
-
+I will probably have a try at Genymotion and will report in a future blog post.
 
 <!-- EOF -->
