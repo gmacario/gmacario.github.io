@@ -227,17 +227,12 @@ In our example (VM "Samsung Galaxy S2 - 4.1.1 - API 16 - 480x800"):
 * Shared Folders
   - (none)
 
-
-------------------
-
-# TODO
-
 ### Trying the Genymotion Shell
 
-TODO: See <https://www.genymotion.com/#!/developers/user-guide>
+See <https://www.genymotion.com/#!/developers/user-guide>
 
 ### Connecting to Android Studio
-TODO
 
+This will be the subject of a future blog post. Stay tuned!
 
 <!-- EOF -->
