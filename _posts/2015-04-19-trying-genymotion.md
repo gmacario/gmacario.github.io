@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Trying Genymotion Android Emulator"
-date:   2015-04-17 21:00:00
+date:   2015-04-19 09:50:00
 categories: android howto development
 ---
 
