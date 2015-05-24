@@ -30,11 +30,17 @@ Logged as user@host, checkout the [easy-build](https://github.com/gmacario/easy-
 $ git clone https://github.com/gmacario/easy-build.git
 ```
 
-Build the container (you may also pull it from Docker Hub)
+Locally build the container image
 
 ```
 $ cd easy-build/build-aosp
 $ ./build.sh
+```
+
+Alternatively, you may pull it from Docker Hub:
+
+```
+$ docker pull gmacario/build-aosp
 ```
 
 Make sure you have no older versions of the same container:
@@ -54,7 +60,7 @@ Logged as user@host, run the container
 
 ```
 $ cd easy-build/build-aosp
-$ ./run-NEW.sh
+$ ./run.sh
 ```
 
 ### First time preparation of the container
