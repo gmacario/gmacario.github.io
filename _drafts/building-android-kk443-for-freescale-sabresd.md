@@ -9,29 +9,35 @@ This blog post explains how I built the images of Android KitKat 4.4.3 for the [
 
 ### Prerequisites
 
-* A powerful machine (tested on Ubuntu 14.04.1 LTS) running Docker with
+* A powerful host (local workstation or cloud instance) with
   - At least 16 GB RAM
   - At least 100 GB of free disk space
   - Fast Internet connectivity to fetch Android sources
-  - Installed packages: git, Docker
-* Freescale sources for KK443
+  - OS: A 64-bit OS (tested on Ubuntu 14.04.1 LTS 64-bit) with the following installed packages:
+    - [bash](http://www.gnu.org/software/bash/) (tested with bash-4.3-7ubuntu1.5)
+    - [git](https://git-scm.com/) (tested with git-1:1.9.1-1ubuntu0.1)
+    - [Docker](https://www.docker.com/) (tested with lxc-docker-1.6.2)
+* Package containing Freescale i.MX6 BSP source code for Android KK443
+  - You may download file `android_KK4.4.3_2.0.0-ga_core_source.gz`  [here](http://www.freescale.com/webapp/sps/site/prod_summary.jsp?code=RDIMX6SABREBRD&fpsp=1&tab=Design_Tools_Tab)
+* Java SE Development Kit 6 for Linux/x64
+  - You may download file `jdk-6u45-linux-x64.bin`  [here](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase6-419409.html)
 
 ### Preparation
 
-Logged as user@host, checkout the easy-build project from GitHub
+Logged as user@host, checkout the [easy-build](https://github.com/gmacario/easy-build) project from GitHub
 
 ```
 $ git clone https://github.com/gmacario/easy-build.git
 ```
 
-Build the container (alternatively you may pull it from Docker Hub)
+Build the container (you may also pull it from Docker Hub)
 
 ```
 $ cd easy-build/build-aosp
 $ ./build.sh
 ```
 
-Make sure you are not running an old version of the same container:
+Make sure you have no older versions of the same container:
 
 ```
 $ docker rm build-aosp 2>/dev/null
@@ -51,7 +57,7 @@ $ cd easy-build/build-aosp
 $ ./run-NEW.sh
 ```
 
-#### First time preparation of the container
+### First time preparation of the container
 
 The first time the container is run, logged as root@container execute the following steps
 
@@ -73,6 +79,8 @@ $ tar xvzf ~/shared/xxx/android_KK4.4.3_2.0.0-ga_core_source.gz
 
 Logged as build@container
 
+#### Configure git
+
 Configure git (specify your user.email and user.name)
 
 ```
@@ -80,6 +88,8 @@ $ git config --global user.email "you@example.com"
 $ git config --global user.name "Your Name"
 $ git config --global color.ui auto
 ```
+
+#### Clone AOSP source tree
 
 If you have a recent backup of the AOSP source tree, extract it to `~/shared/myandroid`:
 
@@ -104,21 +114,44 @@ $ cd ~/shared/myandroid
 $ tar -cvzf ~/shared/extra/bk-aosp-20150522-1755.tar.gz .
 ```
 
-Checkout the `linux_imx` tree
+#### Clone uboot-imx source tree
+
+If you have a recent backup of the uboot-imx source tree, extract it to `~/shared/myandroid/bootable/bootloader`:
+
+```
+$ cd ~/shared/myandroid
+$ cp -a ~/shared/extra/uboot-imx bootable/bootloader/
+```
+
+otherwise clone the `uboot-imx` repository using git
+
+```
+TODO
+```
+
+#### Clone linux_imx source tree
+
+If you have a recent backup of the uboot-imx source tree, extract it to `~/shared/myandroid`:
 
 ```
 $ cd ~/shared/myandroid
 $ cp -a ~/shared/extra/kernel_imx .
 ```
 
-Apply the Freescale patches to the vanilla AOSP tree
+otherwise clone the `linux_imx` repository using git
+
+```
+TODO
+```
+
+#### Apply the Freescale patches on top of the vanilla AOSP tree
 
 ```
 $ source ~/shared/extra/android_KK4.4.3_2.0.0-ga_core_source/code/KK4.4.3_2.0.0-ga/and_patch.sh
 $ c_patch ~/shared/extra/android_KK4.4.3_2.0.0-ga_core_source/code/KK4.4.3_2.0.0-ga imx_KK4.4.3_2.0.0-ga 2>c_patch_err.txt >c_patch_out.txt
 ```
 
-#### Starting the build
+### Performing the build
 
 Prerequisites:
 
@@ -365,6 +398,150 @@ $ apt-file search uuid/uuid.h
 lunch sabresd_6dq-eng && make 2>&1 | tee build_sabresd_6dq_android.log" build
 ```
 
+Result:
+
+```
+...
+external/mtd-utils/mkfs.ubifs/compr.c:28:23: fatal error: lzo/lzo1x.h: No such file or directory
+ #include <lzo/lzo1x.h>
+                       ^
+compilation terminated.
+make: *** [out/host/linux-x86/obj/EXECUTABLES/mkfs.ubifs_intermediates/compr.o] Error 1
+root@d2086a0b7ec7:/#
+```
+
+**FIX**: Install the missing package (should add to Dockerfile)
+
+```
+# apt-file search lzo/lzo1x.h
+# apt-get install -y liblzo2-dev
+```
+
+(2015-05-23 12:06) Restart the build
+
+```
+# su -l -c "cd ~/shared/myandroid && source build/envsetup.sh && \
+lunch sabresd_6dq-eng && make 2>&1 | tee build_sabresd_6dq_android.log" build
+```
+
+Result:
+
+```
+host StaticLib: libbz (out/host/linux-x86/obj/STATIC_LIBRARIES/libbz_intermediates/libbz.a)
+Export includes file: bootable/recovery/applypatch/Android.mk -- out/host/linux-x86/obj/EXECUTABLES/imgdiff_intermediates/export_includes
+host Executable: imgdiff (out/host/linux-x86/obj/EXECUTABLES/imgdiff_intermediates/imgdiff)
+Notice file: bootable/recovery/applypatch/NOTICE -- out/host/linux-x86/obj/NOTICE_FILES/src//bin/imgdiff.txt
+Notice file: external/bzip2/NOTICE -- out/host/linux-x86/obj/NOTICE_FILES/src//lib/libbz.a.txt
+Install: out/host/linux-x86/bin/imgdiff
+Import includes file: out/host/linux-x86/obj/EXECUTABLES/bsdiff_intermediates/import_includes
+host C: bsdiff <= external/bsdiff/bsdiff.c
+external/bsdiff/bsdiff.c: In function 'main':
+external/bsdiff/bsdiff.c:196:5: warning: 'pos' may be used uninitialized in this function [-Wmaybe-uninitialized]
+Export includes file: external/bsdiff/Android.mk -- out/host/linux-x86/obj/EXECUTABLES/bsdiff_intermediates/export_includes
+host Executable: bsdiff (out/host/linux-x86/obj/EXECUTABLES/bsdiff_intermediates/bsdiff)
+Install: out/host/linux-x86/bin/bsdiff
+Construct recovery from boot
+mkdir -p out/target/product/sabresd_6dq/obj/PACKAGING/recovery_patch_intermediates/
+PATH=out/host/linux-x86/bin:$PATH out/host/linux-x86/bin/imgdiff out/target/product/sabresd_6dq/boot.img out/target/product/sabresd_6dq/recovery.img out/target/product/sabresd_6dq/obj/PACKAGING/recovery_patch_intermediates/recovery_from_boot.p
+chunk 0: type 0 start 0 len 6725642
+chunk 1: type 2 start 6725642 len 899072
+chunk 2: type 0 start 7226158 len 53242
+Construct patches for 3 chunks...
+patch   0 is 210 bytes (of 6725642)
+patch   1 is 402849 bytes (of 500516)
+patch   2 is 196 bytes (of 53242)
+chunk   0: normal   (         0,    6725642)         210
+chunk   1: deflate  (   6725642,    1059236)      402849  (null)
+chunk   2: normal   (   7784878,      54010)         196
+Install system fs image: out/target/product/sabresd_6dq/system.img
+out/target/product/sabresd_6dq/system.img+out/target/product/sabresd_6dq/obj/PACKAGING/recovery_patch_intermediates/recovery_from_boot.p maxsize=385389312 blocksize=4224 total=377890747 reserve=3894528
+root@d2086a0b7ec7:/#
+```
+
+(2015-05-23 18:00) Restart the build
+
+```
+# su -l -c "cd ~/shared/myandroid && source build/envsetup.sh && \
+lunch sabresd_6dq-eng && make 2>&1 | tee build_sabresd_6dq_android.log" build
+```
+
+Result: Build OK
+
+```
+...
+----- Made recovery image: out/target/product/sabresd_6dq/recovery.img --------
+Installed file list: out/target/product/sabresd_6dq/installed-files.txt
+Target system fs image: out/target/product/sabresd_6dq/obj/PACKAGING/systemimage_intermediates/system.img
++ echo 'in mkuserimg.sh PATH=out/host/linux-x86/bin/:/usr/lib/jvm/java-6-sun/bin:/home/build/shared/myandroid/out/host/linux-x86/bin:/home/build/shared/myandroid/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.7/bin:/home/build/shared/myandroid/prebuilts/gcc/linux-x86/arm/arm-eabi-4.7/bin:/home/build/shared/myandroid/prebuilts/gcc/linux-x86/mips/mipsel-linux-android-4.7/bin:/home/build/shared/myandroid/development/emulator/qtools:/home/build/shared/myandroid/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.7/bin:/home/build/shared/myandroid/prebuilts/gcc/linux-x86/arm/arm-eabi-4.7/bin:/home/build/shared/myandroid/development/scripts:/home/build/shared/myandroid/prebuilts/devtools/tools:/opt/java/jdk1.6.0_45/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games'
+in mkuserimg.sh PATH=out/host/linux-x86/bin/:/usr/lib/jvm/java-6-sun/bin:/home/build/shared/myandroid/out/host/linux-x86/bin:/home/build/shared/myandroid/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.7/bin:/home/build/shared/myandroid/prebuilts/gcc/linux-x86/arm/arm-eabi-4.7/bin:/home/build/shared/myandroid/prebuilts/gcc/linux-x86/mips/mipsel-linux-android-4.7/bin:/home/build/shared/myandroid/development/emulator/qtools:/home/build/shared/myandroid/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.7/bin:/home/build/shared/myandroid/prebuilts/gcc/linux-x86/arm/arm-eabi-4.7/bin:/home/build/shared/myandroid/development/scripts:/home/build/shared/myandroid/prebuilts/devtools/tools:/opt/java/jdk1.6.0_45/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
++ ENABLE_SPARSE_IMAGE=
++ '[' out/target/product/sabresd_6dq/system = -s ']'
++ '[' 6 -ne 5 -a 6 -ne 6 ']'
++ SRC_DIR=out/target/product/sabresd_6dq/system
++ '[' '!' -d out/target/product/sabresd_6dq/system ']'
++ OUTPUT_FILE=out/target/product/sabresd_6dq/obj/PACKAGING/systemimage_intermediates/system.img
++ EXT_VARIANT=ext4
++ MOUNT_POINT=system
++ SIZE=377487360
++ FC=out/target/product/sabresd_6dq/root/file_contexts
++ case $EXT_VARIANT in
++ '[' -z system ']'
++ '[' -z 377487360 ']'
++ '[' -n out/target/product/sabresd_6dq/root/file_contexts ']'
++ FCOPT='-S out/target/product/sabresd_6dq/root/file_contexts'
++ MAKE_EXT4FS_CMD='make_ext4fs  -S out/target/product/sabresd_6dq/root/file_contexts -l 377487360 -a system out/target/product/sabresd_6dq/obj/PACKAGING/systemimage_intermediates/system.img out/target/product/sabresd_6dq/system'
++ echo make_ext4fs -S out/target/product/sabresd_6dq/root/file_contexts -l 377487360 -a system out/target/product/sabresd_6dq/obj/PACKAGING/systemimage_intermediates/system.img out/target/product/sabresd_6dq/system
+make_ext4fs -S out/target/product/sabresd_6dq/root/file_contexts -l 377487360 -a system out/target/product/sabresd_6dq/obj/PACKAGING/systemimage_intermediates/system.img out/target/product/sabresd_6dq/system
++ make_ext4fs -S out/target/product/sabresd_6dq/root/file_contexts -l 377487360 -a system out/target/product/sabresd_6dq/obj/PACKAGING/systemimage_intermediates/system.img out/target/product/sabresd_6dq/system
+Creating filesystem with parameters:
+    Size: 377487360
+    Block size: 4096
+    Blocks per group: 32768
+    Inodes per group: 7680
+    Inode size: 256
+    Journal blocks: 1440
+    Label:
+    Blocks: 92160
+    Block groups: 3
+    Reserved block group size: 23
+Created filesystem with 1264/23040 inodes and 64373/92160 blocks
++ '[' 0 -ne 0 ']'
+Running:  mkuserimg.sh out/target/product/sabresd_6dq/system out/target/product/sabresd_6dq/obj/PACKAGING/systemimage_intermediates/system.img ext4 system 377487360 out/target/product/sabresd_6dq/root/file_contexts
+Construct recovery from boot
+mkdir -p out/target/product/sabresd_6dq/obj/PACKAGING/recovery_patch_intermediates/
+PATH=out/host/linux-x86/bin:$PATH out/host/linux-x86/bin/imgdiff out/target/product/sabresd_6dq/boot.img out/target/product/sabresd_6dq/recovery.img out/target/product/sabresd_6dq/obj/PACKAGING/recovery_patch_intermediates/recovery_from_boot.p
+chunk 0: type 0 start 0 len 6725642
+chunk 1: type 2 start 6725642 len 899072
+chunk 2: type 0 start 7226158 len 53242
+Construct patches for 3 chunks...
+patch   0 is 210 bytes (of 6725642)
+patch   1 is 402849 bytes (of 500516)
+patch   2 is 196 bytes (of 53242)
+chunk   0: normal   (         0,    6725642)         210
+chunk   1: deflate  (   6725642,    1059236)      402849  (null)
+chunk   2: normal   (   7784878,      54010)         196
+Install system fs image: out/target/product/sabresd_6dq/system.img
+out/target/product/sabresd_6dq/system.img+out/target/product/sabresd_6dq/obj/PACKAGING/recovery_patch_intermediates/recovery_from_boot.p maxsize=385389312 blocksize=4224 total=377890747 reserve=3894528
+root@d2086a0b7ec7:/#
+```
+
+(2015-05-23 19:31 CEST) Restart the build
+
+```
+# su -l -c "cd ~/shared/myandroid && source build/envsetup.sh && \
+lunch sabresd_6dq-eng && make 2>&1 | tee build_sabresd_6dq_android.log" build
+```
+
+Result: Build OK
+
+Inspect results
+
+```
+```
+
+
+
+
 
 
 
@@ -448,7 +625,7 @@ gmacario@mv-linux-powerhorse:/opt/projects/gmacario/MYGIT/easy-build/build-aosp/
 gmacario@mv-linux-powerhorse:/opt/projects/gmacario/MYGIT/easy-build/build-aosp/shared/myandroid/device/fsl⟫
 ```
 
-(2015-05-23 06:00 CEST) Restart the build
+Restart the build
 
 ```
 $ croot
@@ -456,10 +633,6 @@ $ make 2>&1 | tee -a build_sabresd_6dq_android.log
 ```
 
 Result: Build OK
-```
-
-???
-
 
 # OLD STUFF BELOW
 
