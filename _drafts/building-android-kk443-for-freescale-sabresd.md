@@ -640,6 +640,153 @@ $ make 2>&1 | tee -a build_sabresd_6dq_android.log
 
 Result: Build OK
 
+### Trying project build-android-kk443-sabresd
+
+(2015-05-24 19:57 CEST)
+
+```
+$ cd easy-build/build-android-kk443-sabresd
+$ mkdir -p shared
+$ cp ~/Downloads/jdk-6u45-linux-x64.bin shared/
+$ cp ~/Downloads/android_KK4.4.3_2.0.0-ga_core_source.gz shared/
+```
+
+Run the container to download and patch the Android source tree
+
+```
+$ ./run.sh
+```
+
+To force building
+
+```
+# touch ~build/shared/extra/.do_build_sabresd_6dq
+# exit
+```
+
+Then run the container again:
+
+```
+$ ./run.sh
+```
+
+Build result:
+
+```
+root@ceaa469dc17c:/# ls -la ~build/shared/myandroid/out/target/product/sabresd_6dq/
+total 437368
+drwxrwxr-x  9 build build      4096 May 25 01:40 .
+drwxrwxr-x  3 build build      4096 May 24 17:28 ..
+-rwxr-xr-x  1 build build    102953 May 24 17:43 .config
+-rw-rw-r--  1 build build        14 May 25 01:39 android-info.txt
+-rw-r--r--  1 build build   7279957 May 25 01:39 boot-imx6dl.img
+-rw-r--r--  1 build build   7279400 May 25 01:39 boot-imx6q-ldo.img
+-rw-r--r--  1 build build   7279400 May 25 01:39 boot-imx6q.img
+-rw-r--r--  1 build build   7279400 May 25 01:39 boot.img
+-rw-rw-r--  1 build build     40314 May 24 18:03 clean_steps.mk
+drwxrwxr-x  4 build build      4096 May 24 19:55 data
+drwxrwxr-x  2 build build      4096 May 25 00:15 fake_packages
+-rwxr-xr-x  1 build build     51339 May 24 18:04 imx6dl-sabresd.dtb
+-rwxr-xr-x  1 build build     50782 May 24 18:04 imx6q-sabresd-ldo.dtb
+-rwxr-xr-x  1 build build     50782 May 24 18:04 imx6q-sabresd.dtb
+-rw-rw-r--  1 build build     58298 May 25 01:39 installed-files.txt
+-rwxr-xr-x  1 build build   6723128 May 24 18:04 kernel
+drwxrwxr-x 14 build build      4096 May 25 01:39 obj
+-rw-rw-r--  1 build build       463 May 24 18:03 previous_build_config.mk
+-rw-rw-r--  1 build build   1059254 May 25 01:39 ramdisk-recovery.img
+-rw-rw-r--  1 build build    500534 May 25 01:39 ramdisk.img
+drwxrwxr-x  3 build build      4096 May 25 01:39 recovery
+-rw-r--r--  1 build build   7839445 May 25 01:39 recovery-imx6dl.img
+-rw-r--r--  1 build build   7838888 May 25 01:39 recovery-imx6q-ldo.img
+-rw-r--r--  1 build build   7838888 May 25 01:39 recovery-imx6q.img
+-rw-r--r--  1 build build   7838888 May 25 01:39 recovery.img
+drwxrwxr-x  9 build build      4096 May 25 00:16 root
+drwxrwxr-x  5 build build      4096 May 25 00:16 symbols
+drwxrwxr-x 13 build build      4096 May 25 01:39 system
+-rw-r--r--  1 build build 377487360 May 25 01:40 system.img
+-rwxr-xr-x  1 build build    392192 May 24 18:07 u-boot-imx6dl.imx
+-rwxr-xr-x  1 build build    392192 May 24 18:07 u-boot-imx6q.imx
+-rwxr-xr-x  1 build build    392192 May 24 18:07 u-boot.imx
+root@ceaa469dc17c:/#
+```
+
+(2015-05-25 08:00 CEST) Try again
+
+```
+$ cd easy-build/build-android-kk443-sabresd 
+$ ./run.sh
+```
+
+Result:
+
+```
+...
+Running:  mkuserimg.sh out/target/product/sabresd_6dq/system out/target/product/sabresd_6dq/obj/PACKAGING/systemimage_intermediates/system.img ext4 system 377487360 out/target/product/sabresd_6dq/root/file_contexts
+Construct recovery from boot
+mkdir -p out/target/product/sabresd_6dq/obj/PACKAGING/recovery_patch_intermediates/
+PATH=out/host/linux-x86/bin:$PATH out/host/linux-x86/bin/imgdiff out/target/product/sabresd_6dq/boot.img out/target/product/sabresd_6dq/recovery.img out/target/product/sabresd_6dq/obj/PACKAGING/recovery_patch_intermediates/recovery_from_boot.p
+chunk 0: type 0 start 0 len 6725642
+chunk 1: type 2 start 6725642 len 899072
+chunk 2: type 0 start 7226158 len 53242
+Construct patches for 3 chunks...
+patch   0 is 214 bytes (of 6725642)
+patch   1 is 402874 bytes (of 500516)
+patch   2 is 198 bytes (of 53242)
+chunk   0: normal   (         0,    6725642)         214
+chunk   1: deflate  (   6725642,    1059236)      402874  (null)
+chunk   2: normal   (   7784878,      54010)         198
+Install system fs image: out/target/product/sabresd_6dq/system.img
+out/target/product/sabresd_6dq/system.img+out/target/product/sabresd_6dq/obj/PACKAGING/recovery_patch_intermediates/recovery_from_boot.p maxsize=385389312 blocksize=4224 total=377890778 reserve=3894528
+
+real    13m4.581s
+user    14m26.123s
+sys     3m11.937s
+DEBUG: startup2.sh END
+root@194ba687ef36:~#
+```
+
+(NOTE: This is an incremental build)
+
+```
+root@194ba687ef36:~# ls -la ~build/shared/myandroid/out/target/product/sabresd_6dq/
+total 437364
+drwxrwxr-x  9 build build      4096 May 25 05:48 .
+drwxrwxr-x  3 build build      4096 May 24 17:28 ..
+-rwxr-xr-x  1 build build    102953 May 24 17:43 .config
+-rw-rw-r--  1 build build        14 May 25 01:39 android-info.txt
+-rw-r--r--  1 build build   7279957 May 25 05:48 boot-imx6dl.img
+-rw-r--r--  1 build build   7279400 May 25 05:48 boot-imx6q-ldo.img
+-rw-r--r--  1 build build   7279400 May 25 05:48 boot-imx6q.img
+-rw-r--r--  1 build build   7279400 May 25 05:48 boot.img
+-rw-rw-r--  1 build build     40314 May 25 05:35 clean_steps.mk
+drwxrwxr-x  4 build build      4096 May 24 19:55 data
+drwxrwxr-x  2 build build      4096 May 25 00:15 fake_packages
+-rwxr-xr-x  1 build build     51339 May 25 05:39 imx6dl-sabresd.dtb
+-rwxr-xr-x  1 build build     50782 May 25 05:39 imx6q-sabresd-ldo.dtb
+-rwxr-xr-x  1 build build     50782 May 25 05:39 imx6q-sabresd.dtb
+-rw-rw-r--  1 build build     58298 May 25 05:48 installed-files.txt
+-rwxr-xr-x  1 build build   6723128 May 25 05:39 kernel
+drwxrwxr-x 14 build build      4096 May 25 01:39 obj
+-rw-rw-r--  1 build build       463 May 25 05:35 previous_build_config.mk
+-rw-rw-r--  1 build build   1059254 May 25 05:48 ramdisk-recovery.img
+-rw-rw-r--  1 build build    500534 May 25 05:48 ramdisk.img
+drwxrwxr-x  3 build build      4096 May 25 05:48 recovery
+-rw-r--r--  1 build build   7839445 May 25 05:48 recovery-imx6dl.img
+-rw-r--r--  1 build build   7838888 May 25 05:48 recovery-imx6q-ldo.img
+-rw-r--r--  1 build build   7838888 May 25 05:48 recovery-imx6q.img
+-rw-r--r--  1 build build   7838888 May 25 05:48 recovery.img
+drwxrwxr-x  9 build build      4096 May 25 00:16 root
+drwxrwxr-x  5 build build      4096 May 25 00:16 symbols
+drwxrwxr-x 13 build build      4096 May 25 01:39 system
+-rw-r--r--  1 build build 377487360 May 25 05:48 system.img
+-rwxr-xr-x  1 build build    392192 May 24 18:07 u-boot-imx6dl.imx
+-rwxr-xr-x  1 build build    392192 May 24 18:07 u-boot-imx6q.imx
+-rwxr-xr-x  1 build build    392192 May 24 18:07 u-boot.imx
+root@194ba687ef36:~#
+```
+
+
+
 # OLD STUFF BELOW
 
 Sample table
