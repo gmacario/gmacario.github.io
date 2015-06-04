@@ -1,3 +1,10 @@
+---
+layout: post
+title:  "Vodafone VF785 Firmware Update"
+date:   2015-05-30 08:00:00
+categories: android phone howto update
+---
+
 (2015-05-30 08:00 CEST)
 
 Impostazioni > Info sul telefono
@@ -88,7 +95,7 @@ DISEGNO
 
 Upgrading Android System Image on VF785
 
-Settings > 
+Settings >
 
 
 
