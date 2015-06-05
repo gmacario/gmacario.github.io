@@ -739,4 +739,181 @@ binder: 143:143 transaction failed 29189, size 0-0
 TODO: Write internal MMC
 
 
+-------------------
+(2015-06-04 14:00 CEST)
+
+Run the `fixup-bootimg.sh` script to download the `imgtool` command for your OS:
+
+```
+gmacario@kruk:/opt/export/tmp-gmacario/easy-build/build-android-kk443-sabresd$ ./fixup-bootimg.sh
+DEBUG: BOOT_IMAGE=/opt/export/tmp-gmacario/easy-build/build-android-kk443-sabresd/tmp/myandroid-kk443-sabresd/boot-imx6q.img
+WARNING: Cannot find imgtool, fetching upstream
+--2015-06-04 14:43:37--  http://newandroidbook.com/files/imgtool.tar
+Resolving newandroidbook.com (newandroidbook.com)... 192.99.39.176
+Connecting to newandroidbook.com (newandroidbook.com)|192.99.39.176|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 135168 (132K) [application/x-tar]
+Saving to: ‘imgtool.tar’
+
+100%[=========================================================================================>] 135.168      281KB/s   in 0,5s
+
+2015-06-04 14:43:38 (281 KB/s) - ‘imgtool.tar’ saved [135168/135168]
+
+INFO: Extracting file imgtool.ELF32 (GNU/Linux i686)
+imgtool.ELF32
+INFO: imgtool installed to ~/bin - please logout and login to have it available in PATH
+gmacario@kruk:/opt/export/tmp-gmacario/easy-build/build-android-kk443-sabresd$
+```
+
+Use the `imgtool` command to extract the contents of `boot-imx6q.img`:
+
+```
+gmacario@kruk:/opt/export/tmp-gmacario/easy-build/build-android-kk443-sabresd/tmp2$ imgtool boot-imx6q.img extract
+Boot image detected
+Part            Size            Pages     Addr
+Kernel:         6723128         3283    0x14008000
+Ramdisk:        500534          245     0x15000000
+Secondary:      50782           25      0x14f00000
+Tags:       14000100
+Flash Page Size: 2048 bytes
+Name:
+CmdLine: console=ttymxc0,115200 init=/init video=mxcfb0:dev=ldb,bpp=32 video=mxcfb1:off video=mxcfb2:off video=mxcfb3:off vmalloc=400M androidboot.console=ttymxc0 consoleblank=0 androidboot.hardware=freescale cma=384M
+Extracting contents to directory: extracted
+Found LZO Magic at offset 5692
+Looking for device tree...
+gmacario@kruk:/opt/export/tmp-gmacario/easy-build/build-android-kk443-sabresd/tmp2$
+```
+
+Inspect extracted files
+
+```
+gmacario@kruk:/opt/export/tmp-gmacario/easy-build/build-android-kk443-sabresd/tmp2$ ls -la extracted/
+total 13680
+drwxrwxr-x 2 gmacario gmacario    4096 giu  4 14:49 .
+drwxrwxr-x 3 gmacario gmacario    4096 giu  4 14:39 ..
+-rw-rw-rw- 1 gmacario gmacario 6723128 giu  4 14:39 kernel
+-rw------- 1 gmacario gmacario 6717436 giu  4 14:39 kernelimage.lzo
+-rw-rw-rw- 1 gmacario gmacario  500534 giu  4 14:39 ramdisk
+-rw-rw-rw- 1 gmacario gmacario   50782 giu  4 14:39 second
+gmacario@kruk:/opt/export/tmp-gmacario/easy-build/build-android-kk443-sabresd/tmp2$
+```
+
+Use the `file` command to better understand:
+
+```
+gmacario@kruk:/opt/export/tmp-gmacario/easy-build/build-android-kk443-sabresd/tmp2$ file extracted/*
+extracted/kernel:          Linux kernel ARM boot executable zImage (little-endian)
+extracted/kernelimage.lzo: lzop compressed data - version 0.000, os: MS-DOS
+extracted/ramdisk:         gzip compressed data, from Unix
+extracted/second:          gzip compressed data, from Unix
+gmacario@kruk:/opt/export/tmp-gmacario/easy-build/build-android-kk443-sabresd/tmp2$
+```
+
+Inspect contents of extracted `ramdisk`
+
+```
+gmacario@kruk:/opt/export/tmp-gmacario/easy-build/build-android-kk443-sabresd/tmp2$ zcat extracted/ramdisk | cpio -tv
+-rwxr-x---   1 root     root       268244 Jan  1  1970 charger
+drwxrwx--x   1 root     root            0 Jan  1  1970 data
+-rw-r--r--   1 root     root          120 Jan  1  1970 default.prop
+drwxr-xr-x   1 root     root            0 Jan  1  1970 dev
+-rw-r--r--   1 root     root         9263 Jan  1  1970 file_contexts
+-rw-r-----   1 root     root         1522 Jan  1  1970 fstab.freescale
+-rwxr-x---   1 root     root       179508 Jan  1  1970 init
+-rwxr-x---   1 root     root          919 Jan  1  1970 init.environ.rc
+-rwxr-x---   1 root     root         7494 Jan  1  1970 init.freescale.rc
+-rwxr-x---   1 root     root         3206 Jan  1  1970 init.freescale.usb.rc
+-rwxr-x---   1 root     root        25689 Jan  1  1970 init.rc
+-rwxr-x---   1 root     root         1795 Jan  1  1970 init.trace.rc
+-rwxr-x---   1 root     root         3915 Jan  1  1970 init.usb.rc
+drwxr-xr-x   1 root     root            0 Jan  1  1970 proc
+-rw-r--r--   1 root     root         2161 Jan  1  1970 property_contexts
+drwxr-xr-x   1 root     root            0 Jan  1  1970 res
+drwxr-xr-x   1 root     root            0 Jan  1  1970 res/images
+drwxr-xr-x   1 root     root            0 Jan  1  1970 res/images/charger
+-rw-r--r--   1 root     root         1295 Jan  1  1970 res/images/charger/battery_0.png
+-rw-r--r--   1 root     root         1290 Jan  1  1970 res/images/charger/battery_1.png
+-rw-r--r--   1 root     root         1289 Jan  1  1970 res/images/charger/battery_2.png
+-rw-r--r--   1 root     root         1291 Jan  1  1970 res/images/charger/battery_3.png
+-rw-r--r--   1 root     root         1288 Jan  1  1970 res/images/charger/battery_4.png
+-rw-r--r--   1 root     root         1267 Jan  1  1970 res/images/charger/battery_5.png
+-rw-r--r--   1 root     root         2475 Jan  1  1970 res/images/charger/battery_charge.png
+-rw-r--r--   1 root     root         1805 Jan  1  1970 res/images/charger/battery_fail.png
+drwxr-x---   1 root     root            0 Jan  1  1970 sbin
+-rwxr-x---   1 root     root       170284 Jan  1  1970 sbin/adbd
+-rwxr-x---   1 root     root       124820 Jan  1  1970 sbin/healthd
+lrwxr-x---   1 root     root            7 Jan  1  1970 sbin/ueventd -> ../init
+lrwxr-x---   1 root     root            7 Jan  1  1970 sbin/watchdogd -> ../init
+-rw-r--r--   1 root     root          656 Jan  1  1970 seapp_contexts
+-rw-r--r--   1 root     root        75113 Jan  1  1970 sepolicy
+drwxr-xr-x   1 root     root            0 Jan  1  1970 sys
+drwxr-xr-x   1 root     root            0 Jan  1  1970 system
+-rw-r--r--   1 root     root         3399 Jan  1  1970 ueventd.freescale.rc
+-rw-r--r--   1 root     root         4024 Jan  1  1970 ueventd.rc
+1756 blocks
+gmacario@kruk:/opt/export/tmp-gmacario/easy-build/build-android-kk443-sabresd/tmp2$
+```
+
+Inspect contents of extracted `second` ==> Is this something meaningful???
+
+```
+gmacario@kruk:/opt/export/tmp-gmacario/easy-build/build-android-kk443-sabresd/tmp2$ zcat extracted/second | cpio -tv
+-rwxr-x---   1 root     root       268244 Jan  1  1970 charger
+
+gzip: extracted/second: unexpected end of file
+cpio: premature end of file
+gmacario@kruk:/opt/export/tmp-gmacario/easy-build/build-android-kk443-sabresd/tmp2$
+```
+
+
+Extract contents of `ramdisk`
+
+```
+gmacario@kruk:/opt/export/tmp-gmacario/easy-build/build-android-kk443-sabresd/tmp2/extracted/ramdisk.tmp$ zcat ../ramdisk | cpio -iv
+charger
+data
+default.prop
+dev
+file_contexts
+fstab.freescale
+init
+init.environ.rc
+init.freescale.rc
+init.freescale.usb.rc
+init.rc
+init.trace.rc
+init.usb.rc
+proc
+property_contexts
+res
+res/images
+res/images/charger
+res/images/charger/battery_0.png
+res/images/charger/battery_1.png
+res/images/charger/battery_2.png
+res/images/charger/battery_3.png
+res/images/charger/battery_4.png
+res/images/charger/battery_5.png
+res/images/charger/battery_charge.png
+res/images/charger/battery_fail.png
+sbin
+sbin/adbd
+sbin/healthd
+sbin/ueventd
+sbin/watchdogd
+seapp_contexts
+sepolicy
+sys
+system
+ueventd.freescale.rc
+ueventd.rc
+1756 blocks
+gmacario@kruk:/opt/export/tmp-gmacario/easy-build/build-android-kk443-sabresd/tmp2/extracted/ramdisk.tmp$
+```
+
+FIXME: Look at the contents of `/fstab.freescale`:
+
+```
+```
+
 <!-- EOF -->
