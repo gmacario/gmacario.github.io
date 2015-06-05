@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Trying Android on Freescale SabreSD"
+title:  "Trying Android KitKat 4.4.3 on Freescale SabreSD"
 date:   2015-05-15 12:40:00
 categories: android howto development freescale embedded imx6
 ---
