@@ -1,7 +1,7 @@
 Gianpaolo Macario - Bio
 =======================
 
-![Gianpaolo Macario](img_2741.jpg)
+<a href="img_2741.jpg"><img src="img_2741.jpg" width="200"></a>
 
 Gianpaolo Macario is a senior member of the Embedded Software division of [Mentor Graphics](http://www.mentor.com/embedded-software).
 
