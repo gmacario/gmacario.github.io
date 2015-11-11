@@ -1,11 +1,11 @@
 ---
 layout: post
 title:  "Template for a Blog Post"
-date:   2015-04-16 12:40:00
+date:   2015-11-01 18:00:00 CET
 categories: template android howto development
 ---
 
-This blog post explains how I installed [something](http://www.something.com/) on my laptop running MS Windows 7.
+This blog post explains how I did [something](http://www.something.com/) on my laptop running MS Windows 7.
 
 Sample table
 
