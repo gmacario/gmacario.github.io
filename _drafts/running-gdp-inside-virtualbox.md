@@ -1,9 +1,15 @@
 ---
 layout: post
-title:  "Running GDP inside VirtualBox"
+title:  "Running a Yocto image inside VirtualBox"
 date:   2015-11-14 09:00:00 CET
 categories: howto gdp genivi yocto virtualbox embedded ivi
 ---
+
+I managed to have a Yocto image boot in [Oracle VirtualBox](http://www.virtualbox.org/) by performing the following setup.
+
+Tested with `core-image-minimal-qemux86-64.vmdk`
+
+### Building a VMDK image
 
 Build a `*-qemux86-64.vmdk` image from branch `dev-qemux86-64` of <https://github.com/gmacario/genivi-demo-platform>
 
@@ -14,6 +20,8 @@ $ source init.sh
 $ bitbake core-image-minimal
 ```
 
+### Running the VMDK image
+
 From the Oracle VM VirtualBox Manager, create a new VM
 
 * Name: core-image-minimal-qemux86-64
@@ -22,31 +30,28 @@ From the Oracle VM VirtualBox Manager, create a new VM
 
 Memory size: 1024 MB
 
-Hard disk: Use an existing virtual hard disk file
+Hard disk: Do not add a virtual hard disk
 
-* File name: .../core-image-minimal-qemux86-64.vmdk
+Use an existing virtual hard disk file
 
-Click "Create"
+Select "Create", then "Continue"
+
+From the Oracle VM VirtualBox Manager, change VM settings
+
+Under Storage > Controller: SATA > Add new storage attachment > Add Hard Disk
+
+Choose existing disk
+
+Virtual hard disk file: .../core-image-minimal-qemux86-64.vmdk
+
+Click "OK"
 
 From the Oracle VM VirtualBox Manager, start the VM
 
-Result: FAIL
+Result:
 
-```
-...
-VFS: Unable to mount root fs on unknown-block(0,0)
-User configuration error - no valid root filesystem found
-Kernel panic - not syncing: Invalid configuration from end user prevents continuing
-...
-```
+![capture-20151114-1623](https://cloud.githubusercontent.com/assets/75182/11164285/225eebb2-8aec-11e5-89b6-685f0b0fd9a2.PNG)
 
-Tested on <https://github.com/gmacario/genivi-demo-platform/commit/e01ebe7838170ef45a920b43f11dcd02865d2d13>
-
-I was unable to scroll up in the boot log, but I presume the kernel cmdline does not properly define `root=xxx`
-
-Tracking issue in <https://github.com/gmacario/genivi-demo-platform/issues/1>
-
-TODO
-
+You may then login as user `root` (there is no default password)
 
 <!-- EOF -->
