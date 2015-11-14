@@ -34,25 +34,34 @@ IMAGE_FSTYPES += "vmdk"
 
 From the Oracle VM VirtualBox Manager, create a new Virtual Machine
 
+Name and operating system
+
 * Name: core-image-minimal-qemux86-64
 * Type: Linux
 * Version: Other Linux (64-bit)
 
-Memory size: 1024 MB
+Click "Next"
 
-Hard disk: Do not add a virtual hard disk
+Memory size
 
-Use an existing virtual hard disk file
+* Select: 1024 MB
+
+Click "Next"
+
+Hard disk
+
+* Select: Do not add a virtual hard disk
 
 Select "Create", then "Continue"
 
 From the Oracle VM VirtualBox Manager, change VM settings
 
-Under Storage > Controller: SATA > Add new storage attachment > Add Hard Disk
+Under Storage > Add new storage controller > Add SATA Controller
 
-Choose existing disk
+Under Storage > Controller: SATA > Add Hard Disk
 
-Virtual hard disk file: .../core-image-minimal-qemux86-64.vmdk
+* Select: Choose existing disk
+* Virtual hard disk file: .../core-image-minimal-qemux86-64.vmdk
 
 Click "OK"
 
