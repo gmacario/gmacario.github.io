@@ -32,8 +32,6 @@ From the Oracle VM VirtualBox Manager, start the VM
 
 Result: FAIL
 
-(verified on <https://github.com/gmacario/genivi-demo-platform/commit/e01ebe7838170ef45a920b43f11dcd02865d2d13>)
-
 ```
 ...
 VFS: Unable to mount root fs on unknown-block(0,0)
@@ -41,6 +39,8 @@ User configuration error - no valid root filesystem found
 Kernel panic - not syncing: Invalid configuration from end user prevents continuing
 ...
 ```
+
+Tested on <https://github.com/gmacario/genivi-demo-platform/commit/e01ebe7838170ef45a920b43f11dcd02865d2d13>
 
 I was unable to scroll up in the boot log, but I presume the kernel cmdline does not properly define `root=xxx`
 
