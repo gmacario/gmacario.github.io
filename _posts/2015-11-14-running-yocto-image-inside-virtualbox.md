@@ -5,24 +5,34 @@ date:   2015-11-14 09:00:00 CET
 categories: howto gdp genivi yocto virtualbox embedded ivi
 ---
 
-I managed to have a Yocto image boot in [Oracle VirtualBox](http://www.virtualbox.org/) by performing the following setup.
+I managed to have a Yocto image boot inside [Oracle VirtualBox](http://www.virtualbox.org/) by performing the following steps.
 
 Tested with `core-image-minimal-qemux86-64.vmdk`
+
+The Yocto project provides support for building VMDK (VMware Disk) images, which are also recognized by VirtualBox.
+
+The support for building native VDI (VirtualBox Disk Image) was added after the release 1.8 (fido) of Yocto project which I tested when preparing this article.
 
 ### Building a VMDK image
 
 Build a `*-qemux86-64.vmdk` image from branch `dev-qemux86-64` of <https://github.com/gmacario/genivi-demo-platform>
 
 ```
-$ git checkout -b https://github.com/gmacario/genivi-demo-platform
+$ git checkout -b dev-qemux86-64 https://github.com/gmacario/genivi-demo-platform
 $ cd genivi-demo-platform
 $ source init.sh
 $ bitbake core-image-minimal
 ```
 
+The important configuration to be added to `conf/local.conf` is the following line:
+
+```
+IMAGE_FSTYPES += "vmdk"
+```
+
 ### Running the VMDK image
 
-From the Oracle VM VirtualBox Manager, create a new VM
+From the Oracle VM VirtualBox Manager, create a new Virtual Machine
 
 * Name: core-image-minimal-qemux86-64
 * Type: Linux
