@@ -1,15 +1,17 @@
-# Notes from the Arduino Day 2015 @Officine Arduino Torno
+---
+layout: post
+title:  "Notes from the Arduino Day 2015 c/o Officine Arduino Torino"
+date:   2015-03-28 14:00:00 CET
+categories: arduino day fablab torino
+---
 
-The [Arduino Day 2015](https://day.arduino.cc/) in Torino took place at
-[Toolbox Coworking](http://www.toolboxoffice.it/), home of
-[FabLab Torino](http://fablabtorino.org/) and
-[Officine Arduino](http://local.arduino.cc/torino/).
+The [Arduino Day 2015](https://day.arduino.cc/) in Torino took place at [Toolbox Coworking](http://www.toolboxoffice.it/), home of [FabLab Torino](http://fablabtorino.org/) and [Officine Arduino](http://local.arduino.cc/torino/).
 
 I made a quick visit, mostly to attend the Arduino PRO workshop in the afternoon.
 
 ## Talks
 
-I had some time to attend a few talks befor the Arduino PRO workshop stated
+I had some time to attend a few talks before the Arduino PRO workshop started.
 
 ### Arduino e l’Internet of Things
 
@@ -17,7 +19,7 @@ I had some time to attend a few talks befor the Arduino PRO workshop stated
 
 Speaker: Federico Vanzati
 
-Guest stars: Bruce Sterling and Jasmina - talking about Casa Jasmina
+Guest stars: Bruce and Jasmina Sterling -- talking about Casa Jasmina.
 
 ### Il lato web di Arduino, dalle evoluzioni dei siti Arduino all’IoT
 
@@ -35,14 +37,10 @@ Reference: <http://www.eventbrite.it/e/biglietti-workshop-pro-arduino-day-2015-t
 >
 > Scopri le basi della progettazione con Arduino!
 >
-> Una demo per scoprire Arduino Yùn e l'IoT. con Arturo Guadalupi e Angelo
-> Scialabba (Officine Arduino)
+> Una demo per scoprire Arduino Yùn e l'IoT. con Arturo Guadalupi e Angelo Scialabba (Officine Arduino)
 >
-> Collega Arduino Yùn ai servizi web tramite temboo e crea la tua
-> interfaccia web di controllo!
-> La demo inizierà alle 15:00, quindi ti consigliamo di arrivare 10 minuti
-> prima e non dimenticare di portare con te il tuo laptop per mettere
-> subito in pratica quanto appreso!
+> Collega Arduino Yùn ai servizi web tramite temboo e crea la tua interfaccia web di controllo!
+> La demo inizierà alle 15:00, quindi ti consigliamo di arrivare 10 minuti prima e non dimenticare di portare con te il tuo laptop per mettere subito in pratica quanto appreso!
 >
 > Per ogni informazione, contattare <mailto:arduinoday2015-it@arduino.cc>
 
@@ -56,10 +54,9 @@ The worshop took place in "sala didattica" of FabLab Torino.
 
 About 30 participants were preregisterd and brought their own laptop.
 
-Each participant was provided with the following kit, then walked through
-some exercises to get familiar with the Arduino YUN and connect it to the web.
+Each participant was provided with the following kit, then walked through some exercises to get familiar with the Arduino YUN and connect it to the web.
 
-Kudos to the few instructors who were very helpful to resolve the few issues - mainly because of each PC settings - which some of the participants encountered during the workshop.
+Kudos to the few instructors who were very helpful to resolve the few issues -- mainly because of each PC settings -- which some of the participants encountered during the workshop.
 
 #### Contents of the TinkerKit box
 
@@ -411,6 +408,7 @@ Open Network and Sharing Center
     * Alternate DNS server: 8.8.4.4
 
 Browse <http://192.168.240.1>
+
 * Password: `xxxx` (default: `arduino`)
 
 > WELCOME TO **ARDUINO**, YOUR ARDUINO YUN
@@ -444,6 +442,7 @@ Watch Serial Monitor, the AR9331 will restart.
 Reconnect your laptop to WiFi SSID `FABLAB_TORINO`
 
 Make sure you reset your IPv4 properties to:
+
 * Obtain an IP address automatically
 * Obtain DNS server address automatically
 
@@ -483,9 +482,12 @@ root@AdayGmacario:/#
 ```
 
 Look at field "inet addr" for interface "wlan0".
-In my case the new IP address of my Yun (assigned by the WiFi access point which both my YUN and my laptop are now connected) is 192.168.1.246
 
-### How control I/O pin via web through a webserver running on the Yun
+In my case the new IP address of my YUN (assigned by the WiFi access point which both my YUN and my laptop are now connected) is 192.168.1.246.
+
+### How control I/O pin from the web
+
+The Arduino YUN features a built-in webserver running on the AR9331 (Linino) which communicates through a bridge with the ATmega 32u4 (Arduino).
 
 Example: see <http://arduino.cc/en/Tutorial/Bridge>
 
@@ -499,8 +501,7 @@ Connect a LED to TinkerKit output 05 (digital output 3)
 
 Browse <http://adaygmacario.local/>
 
-Choose REST API ACCESS: OPEN
-(to avoid being asked for password every time)
+Choose REST API ACCESS: OPEN (to avoid being asked for password every time)
 
 Test:
 
@@ -522,6 +523,7 @@ Read <http://adaygmacario.local/arduino/analog/0>
 * Max read: 855
 
 Connect the green LED to TinkerKit O5
+
 Change the intensity:
 
 * Max: <http://adaygmacario.local/arduino/analog/3/255>
