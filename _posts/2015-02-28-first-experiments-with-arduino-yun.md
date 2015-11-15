@@ -1,4 +1,9 @@
-# My first experiments with Arduino Yun
+---
+layout: post
+title:  "My first experiments with the Arduino YUN"
+date:   2015-02-28 14:00:00 CET
+categories: arduino fablab torino yun
+---
 
 Please refer to <https://github.com/gmacario/learning-arduino>
 to get the Fritzing schematics and the corresponding the Arduino sketches.
