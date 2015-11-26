@@ -1,4 +1,9 @@
-# Inspecting the Linux configuration of my Arduino Yun
+---
+layout: post
+title:  "Inspecting the Linux configuration of my Arduino YUN"
+date:   2015-03-22 14:00:00 CET
+categories: arduino yun fablab torino
+---
 
 Let us get familiar with my brand new [Arduino Yun](http://arduino.cc/en/Main/ArduinoBoardYun), focusing on the Linux side of it.
 
@@ -15,15 +20,14 @@ When the white LED is turned on, browse Wi-Fi networks on your laptop.
 Connect to Wi-Fi network "Arduino-Yun-90A2DAF30C7B" (the second part of the SSID corresponds to the MAC address of the WiFi transceiver on your Yun).
 
 Browse http://arduino.local/
+
 * Default password: `arduino`
 
-You may then configure the network to connect to an existing Wi-Fi access point,
-or alternatively use the wired Ethernet.
+You may then configure the network to connect to an existing Wi-Fi access point, or alternatively use the wired Ethernet.
 
-One the networking on your Yun is properly configured,
-you may login to it via ssh and get a shell.
+One the networking on your Yun is properly configured, you may login to it via SSH and get a shell.
 
-## Login via ssh to my Yun
+## Login via SSH to my YUN
 
 ```
 $ ssh root@arduino.local
@@ -44,7 +48,7 @@ _______                     ________        __
 root@Arduino:~#
 ```
 
-Once you have successfully loged into your Yun, you may inspect the software configuration of the [Linino](http://www.linino.org/) Linux distribution running on the Atheros AR 9331 chipset.
+Once you have successfully logged into your YUN, you may inspect the software configuration of the [Linino](http://www.linino.org/) Linux distribution running on the Atheros AR 9331 chipset.
 
 ### cat /proc/cpuinfo
 
@@ -312,11 +316,11 @@ root@Arduino:~#
 ```
 
 We have a total of 167 configuration entries
+
 ```
 root@Arduino:~# uci show | wc -l
 167
 root@Arduino:~#
 ```
-
 
 <!-- EOF -->
