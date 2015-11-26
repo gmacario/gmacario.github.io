@@ -1,3 +1,10 @@
+---
+layout: post
+title:  "Preparing my Arduino YUN for the Arduino Day"
+date:   2015-03-26 14:00:00 CET
+categories: arduino yun day fablab torino
+---
+
 Hi there!
 
 Tomorrow I will be attending the [Arduino PRO Workshop](http://www.eventbrite.it/e/biglietti-workshop-pro-arduino-day-2015-torino-16276959825) at the [Arduino DAY 2015 here in Torino](http://local.arduino.cc/torino/2015/02/04/arduino-day-2015/).
