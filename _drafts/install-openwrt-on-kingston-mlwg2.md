@@ -184,6 +184,8 @@ root@OpenWrt:/#
 
 See <https://wiki.openwrt.org/doc/howto/firstlogin>
 
+Configure your host to connect to 192.168.1.1 using the local network
+
 TODO
 
 
