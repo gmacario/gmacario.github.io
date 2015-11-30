@@ -188,6 +188,94 @@ Configure your host to connect to 192.168.1.1 using the local network
 
 TODO
 
+### Reconfigure networking
+
+From the serial console use the uci command to take a static IP address in your local network and use Google DNS (replace x and y appropriately)
+
+```
+# uci set network.lan.netmask=255.255.255.0
+# uci set network.lan.ipaddr=192.168.x.y
+# uci set network.lan.gateway=192.168.x.z
+# uci set network.lan.broadcast=192.168.x.255
+# uci set network.lan.dns="8.8.4.4 8.8.8.8"
+# uci commit network
+```
+
+As an alternative, directly edit file `/etc/config/network`
+
+```
+# vi /etc/config/network
+```
+
+Then restart networking
+
+```
+# /etc/init.d/network restart
+```
+
+Verify that the network configuration has changed accordingly (in this example we had network.lan.ipaddr=192.168.64.65)
+
+```
+root@OpenWrt:/etc/config# ifconfig
+br-lan    Link encap:Ethernet  HWaddr 00:26:B7:08:E0:A2
+          inet addr:192.168.64.65  Bcast:192.168.64.255  Mask:255.255.255.0
+          inet6 addr: fda0:2235:dc76::1/60 Scope:Global
+          inet6 addr: fe80::226:b7ff:fe08:e0a2/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:37 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:26 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:2615 (2.5 KiB)  TX bytes:2655 (2.5 KiB)
+
+eth0      Link encap:Ethernet  HWaddr 00:26:B7:08:E0:A2
+          inet6 addr: fe80::226:b7ff:fe08:e0a2/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:1958 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:200 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:310839 (303.5 KiB)  TX bytes:21653 (21.1 KiB)
+          Interrupt:5
+
+eth0.1    Link encap:Ethernet  HWaddr 00:26:B7:08:E0:A2
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:69 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:35 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:4919 (4.8 KiB)  TX bytes:3389 (3.3 KiB)
+
+lo        Link encap:Local Loopback
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:2064 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:2064 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:140352 (137.0 KiB)  TX bytes:140352 (137.0 KiB)
+
+root@OpenWrt:/etc/config#
+```
+
+Perform some tests:
+
+From the MLWG2, try pinging another host in the same subnet - for instance, the default gateway
+
+```
+# ping <default_gateway_ip>
+```
+
+Now try pinging a well known server - for instance, Google DNS
+
+```
+# ping 8.8.8.8
+```
+
+From a Linux machine on the same subnet do a port scan of the MLWG2
+
+```
+$ sudo nmap <device_ip>
+```
+
+TODO
 
 ### See also
 
