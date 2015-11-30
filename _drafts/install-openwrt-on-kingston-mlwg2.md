@@ -275,7 +275,7 @@ From a Linux machine on the same subnet do a port scan of the MLWG2
 $ sudo nmap <device_ip>
 ```
 
-TODO
+Stay tuned for future posts on some interesting uses of OpenWrt on my MLWG2!
 
 ### See also
 
