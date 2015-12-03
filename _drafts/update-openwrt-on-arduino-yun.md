@@ -76,9 +76,9 @@ Hit any key to stop autoboot:  0
 ar7240>
 ```
 
-If you press <SPACE> during the boot you will get to the U-Boot prompt, otherwise Linino will boot.
+You may press SPACE during the boot to stop at the U-Boot prompt, otherwise Linino will automatically boot.
 
-Press <RETURN> to get a login from the serial console
+Press RETURN to get a login from the serial console:
 
 ```
 [   40.690000] fuse init (API version 7.18)
@@ -233,5 +233,6 @@ config interface 'wan'
 root@YunGmacario:/#
 ```
 
+TODO
 
 <!-- EOF -->
