@@ -56,7 +56,7 @@ $ cd dockerjenkins_tutorial
 
 ### Tutorial 1: Putting Jenkins inside a Docker container
 
-Tutorial available at <http://engineering.riotgames.com//news/putting-jenkins-docker-container>
+The tutorial can be found here: <http://engineering.riotgames.com//news/putting-jenkins-docker-container>
 
 ```
 $ cd ~/test/dockerjenkins_tutorial/tutorial_01
@@ -110,10 +110,23 @@ In our case, browse <http://192.168.99.100:8080>.
 
 Your web browser should display the Jenkins dashboard.
 
-TODO
+Cleanup your Docker machine
+
+```
+$ docker stop jenkins-master
+$ docker rm -v jenkins-master
+```
 
 
-### Tutorial 2
+### Tutorial 2: A Jenkins base image wrapper
+
+While inside the Docker Quickstart Terminal, type the following
+
+```
+$ cd ~/test/dockerjenkins_tutorial/tutorial_02
+```
+
+Review the contents of the `Dockerfile`
 
 TODO
 
