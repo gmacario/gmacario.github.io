@@ -64,7 +64,7 @@ $ cd ~/test/dockerjenkins_tutorial/tutorial_01
 
 As the `make` tool was not available inside the Docker Toolbox, let us execute the commands from the shell instead
 
-#### Pull the Docker image
+#### Pull the Jenkins image
 
 ```
 $ docker pull jenkins
@@ -98,7 +98,7 @@ $ docker run -p 8080:8080 \
   jenkins
 ```
 
-Now point your web browser (i.e. Chrome) at `http://`_dockermachine-hostname_`:8080`
+Now open your favourite web browser (i.e. Chrome) and point it to _http://yourdockermachineiphere:8080_
 
 If you do not know the IP address of your Docker machine (it was displayed just after the Docker Quickstart Terminal was launched), type the following command:
 
@@ -106,11 +106,13 @@ If you do not know the IP address of your Docker machine (it was displayed just 
 $ docker-machine ip default
 ```
 
-In our case, browse <http://192.168.99.100:8080>.
+In our case, the returned IP address is `192.168.99.100`, so browse URL <http://192.168.99.100:8080>.
 
-Your web browser should display the Jenkins dashboard.
+Your web browser should then display the Jenkins dashboard.
 
-Cleanup your Docker machine
+#### Stop the container
+
+Remove the container from your Docker machine
 
 ```
 $ docker stop jenkins-master
