@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "Searching for files in Ubuntu packages"
+title:  "Searching for files inside Ubuntu packages"
 date:   2015-11-07 08:55 CET
 categories: howto linux ubuntu package search
 ---
 
-Every once in a while I need to know which files are installed by a given package installed by a dpkg-based distro such as Debian, Ubuntu, etc.
+Every once in a while I need to know which files were installed as part of a given package of a dpkg-based distro such as Debian, Ubuntu, etc.
 
 Here is how:
 
