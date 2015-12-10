@@ -264,6 +264,6 @@ ENTRYPOINT ["node","server"]
 
 **NOTE 2**: Sources for Docker image `hwestphal/nodebox` are available at <https://github.com/hwestphal/docker-nodebox>
 
-TODO
+That's all for today... Stay tuned for future posts about RancherOS!
 
 <!-- EOF -->
