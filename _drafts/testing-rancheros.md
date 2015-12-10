@@ -236,6 +236,34 @@ root@f2180b351d1b:/#
 
 Now logged as gmacario@itm-gmacario-w7, browse <http://172.19.8.101:8000/>
 
+#### Deploy a system service container
+
+```
+[rancher@rancher-01 ~]$ sudo system-docker run -d --net=host --name busydash husseingalal/busydash
+b6fb4f1983399f285c1e29f0133b454837d2d9d2f461f3328b3467233573195f
+[rancher@rancher-01 ~]$
+```
+
+logged as gmacario@itm-gmacario-w7, browse <http://172.19.8.101/>
+
+
+**NOTE 1**: Docker image `husseingalal/busydash` was built from the following `Dockerfile`:
+
+```
+FROM hwestphal/nodebox
+MAINTAINER hussein.galal.ahmed.11@gmail.com
+
+RUN opkg-install unzip
+RUN curl -k -L -o master.zip https://github.com/afaqurk/linux-dash/archive/master.zip
+RUN unzip master.zip
+WORKDIR linux-dash-master
+RUN npm install
+
+ENTRYPOINT ["node","server"]
+```
+
+**NOTE 2**: Sources for Docker image `hwestphal/nodebox` are available at <https://github.com/hwestphal/docker-nodebox>
+
 TODO
 
 <!-- EOF -->
