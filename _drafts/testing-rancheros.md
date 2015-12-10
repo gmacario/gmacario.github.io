@@ -211,6 +211,19 @@ logout
 [rancher@rancher-01 ~]$
 ```
 
+#### Run Ubuntu inside a container
+
+```
+[rancher@rancher-01 ~]$ docker run -it ubuntu
+root@f2180b351d1b:/# lsb_release -a
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 14.04.3 LTS
+Release:        14.04
+Codename:       trusty
+root@f2180b351d1b:/#
+```
+
 #### Run nginx inside a container
 
 ```
