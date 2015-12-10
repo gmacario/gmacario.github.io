@@ -7,7 +7,7 @@ categories: howto rancheros linux containers docker
 
 ### Introduction
 
-TODO
+My first steps trying [RancherOS](http://rancher.com/rancher-os/).
 
 ### References
 
@@ -20,7 +20,7 @@ TODO
 
 ### Launching RancherOS using Vagrant
 
-(From <http://docs.rancher.com/os/quick-start-guide/>)
+(adapted from <http://docs.rancher.com/os/quick-start-guide/>)
 
 Logged in as gmacario@itm-gmacario-w7, start a Cygwin terminal
 
@@ -52,7 +52,7 @@ $ vagrant ssh
 
 ### A first look at RancherOS
 
-Check kernel version
+#### Check kernel version
 
 ```
 [rancher@rancher-01 ~]$ uname -a
@@ -60,7 +60,7 @@ Linux rancher-01 4.2.3-rancher #1 SMP Wed Oct 14 11:25:04 UTC 2015 x86_64 GNU/Li
 [rancher@rancher-01 ~]$
 ```
 
-Inspect disk usage
+#### Inspect disk usage
 
 ```
 [rancher@rancher-01 ~]$ sudo df -h
@@ -109,7 +109,67 @@ shm                      64.0M         0     64.0M   0% /dev/shm
 [rancher@rancher-01 ~]$
 ```
 
-Check Docker version
+#### Check network interfaces
+
+```
+[root@rancher-01 ~]$ ifconfig
+docker-sys Link encap:Ethernet  HWaddr 00:00:00:00:00:00
+          inet addr:172.18.42.1  Bcast:0.0.0.0  Mask:255.255.0.0
+          inet6 addr: fe80::c4e4:8ff:fe67:ae2d/64 Scope:Link
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:5 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:8 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:368 (368.0 B)  TX bytes:648 (648.0 B)
+
+docker0   Link encap:Ethernet  HWaddr 02:42:46:53:C8:82
+          inet addr:172.17.0.1  Bcast:0.0.0.0  Mask:255.255.0.0
+          inet6 addr: fe80::42:46ff:fe53:c882/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:59 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:54 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:4003 (3.9 KiB)  TX bytes:4563 (4.4 KiB)
+
+eth0      Link encap:Ethernet  HWaddr 08:00:27:9F:1D:71
+          inet addr:10.0.2.15  Bcast:10.0.2.255  Mask:255.255.255.0
+          inet6 addr: fe80::a00:27ff:fe9f:1d71/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:104139 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:55480 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:75924932 (72.4 MiB)  TX bytes:3401703 (3.2 MiB)
+
+eth1      Link encap:Ethernet  HWaddr 08:00:27:19:16:E4
+          inet addr:172.19.8.101  Bcast:0.0.0.0  Mask:255.255.255.0
+          inet6 addr: fe80::a00:27ff:fe19:16e4/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:7181 errors:0 dropped:4 overruns:0 frame:0
+          TX packets:29 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:755660 (737.9 KiB)  TX bytes:3362 (3.2 KiB)
+
+lo        Link encap:Local Loopback
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+veth0196292 Link encap:Ethernet  HWaddr FE:49:55:09:12:AA
+          inet6 addr: fe80::fc49:55ff:fe09:12aa/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:13 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:30 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:822 (822.0 B)  TX bytes:1944 (1.8 KiB)
+
+[root@rancher-01 ~]$
+```
+
+#### Check Docker version
 
 ```
 [rancher@rancher-01 ~]$ docker version
@@ -130,6 +190,38 @@ Server:
  OS/Arch:      linux/amd64
 [rancher@rancher-01 ~]$
 ```
+
+#### Inspect running system containers
+
+Notice that `system-docker ps` fails unless it is run as `root`.
+
+```
+[rancher@rancher-01 ~]$ sudo -i
+[root@rancher-01 ~]# system-docker ps
+CONTAINER ID        IMAGE                       COMMAND                  CREATED             STATUS              PORTS               NAMES
+692016a11484        rancher/os-docker:v0.4.1    "/usr/sbin/entry.sh /"   2 hours ago         Up 2 hours                              docker
+ebe39a8deb65        rancher/os-console:v0.4.1   "/usr/sbin/entry.sh /"   2 hours ago         Up 2 hours                              os_console_1
+ec28508ac472        rancher/os-ntp:v0.4.1       "/usr/sbin/entry.sh /"   2 hours ago         Up 2 hours                              ntp
+503dd1a3f135        rancher/os-network:v0.4.1   "/usr/sbin/entry.sh n"   2 hours ago         Up 2 hours                              network
+ccf03fbf1693        rancher/os-udev:v0.4.1      "/usr/sbin/entry.sh /"   2 hours ago         Up 2 hours                              udev
+f6f621151318        rancher/os-acpid:v0.4.1     "/usr/sbin/entry.sh /"   2 hours ago         Up 2 hours                              acpid
+24a59d843f13        rancher/os-syslog:v0.4.1    "/usr/sbin/entry.sh /"   2 hours ago         Up 2 hours                              syslog
+[root@rancher-01 ~]# exit
+logout
+[rancher@rancher-01 ~]$
+```
+
+#### Run nginx inside a container
+
+```
+[rancher@rancher-01 ~]$ ifconfig eth1 | grep "inet addr"
+          inet addr:172.19.8.101  Bcast:0.0.0.0  Mask:255.255.255.0
+[rancher@rancher-01 ~]$ docker run -d --name nginx -p 8000:80 husseingalal/nginxbusy
+8331240ea5fdf078822dc3f79380627e6137d2a5d7d1c75fad567da12419b850
+[rancher@rancher-01 ~]$
+```
+
+Now logged as gmacario@itm-gmacario-w7, browse <http://172.19.8.101:8000/>
 
 TODO
 
