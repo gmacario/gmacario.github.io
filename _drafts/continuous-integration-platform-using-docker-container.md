@@ -159,4 +159,88 @@ Created new PR on <https://github.com/marcelbirkner/docker-ci-tool-stack/pulls>
 
 <https://github.com/marcelbirkner/docker-ci-tool-stack/pull/3>
 
+#### Retrying `docker-compose up`
+
+<!-- 2015-12-12 17:30 CET -->
+
+```
+gmacario@ITM-GMACARIO-W7 MINGW64 /e/data/MYGIT/docker-ci-tool-stack (fix-issue-2)
+$ docker-compose.exe up
+Creating dockercitoolstack_postgresql_1
+Building nexus
+Step 1 : FROM centos:6
+ ---> 1a895dd3954a
+Step 2 : MAINTAINER Marcel Birkner <marcel.birkner@codecentric.de>
+ ---> Running in 7fa868da5e2e
+ ---> 7d4f31f3f6de
+Removing intermediate container 7fa868da5e2e
+Step 3 : USER root
+ ---> Running in 2f1d390b5965
+ ---> 029841754b1c
+Removing intermediate container 2f1d390b5965
+Step 4 : RUN yum -y update;     yum clean all
+ ---> Running in 57c6af8637c4
+Loaded plugins: fastestmirror
+Setting up Update Process
+Resolving Dependencies
+--> Running transaction check
+---> Package bash.x86_64 0:4.1.2-33.el6 will be updated
+...
+Status: Downloaded newer image for selenium/node-firefox-debug:latest
+Creating dockercitoolstack_nodeff_1
+Attaching to dockercitoolstack_postgresql_1, dockercitoolstack_nexus_1, dockercitoolstack_redis_1, dockercitoolstack_gitlab_1, dockercitoolstack_sonar_1, dockercitoolstack_db_1, dockercitoolstack_selhub_1, dockercitoolstack_jenkins_1, dockercitoolstack_nodechrome_1, dockercitoolstack_nodeff_1
+postgresql_1 | Creating user "gitlab"...
+postgresql_1 | 2015-12-12 15:05:42 UTC [20-1] LOG:  database system was interrupted; last known up at 2015-12-12 13:54:27 UTC
+nexus_1      | Running Nexus OSS...
+postgresql_1 | 2015-12-12 15:05:42 UTC [20-2] LOG:  database system was not properly shut down; automatic recovery in progress
+nexus_1      | wrapper  | --> Wrapper Started as Console
+postgresql_1 | 2015-12-12 15:05:42 UTC [20-3] LOG:  record with zero length at 0/1892CD8
+redis_1      | Starting redis-server...
+postgresql_1 | 2015-12-12 15:05:42 UTC [20-4] LOG:  redo is not required
+postgresql_1 | 2015-12-12 15:05:42 UTC [20-5] ERROR:  role "gitlab" already exists
+nexus_1      | wrapper  | Launching a JVM...
+postgresql_1 | 2015-12-12 15:05:42 UTC [20-6] STATEMENT:  CREATE ROLE gitlab with LOGIN CREATEDB PASSWORD 'password';
+redis_1      |                 _._
+postgresql_1 |
+redis_1      |            _.-``__ ''-._
+nexus_1      | jvm 1    | Wrapper (Version 3.2.3) http://wrapper.tanukisoftware.org
+gitlab_1     | Waiting for database server to accept connections
+redis_1      |       _.-``    `.  `_.  ''-._           Redis 2.8.4 (00000000/0) 64 bit
+nexus_1      | jvm 1    |   Copyright 1999-2006 Tanuki Software, Inc.  All Rights Reserved.
+postgresql_1 | Creating database "gitlabhq_production"...
+sonar_1      | 2015.12.12 15:09:47 INFO  app[o.s.p.m.JavaProcessLauncher] Launch process[search]: /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java -Djava.awt.headless=true -Xmx1G -Xms256m -Xss256k -Djava.net.preferIPv4Stack=true -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly -XX:+HeapDumpOnOutOfMemoryError -Djava.io.tmpdir=/opt/sonarqube/temp -cp ./lib/common/*:./lib/search/* org.sonar.search.SearchServer /tmp/sq-process3518480578304016331properties
+redis_1      |   .-`` .-```.  ```\/    _.,_ ''-._
+nexus_1      | jvm 1    |
+gitlab_1     | Starting supervisord...
+redis_1      |  (    '      ,       .-`  | `,    )     Running in stand alone mode
+db_1         | The files belonging to this database system will be owned by user "postgres".
+postgresql_1 | 2015-12-12 15:05:42 UTC [25-1] ERROR:  database "gitlabhq_production" already exists
+selhub_1     | starting selenium hub with configuration:
+redis_1      |  |`-._`-...-` __...-.``-._|'` _.-'|     Port: 6379
+nexus_1      | jvm 1    | 2015-12-12 15:09:41,347+0000 INFO  [WrapperListener_start_runner] *SYSTEM org.sonatype.nexus.bootstrap.jsw.JswLauncher - Starting with arguments: [./conf/jetty.xml, ./conf/jetty-requestlog.xml]
+sonar_1      | 2015.12.12 15:09:48 INFO   es[o.s.p.ProcessEntryPoint]  Starting search
+db_1         | This user must also own the server process.
+postgresql_1 | 2015-12-12 15:05:42 UTC [25-2] STATEMENT:  CREATE DATABASE gitlabhq_production;
+gitlab_1     | 2015-12-12 16:09:46,944 CRIT Supervisor running as root (no user in config file)
+redis_1      |  |    `-._   `._    /     _.-'    |     PID: 1
+nexus_1      | jvm 1    | 2015-12-12 15:09:41,351+0000 INFO  [WrapperListener_start_runner] *SYSTEM org.sonatype.nexus.bootstrap.jsw.JswLauncher - JVM ID: 1, JVM PID: 56, Wrapper PID: 54, User: nexus
+selhub_1     |
+db_1         |
+Traceback (most recent call last):
+  File "<string>", line 3, in <module>
+  File "C:\projects\compose\compose\cli\main.py", line 54, in main
+  File "C:\projects\compose\compose\cli\docopt_command.py", line 23, in sys_dispatch
+  File "C:\projects\compose\compose\cli\docopt_command.py", line 26, in dispatch
+  File "C:\projects\compose\compose\cli\main.py", line 171, in perform_command
+  File "C:\projects\compose\compose\cli\main.py", line 551, in up
+  File "C:\projects\compose\compose\cli\main.py", line 683, in attach_to_logs
+  File "C:\projects\compose\compose\cli\log_printer.py", line 27, in run
+  File "C:\projects\compose\compose\cli\multiplexer.py", line 35, in loop
+socket.error: [Errno 10054] An existing connection was forcibly closed by the remote host
+docker-compose returned -1
+
+gmacario@ITM-GMACARIO-W7 MINGW64 /e/data/MYGIT/docker-ci-tool-stack (fix-issue-2)
+$
+```
+
 <!-- EOF -->
