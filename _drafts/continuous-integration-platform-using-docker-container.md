@@ -136,7 +136,7 @@ Create new issue on <https://github.com/marcelbirkner/docker-ci-tool-stack/issue
 
 <https://github.com/marcelbirkner/docker-ci-tool-stack/issues/2>
 
-#### Fixing issue marcelbirkner/docker-ci-tool-stack/issues/2
+#### Fix issue marcelbirkner/docker-ci-tool-stack/issues/2
 
 Fork project [marcelbirkner/docker-ci-tool-stack](https://github.com/marcelbirkner/docker-ci-tool-stack)
 
@@ -159,7 +159,7 @@ Created new PR on <https://github.com/marcelbirkner/docker-ci-tool-stack/pulls>
 
 <https://github.com/marcelbirkner/docker-ci-tool-stack/pull/3>
 
-#### Retrying `docker-compose up`
+#### Cleanup and retry `docker-compose up`
 
 <!-- 2015-12-12 17:30 CET -->
 
@@ -242,5 +242,67 @@ docker-compose returned -1
 gmacario@ITM-GMACARIO-W7 MINGW64 /e/data/MYGIT/docker-ci-tool-stack (fix-issue-2)
 $
 ```
+
+**NOTE**: The error is mostly due to low memory.
+Adjust VM settings (set Base Memory: 4096 MB) as explained earlier, then retry.
+
+#### Extend VM Base Memory, then retry `docker-compose up`
+
+<!-- 2015-12-12 17:40 CET -->
+
+```
+$ docker-machine stop default
+$ VBoxManage modifyvm default --memory 4096
+$ docker-machine start default
+$ eval "docker-machine env default"
+```
+
+Result:
+
+```
+gmacario@ITM-GMACARIO-W7 MINGW64 /e/data/MYGIT/docker-ci-tool-stack (fix-issue-2)
+$ docker-machine stop default
+(default) Stopping VM...
+
+gmacario@ITM-GMACARIO-W7 MINGW64 /e/data/MYGIT/docker-ci-tool-stack (fix-issue-2)
+$ VBoxManage modifyvm default --memory 4096
+
+gmacario@ITM-GMACARIO-W7 MINGW64 /e/data/MYGIT/docker-ci-tool-stack (fix-issue-2)
+$ docker-machine start default
+(default) Starting VM...
+Started machines may have new IP addresses. You may need to re-run the `docker-machine env` command.
+
+gmacario@ITM-GMACARIO-W7 MINGW64 /e/data/MYGIT/docker-ci-tool-stack (fix-issue-2)
+$ eval "docker-machine env default"
+export DOCKER_TLS_VERIFY="1"
+export DOCKER_HOST="tcp://192.168.99.102:2376"
+export DOCKER_CERT_PATH="C:\Users\gmacario\.docker\machine\machines\default"
+export DOCKER_MACHINE_NAME="default"
+# Run this command to configure your shell:
+# eval "$(C:\Program Files\Docker Toolbox\docker-machine.exe env default)"
+
+gmacario@ITM-GMACARIO-W7 MINGW64 /e/data/MYGIT/docker-ci-tool-stack (fix-issue-2)
+$
+```
+
+Now bring up the containers
+
+```
+$ docker-compose up
+```
+
+Access the web interface of the installed tools:
+
+```
+BASE=$(docker-machine ip default)
+```
+
+| Tool          | URL                            | Credentials       | Notes |
+|---------------|--------------------------------|-------------------|-------|
+| Jenkins       | http://$BASE:18080/            | no login required | The URL in the blog is incorrect |
+| SonarQube     | http://$BASE:19000/            | admin/admin       | ERR_CONNECTION_REFUSED |
+| Nexus         | http://$BASE:18081/nexus       | admin/admin123    | OK |
+| GitLab        | http://$BASE:10080/            | root/5iveL!fe     | ERR_CONNECTION_REFUSED |
+| Selenium Grid | http://$BASE:4444/grid/console | no login required | OK |
 
 <!-- EOF -->
