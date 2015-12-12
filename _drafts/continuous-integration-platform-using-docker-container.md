@@ -86,44 +86,77 @@ Building nexus
 Step 1 : FROM centos:6
 6: Pulling from library/centos
 ...
-TODO
+Step 13 : RUN cd /opt/sonarqube/extensions/plugins/   && curl -o sonar-java-plugin-3.5.jar -fSL $SONAR_DOWNLOAD_URL/sonar-java-plugin/sonar-java-plugin-3.5.jar   && curl -o sonar-web-plugin-2.4.jar -fSL $SONAR_DOWNLOAD_URL/sonar-web-plugin/sonar-web-plugin-2.4.jar   && curl -o sonar-scm-git-plugin-1.1.jar -fSL http://downloads.sonarsource.com/plugins/org/codehaus/sonar-plugins/sonar-scm-git-plugin/1.1/sonar-scm-git-plugin-1.1.jar
+ ---> Running in 98caf842835c
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 2896k  100 2896k    0     0   242k      0  0:00:11  0:00:11 --:--:--  296k
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100  834k  100  834k    0     0   153k      0  0:00:05  0:00:05 --:--:--  180k
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 2617k  100 2617k    0     0  50044      0  0:00:53  0:00:53 --:--:-- 53773
+ ---> ffd13e4bcb67
+Removing intermediate container 98caf842835c
+Step 14 : VOLUME $SONARQUBE_HOME/data $SONARQUBE_HOME/extensions
+ ---> Running in 3c1ecce138d2
+ ---> 4dd84a6c1c5b
+Removing intermediate container 3c1ecce138d2
+Step 15 : WORKDIR $SONARQUBE_HOME
+ ---> Running in bae34b882e6f
+ ---> f621439a1d04
+Removing intermediate container bae34b882e6f
+Step 16 : COPY run.sh $SONARQUBE_HOME/bin/
+ ---> 52eed104b885
+Removing intermediate container 46b465a63782
+Step 17 : RUN chmod +x $SONARQUBE_HOME/bin/run.sh
+ ---> Running in 61968ebb0760
+ ---> c4ee608a8ddd
+Removing intermediate container 61968ebb0760
+Step 18 : ENTRYPOINT ./bin/run.sh
+ ---> Running in e4e236656546
+ ---> e3b9da9eed3f
+Removing intermediate container e4e236656546
+Successfully built e3b9da9eed3f
+Creating dockercitoolstack_sonar_1
+Cannot start container 7f83a11bdf605b1d66d1d65b8af3f7440548aab3a79f580af45c26a06d75051e: [8] System error: no such file or directory
+
+gmacario@ITM-GMACARIO-W7 MINGW64 /e/data/MYGIT/docker-ci-tool-stack (master)
+$
 ```
 
-TODO: New issue on <https://github.com/marcelbirkner/docker-ci-tool-stack/issues>
+<!-- 2015-12-12 15:51 CET -->
 
-Does not work on Docker Toolbox for Windows
+Create new issue on <https://github.com/marcelbirkner/docker-ci-tool-stack/issues>
 
-When trying the CI Tools Demo on MS Windows 7 64-bit (using Docker Toolbox 1.9.1c) I got the following error:
+> Does not work on Docker Toolbox for Windows
 
-```
-```
+<https://github.com/marcelbirkner/docker-ci-tool-stack/issues/2>
 
-# Fix issue TODO
+#### Fixing issue marcelbirkner/docker-ci-tool-stack/issues/2
 
 Fork project [marcelbirkner/docker-ci-tool-stack](https://github.com/marcelbirkner/docker-ci-tool-stack)
-
-```
-$ git remote add gmacario git@github.com:gmacario/docker-ci-tool-stack.git
-```
 
 Create file `.gitattributes`
 
 ```
-$ git checkout -b fix-issue-xxx
+$ git remote add gmacario git@github.com:gmacario/docker-ci-tool-stack.git
+$ git checkout -b fix-issue-2
 $ git fetch --all --prune
 $ git add .gitattributes
-$ cat <<END | git commit -s
-Add .gitattributes
-
-Make sure that scripts that will be copied into the Docker images have the correct Unix line endings.
-
-Tested with Docker Toolbox 1.9.1c running on MS Windows 7 64-bit.
-
-Fix TODO
-END
-$ git push -u gmacario fix-issue-xxx
+$ git commit
+$ git push -u gmacario fix-issue-2
 ```
 
-TODO: New PR on <https://github.com/marcelbirkner/docker-ci-tool-stack/pulls>
+<!-- 2015-12-12 17:26 CET -->
+
+Created new PR on <https://github.com/marcelbirkner/docker-ci-tool-stack/pulls>
+
+> Add .gitattributes
+
+<https://github.com/marcelbirkner/docker-ci-tool-stack/pull/3>
 
 <!-- EOF -->
