@@ -18,6 +18,21 @@ Browse <http://192.168.0.10>
 
 TODO
 
+Connect to ELM327 console
+
+```
+$ telnet 192.168.0.10 32500
+```
+
+### See also
+
+* <https://en.wikipedia.org/wiki/ELM327>
+* <http://scantool.imechatronics.com/downloads.htm>
+* ELM327 Quick Reference Sheet: <http://www.elmelectronics.com/DSheets/ELM327QS.pdf> (PDF, 8 pages)
+* ELM327 datasheet: <http://www.elmelectronics.com/DSheets/ELM327DS.pdf> (PDF, 94 pages)
+* ELM327 AT Commands: <http://www.elmelectronics.com/ELM327/AT_Commands.pdf> (PDF, 4 pages)
+* ELM327 Programmable Parameters: <http://www.elmelectronics.com/ELM327/Prog_Parameters.pdf> (PDF, 2 pages)
+
 # OLD STUFF BELOW
 
 This blog post explains how I did [something](http://www.something.com/) on my laptop running MS Windows 7.
