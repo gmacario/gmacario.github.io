@@ -7,7 +7,7 @@ categories: howto install genivi dlt qt5
 
 This blog post explains how I installed the [GENIVI DLT](http://projects.genivi.org/diagnostic-log-trace) (Diagnostics Log and Trace) Viewer on my laptop running MS Windows 7.
 
-The GENIVI DLT viewer is a Qt5 application available in source at  <http://projects.genivi.org/diagnostic-log-trace/download>.
+The GENIVI DLT viewer is a Qt5 application available in source at <http://projects.genivi.org/diagnostic-log-trace/download>.
 
 Read the [INSTALL.txt](http://git.projects.genivi.org/?p=dlt-viewer.git;a=blob;f=INSTALL.txt;h=aa9f66ef82a1acd3df56ab97be74bf884a4eb0a9;hb=HEAD) file to check the main project dependencies - basically, a recent Qt5 Software Development Kit.
 
@@ -185,6 +185,12 @@ Inside Qt Creator: File > Open File or Project...
 
 Click "Configure Project"
 
-TODO
+When the compilation is complete, type "Ctrl-R" to run the DLT Viewer application
+
+<!-- image: Capture-20160108-1050.png -->
+
+DLT Viewer: File > Open
+
+<!-- TODO: better image -->
 
 <!-- EOF -->
