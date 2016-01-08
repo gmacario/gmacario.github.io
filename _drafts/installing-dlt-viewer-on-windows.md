@@ -5,11 +5,11 @@ date:   2016-01-07 18:00:00 CET
 categories: howto install genivi dlt qt5
 ---
 
-This blog post explains how I installed the [GENIVI DLT Viewer](http://projects.genivi.org/diagnostic-log-trace) on my laptop running MS Windows 7.
+This blog post explains how I installed the [GENIVI DLT](http://projects.genivi.org/diagnostic-log-trace) (Diagnostics Log and Trace) Viewer on my laptop running MS Windows 7.
 
-The GENIVI DLT (Diagnostics Log and Trace) viewer is a Qt5 application available in source at  <http://projects.genivi.org/diagnostic-log-trace/download>
+The GENIVI DLT viewer is a Qt5 application available in source at  <http://projects.genivi.org/diagnostic-log-trace/download>.
 
-Read [INSTALL.txt](http://git.projects.genivi.org/?p=dlt-viewer.git;a=blob;f=INSTALL.txt;h=aa9f66ef82a1acd3df56ab97be74bf884a4eb0a9;hb=HEAD)
+Read the [INSTALL.txt](http://git.projects.genivi.org/?p=dlt-viewer.git;a=blob;f=INSTALL.txt;h=aa9f66ef82a1acd3df56ab97be74bf884a4eb0a9;hb=HEAD) file to check the main project dependencies - basically, a recent Qt5 Software Development Kit.
 
 ### Installing Qt5 SDK (including Qt Creator and MinGW)
 
@@ -40,9 +40,9 @@ Click "Next"
 >
 > Installation Folder
 > Please specify the folder where Qt will be installed
-
-* Directory: `E:\opt\Qt` (was: `C:\Qt`)
-* [X] Associate common file types with Qt Creator.
+>
+> * Directory: `E:\opt\Qt` (was: `C:\Qt`)
+> * [X] Associate common file types with Qt Creator.
 
 Click "Next"
 
@@ -65,22 +65,126 @@ Start Menu shortcuts: Select "Qt". Click "Next"
 
 Click "Install"
 
+When the Qt5 install wizard shows "Installation finished!" click "Next >"
+
+> Qt Setup
+>
+> Completing the Qt Wizard
+>
+> Click Finish to exit the Qt Wizard.
+>
+> * [X] Launch Qt Creator
+
+Click "Finish"
+
+The Qt Creator main window should then be displayed.
+
+### (optional) Get familiar with Qt Creator
+
+Inside Qt Creator, click on the "Welcome" icon, then "Get Started Now"
+
+Help > IDE Overview | Qt Creator Manual
+
+Read page "Using Version Control Systems"
+
+#### Create a sample Qt project
+
+Qt Creator: File > New file or Project...
+
+> New File or Project
+>
+> Choose a template: Projects > Application > Qt Widgets Application
+
+Click "Choose..."
+
+> Qt Widgets Application
+>
+> Introduction and Project Location
+>
+> * Name: my-first-qt-app
+> * Create in: `C:\users\gmacario\Documents`
+
+Click "Next"
+
+> Qt Widgets Application
+>
+> Kit Selection
+>
+> Qt Creator can use the following kits for project **my-first-qt-app**:
+>
+> [X] Select all kits
+> * [X] Desktop Qt 5.4.2 MinGW 32bit2
+> * [X] Desktop Qt 5.5.1 MinGW 32bit
+
+Click "Next"
+
+> Qt Widgets Application
+>
+> Class Information
+>
+> Specify basic information about the classes for which you want to generate skeleton source code files.
+>
+> * Class name: MainWindow
+> * Base class: QMainWindow
+> * Header file: `mainwindow.h`
+> * Source file: `mainwindow.cpp`
+> * Generate form: [X]
+> * Form file: `mainwindow.ui`
+
+Click "Next"
+
+> Qt Widgets Application
+>
+> Project Management
+>
+> * Add as a subproject to project: "<none>"
+> * Add to version control: "<none>"
+>
+> Files to be added in `C:\Users\gmacario\Documents\my-first-qt-app`:
+> * `main.cpp`
+> * `mainwindow.cpp`
+> * `mainwindow.h`
+> * `mainwindow.ui`
+> * `my-first-qt-app.pro`
+
+Click "Finish"
+
+Type "Ctrl-R" to run the application
+
+### Configure Git inside Qt Creator
+
+Qt Creator: Options > Version Control > Git
+
+* Prepend to PATH: `E:\cygwin64\bin` (was `E:\cygwin\bin`)
+
+### Clone GENIVI DLT Viewer sources from git
+
+TODO: How to clone a git repository from Qt Creator?
+
+Start a Cygwin terminal
+
+```
+$ cd ~/Documents
+$ git clone git://git.projects.genivi.org/dlt-viewer.git
+```
+
+Inside Qt Creator: File > Open File or Project...
+
+* File name: `C:\User\gmacario\Documents\dlt-viewer\BuildDltViewer.pro`
+
+> Configure Project
+>
+> Qt Creator can use the following kits for project **BuildDltViewer**:
+> The project **BuildDltViewer** is not yet configured.
+> Qt Creator uses the kit **Desktop Qt 5.5.1 MinGW 32bit** to parse the project.
+>
+> [?] Select all kits
+> * [-] Desktop Qt 5.4.2 MinGW 32bit2
+> * [X] Desktop Qt 5.5.1 MinGW 32bit
+> * Import Build From...
+
+Click "Configure Project"
+
 TODO
-
-### Clone GENIVI DLT Viewer git repository
-
-TODO
-
-
-# OLD STUFF BELOW
-
-Sample table
-
-<!-- TIP: <http://www.tablesgenerator.com/markdown_tables> -->
-
-| First | Last  | Role | Notes             |
-|-------|-------|------|-------------------|
-| John  | Doe   | CEO  | The big boss      |
-| Mary  | Smith | CFO  | She got the money |
 
 <!-- EOF -->
