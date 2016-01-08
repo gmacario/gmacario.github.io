@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Installing GENIVI DLT Viewer on Windows"
-date:   2016-01-07 18:00:00 CET
+date:   2016-01-08 14:00:00 CET
 categories: howto install genivi dlt qt5
 ---
 
