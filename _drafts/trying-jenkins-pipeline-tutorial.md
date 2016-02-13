@@ -594,6 +594,409 @@ Finished: FAILURE
 
 
 ----------------------
-(2016-01-20 16:00)
+(2016-02-01 17:15)
+
+Deploy master branch of gmacario/easy-jenkins to machine `ies-genbld01-vm`
+
+Browse `${JENKINS_URL}` at <http://ies-genbld01-vm.ies.mentorg.com:9080/>
+
+Browse `${JENKINS_URL}/view/All`, then click **New Item**
+
+* Item name: `seed_sysadmin_projects`
+* Item type: Copy existing Item
+  - Copy from: `TEST-seed-gm-projects`
+
+then click **OK**. Edit the project configuration:
+
+* Build > Add build step > Process Job DSLs
+  - Look on Filesystem: Yes
+    - DSL Scripts: `mydsl/seed_add_jenkins_slave.groovy`
+    - Action for existing jobs and views: Ignore changes: No
+    - Action for removed jobs: Ignore
+    - Action for removed views: Ignore
+
+Inside `${JENKINS_URL}/job/seed_sysadmin_projects/`, click **Build Now**.
+
+Browse `${JENKINS_URL}/job/add_jenkins_slave`, review project configuration:
+
+- Adjust Branches to build: `*/master` (was: `fix-issue-16-v2`)
+- TODO
+
+Browse `${JENKINS_URL}/job/add_jenkins_slave`, then click **Build with Parameters**
+
+- TODO
+
+Result: ERROR
+
+Excerpt from <http://ies-genbld01-vm.ies.mentorg.com:9080/job/add_jenkins_slave/2/console>
+
+```
+...
+First time build. Skipping changelog.
+ > git tag -a -f -m Jenkins Build #2 jenkins-add_jenkins_slave-2 # timeout=10
+FATAL: Could not apply tag jenkins-add_jenkins_slave-2
+hudson.plugins.git.GitException: Could not apply tag jenkins-add_jenkins_slave-2
+	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.tag(CliGitAPIImpl.java:1263)
+	at hudson.plugins.git.GitAPI.tag(GitAPI.java:274)
+	at hudson.plugins.git.extensions.impl.PerBuildTag.onCheckoutCompleted(PerBuildTag.java:30)
+	at hudson.plugins.git.GitSCM.checkout(GitSCM.java:1098)
+	at hudson.scm.SCM.checkout(SCM.java:485)
+	at hudson.model.AbstractProject.checkout(AbstractProject.java:1276)
+	at hudson.model.AbstractBuild$AbstractBuildExecution.defaultCheckout(AbstractBuild.java:607)
+	at jenkins.scm.SCMCheckoutStrategy.checkout(SCMCheckoutStrategy.java:86)
+	at hudson.model.AbstractBuild$AbstractBuildExecution.run(AbstractBuild.java:529)
+	at hudson.model.Run.execute(Run.java:1738)
+	at hudson.model.FreeStyleBuild.run(FreeStyleBuild.java:43)
+	at hudson.model.ResourceController.execute(ResourceController.java:98)
+	at hudson.model.Executor.run(Executor.java:410)
+Caused by: hudson.plugins.git.GitException: Command "git tag -a -f -m Jenkins Build #2 jenkins-add_jenkins_slave-2" returned status code 128:
+stdout:
+stderr:
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'root@16b3dcf7846d.(none)')
+
+	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommandIn(CliGitAPIImpl.java:1693)
+	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommandIn(CliGitAPIImpl.java:1669)
+	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommandIn(CliGitAPIImpl.java:1665)
+	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommand(CliGitAPIImpl.java:1307)
+	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommand(CliGitAPIImpl.java:1319)
+	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.tag(CliGitAPIImpl.java:1261)
+	... 12 more
+Notifying upstream projects of job completion
+Finished: FAILURE
+```
+
+FIXME: Must configure git first (or at least define `domainname`)
+
+WORKAROUND:
+
+```
+# docker exec -u root -ti easyjenkins_myjenkins_1 /bin/bash
+# git config --global user.name "$(whoami)"
+# git config --global user.email "$(whoami)@$(hostname)"
+```
+
+(2016-02-01 17:40 CET)
+
+Browse `${JENKINS_URL}/job/add_jenkins_slave/configure`
+
+* Build > Add build step > Execute system Groovy script
+  - Groovy script file: `myscripts/add_slave_nodes.groovy`
+
+click **Save**, then **Build with Parameters**
+
+- AgentList: `build-yocto-slave` (default)
+- AgentDescription: (default)
+- AgentExecutors: 2 (default)
+
+then click **Build**.
+
+Result: SUCCESS
+
+Excerpt from <http://ies-genbld01-vm.ies.mentorg.com:9080/job/add_jenkins_slave/5/console>
+
+```
+Started by user anonymous
+[EnvInject] - Loading node environment variables.
+Building in workspace /var/jenkins_home/workspace/add_jenkins_slave
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/gmacario/easy-jenkins # timeout=10
+Fetching upstream changes from https://github.com/gmacario/easy-jenkins
+ > git --version # timeout=10
+ > git -c core.askpass=true fetch --tags --progress https://github.com/gmacario/easy-jenkins +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision 89700d5299b37e834fb107778277e46b9d377d45 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 89700d5299b37e834fb107778277e46b9d377d45
+ > git rev-list 89700d5299b37e834fb107778277e46b9d377d45 # timeout=10
+ > git tag -a -f -m Jenkins Build #5 jenkins-add_jenkins_slave-5 # timeout=10
+Agent 'build-yocto-slave' created with 2 executors and home '/home/jenkins'
+Notifying upstream projects of job completion
+Finished: SUCCESS
+```
+
+Browse `${JENKINS_URL}/computer/`, verify that the new slave node is listed and connected
+
+
+----------------------
+(2016-02-01 18:58 CET)
+
+Deploy master branch of gmacario/easy-jenkins to machine `mv-linux-powerhorse`
+
+Browse `${JENKINS_URL}` at <http://mv-linux-powerhorse.solarma.it:9080/>
+
+Browse `${JENKINS_URL}/job/seed`, then click **Build Now**
+
+Result: Three generated items:
+
+1. add_jenkins_slave
+2. build_gdp
+3. configure_git
+
+Browse `${JENKINS_URL}/job/add_jenkins_slave`, then click **Build with Parameters**
+
+- AgentList: `build-yocto-slave`
+- AgentDescription: `Auto-created Jenkins agent`
+- AgentHome: `/home/jenkins`
+- AgentExecutors: `2`
+
+TODO: Add Text parameter "AgentLabels"
+
+then click **Build**
+
+Result: FAILURE
+
+Excerpt from <http://mv-linux-powerhorse.solarma.it:9080/job/add_jenkins_slave/1/console>
+
+```
+...
+Build #1 jenkins-add_jenkins_slave-1" returned status code 128:
+stdout:
+stderr:
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'root@452d4b206b23.(none)')
+...
+```
+
+TODO: Create issue
+Workaround: Run `configure_git` first
+
+(2016-02-01 19:05 CET)
+
+Browse `${JENKINS_URL}/job/configure_git/`, then click **Build Now**
+
+Verify in the Console Output that the job was run on the master node.
+
+(2016-02-01 19:07 CET)
+
+Browse `${JENKINS_URL}/job/add_jenkins_slave/` then click **Build with Parameters**
+
+- AgentList: `build-yocto-slave`
+- AgentDescription: `Auto-created Jenkins agent`
+- AgentHome: `/home/jenkins`
+- AgentExecutors: `2`
+
+TODO: Add Text parameter "AgentLabels"
+
+then click **Build**
+
+Result: SUCCESS
+
+Browse `${JENKINS_URL}`, verify that node `build-yocto-slave` is running.
+
+Browse `${JENKINS_URL}/computer/build-yocto-slave/`, then click **Configure**
+
+- Labels: `yocto`
+
+Then click **Save**.
+
+Browse `${JENKINS_URL}/job/build_gdp/`, then click **Configure**
+
+- Restrict where this project can be run: Yes
+  - Label Expression: `yocto`
+
+Then click **Save**.
+
+(2016-02-01 19:10 CET)
+
+Browse `${JENKINS_URL}/job/configure_git/`, then click **Configure**
+
+- Restrict where this project can be run: Yes
+  - Label Expression: `build-yocto-slave`
+
+Click **Save**, then click **Build Now**
+
+Browse `${JENKINS_URL}/job/build_gdp/`, then click **Build Now**
+
+(2016-02-02 09:44)
+
+Result: SUCCESS
+
+Excerpt from <http://mv-linux-powerhorse.solarma.it:9080/job/build_gdp/2/console>
+
+```
+...
+NOTE: Running noexec task 4390 of 4394 (ID: 3607, /home/jenkins/workspace/build_gdp/gdp-src-build/../meta-genivi-demo/recipes-devtools/python/python-pyqt_5.3.1.bb, do_build)
+NOTE: Running noexec task 4391 of 4394 (ID: 1853, /home/jenkins/workspace/build_gdp/gdp-src-build/../meta-genivi-demo/recipes-extended/genivi-browser-test-hmi-precompiled/genivi-browser-test-hmi-precompiled.bb, do_build)
+NOTE: Running noexec task 4392 of 4394 (ID: 410, /home/jenkins/workspace/build_gdp/gdp-src-build/../meta-genivi-demo/recipes-demo-platform/packagegroups/packagegroup-gdp-browser.bb, do_build)
+NOTE: Running task 4393 of 4394 (ID: 7, /home/jenkins/workspace/build_gdp/gdp-src-build/../meta-genivi-demo/recipes-demo-platform/images/genivi-demo-platform.bb, do_rootfs)
+NOTE: recipe genivi-demo-platform-1.3+snapshot-20160201-r0: task do_rootfs: Started
+NOTE: recipe genivi-demo-platform-1.3+snapshot-20160201-r0: task do_rootfs: Succeeded
+NOTE: Running noexec task 4394 of 4394 (ID: 11, /home/jenkins/workspace/build_gdp/gdp-src-build/../meta-genivi-demo/recipes-demo-platform/images/genivi-demo-platform.bb, do_build)
+NOTE: Tasks Summary: Attempted 4394 tasks of which 22 didn't need to be rerun and all succeeded.
+
+Summary: There were 16 WARNING messages shown.
+Notifying upstream projects of job completion
+Finished: SUCCESS
+```
+
+Inspecting [project workspace](http://mv-linux-powerhorse.solarma.it:9080/job/build_gdp/ws/)
+
+```
+- .git
++ gdp-src-build
+  - buildhistory/images/qemux86_64/glibc/genivi-demo-platform
+	- cache
+	- conf
+	- downloads
+	- sstate-cache
+	+ tmp
+    - buildstats/genivi-demo-platform-qemux86-64/201602011814
+	  - cache/default-glibc/qemux86-64
+	  + deploy
+      + images/qemux86-64
+        - bzImage	6.31 MB
+        - bzImage--3.14.24+git0+a227f20eff_02120556b0-r0-qemux86-64-20160201181402.bin	6.31 MB
+        - bzImage-qemux86-64.bin	6.31 MB
+        - genivi-demo-platform-qemux86-64.ext3	776.38 MB
+        - genivi-demo-platform-qemux86-64.manifest	42.14 KB
+        - genivi-demo-platform-qemux86-64.tar.bz2	172.08 MB
+        - genivi-demo-platform-qemux86-64-20160201181402.rootfs.ext3	776.38 MB
+        - genivi-demo-platform-qemux86-64-20160201181402.rootfs.manifest	42.14 KB
+        - genivi-demo-platform-qemux86-64-20160201181402.rootfs.tar.bz2	172.08 MB
+        - modules--3.14.24+git0+a227f20eff_02120556b0-r0-qemux86-64-20160201181402.tgz	66.84 MB
+        - modules-qemux86-64.tgz	66.84 MB
+        - README_-_DO_NOT_DELETE_FILES_IN_THIS_DIRECTORY.txt	294 B
+	    - ipk
+	    - licenses
+      - rpm
+	  - log/cooker/qemux86-64
+	  - sstate-control
+	  - stamps
+	  - sysroots
+	  - work
+	  - work-shared/gcc-4.9.1-r0
+	  - abi_version	1 B
+	  - qa.log	779 B
+	  - saved_tmpdir	51 B
+	  - bitbake.lock	0 B
+- meta-genivi-demo
+- meta-ivi
+- meta-openembedded
+- meta-qt5
+- poky
+- .gitignore	204 B
+- .gitmodules	470 B
+- init.sh	908 B
+- README.md
+```
+
+
+-----------------------------
+(2016-02-02 07:58 CET)
+
+Deploy master branch of gmacario/easy-jenkins to machine `dc7600-gm`
+
+```
+$ cd ~/easy-jenkins
+$ eval $(docker-machine env dc7600-gm)
+$ docker-compose stop; docker-compose rm -f; docker-compose build --pull
+$ ./runme.sh
+```
+
+(Optional) Watch docker-compose logs until line `INFO: Jenkins is fully up and running` is displayed:
+
+```
+$ docker-compose logs
+...
+myjenkins_1         | INFO: Completed initialization
+myjenkins_1         | Feb 02, 2016 7:05:31 AM hudson.WebAppMain$3 run
+myjenkins_1         | INFO: Jenkins is fully up and running
+...
+```
+
+Browse `${JENKINS_URL}` at <http://dc7600-gm.solarma.it:9080/> and verify that the Jenkins dashboard is displayed correctly.
+
+Browse `${JENKINS_URL}/job/seed`, then click **Build Now**
+
+Result: The following items will be generated and show up in the Jenkins dashboard:
+
+1. add_jenkins_slave
+2. build_gdp
+3. configure_git
+
+(2016-02-02 08:08 CET)
+
+Browse `${JENKINS_URL}/job/configure_git/`, then click **Build Now**
+
+Verify in the Console Output that the job was run on the master node (at this point there should not be any slave nodes yet)
+
+(2016-02-02 08:10 CET)
+
+Browse `${JENKINS_URL}/job/add_jenkins_slave/` then click **Build with Parameters**
+
+- AgentList: `build-yocto-slave`
+- AgentDescription: `Auto-created Jenkins agent`
+- AgentHome: `/home/jenkins`
+- AgentExecutors: `2`
+
+TODO: Add Text parameter "AgentLabels"
+
+then click **Build**
+
+Result: SUCCESS
+
+Browse `${JENKINS_URL}`, verify that node `build-yocto-slave` is running.
+
+(2016-02-02 08:11 CET)
+
+Browse `${JENKINS_URL}/computer/build-yocto-slave/`, then click **Configure**
+
+- Labels: `yocto`
+
+Then click **Save**.
+
+(2016-02-02 08:14 CET)
+
+Browse `${JENKINS_URL}/job/configure_git/`, then click **Configure**
+
+- Restrict where this project can be run: Yes
+  - Label Expression: `build-yocto-slave`
+
+Click **Save**, then click **Build Now**
+
+Verify in the Console Output that the job was run on the slave.
+
+(2016-02-02 08:15 CET)
+
+Browse `${JENKINS_URL}/job/build_gdp/`, then click **Configure**
+
+- Restrict where this project can be run: Yes
+  - Label Expression: `yocto`
+
+Then click **Save**.
+
+Browse `${JENKINS_URL}/job/build_gdp/`, then click **Build Now**
+
+Result:
+
+TODO TODO TODO
+
+
+------------
+1.0.92.303740
+
+1.0.21.303740
+
 
 <!-- EOF -->
