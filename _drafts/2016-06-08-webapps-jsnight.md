@@ -4,19 +4,20 @@
 
 * [Next #jsNight: 8giugno2016 - Info e registrazione](https://www.eventbrite.it/e/biglietti-torinojs-jsnight-8giu2016-incontro-su-javascript-e-tecnologie-web-open-source-25083305843)
 
-  > L'incontro si terrà l' 8 giugno presso I3P , l'incubatore del Politecnico di Torino, ci saranno 3 x 25min sessioni su importanti questioni dell'ecosistema javascript e infine social networking con chi rimane!
+  > L'incontro si terrà l' 8 giugno presso [I3P](http://i3p.it/), l'incubatore
+  del Politecnico di Torino, ci saranno 3 x 25min sessioni su importanti
+  questioni dell'ecosistema javascript e infine social networking con chi rimane!
   >
-  > Ti senti perso tra: NodeJS, AngularJS, MeteorJS, ReactJS, app, Phonegap,.. e JSon? Parliamone! 
+  > Ti senti perso tra: NodeJS, AngularJS, MeteorJS, ReactJS, app, Phonegap,.. e JSon? Parliamone!
   >
   > Programma
   >
-  > 19:00 intro
-  >
-  > - Web Applications su sistemi embedded - Gianpaolo Macario
-  > - Sistemi LoRa - Gianfranco Poncini
-  > - Typescript = JavaScript + OO - Paolo Marino
-  
-* [issues/6 - Web Applications su sistemi embedded](https://github.com/TorinoJS/torinojs.github.io/issues/6)
+  > - 19:00: Intro - Luigi Maselli
+  > - 19:10: [Web Applications su sistemi embedded](https://github.com/TorinoJS/torinojs.github.io/issues/6) - Gianpaolo Macario
+  > - 19:40: [Sistemi LoRa - Gianfranco Poncini](https://github.com/TorinoJS/torinojs.github.io/issues/8)
+  > - 20:10: [Typescript = JavaScript + OO](https://github.com/TorinoJS/torinojs.github.io/issues/9) - Paolo Marino
+
+* [Slides: Web Applications on embedded systems](http://slides.com/gianpaolomacario/webapps-jsnight-2016-06-08)
 
 ----------------------------------
 
