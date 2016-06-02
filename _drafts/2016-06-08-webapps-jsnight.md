@@ -1,9 +1,11 @@
 # Preparation for jsNight, 2016-06-08
 
-* http://torino.js.org/
-
 * [Next #jsNight: 8giugno2016 - Info e registrazione](https://www.eventbrite.it/e/biglietti-torinojs-jsnight-8giu2016-incontro-su-javascript-e-tecnologie-web-open-source-25083305843)
 
+  > [TorinoJS](http://torino.js.org/) e [Treatabit](http://www.treatabit.com/)
+  > presentano **#jsNight** un evento dedicato alla programmazione javascript
+  > e alle tecnologie web open source.
+  >
   > L'incontro si terrà l' 8 giugno presso [I3P](http://i3p.it/), l'incubatore
   del Politecnico di Torino, ci saranno 3 x 25min sessioni su importanti
   questioni dell'ecosistema javascript e infine social networking con chi rimane!
