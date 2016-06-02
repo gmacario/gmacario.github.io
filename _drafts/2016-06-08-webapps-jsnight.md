@@ -30,9 +30,11 @@ See also:
 
 ----------------------------------
 
+### Testing react-isomorphic-minimal on UDOO NEO
+
 (2016-05-31 13:33 CEST)
 
-Testing react-isomorphic-minimal on UDOO NEO (UDOObuntu v2.0rc2)
+Testing https://github.com/corso-javascript/react-isomorphic-minimal on UDOO NEO (UDOObuntu v2.0rc2)
 
 * Connect Ethernet cable.
   - Alternatively, configure Wi-Fi to a local access point
@@ -203,5 +205,12 @@ udooer@udooneo:~$
 ```
 
 TODO
+
+### Testing Meteor.js on UDOO NEO
+
+TODO: Check
+
+* https://udoo.hackster.io/tomfreudenberg/meteor-on-udoo-and-others-a98e6d
+* https://github.com/4commerce-technologies-AG/meteor
 
 <!-- EOF -->
