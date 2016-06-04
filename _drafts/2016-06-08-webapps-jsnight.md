@@ -213,6 +213,15 @@ TODO: Check
 * https://udoo.hackster.io/tomfreudenberg/meteor-on-udoo-and-others-a98e6d
 * https://github.com/4commerce-technologies-AG/meteor
 
+
+### Testing ownCloud on UDOO NEO
+
+TODO: Check
+
+* https://owncloud.org/
+* https://nextcloud.com/
+
+
 ## See also
 
 * [Installation, Environment Setup, and Adding Proxy to npm and Node.js Packages](https://dzone.com/articles/installation-environment-setup-and-adding-proxy-to) - Web Dev Zone, 2016-06-01
