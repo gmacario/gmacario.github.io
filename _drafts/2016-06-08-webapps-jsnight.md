@@ -30,11 +30,9 @@ See also:
 
 ----------------------------------
 
-### Testing react-isomorphic-minimal on UDOO NEO
+### Installing NodeJS on UDOO NEO
 
-(2016-05-31 13:33 CEST)
-
-Testing https://github.com/corso-javascript/react-isomorphic-minimal on UDOO NEO (UDOObuntu v2.0rc2)
+<!-- 2016-05-31 13:33 CEST -->
 
 * Connect Ethernet cable.
   - Alternatively, configure Wi-Fi to a local access point
@@ -86,6 +84,13 @@ $ npm help npm
 ```
 
 Reference: <https://docs.npmjs.com/>
+
+
+### Testing react-isomorphic-minimal on UDOO NEO
+
+<!-- 2016-05-31 13:33 CEST -->
+
+Testing https://github.com/corso-javascript/react-isomorphic-minimal on UDOO NEO (UDOObuntu v2.0rc2)
 
 Clone boilerplate
 
