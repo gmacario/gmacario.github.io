@@ -30,9 +30,19 @@ See also:
 
 ----------------------------------
 
-### Installing NodeJS on UDOO NEO
+### Installing Node.js on UDOO NEO
 
 <!-- 2016-05-31 13:33 CEST -->
+
+Prerequisites
+
+* One UDOO NEO (tested with udooneo-gm1 - UDOO NEO Full)
+* One 8 GiB MicroSD formatted with UDOObuntu2-rc2
+* Internet connectivity via wired Ethernet or Wi-Fi
+* (optional) USB-to-TTL (3.3V) adapter
+* One laptop to control the UDOO NEO
+
+Steps
 
 * Connect Ethernet cable.
   - Alternatively, configure Wi-Fi to a local access point
