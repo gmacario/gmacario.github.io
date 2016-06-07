@@ -36,10 +36,10 @@ See also:
 
 Prerequisites
 
-* One UDOO NEO (tested with udooneo-gm1 - UDOO NEO Full)
-* One 8 GiB MicroSD formatted with UDOObuntu2-rc2
+* One [UDOO NEO](http://www.udoo.org/udoo-neo/) (tested with udooneo-gm1 - UDOO NEO Full)
+* One 8 GiB MicroSD formatted with [UDOObuntu v2.0rc2](http://www.udoo.org/downloads/)
 * Internet connectivity via wired Ethernet or Wi-Fi
-* (optional) USB-to-TTL (3.3V) adapter
+* (optional) [USB-to-TTL (3.3V) adapter](http://shop.udoo.org/eu/catalog/product/view/id/50/s/usb-serial-debug-module-for-neo/category/3/)
 * One laptop to control the UDOO NEO
 
 Steps
@@ -95,6 +95,58 @@ $ npm help npm
 
 Reference: <https://docs.npmjs.com/>
 
+### Inspecting udoo-web-conf
+
+<!-- 2016-06-07 06:47 CEST -->
+
+Inspecting UDOObuntu package `udoo-web-conf`
+
+```
+udooer@udooneo:~$ apt show udoo-web-conf
+Package: udoo-web-conf
+Version: 0.3.0-6
+Maintainer: Ettore Chimenti <ek5.chimenti@gmail.com>
+Installed-Size: 7,579 kB
+Depends: sysv-rc (>= 2.88dsf-24) | file-rc (>= 0.8.16), udoo-web-docs, nodejs (>= 5.7), udoo-web-conf-modules (= 0.3.0-6), network-manager, dtweb
+Homepage: http://www.udoo.org
+Priority: optional
+Section: utils
+Download-Size: 2,293 kB
+APT-Manual-Installed: yes
+APT-Sources: http://repository.udoo.org/ udoobuntu/main armhf Packages
+Description: UDOO Neo Web Configurator
+ This tool is designed to allow easy configuration and act as an handy web-based
+ control panel for UDOO NEO.
+
+udooer@udooneo:~$
+```
+
+See https://github.com/UDOOboard/udoo-web-conf
+
+
+Inspecting UDOObuntu package `dtweb`
+
+```
+udooer@udooneo:~$ apt show dtweb
+Package: dtweb
+Version: 1.10
+Maintainer: Francesco Montefoschi <francesco.monte@gmail.com>
+Installed-Size: 3,409 kB
+Depends: php5-cli, build-essential, gksu
+Homepage: https://github.com/fmntf/dtweb
+Priority: optional
+Section: admin
+Download-Size: 1,226 kB
+APT-Manual-Installed: yes
+APT-Sources: http://repository.udoo.org/ udoobuntu/main armhf Packages
+Description: Device Tree editor
+ Device Tree editor in a web browser
+
+udooer@udooneo:~$
+```
+
+TODO
+
 
 ### Testing react-isomorphic-minimal on UDOO NEO
 
@@ -109,7 +161,7 @@ $ git clone https://github.com/gmacario/react-isomorphic-minimal example
 $ cd example
 ```
 
-(2016-05-31 13:51 CEST)
+<!-- 2016-05-31 13:51 CEST -->
 
 Install dependencies (see `package.json`):
 
@@ -154,7 +206,7 @@ $ npm run watch
 
 TODO
 
-(2016-05-31 14:23 CEST)
+<!-- 2016-05-31 14:23 CEST -->
 
 
 ```
@@ -164,62 +216,8 @@ $ NODE_ENV=production PORT=3000 HOSTNAME=udooneo npm run start
 
 Then browse <http://192.168.12.103:3000/>
 
-
-
-Inspecting UDOObuntu package `udoo-web-conf`
-
-```
-udooer@udooneo:~$ apt-cache show udoo-web-conf
-Package: udoo-web-conf
-Version: 0.3.0-6
-Architecture: all
-Maintainer: Ettore Chimenti <ek5.chimenti@gmail.com>
-Installed-Size: 7401
-Depends: sysv-rc (>= 2.88dsf-24) | file-rc (>= 0.8.16), udoo-web-docs, nodejs (>= 5.7), udoo-web-conf-modules (= 0.3.0-6), network-manager, dtweb
-Homepage: http://www.udoo.org
-Priority: optional
-Section: utils
-Filename: pool/main/u/udoo-web-conf/udoo-web-conf_0.3.0-6_all.deb
-Size: 2292736
-SHA256: 8f542c5db4d6d2bfdf1dca7710c5a43895328f0a09d650b98ea5fc0179bc9d84
-SHA1: 500bd2ddf40cda37894c6cd2e316c35742f14b68
-MD5sum: 420a170a5a72a30dde42a5b7a76eecaf
-Description: UDOO Neo Web Configurator
- This tool is designed to allow easy configuration and act as an handy web-based
- control panel for UDOO NEO.
-Description-md5: 599cc78c9bad14f800ef246470f9d7f6
-
-udooer@udooneo:~$
-```
-
-See https://github.com/UDOOboard/udoo-web-conf
-
-Inspecting UDOObuntu package `dtweb`
-
-```
-udooer@udooneo:~$ apt-cache show dtweb
-Package: dtweb
-Version: 1.10
-Architecture: armhf
-Maintainer: Francesco Montefoschi <francesco.monte@gmail.com>
-Installed-Size: 3329
-Depends: php5-cli, build-essential, gksu
-Homepage: https://github.com/fmntf/dtweb
-Priority: optional
-Section: admin
-Filename: pool/main/d/dtweb/dtweb_1.10_armhf.deb
-Size: 1225942
-SHA256: 001bef9ffcfdf0e6311f656b86068adbc2610f9e05eff30023c1bd7a7cae539e
-SHA1: 7226926fe162c2121ea6c3b3bcec722e63968dd4
-MD5sum: 9c59381eec1a36531bca272940f50ad3
-Description: Device Tree editor
- Device Tree editor in a web browser
-Description-md5: b7e8faa00d786d3e68c642b0ff96dfd4
-
-udooer@udooneo:~$
-```
-
 TODO
+
 
 ### Testing Meteor.js on UDOO NEO
 
@@ -230,6 +228,66 @@ TODO: Check
 
 
 ### Testing ownCloud on UDOO NEO
+
+<!-- 2016-06-07 06:23 CEST -->
+
+Following instructions at [ownCloud docs](https://doc.owncloud.org/server/9.0/admin_manual/installation/source_installation.html)
+
+Stop udoo-web-conf (otherwise will contend port 80)
+
+```
+$ sudo service udoo-web-conf stop
+```
+
+Install prerequisites
+
+```
+$ sudo apt-get install -y apache2 mariadb-server libapache2-mod-php5
+$ sudo apt-get install -y php5-gd php5-json php5-mysql php5-curl
+$ sudo apt-get install -y php5-intl php5-mcrypt php5-imagick
+```
+
+FIXME: Apache: could not start - address :80 already in use (by node)
+
+```
+$ sudo service apache2 start
+```
+
+TEST: Browse http://udooneo-ip-address (i.e. http://100.84.248.76/) ==> OK
+
+Donwload and install ownCloud
+
+```
+$ mkdir -p ~/Downloads && cd ~/Downloads
+$ wget https://download.owncloud.org/community/owncloud-9.0.2.tar.bz2
+$ sudo tar -xv -C /var/www -f owncloud-9.0.2.tar.bz2
+```
+
+Configure Apache
+
+```
+$ cat >/tmp/owncloud.conf <<END
+Alias /owncloud "/var/www/owncloud/"
+
+<Directory /var/www/owncloud/>
+  Options +FollowSymlinks
+  AllowOverride All
+
+ <IfModule mod_dav.c>
+  Dav off
+ </IfModule>
+
+ SetEnv HOME /var/www/owncloud
+ SetEnv HTTP_HOME /var/www/owncloud
+
+</Directory>
+END
+$ sudo cp /tmp/owncloud.conf /etc/apache2/sites-available/
+$ sudo ln -s /etc/apache2/sites-available/owncloud.conf /etc/apache2/sites-enabled/owncloud.conf
+$ sudo service apache2 restart
+```
+
+TEST: Browse http://udooneo-ip-address/owncloud (i.e. http://100.84.248.76/owncloud) ==> OK
 
 TODO: Check
 
