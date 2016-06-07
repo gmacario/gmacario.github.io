@@ -1,4 +1,9 @@
-# My talk at jsNight, 2016-06-08
+---
+layout: post
+title: "Gianpaolo talk at jsNight, 2016-06-08"
+date: 2016-06-08 19:00:00 CEST
+categories: slides jsnight udooneo embedded
+---
 
 From http://www.treatabit.com/article/torinojs-jsnight-1
 
@@ -20,15 +25,9 @@ questioni dell'ecosistema javascript e infine social networking con chi rimane!
 
 [Slides: Web Applications on embedded systems](http://slides.com/gianpaolomacario/webapps-jsnight-2016-06-08)
 
-See also:
-
-* [TorinoJS](http://torino.js.org/)
-
-* [Treatabit](http://www.treatabit.com/)
-
-* [#jsNight: 8giugno2016 - Info e registrazione](https://www.eventbrite.it/e/biglietti-torinojs-jsnight-8giu2016-incontro-su-javascript-e-tecnologie-web-open-source-25083305843)
-
 ----------------------------------
+
+## UDOO NEO Hands-on (supplement to slides)
 
 ### Installing Node.js on UDOO NEO
 
@@ -298,5 +297,11 @@ TODO: Check
 ## See also
 
 * [Installation, Environment Setup, and Adding Proxy to npm and Node.js Packages](https://dzone.com/articles/installation-environment-setup-and-adding-proxy-to) - Web Dev Zone, 2016-06-01
+
+* [TorinoJS](http://torino.js.org/)
+
+* [Treatabit](http://www.treatabit.com/)
+
+* [#jsNight: 8giugno2016 - Info e registrazione](https://www.eventbrite.it/e/biglietti-torinojs-jsnight-8giu2016-incontro-su-javascript-e-tecnologie-web-open-source-25083305843)
 
 <!-- EOF -->
