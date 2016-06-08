@@ -144,8 +144,6 @@ Description: Device Tree editor
 udooer@udooneo:~$
 ```
 
-TODO
-
 
 ### Testing react-isomorphic-minimal on UDOO NEO
 
@@ -193,17 +191,12 @@ $ npm run build
 
 Result: OK
 
-
-
-TODO
-
 Run (in development mode) and watch for source changes
 
 ```
 $ npm run watch
 ```
 
-TODO
 
 <!-- 2016-05-31 14:23 CEST -->
 
@@ -214,8 +207,6 @@ $ NODE_ENV=production PORT=3000 HOSTNAME=udooneo npm run start
 ```
 
 Then browse <http://192.168.12.103:3000/>
-
-TODO
 
 
 ### Testing Meteor.js on UDOO NEO
