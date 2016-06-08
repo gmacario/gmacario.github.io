@@ -5,7 +5,7 @@ date: 2016-06-08 19:00:00 CEST
 categories: slides jsnight udooneo embedded
 ---
 
-From http://www.treatabit.com/article/torinojs-jsnight-1
+From <http://www.treatabit.com/article/torinojs-jsnight-1>
 
 > Torna **#jsNight** un evento dedicato alla programmazione javascript
 > e alle tecnologie web open source.
@@ -120,7 +120,7 @@ Description: UDOO Neo Web Configurator
 udooer@udooneo:~$
 ```
 
-See https://github.com/UDOOboard/udoo-web-conf
+See <https://github.com/UDOOboard/udoo-web-conf>
 
 
 Inspecting UDOObuntu package `dtweb`
@@ -149,7 +149,7 @@ udooer@udooneo:~$
 
 <!-- 2016-05-31 13:33 CEST -->
 
-Testing https://github.com/corso-javascript/react-isomorphic-minimal on UDOO NEO (UDOObuntu v2.0rc2)
+Testing >https://github.com/corso-javascript/react-isomorphic-minimal> on UDOO NEO (UDOObuntu v2.0rc2)
 
 Clone boilerplate
 
@@ -213,8 +213,8 @@ Then browse <http://192.168.12.103:3000/>
 
 TODO: Check
 
-* https://udoo.hackster.io/tomfreudenberg/meteor-on-udoo-and-others-a98e6d
-* https://github.com/4commerce-technologies-AG/meteor
+* <https://udoo.hackster.io/tomfreudenberg/meteor-on-udoo-and-others-a98e6d>
+* <https://github.com/4commerce-technologies-AG/meteor>
 
 
 ### Testing ownCloud on UDOO NEO
@@ -243,7 +243,7 @@ FIXME: Apache: could not start - address :80 already in use (by node)
 $ sudo service apache2 start
 ```
 
-TEST: Browse http://udooneo-ip-address (i.e. http://100.84.248.76/) ==> OK
+TEST: Browse <http://udooneo-ip-address> (i.e. <http://100.84.248.76/>) ==> OK
 
 Donwload and install ownCloud
 
@@ -277,12 +277,12 @@ $ sudo ln -s /etc/apache2/sites-available/owncloud.conf /etc/apache2/sites-enabl
 $ sudo service apache2 restart
 ```
 
-TEST: Browse http://udooneo-ip-address/owncloud (i.e. http://100.84.248.76/owncloud) ==> OK
+TEST: Browse <http://udooneo-ip-address/owncloud> (i.e. <http://100.84.248.76/owncloud>) ==> OK
 
 TODO: Check
 
-* https://owncloud.org/
-* https://nextcloud.com/
+* <https://owncloud.org/>
+* <https://nextcloud.com/>
 
 
 ## See also
