@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Gianpaolo talk at jsNight, 2016-06-08"
-date: 2016-06-08 19:30:00 CEST
+date: 2016-06-08 19:00:00 CEST
 categories: slides jsnight udooneo embedded
 ---
 
@@ -23,9 +23,11 @@ questioni dell'ecosistema javascript e infine social networking con chi rimane!
 > - 19:40: [Sistemi LoRa - Gianfranco Poncini](https://github.com/TorinoJS/torinojs.github.io/issues/8)
 > - 20:10: [Typescript = JavaScript + OO](https://github.com/TorinoJS/torinojs.github.io/issues/9) - Paolo Marino
 
-[Slides: Web Applications on embedded systems](http://slides.com/gianpaolomacario/webapps-jsnight-2016-06-08)
+## Slides "Web Applications on embedded systems"
 
-----------------------------------
+* [View slides online](http://slides.com/gianpaolomacario/webapps-jsnight-2016-06-08)
+* [PDF version of the slide deck](/images/webapps-jsnight-2016-06-08.pdf)
+
 
 ## UDOO NEO Hands-on (supplement to slides)
 
