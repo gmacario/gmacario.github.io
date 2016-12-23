@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Trying GDP-11 on a Raspberry Pi 3"
-date:   2016-12-22 14:00:00 CET
+date:   2016-12-23 14:00:00 CET
 categories: howto genivi gdp rpi
 ---
 
