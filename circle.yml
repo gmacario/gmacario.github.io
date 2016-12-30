@@ -2,4 +2,11 @@ machine:
   ruby:
     version: 2.2.5
 
+# Create some simple test to please CircleCI
+test:
+  post:
+    - ls -la
+    - bundle exec jekyll build
+    - ls -la _site/index.html
+
 # EOF
