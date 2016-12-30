@@ -32,5 +32,6 @@ gems:
 exclude:
   - Gemfile
   - Gemfile.lock
+  - vendor
 
 # EOF
