@@ -78,7 +78,7 @@ This post explains how to build the micro SD card image directly from sources.
 
   Normal Boot
 
-  Hit any key to stop autoboot:  3  2  1  0
+  Hit any key to stop autoboot:  3  2  1  0
 
   mmc0 is current device
 
