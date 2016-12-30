@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Gianpaolo Macario
-permalink: /
+title: About me
+permalink: /about
 ---
 
 <!-- HEADER -->
@@ -18,22 +18,16 @@ permalink: /
 <div id="main_content_wrap" class="outer">
   <section id="main_content" class="inner">
 
-    <h1> <!--  class="page-heading" -->
-      Blog Posts</h1>
-      <ul> <!-- class="post-list" -->
-        {% for post in site.posts %}
-        <li>
-          <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-          <!-- <h5> -->
-          <a href="{{ post.url | prepend: site.baseurl }}"><!-- class="post-link" -->{{ post.title }}</a>
-          <!-- </h5> -->
-        </li>
-        {% endfor %}
-      </ul>
+    <h1>Who am I?</h1>
+    <ul>
+      <!-- <li><a href="http://git.io/gmacario">My short bio</a></li> -->
+      <li><a href="bio/CV-Europass-20161007-Macario-EN.pdf">Gianpaolo Macario - Curriculum Vitae</a>
+        (also available in <a href="bio/gmacario-cv-en.html">HTML</a>)</li>
+      <li><a href="http://it.linkedin.com/in/gmacario/">My profile on LinkedIn</a></li>
+      <li><a href="http://www.openhub.net/accounts/gmacario">My profile on Open Hub</a></li>
+    </ul>
 
-      <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
-      <h1>Some projects I have been working on</h1>
+    <h1>Some projects I have been working on</h1>
     <ul>
       <li><a href="https://github.com/gmacario/easy-build">easy-build</a></li>
       <li><a href="https://github.com/gmacario/easy-jenkins">easy-jenkins</a></li>
@@ -43,17 +37,7 @@ permalink: /
       <li><a href="https://github.com/gmacario/vagrant-ubuntu1404">vagrant-ubuntu1404</a></li>
     </ul>
 
-    <h1>Who am I?</h1>
-    <ul>
-      <!-- <li><a href="http://git.io/gmacario">My short bio</a></li> -->
-      <li><a href="bio/CV-Europass-20161007-Macario-EN.pdf">Gianpaolo Macario - Curriculum Vitae</a>
-      (also available in <a href="bio/gmacario-cv-en.html">HTML</a>)</li>
-      <li><a href="http://it.linkedin.com/in/gmacario/">My profile on LinkedIn</a></li>
-      <li><a href="http://www.openhub.net/accounts/gmacario">My profile on Open Hub</a></li>
-    </ul>
-
   </section>
-
 </div>
 
 <!-- <div class="home">
