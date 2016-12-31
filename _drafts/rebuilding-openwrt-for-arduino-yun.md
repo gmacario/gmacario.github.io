@@ -1,18 +1,22 @@
-Introduction
-============
+---
+layout: post
+title:  "Rebuilding OpenWRT for Arduino Yun"
+date:   2015-01-18 18:00:00 CET
+#categories: template android howto development
+---
+
+# Introduction
 
 This page explains how to create an [OpenWrt](https://openwrt.org/) image
 suitable to work on the [Arduino Yun](http://arduino.cc/en/Main/ArduinoBoardYun).
 
-Prerequisites
--------------
+### Prerequisites
 
 * A PC running [Docker](https://www.docker.com/) and [git](http://git-scm.com/)
 (tested with [Ubuntu 14.04.1 64-bit](http://www.ubuntu.com/))
 * A fast Internet connection
 
-Installing easy-build
-=====================
+# Installing easy-build
 
 Install the [gmacario/easy-build](https://github.com/gmacario/easy-build)
 package by opening a shell and typing the following command:
@@ -21,11 +25,9 @@ package by opening a shell and typing the following command:
 $ git clone https://github.com/gmacario/easy-build.git
 ```
 
-Building OpenWrt images inside a container
-==========================================
+# Building OpenWrt images inside a container
 
-(Optional) Build a customized Docker image
-------------------------------------------
+### (Optional) Build a customized Docker image
 
 The Docker image `gmacario/build-openwrt` is publicly available from Docker Hub.
 If you are not happy with the default image you may easily customize it
@@ -45,8 +47,7 @@ $ ./build.sh
 All the files under `build.local/` will then be copied inside
 your custom Docker image.
 
-Run the container
------------------
+### Run the container
 
 ```
 $ cd easy-build/openwrt
@@ -66,8 +67,7 @@ please read inside the `run.sh` how to handle such case.
 root@029a53d8cd99:/# su - build
 ```
 
-Usage Examples
---------------
+## Usage Examples
 
 ### Build Chaos Calmer (trunk) images
 
@@ -100,6 +100,7 @@ $ git pull --all --prune
 ```
 
 Inspect deltas
+
 ```
 build@248699b6ee5a:~/openwrt$ git log --oneline remotes/origin/master..remotes/linino/master | wc -l
 642
@@ -107,6 +108,7 @@ build@248699b6ee5a:~/openwrt$
 ```
 
 Let us try the 'linino/master' branch
+
 ```
 $ git checkout -b try-linino linino/master
 ```
@@ -122,7 +124,8 @@ $ make menuconfig
 $ make
 ```
 
-(2015-01-18 22:30 CET) build failed in rune `package/linino/elfutils`
+(2015-01-18 22:30 CET) build failed in compiling `package/linino/elfutils`
+
 ```
 build@248699b6ee5a:~/openwrt$ make
 make[1] world
