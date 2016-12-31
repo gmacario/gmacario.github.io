@@ -1,7 +1,10 @@
 ---
 layout: post
 title:  "Building CyanogenMod 11 for Samsung Galaxy SII"
-categories: android howto
+date:   2015-11-07 18:00:00 CET
+tags:
+  - android
+  - howto
 ---
 
 Start the container with the build environment
