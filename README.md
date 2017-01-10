@@ -1,6 +1,8 @@
 gmacario.github.io
 ==================
 
+[![CircleCI](https://circleci.com/gh/gmacario/gmacario.github.io.svg?style=shield)](https://circleci.com/gh/gmacario/gmacario.github.io)
+
 Gianpaolo Macario public website on GitHub.com.
 
 Automatically published to https://gmacario.github.io/
