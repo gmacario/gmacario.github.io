@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Trying Kali Linux 2.1.2 on Raspberry Pi 3"
-date:   2017-01-09 15:00:00 CET
+title:  "Trying Kali Linux 2.1.2 on a Raspberry Pi 3"
+date:   2017-01-19 08:00:00 CET
 # categories: template android howto development
 ---
 
@@ -84,32 +84,30 @@ Last login: Mon Jan  9 15:19:54 2017 from 192.168.64.112
 root@kali:~#
 ```
 
-### Install TightVNC Server on Kali Linux
+### Install VNC Server on Kali Linux
 
 Watch YouTube video: [How to Remote Access Linux on Raspberry Pi 2](https://www.youtube.com/watch?v=ZR-ztmJ7mks) (17:13)
 
-Read <http://www.penguintutor.com/linux/tightvnc>
-
-Install TightVNC
+NOTE: As of 2017-01-19 Kali Linux `tightvncserver` is a transitional package - will try [TigerVNC](http://tigervnc.org/) instead.
 
 ```
 apt-get update
-apt-get -y install tightvncserver
+apt-get -y install tigervnc-common tigervnc-standalone-server
 apt-get -y install autocutsel
 ```
 
-Type `vncserver` to create session password.
+Type `vncpasswd` to create session password (will be saved in `~/.vnc/passwd`)
 
-Type `vi /etc/systemd/system/tightvncserver.service` and paste the following text:
+Create systemd unit file `/etc/systemd/system/vncserver.service`
 
 ```
 [Unit]
-Description=TightVNC remote desktop server
+Description=VNC remote desktop server
 After=sshd.service
 
 [Service]
 Type=dbus
-ExecStart=/usr/bin/tightvncserver :1
+ExecStart=/usr/bin/vncserver -localhost no
 User=root
 Type=forking
 
@@ -117,23 +115,44 @@ Type=forking
 WantedBy=multi-user.target
 ```
 
-Change file permissions
+**NOTE**: Added option `-localhost no` to allow VNC connections from outside (default is only from localhost, needs to setup a SSH tunnel). This is relaxing security, though.
+
+Adjust file owner and permissions
 
 ```
-sudo chown root:root /etc/systemd/system/tightvncserver.service
-sudo chmod 755 /etc/systemd/system/tightvncserver.service
+sudo chown root:root /etc/systemd/system/vncserver.service
+sudo chmod 644 /etc/systemd/system/vncserver.service
 ```
 
 Test
 
 ```
-sudo systemctl enable tightvncserver.service
+sudo systemctl start vncserver
+sudo systemctl enable vncserver
 ```
 
-From another machine (i.e. a laptop) launch TightVNC Viewer
+Verify that the server is running
+
+```
+sudo systemctl status vncserver
+vncserver -list
+```
+
+From another machine (i.e. a laptop) launch TigerVNC Viewer
 
 * Remote Host: `kali.lan:5901`
-* Password: `xxxx` (the password chosen when first running `vncserver`)
+* Password: `xxxx` (the password chosen when first running `vncserver` )
+
+**Issue 1**: Cannot launch Wireshark
+
+```
+root@kali:~# wireshark
+Unable to find an X11 visual which matches EGL config 1
+Segmentation fault
+root@kali:!#
+```
+
+**Issue 2**: Copy-and-paste does not seem to work (it worked with tightvncserver)
 
 ### Resize Root Partition
 
@@ -153,22 +172,10 @@ apt-get install kali-linux-full
 
 **NOTE**: Depending on network speed, the above command may take a few hours to complete
 
-### Download and install Metasploitable 2
-
-Browse <https://www.offensive-security.com/metasploit-unleashed/requirements/>
-
-Download `metasplotable-linux-2.0.0.zip` (873.1 MB)
-
-
-TODO
-
 ### Links
 
 * Kali Linux: <https://kali.org/>
 * Metasploitable 2: <https://sourceforge.net/projects/metasploitable/files/Metasploitable2/>
-* 5 inch touch screen: <http://goo.gl/dznXrM>
-* Flexible Keyboards: <http://goo.gl/v5W2vF>
 * Rasbperry Pi 3: <http://goo.gl/T1NJ2D>
-* Novaspirit TV: <https://goo.gl/14hKhQ>
 
 <!-- EOF -->
