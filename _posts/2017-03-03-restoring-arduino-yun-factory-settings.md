@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Restoring Arduino Yun factory image"
-date:   2017-01-26 18:00:00 CET
+title:  "Restoring Arduino Yun factory settings"
+date:   2017-03-03 18:00:00 CET
 # categories: arduino yun day fablab torino
 ---
 
@@ -444,6 +444,126 @@ Check installed openwrt-yun-release
 root@Arduino:~# cat /etc/arduino/openwrt-yun-release
 built=Fri Nov 14 03:53:51 CET 2014
 root@Arduino:~#
+```
+
+
+----------------------------
+### Alternative: Nuke `/overlay`
+
+<!-- 2017-03-03 16:32 -->
+
+Boot `ardyungm33` in failsafe mode by pressing the `F` and ENTER keys.
+
+```
+root@(none):/# df -h
+Filesystem                Size      Used Available Use% Mounted on
+rootfs                    7.5M      7.5M         0 100% /
+/dev/root                 7.5M      7.5M         0 100% /
+tmpfs                    29.8M     12.0K     29.8M   0% /tmp
+tmpfs                   512.0K         0    512.0K   0% /dev
+root@(none):/#
+```
+
+Execute `mount_root` (checked from TODO to TODO)
+
+```
+root@(none):/# mount_root
+[  863.240000] JFFS2 notice: (533) jffs2_build_xattr_subsystem: complete building xattr subsystem, 1 of xdatum (1 unchecked, 0 orphan) and 12 of xref (0 dead, 1 orphan) found.
+switching to jffs2
+root@(none):/#
+```
+
+Apart the suspicious message, the `/overlay` is mounted
+
+```
+root@(none):/# df -h
+Filesystem                Size      Used Available Use% Mounted on
+rootfs                    6.9M      1.6M      5.3M  23% /
+/dev/root                 7.5M      7.5M         0 100% /rom
+tmpfs                    29.8M     12.0K     29.8M   0% /tmp
+tmpfs                   512.0K         0    512.0K   0% /dev
+/dev/mtdblock3            6.9M      1.6M      5.3M  23% /overlay
+overlayfs:/overlay        6.9M      1.6M      5.3M  23% /
+root@(none):/#
+```
+
+Press "YUN RST" button, then enter failsafe mode.
+
+Understand the `/sbin/firstboot` script:
+
+```
+root@(none):/# which firstboot
+/sbin/firstboot
+root@(none):/# cat /sbin/firstboot
+#!/bin/sh
+
+switch2jffs_hook=
+jffs2reset_hook=
+no_fo_hook=
+
+. /lib/functions/boot.sh
+
+firstboot_skip_next=false
+
+for fb_source_file in /lib/firstboot/*; do
+    . $fb_source_file
+done
+
+set_mtd_part
+set_rom_part
+set_jffs_part
+
+# invoked as an executable
+if [ "${0##*/}" = "firstboot" ]; then
+    if [ "$1" = "switch2jffs" ]; then
+        boot_run_hook switch2jffs
+    elif [ -n "$jffs" ]; then
+        reset_has_fo=true
+        echo "firstboot has already been run"
+        echo "jffs2 partition is mounted, only resetting files"
+        boot_run_hook jffs2reset
+    else
+        mtd erase "$partname"
+        mount "$mtdpart" /overlay -t jffs2
+        fopivot /overlay /rom 1
+    fi
+fi
+
+root@(none):/#
+```
+
+<!-- 2017-03-03 16:39 CET -->
+
+Execute the `/bin/firstboot` script:
+
+```
+root@(none):/# /sbin/firstboot
+[  133.510000] JFFS2 notice: (533) jffs2_build_xattr_subsystem: complete building xattr subsystem, 0 of xdatum (0 unchecked, 0 orphan) and 0 of xref (0 dead, 0 orphan) found.
+root@(none):/#
+```
+
+==> Much better now!!!
+
+Press "RST YUN" then boot to regular mode (do not press "F")
+
+```
+[   40.630000] fuse init (API version 7.18)
+
+Please press Enter to activate this console.
+
+
+BusyBox v1.19.4 (2014-11-13 19:03:47 CET) built-in shell (ash)
+Enter 'help' for a list of built-in commands.
+
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ -----------------------------------------------------
+
+
+root@Arduino:/#
 ```
 
 TODO TODO TODO
