@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Trying the C.H.I.P. Computer"
-date:   2017-02-20 18:00:00 CET
+date:   2017-03-10 18:00:00 CET
 # categories: template android howto development
 ---
 
