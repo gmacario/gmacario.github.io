@@ -7,7 +7,7 @@ date:   2017-03-03 18:00:00 CET
 
 ### The problem
 
-After a few months of uninterrupted service, my [Arduino Yun](https://www.arduino.cc/en/Main/ArduinoBoardYun) reboots every couple of minutes.
+After a few months of uninterrupted service, my [Arduino Yun](https://www.arduino.cc/en/Main/ArduinoBoardYun) started rebooting every couple of minutes.
 
 Debugging by connecting the Arduino Yun to my laptop via USB cable.
 
@@ -565,7 +565,5 @@ Enter 'help' for a list of built-in commands.
 
 root@Arduino:/#
 ```
-
-TODO TODO TODO
 
 <!-- EOF -->
