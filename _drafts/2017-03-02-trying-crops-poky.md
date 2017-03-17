@@ -5,27 +5,27 @@ date:   2017-03-02 18:00:00 CET
 # categories: template android howto development
 ---
 
-This blog post explains my experiences with [Crops poky-container](https://github.com/crops/poky-container.
+This blog post explains my experiences with [CROPS poky-container](https://github.com/crops/poky-container).
 
 ### Documentation
 
-* Blog post: What is CROPS (CROssPlatforms)?: <http://crops.github.io/crops/update/2016/04/19/what-is-crops.html>
+* [Cross Platform Enablement for the Yocto Project with Containers](http://events.linuxfoundation.org/sites/events/files/slides/2017%20ELC%20-%20Yocto%20Project%20Containers.pdf) - Randy Witt presentation at ELC 2017 (PDF, 40 slides)
 
-* [Randy Witt presentation at ELC 2017](http://events.linuxfoundation.org/sites/events/files/slides/2017%20ELC%20-%20Yocto%20Project%20Containers.pdf) (PDF, 40 slides)
-
-* Slides presented at ELC, 2016-04-05: "Unchain your Toolchains with CROPS" <http://events.linuxfoundation.org/sites/events/files/slides/Todor_Minchev_CROPS_ELC_2016.pdf>
-
-* CROPS at Docker Hub: <https://hub.docker.com/r/crops/>
-
-* GitBook: What is CROPS? (CROss PlatformS): <https://www.gitbook.com/book/dnplas/yocto-project-crops/details>
-
-* Sources at GitHub: <https://github.com/crops>
+* [Unchain your Toolchains with CROPS](http://events.linuxfoundation.org/sites/events/files/slides/Todor_Minchev_CROPS_ELC_2016.pdf) - Todor Minchev presentation at ELC 2016 (PDF, 25 slides)
 
 * Yocto Project 2.2 (morty) introduces initial docker container support (<https://github.com/crops>). See <https://yoctoproject.org/downloads/core/morty22>
 
+* Blog post: [What is CROPS (CROssPlatformS)?](http://crops.github.io/crops/update/2016/04/19/what-is-crops.html)
 
-### See also
+* GitBook: What is CROPS? (CROss PlatformS): <https://www.gitbook.com/book/dnplas/yocto-project-crops/details>
 
-* <https://github.com/crops/poky-container>
+
+### Code
+
+* Sources at GitHub: <https://github.com/crops>
+  * <https://github.com/crops/poky-container>
+
+
+* CROPS at Docker Hub: <https://hub.docker.com/r/crops/>
 
 <!-- EOF -->
