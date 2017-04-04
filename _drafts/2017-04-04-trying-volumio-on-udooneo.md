@@ -49,10 +49,9 @@ Run the [Fing](https://www.fing.io/) App on a mobile phone connected to the same
 
 In my case, the UDOO Neo was assigned IP Address: 192.168.12.106.
 
-**BUG**: The node disappears after a few seconds - maybe the OS crashed???
-Notice that the board seems quite stable with stock UDOObuntu-desktop-2.1.2
+Notice that the official volumio image does not configure UDOO Neo USB-OTG port as serial console, so you need to connect to internal serial to debug any boot issues.
 
-TODO: Debug using USB Serial console
+If everyting works, launch a web browser and  <http://192.168.12.106/>
 
 TODO
 
