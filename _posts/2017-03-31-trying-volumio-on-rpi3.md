@@ -1,8 +1,7 @@
 ---
 layout: post
 title:  "Trying Volumio on a Raspberry Pi 3"
-date:   2017-03-31 18:00:00 CET
-# categories: template android howto development
+date:   2017-03-31 18:00:00 CEST
 ---
 
 This blog post explains my experiences with the [Volumio](https://volumio.org/)
@@ -56,10 +55,6 @@ Run Fing and verify that a new device called `volumio` is displayed.
 In my example this get the assigned IP Address: 192.168.12.105.
 
 Browse `\\volumio.local` ==> Does not work from my Windows 10 laptop (WHY???)
-
-TODO: Insert screenshot
-
-TODO: What should I do now???
 
 Try logging into the device via SSH:
 
@@ -158,11 +153,9 @@ volumio@volumio:~$ ps axfw
 volumio@volumio:~$
 ```
 
-### References
+### See also
 
 * <https://www.volumio.org/>
 * <https://github.com/VOLUMIO>
-
-TODO
 
 <!-- EOF -->
