@@ -78,11 +78,11 @@ Verify that the LED strips changes colors as instructed in the sketch.
 
 If everything works as expected unplug the USB connector of the Arduino from the PC and connect to the 5Vdc Power Supply.
 
-![Photo of the assembled LED strip](../images/20170624-114755.jpg)
+![Photo of the assembled LED strip](/images/20170624-114755.jpg)
 
 ### The final result
 
-![The final result](../images/20170521-191320.jpg)
+![The final result](/images/20170521-191320.jpg)
 
 ### References
 
