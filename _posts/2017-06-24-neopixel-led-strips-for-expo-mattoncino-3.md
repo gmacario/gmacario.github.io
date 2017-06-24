@@ -5,7 +5,7 @@ date:   2017-06-24 20:00:00 CEST
 tag: arduino lego neopixel
 ---
 
-This post explains how we created the light effects at [Expo Mattoncino 3](http://www.tomake.info/expo-mattoncino-2017/) which took place in Pinerolo (TO) on 21 and 22-MAY-2017.
+This post explains how we created the light effects at [Expo Mattoncino 3](http://www.tomake.info/expo-mattoncino-2017/) which took place in Pinerolo (TO) on 20 and 21-MAY-2017.
 
 ### Preparing the light effect using a NeoPix LED strip
 
