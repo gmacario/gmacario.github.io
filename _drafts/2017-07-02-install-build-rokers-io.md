@@ -127,7 +127,16 @@ INFO: Initial administrator password: 74eb700cb15d4ce99cc47a60dd694f2d
 ubuntu@ip-172-31-26-128:~/github/gmacario/easy-jenkins$
 ```
 
-Connect to <http://localhost:29080> (SSH tunnel to <http://build.rokers.io:9080>) and complete the configuration of easy-jenkins:
+Since port 9080/tcp on build.rokers.io is firewalled, type the following commands on your laptop to create a SSH tunnel to <http://build.rokers.io:9080>:
+
+```shell
+ssh \
+    -i ~/.ssh/rokers_genivi_dev.pem \
+    -L 29080:localhost:9080 \
+    ubuntu@build.rokers.io
+```
+
+Now browse <http://localhost:29080> and complete the configuration of easy-jenkins:
 
 * Paste the initial admin password (you should find it displayed on the terminal where you launched `./runme.sh`)
 * Click **Install suggested plugins**
