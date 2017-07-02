@@ -1,4 +1,11 @@
-# Installing build.rokers.io
+---
+layout: post
+title:  "Installing build.rokers.io"
+date:   2017-07-02 09:00:00 CET
+tags: howto jenkins docker server installation rokers 
+---
+
+This blog post explains the steps I made to install the [build.rokers.io](https://build.rokers.io/) server on [AWS](https://aws.amazon.com/) using [Docker](https://www.docker.com/) and [easy-jenkins](https://github.com/gmacario/easy-jenkins).
 
 ### Prerequisites
 
@@ -7,7 +14,11 @@
   - Open incoming ports 22/tcp, 80/tcp, 443/tcp
 * Slave nodes: TODO
 
-(2017-06-30 18:00 CEST)
+### Prepare the AWS instance
+
+<!-- 2017-06-30 18:00 CEST -->
+
+TODO: @ludusrusso
 
 Connect to AWS instance
 
@@ -31,16 +42,18 @@ sudo fdisk -l
 cat /etc/os-release
 ```
 
-Logged as ubuntu@build.rokers.io
+### Prepare the guest OS on aws.rokers.io
+
+Logged as ubuntu@build.rokers.io and make sure that the guest OS is up-to-date
 
 ```
 sudo apt update && sudo apt dist-upgrade
 ```
 
-(Optional but recommended) Install additional useful packages
+Now install a few additional Ubuntu packages that will be needed to operate the server:
 
 ```
-sudo apt install byobu htop mc 
+sudo apt install byobu git htop mc 
 ```
 
 Login as root
@@ -74,6 +87,8 @@ swapon -a
 
 Reboot to make sure all the changes are applied
 
+### Install Docker and docker-compose
+
 Logged as ubuntu@build.rokers.io, install Docker
 
 ```
@@ -101,6 +116,8 @@ curl -L https://github.com/docker/compose/releases/download/1.14.0/docker-compos
 sudo install -m755 docker-compose /usr/local/bin/
 docker-compose --version
 ```
+
+### Install easy-jenkins
 
 Logged as ubuntu@build.rokers.io, install and run easy-jenkins
 
@@ -151,9 +168,9 @@ Refresh the page and login to Jenkins as user `admin`
   - Labels: `docker`
   - Click **Save**
 
-(2017-07-01 22:48 CEST)
+<!-- 2017-07-01 22:48 CEST -->
 
-Try building https://github.com/robotrokers/genivi-dev-platform
+Create pipeline for building `rokers-image-base` from sources:
 
 * Click **Open Blue Ocean**
 * Click **Create a new Pipeline**
@@ -167,7 +184,7 @@ Result: Build SUCCESS (about 1h for a scratch build)
 
 ### Configure login with GitHub credentials
 
-(2017-06-02 00:05 CEST)
+<!-- 2017-06-02 00:05 CEST -->
 
 See <https://github.com/gmacario/easy-jenkins/blob/master/docs/configuring-access-control-via-github.md>
 
@@ -176,6 +193,5 @@ Reference: <https://jenkins.io/solutions/github/>
 Jenkins > Manage Jenkins > Configure Global Security > Security Realm
 
 TODO TODO TODO
-
 
 <!-- EOF -->
