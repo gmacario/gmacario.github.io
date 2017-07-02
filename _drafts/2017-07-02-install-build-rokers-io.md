@@ -7,22 +7,20 @@ tags: howto jenkins docker server installation rokers
 
 This blog post explains the steps I made to install the [build.rokers.io](https://build.rokers.io/) server on [AWS](https://aws.amazon.com/) using [Docker](https://www.docker.com/) and [easy-jenkins](https://github.com/gmacario/easy-jenkins).
 
-### Prerequisites
-
-* Master node: AWS EC2 c4.2xlarge (8 vCPUs, 15 GiB Memory, Instance Storage: 8 GB)
-  - Add EBS 100 GB (to be mounted as `/var`)
-  - Open incoming ports 22/tcp, 80/tcp, 443/tcp
-* Slave nodes: TODO
-
 ### Prepare the AWS instance
 
 <!-- 2017-06-30 18:00 CEST -->
+
+Login to https://aws.amazon.com/ console using your credentials
 
 **TODO**: @ludusrusso:
 
 * Create a `.pem` to connect to VM `build.rokers.io` and slaves
 * Create EC2 instance for `build.rokers.io`
-* Open firewall on `build.rokers.io`
+  - AWS EC2 c4.2xlarge (8 vCPUs, 15 GiB Memory, Instance Storage: 8 GB)
+  - Add EBS 100 GB (to be mounted as `/var`)
+* Configure firewall on `build.rokers.io`
+  - Open incoming ports 22/tcp, 80/tcp, 443/tcp
 * Create EBS volume for secondary volume `/var`
 * Register DNS `build.rokers.io`
 
@@ -32,13 +30,7 @@ Connect to AWS instance via SSH:
 ssh -i ~/.ssh/rokers_genivi_dev.pem ubuntu@build.rokers.io
 ```
 
-Verify HW/SW configuration of the master node:
-
-* CPU: 8 cores
-* RAM: 16 GB 
-* Root Volume: 8 GB
-* One additional 100 GB EBS volume
-* OS: Ubuntu 16.0.4.2 LTS 64-bit
+Type the following commands to inspect the HW/SW configuration of the master node:
 
 ```
 cat /proc/cpuinfo
@@ -47,6 +39,14 @@ df -h
 sudo fdisk -l
 cat /etc/os-release
 ```
+
+Verify that the following requisites are met:
+
+* CPU: 8 cores
+* RAM: 16 GB 
+* Root Volume: 8 GB
+* One additional 100 GB volume
+* OS: Ubuntu 16.04.2 LTS 64-bit
 
 ### Prepare the guest OS on build.rokers.io
 
