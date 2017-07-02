@@ -18,9 +18,15 @@ This blog post explains the steps I made to install the [build.rokers.io](https:
 
 <!-- 2017-06-30 18:00 CEST -->
 
-TODO: @ludusrusso
+**TODO**: @ludusrusso:
 
-Connect to AWS instance
+* Create a `.pem` to connect to VM `build.rokers.io` and slaves
+* Create EC2 instance for `build.rokers.io`
+* Open firewall on `build.rokers.io`
+* Create EBS volume for secondary volume `/var`
+* Register DNS `build.rokers.io`
+
+Connect to AWS instance via SSH:
 
 ```
 ssh -i ~/.ssh/rokers_genivi_dev.pem ubuntu@build.rokers.io
@@ -42,7 +48,7 @@ sudo fdisk -l
 cat /etc/os-release
 ```
 
-### Prepare the guest OS on aws.rokers.io
+### Prepare the guest OS on build.rokers.io
 
 Logged as ubuntu@build.rokers.io and make sure that the guest OS is up-to-date
 
