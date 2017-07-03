@@ -163,8 +163,8 @@ Now browse <http://localhost:29080> and complete the configuration of easy-jenki
 
 * Paste the initial admin password (you should find it displayed on the terminal where you launched `./runme.sh`)
 * Click **Install suggested plugins**
-* Create First Admin User
-* Restart Jenkins when requested
+* Create First Admin User, then click **Save and Finish**
+* If requested, click **Restart** to restart Jenkins
 
 Refresh the page and login to Jenkins as user `admin`
 
