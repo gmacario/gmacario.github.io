@@ -188,13 +188,35 @@ Create pipeline for building `rokers-image-base` from sources:
 
 Result: Build SUCCESS (about 1h for a scratch build)
 
+### Expose Jenkins through https
+
+TODO
+
+Jenkins should be now be accessible as <https://build.rokers.io/>
+
 ### Configure login with GitHub credentials
 
 <!-- 2017-06-02 00:05 CEST -->
 
-See <https://github.com/gmacario/easy-jenkins/blob/master/docs/configuring-access-control-via-github.md>
+Follow instructions at <https://github.com/gmacario/easy-jenkins/blob/master/docs/configuring-access-control-via-github.md>
 
 Reference: <https://jenkins.io/solutions/github/>
+
+Visit https://github.com/settings/applications/new to create a GitHub application registration:
+
+* Application name: `build.rokers.io`
+* Homepage URL: `https://build.rokers.io`
+* Application description: `TODO`
+* Authorization callback URL: `https://build.rokers.io/securityRealm/finishLogin`
+
+then click **Register application**
+
+Keep the result page open, and take note of the following values (they will be used to configure the Github Authentication Plugin as explained in the following section)
+
+* Client ID: xxx
+* Client Secret: yyy
+
+TODO: Browse `${JENKINS_URL}` > Manage Jenkins > Configure Global Security
 
 Jenkins > Manage Jenkins > Configure Global Security > Security Realm
 
