@@ -190,13 +190,24 @@ Result: Build SUCCESS (about 1h for a scratch build)
 
 ### Expose Jenkins through https
 
-TODO
+<!-- 2017-07-04 06:30 CEST -->
+
+Logged as ubuntu@build.rokers.io, clone the following gist
+
+```
+mkdir -p ~/gist.github.com/gmacario && cd ~/gist.github.com/gmacario
+[ ! -e https-build-rokers-io ] && git clone https://gist.github.com/gmacario/2c11a927bfb9fa33326bd20fe28a85c7 https-build-rokers-io
+cd ~/gist.github.com/gmacario/https-build-rokers-io && git pull --all --prune
+docker-compose up -d
+```
+
+**TODO**: Integrate into easy-jenkins
 
 Jenkins should be now be accessible as <https://build.rokers.io/>
 
 ### Configure login with GitHub credentials
 
-<!-- 2017-06-02 00:05 CEST -->
+<!-- 2017-06-04 06:35 CEST -->
 
 Follow instructions at <https://github.com/gmacario/easy-jenkins/blob/master/docs/configuring-access-control-via-github.md>
 
