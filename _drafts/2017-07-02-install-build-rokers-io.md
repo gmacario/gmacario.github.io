@@ -191,7 +191,7 @@ Now browse `${JENKINS_URL}` (<https://build.rokers.io> or <http://localhost:2908
 * Create First Admin User, then click **Save and Finish**
 * If requested, click **Restart** to restart Jenkins
 
-Refresh the page and login to Jenkins as user `admin`
+Reload the page in the browser, then login to Jenkins as user `admin` using the credentials you have created just before.
 
 * Click on **Build Executor Status**
 * Configure node `master`
