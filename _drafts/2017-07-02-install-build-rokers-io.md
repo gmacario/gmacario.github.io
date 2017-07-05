@@ -150,44 +150,6 @@ INFO: Initial administrator password: 74eb700cb15d4ce99cc47a60dd694f2d
 ubuntu@ip-172-31-26-128:~/github/gmacario/easy-jenkins$
 ```
 
-Since port 9080/tcp on build.rokers.io is firewalled, type the following commands on your laptop to create a SSH tunnel to <http://build.rokers.io:9080>:
-
-```shell
-ssh \
-    -i ~/.ssh/rokers_genivi_dev.pem \
-    -L 29080:localhost:9080 \
-    ubuntu@build.rokers.io
-```
-
-Now browse <http://localhost:29080> and complete the configuration of easy-jenkins:
-
-* Paste the initial admin password (you should find it displayed on the terminal where you launched `./runme.sh`)
-* Click **Install suggested plugins**
-* Create First Admin User, then click **Save and Finish**
-* If requested, click **Restart** to restart Jenkins
-
-Refresh the page and login to Jenkins as user `admin`
-
-* Click on **Build Executor Status**
-* Configure node `master`
-  - Number of executors: `4` (was 2)
-  - Labels: `docker`
-  - Click **Save**
-
-<!-- 2017-07-01 22:48 CEST -->
-
-Create pipeline for building `rokers-image-base` from sources:
-
-* Click **Open Blue Ocean**
-* Click **Create a new Pipeline**
-* Where do you store the code? **Github**
-* Paste your Github access token, then click **Connect**
-* Which organization does the repository belong to? **gmacario** (**FIXME**: Cannot select "robotrokers" as I am not a member of the Organization)
-* Create a single Pipeline or discover all Pipelines? **New Pipeline**
-* Choose a repository: **genivi-dev-platform**, then click **Create Pipeline**
-
-Result: Build SUCCESS (about 1h for a scratch build)
-
 ### Expose Jenkins through https
 
 <!-- 2017-07-04 06:30 CEST -->
@@ -203,11 +165,45 @@ docker-compose up -d
 
 **TODO**: Integrate into easy-jenkins
 
-Jenkins should be now be accessible as <https://build.rokers.io/>
+The Jenkins dashboard should be now be accessible as <https://build.rokers.io/>.
+
+#### Alternative: Tunnel through SSH
+
+Since port 9080/tcp on build.rokers.io is firewalled, type the following commands on your laptop to create a SSH tunnel to <http://build.rokers.io:9080>:
+
+```shell
+ssh \
+    -i ~/.ssh/rokers_genivi_dev.pem \
+    -L 29080:localhost:9080 \
+    ubuntu@build.rokers.io
+```
+
+You will then be able to access the Jenkins dashboard as <http://localhost:29080>.
+
+**NOTE**: Although SSH tunnel may be sufficient for most of the use-cases, in order to use GitHub based authentication you need to expose the Jenkins Dashboard through https as explained in the section above.
+
+#### Complete setup of Jenkins
+
+Now browse `${JENKINS_URL}` (<https://build.rokers.io> or <http://localhost:29080> if the SSH tunnel was used instead) and complete the configuration of easy-jenkins:
+
+* Paste the initial admin password (you should find it displayed on the terminal where you launched `./runme.sh`)
+* Click **Install suggested plugins**
+* Create First Admin User, then click **Save and Finish**
+* If requested, click **Restart** to restart Jenkins
+
+Refresh the page and login to Jenkins as user `admin`
+
+* Click on **Build Executor Status**
+* Configure node `master`
+  - Number of executors: `4` (was 2)
+  - Labels: `docker`
+  - Click **Save**
 
 ### Configure login with GitHub credentials
 
 <!-- 2017-06-04 06:35 CEST -->
+
+Prerequisites: Jenkins Dashboard available as <https://build.rokers.io>
 
 Follow instructions at <https://github.com/gmacario/easy-jenkins/blob/master/docs/configuring-access-control-via-github.md>
 
@@ -232,5 +228,21 @@ TODO: Browse `${JENKINS_URL}` > Manage Jenkins > Configure Global Security
 Jenkins > Manage Jenkins > Configure Global Security > Security Realm
 
 TODO TODO TODO
+
+### Build rokers-image-base
+
+<!-- 2017-07-01 22:48 CEST -->
+
+Create pipeline for building `rokers-image-base` from sources:
+
+* Click **Open Blue Ocean**
+* Click **Create a new Pipeline**
+* Where do you store the code? **Github**
+* Paste your Github access token, then click **Connect**
+* Which organization does the repository belong to? **gmacario** (**FIXME**: Cannot select "robotrokers" as I am not a member of the Organization)
+* Create a single Pipeline or discover all Pipelines? **New Pipeline**
+* Choose a repository: **genivi-dev-platform**, then click **Create Pipeline**
+
+Result: Build SUCCESS (about 1h for a scratch build)
 
 <!-- EOF -->
