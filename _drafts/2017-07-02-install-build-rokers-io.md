@@ -182,7 +182,7 @@ You will then be able to access the Jenkins dashboard as <http://localhost:29080
 
 **NOTE**: Although SSH tunnel may be sufficient for most of the use-cases, in order to use GitHub based authentication you need to expose the Jenkins Dashboard through https as explained in the section above.
 
-#### Complete setup of Jenkins
+### Complete setup of Jenkins
 
 Now browse `${JENKINS_URL}` (<https://build.rokers.io> or <http://localhost:29080> if the SSH tunnel was used instead) and complete the configuration of easy-jenkins:
 
