@@ -203,11 +203,11 @@ Refresh the page and login to Jenkins as user `admin`
 
 <!-- 2017-06-04 06:35 CEST -->
 
+**TODO**: Blocked until incoming port 443/tcp to build.rokers.it is not firewalled 
+
 Prerequisites: Jenkins Dashboard available as <https://build.rokers.io>
 
 Follow instructions at <https://github.com/gmacario/easy-jenkins/blob/master/docs/configuring-access-control-via-github.md>
-
-Reference: <https://jenkins.io/solutions/github/>
 
 Visit https://github.com/settings/applications/new to create a GitHub application registration:
 
@@ -223,9 +223,39 @@ Keep the result page open, and take note of the following values (they will be u
 * Client ID: xxx
 * Client Secret: yyy
 
-TODO: Browse `${JENKINS_URL}` > Manage Jenkins > Configure Global Security
+Browse `${JENKINS_URL}` > Manage Jenkins > Configure Global Security
 
-Jenkins > Manage Jenkins > Configure Global Security > Security Realm
+* Enable security: Yes
+  * TCP port for JNLP agents: Fixed: 5000
+  * Disable remember me: No
+  * Access Control
+    - Security Realm: Github Authentication Plugin
+      - Global GitHub OAuth Settings
+        - GitHub Web URI: `https://github.com`
+        - GitHub API URI: `https://api.github.com`
+        - Client ID: xxx (paste the value from the GitHub page above)
+        - Client Secret: yyy (paste the value from the GitHub page above)
+        - OAuth Scope(s): `read:org,user:email`
+    - Authorization: Logged-in users can do anything (See NOTE below)
+      * Allow anonymous read access: No
+* Markup Formatter: Plain text
+* Prevent Cross Site Request Forgery exploits: Yes
+* Plugin Manager
+  * Use browser for metadata download: No
+* Hidden security warnings
+  * Enable Slave->Master Access Control: Yes
+
+then click **Save**.
+
+**NOTE**: In order to achieve a finer grain of access control choose instead
+
+* Authorization: Project-based Matrix Authorization Strategy
+
+then add each single GitHub user/group you want to enable.
+
+**IMPORTANT**: Make sure you give all rights at least to one legitimate user, otherwise after clicking "Save" you will not be able to login any more!
+
+Browse `${JENKINS_URL}` > Manage Jenkins > Configure Global Security > Security Realm
 
 TODO TODO TODO
 
