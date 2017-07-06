@@ -201,9 +201,7 @@ Reload the page in the browser, then login to Jenkins as user `admin` using the 
 
 ### Configure login with GitHub credentials
 
-<!-- 2017-06-04 06:35 CEST -->
-
-**TODO**: Blocked until incoming port 443/tcp to build.rokers.it is not firewalled 
+<!-- 2017-06-07 14:00 CEST -->
 
 Prerequisites: Jenkins Dashboard available as <https://build.rokers.io>
 
@@ -256,8 +254,6 @@ then add each single GitHub user/group you want to enable.
 **IMPORTANT**: Make sure you give all rights at least to one legitimate user, otherwise after clicking "Save" you will not be able to login any more!
 
 Browse `${JENKINS_URL}` > Manage Jenkins > Configure Global Security > Security Realm
-
-TODO TODO TODO
 
 ### Build rokers-image-base
 
