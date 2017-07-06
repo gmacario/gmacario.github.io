@@ -158,18 +158,20 @@ Logged as ubuntu@build.rokers.io, clone the following gist
 
 ```
 mkdir -p ~/gist.github.com/gmacario && cd ~/gist.github.com/gmacario
-[ ! -e https-build-rokers-io ] && git clone https://gist.github.com/gmacario/2c11a927bfb9fa33326bd20fe28a85c7 https-build-rokers-io
+[ ! -e https-build-rokers-io ] && git clone \
+    https://gist.github.com/gmacario/2c11a927bfb9fa33326bd20fe28a85c7 \
+    https-build-rokers-io
 cd ~/gist.github.com/gmacario/https-build-rokers-io && git pull --all --prune
 docker-compose up -d
 ```
 
-**TODO**: Integrate into easy-jenkins
+**TODO**: Integrate gist into easy-jenkins
 
 The Jenkins dashboard should be now be accessible as <https://build.rokers.io/>.
 
 #### Alternative: Tunnel through SSH
 
-Since port 9080/tcp on build.rokers.io is firewalled, type the following commands on your laptop to create a SSH tunnel to <http://build.rokers.io:9080>:
+Since port 9080/tcp on build.rokers.io is firewalled, type the following commands on your laptop to create a SSH tunnel to <http://build.rokers.io:9080/>
 
 ```shell
 ssh \
@@ -178,13 +180,13 @@ ssh \
     ubuntu@build.rokers.io
 ```
 
-You will then be able to access the Jenkins dashboard as <http://localhost:29080>.
+You will then be able to access the Jenkins dashboard as <http://localhost:29080/>.
 
 **NOTE**: Although SSH tunnel may be sufficient for most of the use-cases, in order to use GitHub based authentication you need to expose the Jenkins Dashboard through https as explained in the section above.
 
 ### Complete setup of Jenkins
 
-Now browse `${JENKINS_URL}` (<https://build.rokers.io> or <http://localhost:29080> if the SSH tunnel was used instead) and complete the configuration of easy-jenkins:
+Now browse `${JENKINS_URL}` (<https://build.rokers.io/> or <http://localhost:29080/> if the SSH tunnel was used instead) and complete the configuration of easy-jenkins:
 
 * Paste the initial admin password (you should find it displayed on the terminal where you launched `./runme.sh`)
 * Click **Install suggested plugins**
@@ -198,12 +200,20 @@ Reload the page in the browser, then login to Jenkins as user `admin` using the 
   - Number of executors: `4` (was 2)
   - Labels: `docker`
   - Click **Save**
+  
+Browse `${JENKINS_URL}` > Manage Jenkins > Configure System
 
-### Configure login with GitHub credentials
+* Jenkins Location
+  - Jenkins URL: <https://build.rokers.io/>
+  - System Admin e-mail address: (fill in the administrative email provided during the creation of Jenkins user `admin`)
+
+**TODO**: Configure mail server used by Jenkins - see <http://www.360logica.com/blog/email-notification-in-jenkins/>
+
+### Configure login to Jenkins using GitHub credentials
 
 <!-- 2017-06-07 14:00 CEST -->
 
-Prerequisites: Jenkins Dashboard available as <https://build.rokers.io>
+Prerequisites: Jenkins Dashboard available as <https://build.rokers.io/>
 
 Follow instructions at <https://github.com/gmacario/easy-jenkins/blob/master/docs/configuring-access-control-via-github.md>
 
