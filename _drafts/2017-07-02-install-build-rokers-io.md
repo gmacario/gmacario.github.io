@@ -267,7 +267,7 @@ Browse `${JENKINS_URL}` > Manage Jenkins > Configure Global Security > Security 
 
 ### Build rokers-image-base
 
-<!-- 2017-07-06 14:10 CEST -->
+<!-- 2017-07-11 14:10 CEST -->
 
 Create pipeline for building `rokers-image-base` from sources:
 
@@ -275,16 +275,16 @@ Create pipeline for building `rokers-image-base` from sources:
 * Click **Create a new Pipeline**
 * Where do you store the code? **Github**
 * Paste your Github access token, then click **Connect**
-* Which organization does the repository belong to? **robotrokers** (if you are not a member of "robotrokers", choose the organization where your forked project `robotrokers/genivi-dev-platform`)
+* Which organization does the repository belong to? **robotrokers** (if you are not a member of "robotrokers", choose the organization where your forked project `robotrokers/rokers-yocto-distro`)
 * Create a single Pipeline or discover all Pipelines? **New Pipeline**
-* Choose a repository: **genivi-dev-platform**, then click **Create Pipeline**
+* Choose a repository: **rokers-yocto-distro**, then click **Create Pipeline**
 
 Result: Build SUCCESS (NOTE: It will take about 1h for a scratch build)
 
 To inspect and/or download the generated artifacts:
 
 * Click **Open Blue Ocean**
-* Select Pipeline "robotrokers / genivi-dev-platform"
+* Select Pipeline "robotrokers / rokers-yocto-distro"
 * Select Branch "dev-rokers"
 * Click **Artifacts**
 
