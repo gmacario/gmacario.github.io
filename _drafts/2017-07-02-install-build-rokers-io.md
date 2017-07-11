@@ -2,7 +2,7 @@
 layout: post
 title:  "Installing build.rokers.io"
 date:   2017-07-02 09:00:00 CET
-tags: howto jenkins docker server installation rokers 
+tags: howto jenkins docker server installation rokers
 ---
 
 This blog post explains the steps I made to install the [build.rokers.io](https://build.rokers.io/) server on [AWS](https://aws.amazon.com/) using [Docker](https://www.docker.com/) and [easy-jenkins](https://github.com/gmacario/easy-jenkins).
@@ -18,7 +18,7 @@ Login to https://aws.amazon.com/ console using your credentials
 * Create a `.pem` to connect to VM `build.rokers.io` and slaves
 * Create EC2 instance for `build.rokers.io`
   - AWS EC2 c4.2xlarge (8 vCPUs, 15 GiB Memory, Instance Storage: 8 GB)
-  - Add EBS 100 GB (to be mounted as `/var`)
+  - Add EBS 300 GB (to be mounted as `/var`)
 * Configure firewall on `build.rokers.io`
   - Open incoming ports 22/tcp, 80/tcp, 443/tcp
 * Create EBS volume for secondary volume `/var`
@@ -43,9 +43,9 @@ cat /etc/os-release
 Verify that the following requisites are met:
 
 * CPU: 8 cores
-* RAM: 16 GB 
+* RAM: 16 GB
 * Root Volume: 8 GB
-* One additional 100 GB volume
+* One additional 300 GB volume
 * OS: Ubuntu 16.04.2 LTS 64-bit
 
 ### Prepare the guest OS on build.rokers.io
@@ -59,7 +59,7 @@ sudo apt update && sudo apt dist-upgrade
 Now install a few additional Ubuntu packages that will be needed to operate the server:
 
 ```
-sudo apt install byobu git htop mc 
+sudo apt install byobu git htop mc
 ```
 
 Login as root
@@ -200,7 +200,7 @@ Reload the page in the browser, then login to Jenkins as user `admin` using the 
   - Number of executors: `4` (was 2)
   - Labels: `docker`
   - Click **Save**
-  
+
 Browse `${JENKINS_URL}` > Manage Jenkins > Configure System
 
 * Jenkins Location
