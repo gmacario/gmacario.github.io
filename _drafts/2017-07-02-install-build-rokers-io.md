@@ -210,6 +210,9 @@ Browse `${JENKINS_URL}` > Manage Jenkins > Configure System
   - Jenkins URL: <https://build.rokers.io/>
   - System Admin e-mail address: (fill in the administrative email provided during the creation of Jenkins user `admin`)
 
+* GitHub Pull Requests
+  - Jenkins URL: <https://build.rokers.io/>
+
 **TODO**: Configure mail server used by Jenkins - see <http://www.360logica.com/blog/email-notification-in-jenkins/>
 
 
