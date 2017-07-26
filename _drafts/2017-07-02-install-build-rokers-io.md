@@ -1,19 +1,17 @@
 ---
 layout: post
 title:  "Installing build.rokers.io"
-date:   2017-07-02 09:00:00 CET
+date:   2017-07-11 19:00:00 CET
 tags: howto jenkins docker server installation rokers
 ---
 
-This blog post explains the steps I made to install the [build.rokers.io](https://build.rokers.io/) server on [AWS](https://aws.amazon.com/) using [Docker](https://www.docker.com/) and [easy-jenkins](https://github.com/gmacario/easy-jenkins).
+This blog post details the steps I made to install the [build.rokers.io](https://build.rokers.io/) server on [AWS](https://aws.amazon.com/) using [Docker](https://www.docker.com/) and [easy-jenkins](https://github.com/gmacario/easy-jenkins).
 
 ### Prepare the AWS instance
 
 <!-- 2017-06-30 18:00 CEST -->
 
 Login to https://aws.amazon.com/ console using your credentials
-
-**TODO**: @ludusrusso:
 
 * Create a `.pem` to connect to VM `build.rokers.io` and slaves
 * Create EC2 instance for `build.rokers.io`
@@ -48,6 +46,7 @@ Verify that the following requisites are met:
 * One additional 300 GB volume
 * OS: Ubuntu 16.04.2 LTS 64-bit
 
+
 ### Prepare the guest OS on build.rokers.io
 
 Logged as ubuntu@build.rokers.io and make sure that the guest OS is up-to-date
@@ -70,7 +69,7 @@ sudo -i
 
 Logged as root@build.rokers.io, format the secondary volume and mount it as `/var`
 
-**FIXME**: You may need to stop a few services before being able to rename `/var`
+**NOTE**: You may need to stop a few services before being able to rename `/var`
 
 ```
 fdisk /dev/xvdf
@@ -92,6 +91,7 @@ swapon -a
 ```
 
 Reboot to make sure all the changes are applied
+
 
 ### Install Docker and docker-compose
 
@@ -123,6 +123,7 @@ sudo install -m755 docker-compose /usr/local/bin/
 docker-compose --version
 ```
 
+
 ### Install easy-jenkins
 
 Logged as ubuntu@build.rokers.io, install and run easy-jenkins
@@ -136,7 +137,7 @@ cd ~/github/gmacario/easy-jenkins && git pull --all --prune
 
 Result:
 
-```
+```shell
 ubuntu@ip-172-31-26-128:~/github/gmacario/easy-jenkins$ ./runme.sh
 WARNING: Cannot find docker-machine - assuming environment variables are already defined
 Building myjenkins
@@ -150,13 +151,14 @@ INFO: Initial administrator password: 74eb700cb15d4ce99cc47a60dd694f2d
 ubuntu@ip-172-31-26-128:~/github/gmacario/easy-jenkins$
 ```
 
+
 ### Expose Jenkins through https
 
 <!-- 2017-07-04 06:30 CEST -->
 
 Logged as ubuntu@build.rokers.io, clone the following gist
 
-```
+```shell
 mkdir -p ~/gist.github.com/gmacario && cd ~/gist.github.com/gmacario
 [ ! -e https-build-rokers-io ] && git clone \
     https://gist.github.com/gmacario/2c11a927bfb9fa33326bd20fe28a85c7 \
@@ -184,6 +186,7 @@ You will then be able to access the Jenkins dashboard as <http://localhost:29080
 
 **NOTE**: Although SSH tunnel may be sufficient for most of the use-cases, in order to use GitHub based authentication you need to expose the Jenkins Dashboard through https as explained in the section above.
 
+
 ### Complete setup of Jenkins
 
 Now browse `${JENKINS_URL}` (<https://build.rokers.io/> or <http://localhost:29080/> if the SSH tunnel was used instead) and complete the configuration of easy-jenkins:
@@ -209,9 +212,10 @@ Browse `${JENKINS_URL}` > Manage Jenkins > Configure System
 
 **TODO**: Configure mail server used by Jenkins - see <http://www.360logica.com/blog/email-notification-in-jenkins/>
 
+
 ### Configure login to Jenkins using GitHub credentials
 
-<!-- 2017-06-07 14:00 CEST -->
+<!-- 2017-07-06 14:00 CEST -->
 
 Prerequisites: Jenkins Dashboard available as <https://build.rokers.io/>
 
@@ -234,7 +238,7 @@ Keep the result page open, and take note of the following values (they will be u
 Browse `${JENKINS_URL}` > Manage Jenkins > Configure Global Security
 
 * Enable security: Yes
-  * TCP port for JNLP agents: Fixed: 5000
+  * TCP port for JNLP agents: Fixed: 50000
   * Disable remember me: No
   * Access Control
     - Security Realm: Github Authentication Plugin
@@ -264,6 +268,7 @@ then add each single GitHub user/group you want to enable.
 **IMPORTANT**: Make sure you give all rights at least to one legitimate user, otherwise after clicking "Save" you will not be able to login any more!
 
 Browse `${JENKINS_URL}` > Manage Jenkins > Configure Global Security > Security Realm
+
 
 ### Build rokers-image-base
 
