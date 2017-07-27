@@ -1,16 +1,29 @@
-# Trying EspoTek Labrador
+---
+layout: post
+title:  "Trying the EspoTek Labrador"
+# date:   2017-07-27 19:00:00 CET
+tags: howto hardware espotek labrador
+---
 
-(2017-07-27 12:20 CEST)
+This blog post details my first experiences with the [EspoTek Labrador](https://www.crowdsupply.com/espotek/labrador), a small, portable, USB-connected electronics lab-on-a-board which includes an oscilloscope, waveform generator, power supply, logic analyzer, and multimeter.
 
-* CrowdSupply: <https://www.crowdsupply.com/espotek/labrador>
-* Documentation on [Google Drive](https://drive.google.com/drive/u/1/folders/0B7U0ulRLHf8cRVBkeFc2SHpUOGs)
+Most notably, both hardware and software are Open Source!
+
+### References
+
+* Labrador campaign on CrowdSupply: <https://www.crowdsupply.com/espotek/labrador>
+* (Draft) Documentation on [Google Drive](https://drive.google.com/drive/u/1/folders/0B7U0ulRLHf8cRVBkeFc2SHpUOGs)
 * All design files for the Labrador can be found on GitHub: <https://github.com/espotek/Labrador>
 
-### Installing Application Software on itm-gpaolo-w10
+### Installing Application Software
 
-Download file `xxx` from Google Drive > "__Windows(xxx)"
+Here are the steps to install the software on my laptop itm-gpaolo-w10 (MS Windows 10)
 
-Double click `xxx` to launche the EspoTek Labrador Setup
+Download file `EspoTek Labrador.exe` from Google Drive > "Windows(xxx)"
+
+**NOTE**: The software is based on Qt and the sources are available at <https://github.com/espotek/Labrador> - even though the repository is a little bit messy at the moment - See <https://github.com/EspoTek/Labrador/issues/8>
+
+Double click `EspoTek Labrador.exe` to launch the EspoTek Labrador Setup
 
 > Welcome to the Prerequisites Setup Wizard
 >
@@ -125,6 +138,20 @@ Click "Next >" when requested, until you get the following
 > * [x] Launch EspoTek Labrador
 
 Click "Finish".
+
+### Connecting the Labrador
+
+You can plug your Labrador into a breadboard and also connect +5V and GND to the power rail.
+
+See photo.
+
+![Plugging the Labrador on a breadboard](/assets/imgs/2017-07-27-trying-espotek-labrador.md/2017-07-27_17.53.23.jpg)
+
+Connect the Labrador to your PC via a USB-to-MicroUSB cable.
+
+The red LED on the Labrador should turn on.
+
+Open the Windows Device Manager to verify that the device is recognize, then launch the Labrador application software.
 
 ### See also
 
