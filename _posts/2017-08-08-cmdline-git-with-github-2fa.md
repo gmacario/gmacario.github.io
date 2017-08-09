@@ -62,9 +62,20 @@ If you want the daemon to exit early, forgetting all cached credentials before t
 git credential-cache exit
 ```
 
+### Alternative: Enable Git credentials store
+
+A less secure but more convenient way for saving your credentials is enabling the git-credential-store through the following command
+
+```shell
+git config credential.helper store
+```
+
+**NOTE**: The credentials will be saved unencrypted on a file inside your home directory, therefore use it with discretion.
+
 ### See also
 
 * <https://help.github.com/articles/providing-your-2fa-authentication-code/>
 * <https://git-scm.com/docs/git-credential-cache>
+* <https://git-scm.com/docs/git-credential-store>
 
 <!-- EOF -->
