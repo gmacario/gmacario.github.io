@@ -224,7 +224,7 @@ Prerequisites: Jenkins Dashboard available as <https://build.rokers.io/>
 
 Follow instructions at <https://github.com/gmacario/easy-jenkins/blob/master/docs/configuring-access-control-via-github.md>
 
-Visit https://github.com/settings/applications/new to create a GitHub application registration:
+Visit <https://github.com/settings/applications/new> to create a GitHub application registration:
 
 * Application name: `build.rokers.io`
 * Homepage URL: `https://build.rokers.io`
