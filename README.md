@@ -19,4 +19,4 @@ If you want to display the draft pages as well:
 $ jekyll serve --draft
 ```
 
-Copyright 2006-2016 [Gianpaolo Macario](http://gmacario.github.io/).
+Copyright 2006-2018 [Gianpaolo Macario](http://gmacario.github.io/).
