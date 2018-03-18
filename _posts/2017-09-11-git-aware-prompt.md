@@ -18,7 +18,7 @@ First of all, clone the project to a `.bash` folder inside your home directory:
 
 ```bash
 mkdir -p ~/.bash
-cd ~/.#!/usr/bin/env bash
+cd ~/.bash
 git clone https://github.com/jimeh/git-aware-prompt
 ```
 
@@ -29,7 +29,7 @@ You then need to configure bash by adding the following lines to your `~/.bashrc
 # See https://github.com/jimeh/git-aware-prompt
 export GITAWAREPROMPT=~/.bash/git-aware-prompt
 source "${GITAWAREPROMPT}/main.sh"
-export PS1="\${debian_chroot:+(\$debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$
+export PS1="\${debian_chroot:+(\$debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
 ```
 
 After logging out and logging in again, Git Aware Prompt is installed.
