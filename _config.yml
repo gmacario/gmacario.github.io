@@ -26,8 +26,9 @@ github_username:  gmacario
 markdown: kramdown
 kramdown:
   input: GFM
+#theme: jekyll-theme-minimal
 theme: minima
-gems:
+plugins:
   - jekyll-feed
 exclude:
   - Gemfile
