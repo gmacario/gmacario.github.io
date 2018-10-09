@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Trying Jenkins X on Google Cloud Platform"
+title:  "Installing Jenkins X on Google Cloud Platform"
 date:   2018-10-09 12:00:00
 categories: howto kubernetes gcp jenkins
 ---
@@ -9,7 +9,7 @@ categories: howto kubernetes gcp jenkins
 
 Here are my notes while deploying Jenkins X on a Kubernetes cluster on GCP.
 
-Tested on nemo (Ubuntu 18.04.1 LTS 64-bit)
+The commands in this page have been tested on host "nemo" (Ubuntu 18.04.1 LTS 64-bit).
 
 ### References
 
@@ -73,7 +73,7 @@ Created ServiceAccount tiller in namespace kube-system
 Trying to create ClusterRoleBinding tiller for role: cluster-admin and ServiceAccount: kube-system/tiller
 Created ClusterRoleBinding tiller
 Initialising helm using ServiceAccount tiller in namespace kube-system
-Using helmBinary helm with feature flag: none 
+Using helmBinary helm with feature flag: none
 helm installed and configured
 ? No existing ingress controller found in the kube-system namespace, shall we install one? Yes
 Installing using helm binary: helm
@@ -95,7 +95,7 @@ Please click this URL https://github.com/settings/tokens/new?scopes=repo,read:us
 
 Then COPY the token and enter in into the form below:
 
-? API Token: 
+? API Token:
 ```
 
 Browse <https://github.com/settings/tokens/new?scopes=repo,read:user,read:org,user:email,write:repo_hook,delete_repo>
@@ -131,7 +131,7 @@ Error: fork/exec /usr/bin/google-chrome: no such file or directory
 Please go to http://jenkins.jx.35.241.213.226.nip.io/me/configure and click Show API Token to get your API Token
 Then COPY the token and enter in into the form below:
 
-? API Token: 
+? API Token:
 ```
 
 <!-- 2018-10-09 10:30 CEST -->
@@ -677,7 +677,7 @@ Starting to serve on 127.0.0.1:8001
 
 #### Display Kubernetes dashboard
 
-Logged as `gpmacario@nemo`, 
+Logged as `gpmacario@nemo`,
 browse <http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy>
 
 > **Kubeconfig**
@@ -827,22 +827,22 @@ Unable to get the Jenkins X Status
 error: Command failed 'jx status': Unable to find JX components in Cluster(gke_kubernetes-workshop-218213_europe-west1-b_tonguetree): 3 nodes, memory 14% of 17354292Ki, cpu 37% of 5790m
 you could try:   # Default installer which uses interactive prompts to generate git secrets
   jx install
-  
+
   # Install with a GitHub personal access token
   jx install --git-username jenkins-x-bot --git-api-token 9fdbd2d070cd81eb12bca87861bcd850
-  
+
   # If you know the cloud provider you can pass this as a CLI argument. E.g. for AWS
   jx install --provider=aws
 
-Installs the Jenkins X platform on a Kubernetes cluster 
+Installs the Jenkins X platform on a Kubernetes cluster
 
-Requires a --git-username and --git-api-token that can be used to create a new token. This is so the Jenkins X platform can git tag your releases 
+Requires a --git-username and --git-api-token that can be used to create a new token. This is so the Jenkins X platform can git tag your releases
 
 For more documentation see: https://jenkins-x.io/getting-started/install-on-cluster/
 
-The current requirements are: 
+The current requirements are:
 
- *RBAC is enabled on the cluster 
+ *RBAC is enabled on the cluster
 
  *Insecure Docker registry is enabled for Docker registries running locally inside Kubernetes on the service IP range. See the above documentation for more detailerror: no deployments found in namespace default exit status 1
 gpmacario@nemo:~ $
@@ -878,7 +878,7 @@ Select `node-http`
 
 ```
 ? select the quickstart you wish to create node-http
-? Project name (node-http) 
+? Project name (node-http)
 ```
 
 Type `node-http-hmi-repository`
@@ -905,7 +905,7 @@ Type `Y`
 
 ```
 ? Would you like to initialise git now? Yes
-? Commit message:  (Initial import) 
+? Commit message:  (Initial import)
 ```
 
 Accept default
@@ -937,7 +937,7 @@ Select `gmacario`
 
 ```
 ? Which organisation do you want to use? gmacario
-? Enter the new repository name:  (node-http-hmi-repository) 
+? Enter the new repository name:  (node-http-hmi-repository)
 ```
 
 Accept default
