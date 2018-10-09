@@ -1,6 +1,9 @@
-# Trying Jenkins X on Google Cloud Platform
-
-<!-- 2018-10-09 09:25 CEST -->
+---
+layout: post
+title:  "Trying Jenkins X on Google Cloud Platform"
+date:   2018-10-09 14:00:00
+categories: howto kubernetes gcp jenkins
+---
 
 ### Introduction
 
@@ -116,7 +119,7 @@ Jenkins X deployments ready in namespace jx
 
         ********************************************************
 
-             NOTE: Your admin password is: tigermaple
+             NOTE: Your admin password is: xxxxxx
 
         ********************************************************
 
