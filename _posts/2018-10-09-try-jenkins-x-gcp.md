@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Trying Jenkins X on Google Cloud Platform"
-date:   2018-10-09 14:00:00
+date:   2018-10-09 12:00:00
 categories: howto kubernetes gcp jenkins
 ---
 
@@ -219,9 +219,9 @@ gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 
 #### Others
 
-* Jenkins: http://jenkins.jx.35.241.213.226.nip.io/
-* https://github.com/gmacario/environment-tonguetree-staging
-* https://github.com/gmacario/environment-tonguetree-production
+* Jenkins instance: <http://jenkins.jx.35.241.213.226.nip.io/>
+* GitHub repository for staging environment: <https://github.com/gmacario/environment-tonguetree-staging>
+* GitHub repository for production environment: <https://github.com/gmacario/environment-tonguetree-production>
 
 #### Run `jx diagnose` as gmacario@cloudshell
 
@@ -675,7 +675,7 @@ gpmacario@nemo:~ $ kubectl proxy
 Starting to serve on 127.0.0.1:8001
 ```
 
-#### Display Kubernetes dasboard
+#### Display Kubernetes dashboard
 
 Logged as `gpmacario@nemo`, 
 browse <http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy>
