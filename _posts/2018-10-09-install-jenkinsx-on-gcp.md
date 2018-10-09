@@ -692,7 +692,13 @@ browse <http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/https:kuber
 > To find out more about how to configure and use Bearer Tokens, please refer to the
 > [Authentication](https://kubernetes.io/docs/admin/authentication/) section.
 
-TODO
+Select "Token", then paste the result of the following command
+
+```shell
+kubectl config view | grep access-token
+```
+
+and click "SIGN IN".
 
 ### Trying `jx` commands from nemo
 
