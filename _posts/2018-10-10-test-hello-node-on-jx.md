@@ -1,23 +1,59 @@
 ---
 layout: post
-title:  "Deploying a Node.JS application on Kubernetes via Jenkins X"
-date:   2018-10-12 17:00:00
+title:  "Deploying a Node.JS application on Kubernetes using Jenkins X"
+date:   2018-10-10 12:00:00
 categories: howto kubernetes gcp jenkins nodejs
 ---
 
 ### Introduction
 
-This is the follow-up to my previous post TODO.
+This article explains how to deploy a simple [Node.JS](https://nodejs.org/) application on a [Kubernetes](https://kubernetes.io/) cluster using [Jenkins X](https://jenkins-x.io/).
 
-Here are my notes while deploying Jenkins X on a Kubernetes cluster on GCP.
+This post is the follow-up to my previous article [Installing Jenkins X on Google Cloud Platform](https://gmacario.github.io/howto/kubernetes/gcp/jenkins/2018/10/09/install-jenkinsx-on-gcp.html).
 
-The commands in this page have been tested on host "nemo" (Ubuntu 18.04.1 LTS 64-bit).
+The following instructions have been tested on host "nemo" (Ubuntu 18.04.1 LTS 64-bit).
+
+We will create our sample application using Jenkins X Quickstart. Quickstarts are pre-made applications you can start a project from, instead of starting from scratch.
 
 ### References
 
 * <https://jenkins-x.io/getting-started/>
+* <https://gmacario.github.io/howto/kubernetes/gcp/jenkins/2018/10/09/install-jenkinsx-on-gcp.html>
 
-### Create Quickstart application `node-http-hmi-repository`
+### Prerequisites
+
+* The `jx` binary is installed and available from your shell
+* Jenkins X properly configured
+
+Browse <https://console.cloud.google.com/>
+
+Select the proper GCP project (in our case, `kubernetes-workshop-218213`)
+
+Click on the "Activate Cloud Shell" icon.
+
+#### To install the `jx` binary
+
+```shell
+mkdir -p ~/Downloads && cd ~/Downloads
+curl -L https://github.com/jenkins-x/jx/releases/download/v1.3.399/jx-linux-amd64.tar.gz | tar xzv
+sudo mv jx /usr/local/bin
+```
+
+Verify that jx is correctly configured
+
+```shell
+jx status
+```
+
+Expected output:
+
+```
+gmacario@cloudshell:~ (kubernetes-workshop-218213)$ jx status
+Jenkins X checks passed for Cluster(gke_kubernetes-workshop-218213_europe-west1-b_tonguetree): 3 nodes, memory 15% of 17354292Ki, cpu 41% of 5790m. Jenkins is running at http://jenkins.jx.35.241.213.226.nip.io
+gmacario@cloudshell:~ (kubernetes-workshop-218213)$
+```
+
+### Create quickstart application `node-http-hmi-repository`
 
 <!-- 2018-10-09 12:40 CEST -->
 
@@ -149,6 +185,30 @@ gmacario@cloudshell:~ (kubernetes-workshop-218213)$ jx status
 Jenkins X checks passed for Cluster(gke_kubernetes-workshop-218213_europe-west1-b_tonguetree): 3 nodes, memory 15% of 17354292Ki, cpu 41% of 5790m. Jenkins is running at http://jenkins.jx.35.241.213.226.nip.io
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 ```
+
+#### Display Jenkins Dashboard
+
+Login to Jenkins Dashboard at the URL returned by the `$(jx console)` command.
+
+In our example this is <http://jenkins.jx.35.241.213.226.nip.io>
+
+**NOTE**: Jenkins login credentials (username: `admin`, password: `****`) have been provided during the installation of Jenkins X, and are stored in file `~/.jx/jenkinsAuth.yaml`.
+
+#### Preview staging environment
+
+Browse GCP Console > Kubernetes Engine > Services
+
+In tab "Kubernetes service", filter by "Service Type: Ingress"
+
+Browse app sources at <https://github.com/gmacario/node-http-hmi-repository>
+
+Browse the staging environment of "node-http-hmi-repository" at <http://node-http-hmi-repository.jx-staging.35.241.213.226.nip.io/>
+
+Browse the production environment of "node-http-hmi-repository" at TODO
+
+
+
+
 
 #### Run `TODO`
 
