@@ -28,9 +28,11 @@ Select GCP project "kubernetes-workshop-218213", then click on the "Activate Clo
 Logged as `gmacario@cloudshell`, install the `jx` binary:
 
 ```shell
-mkdir -p ~/Downloads && cd ~/Downloads
-curl -L https://github.com/jenkins-x/jx/releases/download/v1.3.399/jx-linux-amd64.tar.gz | tar xzv
-sudo mv jx /usr/local/bin
+mkdir -p ~/.jx/bin
+curl -L https://github.com/jenkins-x/jx/releases/download/v1.3.414/jx-linux-amd64.tar.gz | tar xzv -C ~/.jx/bin
+export PATH=$PATH:~/.jx/bin
+echo 'export PATH=$PATH:~/.jx/bin' >> ~/.bashrc
+source ~/.bashrc
 ```
 
 Now use the [jx create cluster gke](https://jenkins-x.io/commands/jx_create_cluster_gke) command.
