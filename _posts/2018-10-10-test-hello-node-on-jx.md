@@ -31,7 +31,9 @@ Select the proper GCP project (in our case, `kubernetes-workshop-218213`)
 
 Click on the "Activate Cloud Shell" icon.
 
-#### To install the `jx` binary
+#### Reinstalling the `jx` binary
+
+<!-- 2018-10-12 10:01 CEST -->
 
 Type the following commands in case the `jx` command was not properly installed:
 
@@ -54,6 +56,89 @@ Expected output:
 ```
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$ jx status
 Jenkins X checks passed for Cluster(gke_kubernetes-workshop-218213_europe-west1-b_tonguetree): 3 nodes, memory 15% of 17354292Ki, cpu 41% of 5790m. Jenkins is running at http://jenkins.jx.35.241.213.226.nip.io
+gmacario@cloudshell:~ (kubernetes-workshop-218213)$
+```
+
+```shell
+jx diagnose
+```
+
+Expected output:
+
+```
+gmacario@cloudshell:~ (kubernetes-workshop-218213)$ jx diagnose
+Running in namespace: jx
+Jenkins X Version:
+ Using helmBinary helm with feature flag: none
+NAME               VERSION
+jx                 1.3.414
+jenkins x platform 0.0.2755
+Kubernetes cluster v1.9.7-gke.6
+kubectl            v1.10.7
+helm client        v2.10.0+g9ad53aa
+helm server        v2.10.0+g9ad53aa
+git                git version 2.11.0
+
+Jenkins X Status:
+ Jenkins X checks passed for Cluster(gke_kubernetes-workshop-218213_europe-west1-b_tonguetree): 3 nodes, memory 15% of 17354292Ki, cpu 41% of 5790m. Jenkins is running at http://jenkins.jx.35.241.213.226.nip.io
+
+Kubernetes PVCs:
+ NAME                        STATUS    VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+jenkins                     Bound     pvc-4014d9f4-cb9c-11e8-a1b0-42010a84014f   30Gi       RWO            standard       2d
+jenkins-x-chartmuseum       Bound     pvc-40120cba-cb9c-11e8-a1b0-42010a84014f   8Gi        RWO            standard       2d
+jenkins-x-docker-registry   Bound     pvc-40131c4c-cb9c-11e8-a1b0-42010a84014f   100Gi      RWO            standard       2d
+jenkins-x-mongodb           Bound     pvc-4015b339-cb9c-11e8-a1b0-42010a84014f   8Gi        RWO            standard       2d
+jenkins-x-nexus             Bound     pvc-401782ce-cb9c-11e8-a1b0-42010a84014f   8Gi        RWO            standard       2d
+
+Kubernetes Pods:
+ NAME                                            READY     STATUS    RESTARTS   AGE
+jenkins-6d89bdd984-kgdrk                        1/1       Running   0          2d
+jenkins-x-chartmuseum-645d78c798-9frf6          1/1       Running   0          2d
+jenkins-x-controllerteam-858ff8c6b8-5vvjq       1/1       Running   0          2d
+jenkins-x-controllerworkflow-6fcb699cd6-d4khj   1/1       Running   0          2d
+jenkins-x-docker-registry-dcb6d6d44-dsz4n       1/1       Running   0          2d
+jenkins-x-heapster-96bd95dcf-g27x4              2/2       Running   0          2d
+jenkins-x-mongodb-968b595dd-rk5qs               1/1       Running   1          2d
+jenkins-x-monocular-api-745c8dcd5f-kr6tg        1/1       Running   5          2d
+jenkins-x-monocular-prerender-6d8897856-nlln5   1/1       Running   0          2d
+jenkins-x-monocular-ui-7854f96776-njl6g         1/1       Running   0          2d
+jenkins-x-nexus-55f87888dc-h5s4h                1/1       Running   0          2d
+
+Kubernetes Ingresses:
+ NAME              HOSTS                                      ADDRESS         PORTS     AGE
+chartmuseum       chartmuseum.jx.35.241.213.226.nip.io       35.205.100.81   80        2d
+docker-registry   docker-registry.jx.35.241.213.226.nip.io   35.205.100.81   80        2d
+jenkins           jenkins.jx.35.241.213.226.nip.io           35.205.100.81   80        2d
+monocular         monocular.jx.35.241.213.226.nip.io         35.205.100.81   80        2d
+nexus             nexus.jx.35.241.213.226.nip.io             35.205.100.81   80        2d
+
+Kubernetes Secrets:
+ NAME                                       TYPE                                  DATA      AGE
+cleanup-token-8dflb                        kubernetes.io/service-account-token   3         2d
+default-token-qdwxp                        kubernetes.io/service-account-token   3         2d
+expose-token-x8pt5                         kubernetes.io/service-account-token   3         2d
+jenkins                                    Opaque                                3         2d
+jenkins-docker-cfg                         Opaque                                1         2d
+jenkins-git-credentials                    Opaque                                1         2d
+jenkins-git-ssh                            Opaque                                2         2d
+jenkins-hub-api-token                      Opaque                                1         2d
+jenkins-maven-settings                     Opaque                                1         2d
+jenkins-npm-token                          Opaque                                1         2d
+jenkins-release-gpg                        Opaque                                4         2d
+jenkins-ssh-config                         Opaque                                1         2d
+jenkins-token-pt9cx                        kubernetes.io/service-account-token   3         2d
+jenkins-x-chartmuseum                      Opaque                                2         2d
+jenkins-x-controllerteam-token-zvn89       kubernetes.io/service-account-token   3         2d
+jenkins-x-controllerworkflow-token-hwr86   kubernetes.io/service-account-token   3         2d
+jenkins-x-docker-registry-secret           Opaque                                1         2d
+jenkins-x-mongodb                          Opaque                                1         2d
+jx-basic-auth                              Opaque                                1         2d
+jx-install-config                          Opaque                                3         2d
+jx-pipeline-git-github-github              Opaque                                2         2d
+nexus                                      Opaque                                1         2d
+
+Please visit https://jenkins-x.io/faq/issues/ for any known issues.
+Finished printing diagnostic information.
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 ```
 
@@ -190,13 +275,46 @@ Jenkins X checks passed for Cluster(gke_kubernetes-workshop-218213_europe-west1-
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 ```
 
+#### Run `jx get apps`
+
+<!-- 2018-10-12 11:08 CEST -->
+
+Command
+
+```shell
+jx get apps
+```
+
+Result
+
+```
+gmacario@cloudshell:~ (kubernetes-workshop-218213)$ jx get apps
+APPLICATION              STAGING PODS URL                                                              PRODUCTION PODS URL
+node-http-hmi-repository 0.0.3   1/1  http://node-http-hmi-repository.jx-staging.35.241.213.226.nip.io
+gmacario@cloudshell:~ (kubernetes-workshop-218213)$
+```
+
 #### Display Jenkins Dashboard
 
-Login to Jenkins Dashboard at the URL returned by the `$(jx console)` command.
+To know the URL of the Jenkins Dashboard, use the `jx console` command:
 
-In our example this is <http://jenkins.jx.35.241.213.226.nip.io>
+```
+gmacario@cloudshell:~ (kubernetes-workshop-218213)$ jx console
+Jenkins Console: http://jenkins.jx.35.241.213.226.nip.io/blue
+gmacario@cloudshell:~ (kubernetes-workshop-218213)$
+```
 
-**NOTE**: Jenkins login credentials (username: `admin`, password: `****`) have been provided during the installation of Jenkins X, and are stored in file `~/.jx/jenkinsAuth.yaml`.
+In our example, browse <http://jenkins.jx.35.241.213.226.nip.io/blue>
+
+**NOTE**: Jenkins login credentials (username: `admin`, password: `****`) were displayed during the installation of Jenkins X, and are stored in file `~/.jx/jenkinsAuth.yaml`.
+
+You should find three pipelines:
+
+* gmacario/environment-tonguetree-production
+* gmacario/environment-tonguetree-staging
+* gmacario/node-http-hmi-repository
+
+<!-- FIXME: "jx get build logs" returns Error 500 -->
 
 #### Preview staging environment
 
@@ -209,6 +327,106 @@ Browse application source code at
 
 Browse the staging environment of "node-http-hmi-repository" at
 <http://node-http-hmi-repository.jx-staging.35.241.213.226.nip.io/>
+
+
+### Create an Issue to node-http-hmi-repository
+
+Logged as gmacario@cloudshell
+
+```
+cd ~/node-http-hmi-repository
+jx create issue -t "Add a homepage"
+```
+
+```
+gmacario@cloudshell:~/node-http-hmi-repository (kubernetes-workshop-218213)$ jx create issue -t "Add a homepage"
+? Do you wish to use gmacario as the user name to use for authenticating with git issues Yes
+
+Created issue #2 at https://github.com/gmacario/node-http-hmi-repository/issues/2
+gmacario@cloudshell:~/node-http-hmi-repository (kubernetes-workshop-218213)$
+```
+
+Double check: <https://github.com/gmacario/node-http-hmi-repository/issues>
+
+Now let us switch to a branch where we can work on fixing the issue
+
+```
+git checkout -b wip
+echo "test" > test.txt
+git add test
+git commit -a -m "Add test.txt fixes #2"
+git push origin wip
+```
+
+Now if we have installed the "hub" tool, we can create a Pull Request
+directly from the Command Line. Otherwise do it from GitHub web interface.
+
+### Create a Pull Request to node-http-hmi-repository
+
+Now edit file index.html and create a PR
+
+From <https://github.com/gmacario/node-http-hmi-repository/pull/1>
+
+> PR built and available in a preview environment **gmacario-node-http-hmi-repository-pr-1** [here](http://node-http-hmi-repository.jx-gmacario-node-http-hmi-repository-pr-1.35.241.213.226.nip.io/)
+
+After the PR is merged to master, the change will be deployed to the staging environment.
+You may double check it with the `jx get apps` command:
+
+```
+gmacario@cloudshell:~/node-http-hmi-repository (kubernetes-workshop-218213)$ jx get apps
+APPLICATION              STAGING PODS URL                                                              PRODUCTION PODS URL
+node-http-hmi-repository 0.0.3   1/1  http://node-http-hmi-repository.jx-staging.35.241.213.226.nip.io
+gmacario@cloudshell:~/node-http-hmi-repository (kubernetes-workshop-218213)$
+```
+
+Display URL of services in namespace "jx":
+
+```
+gmacario@cloudshell:~ (kubernetes-workshop-218213)$ jx open
+Name                      URL
+jenkins                   http://jenkins.jx.35.241.213.226.nip.io
+jenkins-x-chartmuseum     http://chartmuseum.jx.35.241.213.226.nip.io
+jenkins-x-docker-registry http://docker-registry.jx.35.241.213.226.nip.io
+jenkins-x-monocular-api   http://monocular.jx.35.241.213.226.nip.io
+jenkins-x-monocular-ui    http://monocular.jx.35.241.213.226.nip.io
+nexus                     http://nexus.jx.35.241.213.226.nip.io
+gmacario@cloudshell:~ (kubernetes-workshop-218213)$
+```
+
+Display URL of services in the staging environment:
+
+```
+gmacario@cloudshell:~ (kubernetes-workshop-218213)$ jx open --env staging
+Name                     URL
+node-http-hmi-repository http://node-http-hmi-repository.jx-staging.35.241.213.226.nip.io
+gmacario@cloudshell:~ (kubernetes-workshop-218213)$
+```
+
+Display URL of services in the staging environment:
+
+```
+gmacario@cloudshell:~ (kubernetes-workshop-218213)$ jx open --env production
+Name URL
+gmacario@cloudshell:~ (kubernetes-workshop-218213)$
+```
+
+
+
+#### Promote to production
+
+The promotion to production environment is done manually with the following command
+
+```shell
+cd $HOME/node-http-htmi-repository
+jx promote -b --all-auto --timeout 1h --version 0.0.3 --env production
+```
+
+Result:
+
+```
+TODO
+```
+
 
 Browse the production environment of "node-http-hmi-repository" at
 <http://node-http-hmi-repository.jx-production.35.241.213.226.nip.io/>
