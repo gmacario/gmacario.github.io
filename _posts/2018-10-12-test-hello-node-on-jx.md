@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Deploying a Node.JS application on Kubernetes using Jenkins X"
-date:   2018-10-10 12:00:00
+date:   2018-10-12 12:00:00 CEST
 categories: howto kubernetes gcp jenkins nodejs
 ---
 
@@ -329,7 +329,9 @@ Browse the staging environment of "node-http-hmi-repository" at
 <http://node-http-hmi-repository.jx-staging.35.241.213.226.nip.io/>
 
 
-### Create an Issue to node-http-hmi-repository
+### Typical app development workflow
+
+#### Create an issue to node-http-hmi-repository
 
 Logged as gmacario@cloudshell
 
@@ -348,6 +350,8 @@ gmacario@cloudshell:~/node-http-hmi-repository (kubernetes-workshop-218213)$
 
 Double check: <https://github.com/gmacario/node-http-hmi-repository/issues>
 
+#### Create a development branch
+
 Now let us switch to a branch where we can work on fixing the issue
 
 ```
@@ -361,16 +365,32 @@ git push origin wip
 Now if we have installed the "hub" tool, we can create a Pull Request
 directly from the Command Line. Otherwise do it from GitHub web interface.
 
-### Create a Pull Request to node-http-hmi-repository
+#### Create a Pull Request to node-http-hmi-repository
 
-Now edit file index.html and create a PR
+Browse <https://github.com/gmacario/node-http-hmi-repository>
+and create a Pull Request from the branch you have just pushed
 
 From <https://github.com/gmacario/node-http-hmi-repository/pull/1>
 
 > PR built and available in a preview environment **gmacario-node-http-hmi-repository-pr-1** [here](http://node-http-hmi-repository.jx-gmacario-node-http-hmi-repository-pr-1.35.241.213.226.nip.io/)
 
 After the PR is merged to master, the change will be deployed to the staging environment.
-You may double check it with the `jx get apps` command:
+
+TODO TODO TODO
+
+```shell
+jx get build logs
+```
+
+ERROR
+
+```
+gmacario@cloudshell:~/node-http-hmi-repository (kubernetes-workshop-218213)$ jx get build logs
+error: 500 Server Error
+gmacario@cloudshell:~/node-http-hmi-repository (kubernetes-workshop-218213)$
+```
+
+Now we can run the `jx get apps` command and we can see that TODO:
 
 ```
 gmacario@cloudshell:~/node-http-hmi-repository (kubernetes-workshop-218213)$ jx get apps
@@ -410,15 +430,15 @@ Name URL
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 ```
 
-
-
 #### Promote to production
+
+Now that we are happy with our changes we can promote it to the production environment.
 
 The promotion to production environment is done manually with the following command
 
 ```shell
 cd $HOME/node-http-htmi-repository
-jx promote -b --all-auto --timeout 1h --version 0.0.3 --env production
+jx promote --version v0.0.3 --env production --timeout 1h
 ```
 
 Result:
@@ -427,11 +447,22 @@ Result:
 TODO
 ```
 
+TODO
+
+jx env production
+
 
 Browse the production environment of "node-http-hmi-repository" at
 <http://node-http-hmi-repository.jx-production.35.241.213.226.nip.io/>
 
 
+### Discover Monocular
+
+jx open
+
+Browse <http://monocular.jx.35.241.213.226.nip.io/>
+
+TODO: Page hangs after displaying title
 
 
 
