@@ -33,10 +33,14 @@ Click on the "Activate Cloud Shell" icon.
 
 #### To install the `jx` binary
 
+Type the following commands in case the `jx` command was not properly installed:
+
 ```shell
-mkdir -p ~/Downloads && cd ~/Downloads
-curl -L https://github.com/jenkins-x/jx/releases/download/v1.3.399/jx-linux-amd64.tar.gz | tar xzv
-sudo mv jx /usr/local/bin
+mkdir -p ~/.jx/bin
+curl -L https://github.com/jenkins-x/jx/releases/download/v1.3.414/jx-linux-amd64.tar.gz | tar xzv -C ~/.jx/bin
+export PATH=$PATH:~/.jx/bin
+echo 'export PATH=$PATH:~/.jx/bin' >> ~/.bashrc
+source ~/.bashrc
 ```
 
 Verify that jx is correctly configured
@@ -200,11 +204,14 @@ Browse GCP Console > Kubernetes Engine > Services
 
 In tab "Kubernetes service", filter by "Service Type: Ingress"
 
-Browse app sources at <https://github.com/gmacario/node-http-hmi-repository>
+Browse application source code at
+<https://github.com/gmacario/node-http-hmi-repository>
 
-Browse the staging environment of "node-http-hmi-repository" at <http://node-http-hmi-repository.jx-staging.35.241.213.226.nip.io/>
+Browse the staging environment of "node-http-hmi-repository" at
+<http://node-http-hmi-repository.jx-staging.35.241.213.226.nip.io/>
 
-Browse the production environment of "node-http-hmi-repository" at TODO
+Browse the production environment of "node-http-hmi-repository" at
+<http://node-http-hmi-repository.jx-production.35.241.213.226.nip.io/>
 
 
 
