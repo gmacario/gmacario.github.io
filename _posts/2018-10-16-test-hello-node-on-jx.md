@@ -628,59 +628,60 @@ INFO[0000] listening                                     bind=127.0.0.1 port=403
 INFO[0003] syncthing listening                           port=8384 syncthing=localhost
 ```
 
-<!-- FIXME: Browsing theia URL returns "403 Service Unavailable" -->
-
-### Things which do not yet work as expected
-
 #### Promote to production
 
-<!-- 2018-10-16 10:17 CEST -->
+<!-- 2018-10-16 10:30 CEST -->
 
 The promotion to the production environment should be performed by an user with the proper permissions to create and merge Pull Request to repository <https://github.com/gmacario/environment-howlernoon-production>
 
 ```shell
 cd ~/node-http-hmi-repository
 git status
-jx promote --env production
+jx promote --version 0.0.3 --env production
 ```
 
 Result:
 
 ```
-gmacario@cloudshell:~/node-http-hmi-repository (kubernetes-workshop-218213)$ git status
-On branch master
-Your branch is up-to-date with 'origin/master'.
-nothing to commit, working tree clean
-gmacario@cloudshell:~/node-http-hmi-repository (kubernetes-workshop-218213)$ jx promote --env production
+gmacario@cloudshell:~/node-http-hmi-repository (kubernetes-workshop-218213)$ jx promote --version 0.0.3 --env production
 Using helmBinary helm with feature flag: none
-Promoting latest version of app node-http-hmi-repository to namespace jx-production
+Promoting app node-http-hmi-repository version 0.0.3 to namespace jx-production
 pipeline gmacario/node-http-hmi-repository/master
 Username for 'https://github.com': gmacario
 Password for 'https://gmacario@github.com':
 ? Do you wish to use gmacario as the user name to submit the Pull Request Yes
-Created Pull Request: https://github.com/gmacario/environment-howlernoon-production/pull/1
-
+Created Pull Request: https://github.com/gmacario/environment-howlernoon-production/pull/2
 pipeline gmacario/node-http-hmi-repository/master
-Failed to query the Pull Request last commit status for https://github.com/gmacario/environment-howlernoon-production/pull/1 ref bb0c26749475bd5beb9fa41dead0038479214f34 Could not find a status for repository gmacario/environment-howlernoon-production with ref bb0c26749475bd5beb9fa41dead0038479214f34
-Failed to query the Pull Request last commit status for https://github.com/gmacario/environment-howlernoon-production/pull/1 ref bb0c26749475bd5beb9fa41dead0038479214f34 Could not find a status for repository gmacario/environment-howlernoon-production with ref bb0c26749475bd5beb9fa41dead0038479214f34
-Failed to query the Pull Request last commit status for https://github.com/gmacario/environment-howlernoon-production/pull/1 ref bb0c26749475bd5beb9fa41dead0038479214f34 Could not find a status for repository gmacario/environment-howlernoon-production with ref bb0c26749475bd5beb9fa41dead0038479214f34
-Pull Request https://github.com/gmacario/environment-howlernoon-production/pull/1 is merged at sha f563eda7a8566bf28923d0a87cd2c33b1f144f4d
-Merge commit has not yet any statuses on repo gmacario/environment-howlernoon-production merge sha f563eda7a8566bf28923d0a87cd2c33b1f144f4d
-merge status: pending for URL https://api.github.com/repos/gmacario/environment-howlernoon-production/statuses/f563eda7a8566bf28923d0a87cd2c33b1f144f4d with target: http://jenkins.jx.35.195.140.178.nip.io/job/gmacario/job/environment-howlernoon-production/job/master/2/display/redirect description: This commit is being built
-merge status: success for URL https://api.github.com/repos/gmacario/environment-howlernoon-production/statuses/f563eda7a8566bf28923d0a87cd2c33b1f144f4d with target: http://jenkins.jx.35.195.140.178.nip.io/job/gmacario/job/environment-howlernoon-production/job/master/2/display/redirect description: This commit looks good
+Failed to query the Pull Request last commit status for https://github.com/gmacario/environment-howlernoon-production/pull/2 ref 27758a287b0b389a43477f099d8d8d23a6f32e52 Could not find a status for repository gmacario/environment-howlernoon-production with ref 27758a287b0b389a43477f099d8d8d23a6f32e52
+Failed to query the Pull Request last commit status for https://github.com/gmacario/environment-howlernoon-production/pull/2 ref 27758a287b0b389a43477f099d8d8d23a6f32e52 Could not find a status for repository gmacario/environment-howlernoon-production with ref 27758a287b0b389a43477f099d8d8d23a6f32e52
+Pull Request https://github.com/gmacario/environment-howlernoon-production/pull/2 is merged at sha 9d64dad34d425d90b846b3bfdcf5904f9ed017cd
+Merge commit has not yet any statuses on repo gmacario/environment-howlernoon-production merge sha 9d64dad34d425d90b846b3bfdcf5904f9ed017cd
+merge status: pending for URL https://api.github.com/repos/gmacario/environment-howlernoon-production/statuses/9d64dad34d425d90b846b3bfdcf5904f9ed017cd with target: http://jenkins.jx.35.195.140.178.nip.io/job/gmacario/job/environment-howlernoon-production/job/master/3/display/redirect description: This commit is being built
+merge status: success for URL https://api.github.com/repos/gmacario/environment-howlernoon-production/statuses/9d64dad34d425d90b846b3bfdcf5904f9ed017cd with target: http://jenkins.jx.35.195.140.178.nip.io/job/gmacario/job/environment-howlernoon-production/job/master/3/display/redirect description: This commit looks good
 Merge status checks all passed so the promotion worked!
-No version name so cannot comment on issues that they are now in Production
+? Do you wish to use gmacario as the user name to comment on issues Yes
+Commenting that issue https://github.com/gmacario/node-http-hmi-repository/issues/1 is now in Production
 gmacario@cloudshell:~/node-http-hmi-repository (kubernetes-workshop-218213)$
 ```
 
-You may follow the progress of the PR at <https://github.com/gmacario/environment-howlernoon-production/pull/1>
+You may follow the progress of the PR at <https://github.com/gmacario/environment-howlernoon-production/pull/2>
+
+Verify that release 0.0.3 of `node-http-hmi-repository` has been deployed in production:
+
+```
+gmacario@cloudshell:~/node-http-hmi-repository (kubernetes-workshop-218213)$ jx get apps -e production
+APPLICATION              PRODUCTION PODS URL
+node-http-hmi-repository 0.0.3      1/1  http://node-http-hmi-repository.jx-production.35.195.140.178.nip.io
+gmacario@cloudshell:~/node-http-hmi-repository (kubernetes-workshop-218213)$
+```
 
 Browse the production environment of "node-http-hmi-repository" at
 <http://node-http-hmi-repository.jx-production.35.195.140.178.nip.io/>
 
-**TODO**: Returns "default backend - 404"
 
-TODO
+### Things which do not yet work as expected
+
+<!-- FIXME: Browsing theia URL returns "403 Service Unavailable" -->
 
 #### Browse Monocular instance
 
@@ -729,9 +730,11 @@ TODO
 TODO TODO
 -->
 
-### See also
+### Summary
 
-This article explained how to perform CI/CD of a Node.JS web application on a Kubernetes cluster using Jenkins X. The jx tool seems still rough in the edges, but it looks quite promising.
+This article explained how to perform CI/CD of a Node.JS web application on a Kubernetes cluster using Jenkins X.
+
+Jenkins X is quite recent and therefore presents a few rough edges as the list of [issues on GitHub](https://github.com/jenkins-x/jx/issues) can testify, however it shows great potential to represent a very helpful tool for making the journey of application developers to Kubernetes smoother.
 
 ### See also
 
