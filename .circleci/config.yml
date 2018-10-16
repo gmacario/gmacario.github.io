@@ -9,7 +9,15 @@ jobs:
             - image: circleci/ruby:2.6-rc-stretch-browsers
     steps:
       - checkout
-      - run: echo "A first hello"
-    # TODO
+      - run: echo "Check dependencies"
+      - run: cat /etc/os-release
+      - run: ruby --version
+      - run: gem --version
+      - run: bundle install
+      - run: ls -la
+      - run: echo "Build pages"
+      - run: bundle exec jekyll build
+      - run: echo "Check pages"
+      - run: ls -la _site/index.html
 
 # EOF
