@@ -6,7 +6,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:4.0.2
+            - image: circleci/ruby:2.6-rc-stretch-browsers
     steps:
       - checkout
       - run: echo "A first hello"
