@@ -6,7 +6,7 @@ version: 2
 jobs:
   build:
     docker:
-            - image: circleci/ruby:2.6-rc-stretch-browsers
+      - image: circleci/ruby:2.6-rc-stretch-browsers
     steps:
       - checkout
       - run: echo "Check dependencies"
