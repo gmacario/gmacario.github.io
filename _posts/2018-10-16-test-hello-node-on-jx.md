@@ -307,7 +307,7 @@ You should find three pipelines:
 * gmacario/environment-howlernoon-staging
 * gmacario/node-http-hmi-repository
 
-#### Run `jx build logs`
+#### Run `jx get build logs`
 
 <!-- 2018-10-15 16:23 CEST -->
 
@@ -359,17 +359,14 @@ Alternatively:
 
 Browse GCP Console > Kubernetes Engine > Services
 
-In tab "Kubernetes service", filter by "Service Type: Ingress"
-
-Browse application source code at
-<https://github.com/gmacario/node-http-hmi-repository>
+In tab "Kubernetes services", filter by "Service Type: Ingress"
 
 Browse the staging environment of "node-http-hmi-repository" at
 <http://node-http-hmi-repository.jx-staging.35.195.140.178.nip.io/>
 
 #### Preview the production environment
 
-For the time being no applications are deployed to the production environment:
+For the time being no applications have been deployed to the production environment:
 
 ```
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$ jx open --env production
@@ -418,8 +415,9 @@ git commit -a -m "index.html: Update text - fixes #1"
 git push -u origin feature/update-index
 ```
 
-Now if we have installed the "hub" tool, we can create a Pull Request
-directly from the Command Line. Otherwise do it from GitHub web interface.
+Now if we installed the "[hub](https://hub.github.com/)" tool,
+we could create a Pull Request directly from the Command Line.
+Otherwise we can just do it from the GitHub web interface.
 
 #### Create a Pull Request to node-http-hmi-repository
 
@@ -632,12 +630,13 @@ INFO[0003] syncthing listening                           port=8384 syncthing=loc
 
 <!-- FIXME: Browsing theia URL returns "403 Service Unavailable" -->
 
+### Things which do not yet work as expected
 
 #### Promote to production
 
-<!-- 2018-10-15 16:33 CEST -->
+<!-- 2018-10-16 10:17 CEST -->
 
-The promotion to the production environment should be performed by an user with the proper permissions to push to <TODO>:
+The promotion to the production environment should be performed by an user with the proper permissions to create and merge Pull Request to repository <https://github.com/gmacario/environment-howlernoon-production>
 
 ```shell
 cd ~/node-http-hmi-repository
@@ -654,34 +653,45 @@ Your branch is up-to-date with 'origin/master'.
 nothing to commit, working tree clean
 gmacario@cloudshell:~/node-http-hmi-repository (kubernetes-workshop-218213)$ jx promote --env production
 Using helmBinary helm with feature flag: none
-error: Unauthorized
+Promoting latest version of app node-http-hmi-repository to namespace jx-production
+pipeline gmacario/node-http-hmi-repository/master
+Username for 'https://github.com': gmacario
+Password for 'https://gmacario@github.com':
+? Do you wish to use gmacario as the user name to submit the Pull Request Yes
+Created Pull Request: https://github.com/gmacario/environment-howlernoon-production/pull/1
+
+pipeline gmacario/node-http-hmi-repository/master
+Failed to query the Pull Request last commit status for https://github.com/gmacario/environment-howlernoon-production/pull/1 ref bb0c26749475bd5beb9fa41dead0038479214f34 Could not find a status for repository gmacario/environment-howlernoon-production with ref bb0c26749475bd5beb9fa41dead0038479214f34
+Failed to query the Pull Request last commit status for https://github.com/gmacario/environment-howlernoon-production/pull/1 ref bb0c26749475bd5beb9fa41dead0038479214f34 Could not find a status for repository gmacario/environment-howlernoon-production with ref bb0c26749475bd5beb9fa41dead0038479214f34
+Failed to query the Pull Request last commit status for https://github.com/gmacario/environment-howlernoon-production/pull/1 ref bb0c26749475bd5beb9fa41dead0038479214f34 Could not find a status for repository gmacario/environment-howlernoon-production with ref bb0c26749475bd5beb9fa41dead0038479214f34
+Pull Request https://github.com/gmacario/environment-howlernoon-production/pull/1 is merged at sha f563eda7a8566bf28923d0a87cd2c33b1f144f4d
+Merge commit has not yet any statuses on repo gmacario/environment-howlernoon-production merge sha f563eda7a8566bf28923d0a87cd2c33b1f144f4d
+merge status: pending for URL https://api.github.com/repos/gmacario/environment-howlernoon-production/statuses/f563eda7a8566bf28923d0a87cd2c33b1f144f4d with target: http://jenkins.jx.35.195.140.178.nip.io/job/gmacario/job/environment-howlernoon-production/job/master/2/display/redirect description: This commit is being built
+merge status: success for URL https://api.github.com/repos/gmacario/environment-howlernoon-production/statuses/f563eda7a8566bf28923d0a87cd2c33b1f144f4d with target: http://jenkins.jx.35.195.140.178.nip.io/job/gmacario/job/environment-howlernoon-production/job/master/2/display/redirect description: This commit looks good
+Merge status checks all passed so the promotion worked!
+No version name so cannot comment on issues that they are now in Production
 gmacario@cloudshell:~/node-http-hmi-repository (kubernetes-workshop-218213)$
 ```
 
-Browse <https://github.com/gmacario/environment-craftersaber-production/pull/2> and click "Merge".
+You may follow the progress of the PR at <https://github.com/gmacario/environment-howlernoon-production/pull/1>
 
 Browse the production environment of "node-http-hmi-repository" at
-<http://node-http-hmi-repository.jx-production.35.195.52.165.nip.io/>
+<http://node-http-hmi-repository.jx-production.35.195.140.178.nip.io/>
 
-**FIXME**: <http://node-http-hmi-repository.jx-production.35.195.52.165.nip.io/> returns "default backend - 404"
-
-**ALTERNATIVELY**: Manually edit <https://github.com/gmacario/environment-howlernoon-production/blob/master/env/requirements.yaml> and add the following lines:
-
-```yaml
-- name: node-http-hmi-repository
-  repository: http://jenkins-x-chartmuseum:8080
-  version: 0.0.3
-```
-
-Commit to a new branch `promote-node-http-hmi-repository-0.0.3` with the following commit log:
-
-```
-node-http-hmi-repository to 0.0.3
-```
-
-Then create a new Pull Request
+**TODO**: Returns "default backend - 404"
 
 TODO
+
+#### Browse Monocular instance
+
+```shell
+jx open
+```
+
+Browse <http://monocular.jx.35.195.140.178.nip.io/>
+
+The page seems to hang after displaying title.
+Maybe is this due to [jx issues/1417](https://github.com/jenkins-x/jx/issues/1417)?
 
 <!--
 TODO TODO TODO
@@ -702,16 +712,6 @@ TODO
 -->
 
 <!--
-### Inspect Monocular instance
-
-jx open
-
-Browse <http://monocular.jx.35.241.213.226.nip.io/>
-
-TODO: Page hangs after displaying title
--->
-
-<!--
 #### Run `TODO`
 
 Command
@@ -728,6 +728,10 @@ TODO
 
 TODO TODO
 -->
+
+### See also
+
+This article explained how to perform CI/CD of a Node.JS web application on a Kubernetes cluster using Jenkins X. The jx tool seems still rough in the edges, but it looks quite promising.
 
 ### See also
 
