@@ -1,0 +1,15 @@
+# Project: gmacario/gmacario.github.io
+# File: .circleci/config.yml
+# vim: tabstop=2 shiftwidth=2 expanttab
+
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:4.0.2
+    steps:
+      - checkout
+      - run: echo "A first hello"
+    # TODO
+
+# EOF
