@@ -396,11 +396,11 @@ So the `wordpress` service will be publicly available as <http://35.205.34.119:8
 
 After finding out the IP address of your blog, point your browser to this IP address and you will see the WordPress installation screen as follows:
 
-TODO: wordpress-01 <!-- ![wordpress-01](img/2018-10-16-wordpress-01.png "Wordpress-01") -->
+![wordpress-01](/images/2018-10-16-wordpress-01.png "Wordpress-01")
 
 Select "English (United States)", then click "Continue".
 
-TODO: wordpress-02 <!-- ![wordpress-02](img/2018-10-16-wordpress-02.png "Wordpress-02") -->
+![wordpress-02](/images/2018-10-16-wordpress-02.png "Wordpress-02")
 
 Fill in the needed information:
 
@@ -412,12 +412,12 @@ Fill in the needed information:
 
 then click "Install WordPress"
 
-TODO: wordpress-03 <!-- ![wordpress-03](img/2018-10-16-wordpress-03.png "Wordpress-03") -->
+![wordpress-03](/images/2018-10-16-wordpress-03.png "Wordpress-03")
 
 After the initial configuration of wordpress is complete, the following page will be displayed when browsing
 <http://35.205.34.119/>:
 
-TODO: wordpress-04 <!-- ![wordpress-04](img/2018-10-16-wordpress-04.png "Wordpress-03") -->
+![wordpress-04](/images/2018-10-16-wordpress-04.png "Wordpress-04")
 
 ### Step 6 (Optional) Test data persistence on failure
 
