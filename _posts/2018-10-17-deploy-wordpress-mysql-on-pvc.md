@@ -410,7 +410,7 @@ Select "English (United States)", then click "Continue".
 
 Fill in the needed information:
 
-* Site Title: TODO (example: "My Wonderful Wordpress site")
+* Site Title: TODO (example: "My Wonderful WordPress site")
 * Username: TODO (example: "admin")
 * Password: TODO (example: "mypass")
 * Your Email: TODO (example: "myuser@example.com")
@@ -420,29 +420,102 @@ then click "Install WordPress"
 
 ![wordpress-03](/images/2018-10-16-wordpress-03.png "Wordpress-03")
 
-After the initial configuration of wordpress is complete, the following page will be displayed when browsing
+After the initial configuration of WordPress is complete, the following page will be displayed when browsing
 <http://35.205.34.119/>:
 
 ![wordpress-04](/images/2018-10-16-wordpress-04.png "Wordpress-04")
 
 ### Step 6 (Optional) Test data persistence on failure
 
-TODO
+<!-- 2018-10-17 10:43 CEST -->
+
+With PersistentVolumes, your data lives outside the application container.r
+When your container becomes unavailable and gets rescheduled onto another compute
+instance by Kubernetes, GKE will make the PersistentVolume available
+on the instance that started running the Pod.
+
+Logged as gmacario@cloudshell, watch the running pods
+
+```shell
+kubectl get pods -o wide -w
+```
+
+Result:
+
+```
+gmacario@cloudshell:~ (kubernetes-workshop-218213)$ kubectl get pods -o wide -w
+NAME                         READY     STATUS    RESTARTS   AGE       IP           NODE
+mysql-d55697945-h7thb        1/1       Running   0          18h       10.32.2.15   gke-howlernoon-default-pool-844aa4f7-5n4j
+wordpress-7dd5cbc5d5-tr9ht   1/1       Running   0          18h       10.32.2.16   gke-howlernoon-default-pool-844aa4f7-5n4j
+```
+
+If from another terminal we now delete the mysql pod:
+
+```shell
+kubectl delete pod -l app=mysql
+```
+
+We should observe that the Deployment controller will create the pod again.
+
+```
+gmacario@cloudshell:~ (kubernetes-workshop-218213)$ kubectl get pods -o wide
+NAME                         READY     STATUS    RESTARTS   AGE       IP           NODE
+mysql-d55697945-f5lss        1/1       Running   0          58m       10.32.2.17   gke-howlernoon-default-pool-844aa4f7-5n4j
+wordpress-7dd5cbc5d5-tr9ht   1/1       Running   0          19h       10.32.2.16   gke-howlernoon-default-pool-844aa4f7-5n4j
+gmacario@cloudshell:~ (kubernetes-workshop-218213)$
+```
 
 ### Step 7: Updating application images
 
-TODO
+The following commands will update the WordPress container image:
+
+```shell
+cd ~/github/GoogleCloudPlatform/kubernetes-engine-samples
+cd wordpress-persistent-disks
+vi wordpress.yaml # Update the image: value
+kubectl apply -f wordpress.yaml
+```
+
+The Deployment controller will cause a new Pod to be created, while the old one will be terminated.
 
 ### Cleaning up
 
-Logged as gmacario@cloudshell
+Logged as gmacario@cloudshell, delete the `wordpress` and `mysql` services:
 
 ```shell
-TODO
+kubectl delete service wordpress
+kubectl delete service mysql
 ```
 
-### What's next
+Wait for the Load Balancer provisioned for the `wordpress` service to be deleted:
 
-TODO
+```shell
+gcloud compute forwarding-rules list
+```
+
+Delete the deployments for MySQL and WordPress:
+
+```shell
+kubectl delete deployment wordpress
+kubectl delete deployment mysql
+```
+
+Delete the PersistentVolumeClaims for MySQL and WordPress:
+
+```shell
+kubectl delete pvc wordpress-volumeclaim
+kubectl delete pvc mysql-volumeclaim
+```
+
+In case you do not need the container cluster any longer,
+type the following command to delete it:
+
+```shell
+gcloud container clusters delete xxx
+```
+
+### Summary
+
+This article explained how to deploy WordPress with a MySQL backend on a Kubernetes cluster on GCP.
 
 <!-- EOF -->
