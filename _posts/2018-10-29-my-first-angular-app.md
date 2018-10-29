@@ -10,21 +10,19 @@ categories: howto angularjs nodejs
 
 ### Introduction
 
-This article walks you through installing and creating your first Angular.js application.
+This article explains how to install and create a simple [Angular.js](https://angular.io/) application.
 
-I tested the commands on my laptop "HW2457" running MS Windows 7 64-bit and Cygwin64.
+The following instructions have been tested on my laptop "HW2457" running [MS Windows 7 64-bit](https://en.wikipedia.org/wiki/Windows_7) and [Cygwin 64-bit](https://cygwin.com/index.html), and have also been reproduced on hosts running [Ubuntu 18.04.1 LTS 64-bit](https://www.ubuntu.com/).
 
-## Installing Angular on HW2457
-
-<!-- 2018-10-29 09:41 CET -->
-
-Logged as `gpmacario@hw2457`, start a Cygwin bash shell
+## Installing Angular on your laptop
 
 ### Step 0: Prerequisites
 
-Install Node.js and npm following the instructions at <https://nodejs.org/>
+Follow the instructions at <https://nodejs.org/> to install  [Node.js](https://nodejs.org/) as well as the [npm](https://www.npmjs.com/) command.
 
-Check installed versions of Node.js and npm:
+<!-- 2018-10-29 09:41 CET -->
+
+Logged as `gpmacario@hw2457`, start a Cygwin bash shell and verify that the `node` and `npm` commands have been installed correctly:
 
 ```
 gpmacario@HW2457:~ $ node --version
@@ -34,14 +32,17 @@ gpmacario@HW2457:~ $ npm --version
 gpmacario@HW2457:~ $
 ```
 
-
 ### Step 1: Install the Angular CLI
+
+Use the `npm` command to install the Angular Command Line Interface:
 
 ```shell
 npm install -g @angular/cli
 ```
 
-Result:
+Notice that the `-g` option installs the command globally. You might need to prepend the above command with `sudo` for the command to complete with success.
+
+If everything is OK you should get a similar result:
 
 ```
 gpmacario@HW2457:~ $ npm install -g @angular/cli
@@ -54,11 +55,23 @@ added 268 packages from 205 contributors in 38.154s
 gpmacario@HW2457:~ $
 ```
 
+Type `ng version` to verify that the Angular CLI has been installed correctly:
+
+```
+TODO
+```
+
+If you type `ng` with no options you will get a short command line help:
+
+```
+TODO
+```
+
 ### Step 2: Create a workspace and initial application
 
+Type the `ng new <appname>` command to create a new workspace and the initial Angular.js application:
+
 ```shell
-mkdir -p ~/github/gmacario
-cd ~/github/gmacario
 ng new my-first-angular-app
 ```
 
@@ -145,7 +158,9 @@ drwxr-xr-x+ 1 gpmacario AROL+Group(513)      0 29 ott 09.46 src
 gpmacario@HW2457:~/github/gmacario/my-first-angular-app (master)$
 ```
 
-Login to <https://github.com/gmacario> and create a new repository
+This is the right time to backup your local git repository to a remote server - in my case, I used [GitHub](https://github.com).
+
+Login to <https://github.com> and create a new repository under your user profile - for instance I did the following:
 
 * Owner: `gmacario`
 * Repository name: `my-first-angular-app`
@@ -153,9 +168,8 @@ Login to <https://github.com/gmacario> and create a new repository
 * Visibility: Public
 * Initialize this repository with a README: No
 
-then click "Create repository"
-
-Add remote, then push repository to GitHub
+then click "Create repository".
+If everything is OK, GitHub will show the next steps to publish the project. In my case:
 
 ```shell
 cd ~/github/gmacario/my-first-angular-app
@@ -163,9 +177,16 @@ git remote add origin git@github.com:gmacario/my-first-angular-app.git
 git push -u origin master
 ```
 
+If you now browse <https://github.com/gmacario/my-first-angular-app> you will find your project files
+
+![github-01](/assets/imgs/2018-10-27-my-first-angular-app/github-01.png "GitHub-01")
+
+
 ### Step 3: Serve the application
 
 <!-- 2018-10-29 09:53 CET -->
+
+The following command will build the Angular project and preview the result on your default browser:
 
 ```shell
 cd ~/github/gmacario/my-first-angular-app
@@ -189,6 +210,12 @@ chunk {vendor} vendor.js, vendor.js.map (vendor) 3.46 MB [initial] [rendered]
 i ｢wdm｣: Compiled successfully.
 ```
 
-Your default browser will also display page <http://localhost:4200/>
+Your default browser will then open the page <http://localhost:4200/>
+
+![angular-01](/assets/imgs/2018-10-27-my-first-angular-app/angular-01.png "Angular-01")
+
+As soon as you edit one of the project files and save it to the local filesystem, your browser will display the updated page. For instance, open 
+
+TODO
 
 <!-- EOF -->
