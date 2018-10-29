@@ -2,7 +2,7 @@
 layout: post
 title:  "Installing OpenWrt on Kingston MLWG2"
 date:   2015-11-29 08:30:00 CET
-categories: howto install openwrt mlwg2
+tags:   howto install openwrt mlwg2
 ---
 
 ### Introduction

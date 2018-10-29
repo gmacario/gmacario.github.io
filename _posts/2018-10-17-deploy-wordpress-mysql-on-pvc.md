@@ -1,8 +1,8 @@
 ---
 
 layout: post
-title: "Deploying WordPress and MySQL with Persistent Volumes on GKE"
-categories: howto kubernetes gcp wordpress mysql
+title:  "Deploying WordPress and MySQL with Persistent Volumes on GKE"
+tags:   howto kubernetes gcp wordpress mysql
 
 ---
 

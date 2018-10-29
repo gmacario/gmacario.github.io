@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Notes from CyanogenMod Workshop at IT Droidcon 2015"
-categories: android howto
+tags:   android howto
 ---
 
 Here are a few notes which I took when attending the [Cyanogen Workshop](http://it.droidcon.com/2015/sessions/cyanogen-workshop/) during the [IT Droidcon 2015](http://it.droidcon.com/2015/) which took place in Torino on 2015-04-10.

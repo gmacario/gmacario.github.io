@@ -2,7 +2,7 @@
 layout: post
 title:  "Connecting to UDOO Neo serial console"
 date:   2015-11-08 19:00:00
-categories: howto udoo neo embedded software development
+tags:   howto udoo neo embedded software development
 ---
 
 ### Introduction
@@ -55,7 +55,7 @@ Connect the TTL-level pins of the USB-to-TTL serial cable to your UDOO Neo as fo
   * I.e. on MS Windows: Start > Computer > Properties > Device Manager then look under "Ports (COM & LPT)"
 * Start the terminal emulator on your laptop (parameters: COMxx:115200,8,n,1)
   * For convenience you may create a logfile of the data exchanged on the serial console
-* Power-up the board by plugging the Micro-USB cable of the battery pack into the Micro-USB connector of your UDOO Neo 
+* Power-up the board by plugging the Micro-USB cable of the battery pack into the Micro-USB connector of your UDOO Neo
 * Watch the U-Boot and kernel boot messages on the serial console
 
 Sample logfile: [20151107-1106-udoobuntu2_beta3-udooneo.txt](/images/20151107-1106-udoobuntu2_beta3-udooneo.txt)

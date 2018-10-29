@@ -2,7 +2,7 @@
 layout: post
 title:  "Syncing minikube configuration with Cygwin"
 date:   2018-09-28 07:30:00
-categories: howto kubernetes minikube windows cygwin
+tags:   howto kubernetes minikube windows cygwin
 ---
 
 ### The Problem

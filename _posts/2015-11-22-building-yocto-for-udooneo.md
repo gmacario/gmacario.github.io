@@ -2,7 +2,7 @@
 layout: post
 title:  "Building a Yocto image for the UDOO Neo"
 date:   2015-11-22 22:00:00
-categories: howto udoo imx6x yocto build embedded
+tags:   howto udoo imx6x yocto build embedded
 ---
 
 ### Introduction

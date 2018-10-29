@@ -2,7 +2,7 @@
 layout: post
 title:  "Installing GENIVI DLT Viewer on Windows"
 date:   2016-01-08 14:00:00 CET
-categories: howto install genivi dlt qt5
+tags:   howto install genivi dlt qt5
 ---
 
 This blog post explains how I installed the [GENIVI DLT](http://projects.genivi.org/diagnostic-log-trace) (Diagnostics Log and Trace) Viewer on my laptop running MS Windows 7.

@@ -2,7 +2,7 @@
 layout: post
 title:  "Building the GENIVI Demo Platform using the easy-build tools"
 date:   2015-04-23 14:00:00
-categories: howto genivi yocto development
+tags:   howto genivi yocto development
 ---
 
 This blog post explains the steps I tried to rebuild the [GENIVI Demo Platform](http://wiki.projects.genivi.org/index.php/GENIVI_Demo_Platform) using the [easy-build](https://github.com/gmacario/easy-build) tools.

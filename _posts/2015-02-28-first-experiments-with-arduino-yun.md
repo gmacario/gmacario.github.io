@@ -2,7 +2,7 @@
 layout: post
 title:  "My first experiments with the Arduino YUN"
 date:   2015-02-28 14:00:00 CET
-categories: arduino fablab torino yun
+tags:   arduino fablab torino yun
 ---
 
 Please refer to <https://github.com/gmacario/learning-arduino>

@@ -3,7 +3,7 @@
 layout: post
 title:  "Deploying a Node.JS application on Kubernetes using Jenkins X"
 # date:   2018-10-12 12:00:00 CEST
-categories: howto kubernetes gcp jenkins nodejs
+tags:   howto kubernetes gcp jenkins nodejs
 
 ---
 
@@ -352,7 +352,7 @@ node-http-hmi-repository http://node-http-hmi-repository.jx-staging.35.195.140.1
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 ```
 
-then browse the URL corresponding to service `node-http-hmi-repository` - 
+then browse the URL corresponding to service `node-http-hmi-repository` -
 in our case, <http://node-http-hmi-repository.jx-staging.35.195.140.178.nip.io>
 
 Alternatively:

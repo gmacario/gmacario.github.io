@@ -2,7 +2,7 @@
 layout: post
 title:  "Preparing my Arduino YUN for the Arduino Day"
 date:   2015-03-26 14:00:00 CET
-categories: arduino yun day fablab torino
+tags:   arduino yun day fablab torino
 ---
 
 Hi there!

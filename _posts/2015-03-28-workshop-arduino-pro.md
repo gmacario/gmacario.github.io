@@ -2,7 +2,7 @@
 layout: post
 title:  "Notes from the Arduino Day 2015 c/o Officine Arduino Torino"
 date:   2015-03-28 14:00:00 CET
-categories: arduino day fablab torino
+tags:   arduino day fablab torino
 ---
 
 The [Arduino Day 2015](https://day.arduino.cc/) in Torino took place at [Toolbox Coworking](http://www.toolboxoffice.it/), home of [FabLab Torino](http://fablabtorino.org/) and [Officine Arduino](http://local.arduino.cc/torino/).
