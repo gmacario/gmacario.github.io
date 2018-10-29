@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Continuous Delivery of embedded firmware using Docker and Jenkins"
-date: 2016-04-01 19:00:00 CEST
-categories: slides docker jenkins torinotech
+title:  "Continuous Delivery of embedded firmware using Docker and Jenkins"
+date:   2016-04-01 19:00:00 CEST
+tags:   slides docker jenkins torinotech
 ---
 
 Here is the presentation "Continuous Delivery of embedded firmware using Docker and Jenkins" I gave at [Torino TechNight](https://www.eventbrite.com/e/biglietti-torinotech-technight-01apr2016-incontro-su-tecnologie-open-source-21425767046) on 2016-04-01.

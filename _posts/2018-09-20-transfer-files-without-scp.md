@@ -2,7 +2,7 @@
 layout: post
 title:  "Transferring files to an embedded target without scp"
 date:   2018-09-20 17:30:00
-categories: howto embedded file development
+tags:   howto embedded file development
 ---
 
 If you have a tiny embedded system which does not include the `scp` tool, you may use the `nc` tool and achieve the same results.

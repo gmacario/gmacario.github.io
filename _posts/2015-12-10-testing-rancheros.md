@@ -2,7 +2,7 @@
 layout: post
 title:  "Testing Rancher OS"
 date:   2015-12-10 19:00:00 CET
-categories: howto rancheros linux containers docker
+tags:   howto rancheros linux containers docker
 ---
 
 ### Introduction

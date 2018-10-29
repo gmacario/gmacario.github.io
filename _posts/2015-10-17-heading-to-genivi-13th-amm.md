@@ -2,7 +2,7 @@
 layout: post
 title:  "Heading to the GENIVI 13th AMM in Seoul"
 date:   2015-10-17 10:40:00
-categories: genivi amm
+tags:   genivi amm
 ---
 
 Hello,

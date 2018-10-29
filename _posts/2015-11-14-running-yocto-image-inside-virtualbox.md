@@ -2,7 +2,7 @@
 layout: post
 title:  "Running a Yocto image inside VirtualBox"
 date:   2015-11-14 09:00:00 CET
-categories: howto gdp genivi yocto virtualbox embedded ivi
+tags:   howto gdp genivi yocto virtualbox embedded ivi
 ---
 
 I managed to have a Yocto image boot inside [Oracle VirtualBox](http://www.virtualbox.org/) by performing the following steps.

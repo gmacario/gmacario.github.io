@@ -2,7 +2,7 @@
 layout: post
 title:  "Trying Genymotion Android Emulator"
 date:   2015-04-19 09:50:00
-categories: android howto development
+tags:   android howto development
 ---
 
 This blog post explains how I installed the [Genymotion Android Emulator](https://www.genymotion.com/) on my laptop running MS Windows 7.

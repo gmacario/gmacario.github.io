@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Gianpaolo talk at jsNight, 2016-06-08"
-date: 2016-06-08 19:00:00 CEST
-categories: slides jsnight udooneo embedded
+title:  "Gianpaolo talk at jsNight, 2016-06-08"
+date:   2016-06-08 19:00:00 CEST
+tags:   slides jsnight udooneo embedded
 ---
 
 From <http://www.treatabit.com/article/torinojs-jsnight-1>

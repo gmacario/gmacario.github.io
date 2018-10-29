@@ -2,7 +2,7 @@
 layout: post
 title:  "Trying Android Studio on itm-gmacario-w7"
 date:   2015-04-18 17:30:00
-categories: android howto development
+tags:   android howto development
 ---
 
 This blog post explains how I installed [Android Studio](http://developer.android.com/tools/studio/index.html) on my laptop running MS Windows 7.

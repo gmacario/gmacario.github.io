@@ -2,7 +2,7 @@
 layout: post
 title:  "Installing Terminator on Ubuntu 14.04"
 date:   2015-11-15 10:30:00 CET
-categories: howto install ubuntu terminal
+tags:   howto install ubuntu terminal
 ---
 
 If you are one (like myself) who

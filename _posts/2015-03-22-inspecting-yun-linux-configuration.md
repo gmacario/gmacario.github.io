@@ -2,7 +2,7 @@
 layout: post
 title:  "Inspecting the Linux configuration of my Arduino YUN"
 date:   2015-03-22 14:00:00 CET
-categories: arduino yun fablab torino
+tags:   arduino yun fablab torino
 ---
 
 Let us get familiar with my brand new [Arduino Yun](http://arduino.cc/en/Main/ArduinoBoardYun), focusing on the Linux side of it.

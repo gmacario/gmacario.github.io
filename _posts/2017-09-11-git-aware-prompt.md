@@ -2,6 +2,7 @@
 layout: post
 title:  "Git Aware Prompt"
 date:   2017-09-11 18:00:00 CEST
+tags:   git github
 ---
 
 As a developer I use Git everyday for managing source code, documentation, etc.
