@@ -1,8 +1,8 @@
 ---
 
 layout: post
-title:  "Writing my first Angular.js application"
-tags:   howto angularjs nodejs
+title: "Writing my first Angular.js application"
+tags: 	howto angularjs nodejs
 
 ---
 
@@ -214,8 +214,16 @@ Your default browser will then open the page <http://localhost:4200/>
 
 ![angular-01](/assets/imgs/2018-10-27-my-first-angular-app/angular-01.png "Angular-01")
 
-As soon as you edit one of the project files and save it to the local filesystem, your browser will display the updated page. For instance, open
+As soon as you edit one of the project files and save it to the local filesystem, your browser will display the updated page.
 
-TODO
+For instance, if you modify file `src/app/app.component.html` replacing "Here are some links to help you start:" with "Please check this:", as soon as you save the file, your browser will reload the page and display the changed text:
+
+![angular-02](/assets/imgs/2018-10-27-my-first-angular-app/angular-02.png "Angular-02")
+
+### What next?
+
+This concludes the installation of Angular.js on your laptop.
+
+To learn about the features of the Angular.js framework, you may watch the 33 screencasts of the "Build your first Angular app" course which is freely available at <https://scrimba.com/g/gyourfirstangularapp>.
 
 <!-- EOF -->
