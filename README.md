@@ -31,6 +31,6 @@ Browse <http://localhost:4000>
 
 ### Copyright
 
-Copyright 2006-2021 [Gianpaolo Macario](http://gmacario.github.io/).
+Copyright 2006-2021 [Gianpaolo Macario](https://gmacario.github.io/).
 
 <!-- EOF -->
