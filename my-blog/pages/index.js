@@ -7,7 +7,7 @@ import {getAllPosts, getConfig, getPostBySlug} from '@api'
 export default function Blog(props) {
     return (
         // Use the DefaultLayout for the homepage
-        // Execute the function below for each postof the posts array 
+        // Execute the function below for each post of the posts array 
         <DefaultLayout title={props.title} description={props.description}>
             <p>Posts:</p>
             <ul>
