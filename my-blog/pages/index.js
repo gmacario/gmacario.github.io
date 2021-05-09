@@ -1,21 +1,40 @@
 // pages/index.js
 
+import DefaultLayout from '@layouts/default';
+import Link from 'next/link';
 import {getAllPosts, getPostBySlug} from '@api'
 
-export default function Blog() {
-    // Testing api functions
-    const posts = getAllPosts()
-    .then( (res) => {
-            for(const p in res){
-                console.log(res[p])
-                console.log(getPostBySlug(res[p].slug))
-            }
-        }
-    );
-
-
-    
+export default function Blog(props) {
     return (
-        <div>Hello world!</div>
+        // Use the DefaultLayout for the homepage
+        // Execute the function below for each postof the posts array 
+        <DefaultLayout title={props.title} description={props.description}>
+            <p>Posts:</p>
+            <ul>
+                {props.posts.map(
+                    function(post, idx) {
+                        return(
+                            <li key={idx}>
+                                <Link href={'/posts/'+post.slug}>
+                                    <a>{post.title}</a>
+                                </Link>
+                            </li>
+                        )
+                    }
+                )}
+            </ul>
+        </DefaultLayout>
     )
+}
+
+// This is called at build time and passes props to the default component (Blog)
+export async function getStaticProps() {
+    const allPosts = await getAllPosts()
+    return {
+        props: {
+            posts: allPosts,
+            title: 'Blog title',
+            description: 'description'
+        }
+    }
 }
