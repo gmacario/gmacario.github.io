@@ -13,9 +13,8 @@ export default function PostLayout(props) {
             </Head>
             <article>
                 <h1>{props.title}</h1>
-                <div dangerouslySetInnerHTML={{__html:props.content}}/>
-                <div><Link href='/'><a>Home</a></Link></div>
+                <div className="prose prose-indigo hover:prose-black md:prose-lg lg:prose-xl" dangerouslySetInnerHTML={{__html:props.content}}/>
             </article>
         </DefaultLayout>
     )
-}
+}         
