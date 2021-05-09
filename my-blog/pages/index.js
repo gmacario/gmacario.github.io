@@ -1,10 +1,20 @@
 // pages/index.js
 
-import {getAllPosts} from 'api/index'
+import {getAllPosts, getPostBySlug} from '@api'
 
 export default function Blog() {
-    const posts = getAllPosts();
-    console.log(posts)
+    // Testing api functions
+    const posts = getAllPosts()
+    .then( (res) => {
+            for(const p in res){
+                console.log(res[p])
+                console.log(getPostBySlug(res[p].slug))
+            }
+        }
+    );
+
+
+    
     return (
         <div>Hello world!</div>
     )
