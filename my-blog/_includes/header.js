@@ -8,7 +8,7 @@ export default function Header() {
                 Gianpaolo Macario's blog
             </div>
             <div className="justify-end">
-                <div className="mr-6 inline-block rounded h-full text-indigo-500 hover:text-indigo-800">
+                <div className="mr-6 py-2 px-4 inline-block rounded h-full text-indigo-500 hover:text-white hover:bg-indigo-500">
                     <Link href="/">
                         <a>
                             Home
