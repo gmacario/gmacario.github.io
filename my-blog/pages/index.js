@@ -5,10 +5,11 @@ import Link from 'next/link';
 import {getAllPosts, getConfig, getPostBySlug} from '@api'
 
 export default function Blog(props) {
+    console.log(props)
     return (
         // Use the DefaultLayout for the homepage
         // Execute the function below for each post of the posts array 
-        <DefaultLayout title={props.title} description={props.description}>
+        <DefaultLayout title={props.title} description={props.description} social={props.social}> 
             <p>Posts:</p>
             <ul>
                 {props.posts.map(
@@ -36,7 +37,8 @@ export async function getStaticProps() {
         props: {
             posts: allPosts,
             title: config.title,
-            description: config.description
+            description: config.description,
+            social: config.social
         }
     }
 }

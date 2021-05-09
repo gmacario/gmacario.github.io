@@ -15,7 +15,7 @@ export default function DefaultLayout(props) {
             <div className="pt-28 mx-auto w-9/12 break-all prose prose-indigo hover:prose-black md:prose-lg lg:prose-xl">
                 {props.children}
             </div>
-            <Footer/>
+            <Footer title={props.title} description={props.description} social={props.social}/>
         </main>
     )
 }
