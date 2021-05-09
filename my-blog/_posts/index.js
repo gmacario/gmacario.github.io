@@ -3,8 +3,7 @@
 import {getAllPosts} from 'api/index'
 
 export default function Blog() {
-    const posts = getAllPosts();
-    console.log(posts)
+    getAllPosts();
     return (
         <div>Hello world!</div>
     )

@@ -6,7 +6,7 @@
             "@includes/*": ["_includes/*"],
             "@layouts/*": ["_layouts/*"],
             "@posts/*": ["_posts/*"],
-            "@api": ["_api/index"],
+            "@api": ["api/index"],
         }
     }
 }
