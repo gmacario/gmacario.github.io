@@ -1,6 +1,7 @@
 // api/index.js
 import matter from 'gray-matter';
 import marked from 'marked';
+import yaml from 'js-yaml';
 
 // Returns an array of objects.
 // Every element is a post
@@ -45,4 +46,12 @@ export async function getPostBySlug(slug) {
         title: meta.data.title,
         content: content
     }
+}
+
+// Export the config properties to make them available to other components
+export async function getConfig() {
+    // Read the content of the config file
+    const config = await import('../config.yml');
+    // Returned the parsed file object
+    return yaml.safeLoad(config.default);
 }

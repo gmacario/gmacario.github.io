@@ -2,7 +2,7 @@
 
 import DefaultLayout from '@layouts/default';
 import Link from 'next/link';
-import {getAllPosts, getPostBySlug} from '@api'
+import {getAllPosts, getConfig, getPostBySlug} from '@api'
 
 export default function Blog(props) {
     return (
@@ -29,12 +29,14 @@ export default function Blog(props) {
 
 // This is called at build time and passes props to the default component (Blog)
 export async function getStaticProps() {
-    const allPosts = await getAllPosts()
+    const allPosts = await getAllPosts();
+    const config = await getConfig();
+    
     return {
         props: {
             posts: allPosts,
-            title: 'Blog title',
-            description: 'description'
+            title: config.title,
+            description: config.description
         }
     }
 }
