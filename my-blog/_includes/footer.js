@@ -1,3 +1,4 @@
+// _includes/footer.js
 export default function Footer(){
     return (
         <footer>
