@@ -26,7 +26,7 @@ export async function getAllPosts() {
             slug: post.replace('.md',''),
             title: meta.data.title,
             excerpt: ( ('excerpt' in meta.data) ? meta.data.excerpt : null),
-            date: ( ('date' in meta.data) ? meta.data.date : null)
+            date: ( ('date' in meta.data) ? meta.data.date.toString() : null)
         })
     }
     return posts;
