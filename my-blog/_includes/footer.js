@@ -3,11 +3,10 @@ import { getConfig } from "@api";
 import Link from "next/link";
 
 export default function Footer(props) {
-    console.log(props)
     return (
         <footer className="h-40 bg-gray-100 justify-between border-t border-gray-200">
-            <div className="pt-6 mx-auto w-9/12 break-all prose prose-indigo hover:prose-black md:prose-lg lg:prose-xl">
-            <div className="mx-6 inline-block">
+            <div className="pt-6 mx-auto w-9/12 flex flex-row break-all prose prose-indigo hover:prose-black md:prose-lg lg:prose-xl">
+                <div className="mx-6">
                     <p className="">
                         {props.title}
                     </p>
@@ -15,7 +14,7 @@ export default function Footer(props) {
                         {props.description}
                     </p>
                 </div>
-                <div className="mx-6 inline-block">
+                <div className="mx-6 pt-3">
                     {props.social.map(
                         (s) => {
                             return(
