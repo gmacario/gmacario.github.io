@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Trying Yocto on the UDOO Neo"
-date:   2015-11-12 22:00:00
+date:   2015/11/12 22:00:00
 tags:   howto udoo imx6x yocto build embedded
 ---
 

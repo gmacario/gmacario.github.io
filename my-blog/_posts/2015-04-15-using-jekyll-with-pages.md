@@ -1,5 +1,6 @@
 ---
 title: Using Jekyill with GitHub Pages
+date: 2015/04/15
 layout: post
 ---
 

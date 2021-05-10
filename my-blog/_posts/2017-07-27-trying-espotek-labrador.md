@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Trying the EspoTek Labrador"
-# date:   2017-07-27 19:00:00 CET
+date:   2017-07-27 19:00:00 CET
 tags: howto hardware espotek labrador
 ---
 
