@@ -5,7 +5,6 @@ import Link from 'next/link';
 import {getAllPosts, getConfig, getPostBySlug} from '@api'
 
 export default function Blog(props) {
-    console.log(props)
     return (
         // Use the DefaultLayout for the homepage
         // Execute the function below for each post of the posts array 
