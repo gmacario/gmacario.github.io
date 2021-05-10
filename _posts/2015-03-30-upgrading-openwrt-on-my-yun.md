@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Upgrading OpenWrt on my Arduino Yun"
+date: 2015/03/30
 tags:   arduino howto
 ---
 

@@ -2,6 +2,7 @@
 
 layout: post
 title: "Writing my first Angular.js application"
+date: 2018/10/29
 tags: 	howto angularjs nodejs
 
 ---

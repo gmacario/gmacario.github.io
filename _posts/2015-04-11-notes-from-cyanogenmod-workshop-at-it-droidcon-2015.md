@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Notes from CyanogenMod Workshop at IT Droidcon 2015"
+date: 2015/04/11
 tags:   android howto
 ---
 

@@ -2,7 +2,7 @@
 
 layout: post
 title:  "Deploying a Node.JS application on Kubernetes using Jenkins X"
-# date:   2018-10-12 12:00:00 CEST
+date:   2018-10-12 12:00:00 CEST
 tags:   howto kubernetes gcp jenkins nodejs
 
 ---
