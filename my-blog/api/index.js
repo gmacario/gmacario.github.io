@@ -3,6 +3,14 @@ import matter from 'gray-matter';
 import marked from 'marked';
 import yaml from 'js-yaml';
 
+// Local function to format date strings
+function formatDate(date) {
+    let ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(date);
+    let mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(date);
+    let da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(date);
+    return `${ye}-${mo}-${da}`;
+}
+
 // Returns an array of objects.
 // Every element is a post
 export async function getAllPosts() {
@@ -20,16 +28,34 @@ export async function getAllPosts() {
         // meta.data contains the metadata
         // meta.content contains the document body
 
+        // Format the date field
+        var local_date;
+        if ('date' in meta.data){
+            if (meta.data.date instanceof Date) {
+                local_date = formatDate(meta.data.date);
+            }
+            if (typeof(meta.data.date) === "string") {
+                local_date = formatDate(new Date(meta.data.date.split(" ")[0]));
+            }
+        } else {
+            local_date = null;
+        }
+
         // Add the post to the post array
-        posts.push({
+        posts.unshift({
             // Use the post name as link (with no extension)
             slug: post.replace('.md',''),
             title: meta.data.title,
             excerpt: ( ('excerpt' in meta.data) ? meta.data.excerpt : null),
-            date: ( ('date' in meta.data) ? meta.data.date.toString() : null)
+            date: local_date
         })
     }
-    return posts;
+    const posts_ordered = posts;
+    // Currently posts are ordered by name -> chronologically
+    // Uncomment the command below to sort by the date property
+    // const posts_ordered = posts.sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
+
+    return posts_ordered;
 }
 
 // Returns a single post object based on its slug.
