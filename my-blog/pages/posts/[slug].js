@@ -5,7 +5,7 @@ import { getConfig } from '../../api';
 
 export default function Post(props) {
     return (
-        <PostLayout title={props.post.title} content={props.post.content} social={props.config.social}/>
+        <PostLayout blog_title={props.config.title} blog_desc={props.config.description} title={props.post.title} content={props.post.content} social={props.config.social}/>
     )
 }
 

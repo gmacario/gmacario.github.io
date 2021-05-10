@@ -6,7 +6,7 @@ import Head from 'next/head';
 // This will override the default layout on post pages
 export default function PostLayout(props) {
     return (
-        <DefaultLayout title={props.title} description={props.description} social={props.social}>
+        <DefaultLayout title={props.blog_title} description={props.blog_desc} social={props.social}>
             <Head>
                 <title>{props.title}</title>
             </Head>

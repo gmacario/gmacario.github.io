@@ -1,11 +1,12 @@
 title: "gmacario.github.io"
 description: "Gianpaolo Macario's public rants"
-social: [{
-    icon: "github.svg",
+social: {
+  github: {
     name: "gmacario",
     link: "https://github.com/gmacario"
-  },
-  { icon: "twitter.svg", 
+    },
+  twitter: {
     name: "gpmacario",
     link: "https://www.twitter.com/gpmacario"
-  }]
+  }
+}
