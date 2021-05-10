@@ -19,12 +19,14 @@ export async function getAllPosts() {
         const meta = matter(content.default);
         // meta.data contains the metadata
         // meta.content contains the document body
-        
+
         // Add the post to the post array
         posts.push({
             // Use the post name as link (with no extension)
             slug: post.replace('.md',''),
-            title: meta.data.title
+            title: meta.data.title,
+            excerpt: ( ('excerpt' in meta.data) ? meta.data.excerpt : null),
+            date: ( ('date' in meta.data) ? meta.data.date : null)
         })
     }
     return posts;

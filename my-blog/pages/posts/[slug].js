@@ -1,19 +1,23 @@
 // pages/posts/[slug].js
 import { getAllPosts, getPostBySlug } from '@api';
 import PostLayout from '@layouts/post';
-import { useContext } from 'react';
+import { getConfig } from '../../api';
 
 export default function Post(props) {
-    console.log(props)
     return (
-        <PostLayout title={props.title} content={props.content}/>
+        <PostLayout title={props.post.title} content={props.post.content} social={props.config.social}/>
     )
 }
 
 // Build the props object to pass to the default component
 export async function getStaticProps(context) {
+    const readConf = await getConfig();
+    const readPost = await getPostBySlug(context.params.slug);
     return {
-        props: await getPostBySlug(context.params.slug)
+        props: {
+            post: readPost,
+            config: readConf
+        }
     }
 }
 
