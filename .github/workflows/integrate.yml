@@ -25,18 +25,19 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '14'
-        run: ls -al
-        run: node --version
-        run: npm --version
-        run: npm install
-        run: npm run build
         env:
             CI: true
 
+      - run: |
+          echo ${{ github.workspace }}
+          npm install
+          npm run export
+        working-directory: ${{ github.workspace }}
+       
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@3.6.2
+        uses: JamesIves/github-pages-deploy-action@4.1.2
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: src/out # The folder the action should deploy.
-          CLEAN: true # Automatically remove deleted files from the deploy branch
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages # The branch the action should deploy to.
+          folder: _static # The folder the action should deploy.
+          clean: true # Automatically remove deleted files from the deploy branch
