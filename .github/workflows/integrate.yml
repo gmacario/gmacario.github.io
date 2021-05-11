@@ -29,7 +29,6 @@ jobs:
             CI: true
 
       - run: |
-          echo ${{ github.workspace }}
           npm install
           npm run export
         working-directory: ${{ github.workspace }}
