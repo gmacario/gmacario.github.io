@@ -18,6 +18,16 @@ npm run build
 npm run start
 ```
 
+---
+
+## Generate static files
+To generate static files:
+```sh
+npm run export
+```
+
+---
+
 ### Notes
 The blog has been built reading the following post
 > https://css-tricks.com/building-a-blog-with-next-js/
