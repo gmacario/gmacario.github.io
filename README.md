@@ -1,5 +1,9 @@
+# gmacario.github.io
+
 ## Install the dependencies
+
 To install the dependencies simply run
+
 ```sh
 npm install
 ```
@@ -12,7 +16,9 @@ npm run dev
 ```
 
 ## Deploy the blog
+
 To deploy the application, you can simply run these two commands:
+
 ```sh
 npm run build
 npm run start
@@ -21,7 +27,9 @@ npm run start
 ---
 
 ## Generate static files
+
 To generate static files:
+
 ```sh
 npm run export
 ```
@@ -29,5 +37,8 @@ npm run export
 ---
 
 ### Notes
+
 The blog has been built reading the following post
-> https://css-tricks.com/building-a-blog-with-next-js/
+<https://css-tricks.com/building-a-blog-with-next-js/>
+
+<!-- EOF -->
