@@ -8,18 +8,18 @@ export default function Footer (props) {
   /* outer box, gray with horizontal line */
     <footer className='h-auto mt-20 bg-gray-100 justify-between border-t border-gray-200'>
       {/* Column; Blog title on top, then contact info */}
-      <div className='pt-6 mx-auto w-9/12 flex flex-col prose prose-indigo hover:prose-black md:prose-lg lg:prose-xl'>
-        <div className='mx-6 prose-xl'>
+      <div className='pt-6 mx-auto  gap-x-6 w-9/12 flex flex-col prose prose-indigo hover:prose-black md:prose-lg lg:prose-xl'>
+        <div className='prose-xl'>
           <p className=''>
             {props.title}
           </p>
         </div>
         {/* Col; contact info - over a certain screen size, becomes a column */}
-        <div className='mr-6 sm:mx-6 flex flex-col sm:flex-row flex-nowrap justify-between md:justify-start'>
-          <p className='ml-6 sm:mx-0 text-gray-600 prose-sm'>
+        <div className='flex flex-col sm:flex-row flex-wrap justify-between md:justify-start'>
+          <p className='mr-12 text-gray-600 prose-sm'>
             {props.title}
           </p>
-          <div className='ml-6 sm:ml-12 flex flex-col justify-start'>
+          <div className='mr-12 flex flex-col justify-start'>
             <p className='text-gray-600 prose-sm flex flex-row'>
               <GithubIcon className='mr-2' />
               <Link href={props.social.github.link}>
@@ -33,7 +33,7 @@ export default function Footer (props) {
               </Link>
             </p>
           </div>
-          <p className='ml-6 sm:ml-12 text-gray-600 prose-sm'>
+          <p className='mr-12 text-gray-600 prose-sm'>
             {props.description}
           </p>
         </div>
