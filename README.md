@@ -8,8 +8,11 @@ Automatically published to <https://gmacario.github.io/>
 
 ## How this site was made
 
-The blog is deployed [Next.js](https://nextjs.org/) framework as explained in the following post
+The blog is based on the [Next.js](https://nextjs.org/) framework as explained in
 <https://css-tricks.com/building-a-blog-with-next-js/>
+
+Blog posts are created under the `_posts` folder and get compiled to a static website
+using the commands detailed below.
 
 ### Install the dependencies
 
@@ -31,18 +34,16 @@ and follow the instructions.
 
 ### Deploy the blog
 
-To deploy the application, run the following commands:
+To create an optimized production build run the following commands:
 
 ```sh
 npm run build
 npm run start
 ```
 
----
-
 ### Generate static files
 
-To generate static files under `_out`:
+To generate static files under `_static`:
 
 ```sh
 npm run export
