@@ -6,18 +6,18 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.6-rc-stretch-browsers
+      - image: circleci/node@4.3.0
     steps:
       - checkout
       - run: echo "Check dependencies"
       - run: cat /etc/os-release
-      - run: ruby --version
-      - run: gem --version
-      - run: bundle install
+      - run: node --version
+      - run: npm --version
+      - run: npm install
       - run: ls -la
       - run: echo "Build pages"
-      - run: bundle exec jekyll build
+      - run: npm run build
       - run: echo "Check pages"
-      - run: ls -la _site/index.html
+      - run: ls -la _out/index.html
 
 # EOF
