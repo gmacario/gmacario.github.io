@@ -4,30 +4,41 @@ title:  "Trying Jenkins Pipeline Tutorial"
 date:   2016-01-25 17:00:00 CET
 categories: howto jenkins pipeline tutorial
 ---
-<-- markdown-link-check-disable -->
+<!-- markdown-link-check-disable -->
+
 # Introduction
+
 TODO
+
 ## Trying the Docker image for Pipeline demo
+
 (2016-01-26 14:34 CET)
+
 See <https://github.com/jenkinsci/workflow-plugin/blob/master/demo/README.md>
+
 Logged as gmacario@itm-gmacario-w7, open a Git Bash shell and type the following commands:
+
 ```
 $ eval $(docker-machine env ies-genbld01-vm)
 $ docker-machine ip $(docker-machine active)
 $ docker pull jenkinsci/workflow-demo
 $ docker run -p 8080:8080 -p 8081:8081 -p 9418:9418 -i jenkinsci/workflow-demo
 ```
+
 Result:
+
 ```
 gmacario@ITM-GMACARIO-W7 ~
 $ docker-machine ip $(docker-machine active)
 139.181.213.96
+
 gmacario@ITM-GMACARIO-W7 ~
 $ docker pull jenkinsci/workflow-demo
 Using default tag: latest
 latest: Pulling from jenkinsci/workflow-demo
 Digest: sha256:1664449b73ed58540f0faa3390c40913d5aca99f57acb724c4298989dbdd607e
 Status: Image is up to date for jenkinsci/workflow-demo:latest
+
 gmacario@ITM-GMACARIO-W7 ~
 $ docker run -p 8080:8080 -p 8081:8081 -p 9418:9418 -i jenkinsci/workflow-demo
 [3974] Ready to rumble
@@ -143,6 +154,7 @@ java.net.SocketException: Socket closed
         at hudson.remoting.ChunkedCommandTransport.readBlock(ChunkedCommandTransport.java:39)
         at hudson.remoting.AbstractSynchronousByteArrayCommandTransport.read(AbstractSynchronousByteArrayCommandTransport.java:34)
         at hudson.remoting.SynchronousCommandTransport$ReaderThread.run(SynchronousCommandTransport.java:48)
+
 Jan 26, 2016 1:41:36 PM hudson.slaves.NodeProvisioner$StandardStrategyImpl apply
 INFO: Started provisioning Mock Slave #2 from mock with 1 executors. Remaining excess workload: 0
 Jan 26, 2016 1:41:37 PM hudson.slaves.NodeProvisioner$2 run
@@ -189,6 +201,7 @@ java.net.SocketException: Socket closed
         at hudson.remoting.ChunkedCommandTransport.readBlock(ChunkedCommandTransport.java:39)
         at hudson.remoting.AbstractSynchronousByteArrayCommandTransport.read(AbstractSynchronousByteArrayCommandTransport.java:34)
         at hudson.remoting.SynchronousCommandTransport$ReaderThread.run(SynchronousCommandTransport.java:48)
+
 Jan 26, 2016 1:42:43 PM hudson.remoting.SynchronousCommandTransport$ReaderThread run
 SEVERE: I/O error in channel mock-slave-2
 java.net.SocketException: Socket closed
@@ -203,6 +216,7 @@ java.net.SocketException: Socket closed
         at hudson.remoting.ChunkedCommandTransport.readBlock(ChunkedCommandTransport.java:39)
         at hudson.remoting.AbstractSynchronousByteArrayCommandTransport.read(AbstractSynchronousByteArrayCommandTransport.java:34)
         at hudson.remoting.SynchronousCommandTransport$ReaderThread.run(SynchronousCommandTransport.java:48)
+
 Jan 26, 2016 1:42:44 PM hudson.slaves.NodeProvisioner$StandardStrategyImpl apply
 INFO: Started provisioning Mock Slave #4 from mock with 1 executors. Remaining excess workload: 0
 Jan 26, 2016 1:42:45 PM hudson.slaves.NodeProvisioner$2 run
@@ -223,6 +237,7 @@ java.net.SocketException: Socket closed
         at hudson.remoting.ChunkedCommandTransport.readBlock(ChunkedCommandTransport.java:39)
         at hudson.remoting.AbstractSynchronousByteArrayCommandTransport.read(AbstractSynchronousByteArrayCommandTransport.java:34)
         at hudson.remoting.SynchronousCommandTransport$ReaderThread.run(SynchronousCommandTransport.java:48)
+
 [7032] Connection from 127.0.0.1:44413
 [7032] Extended attributes (16 bytes) exist <host=localhost>
 [7032] Request upload-pack for '/repo'
@@ -280,24 +295,37 @@ java.net.SocketException: Socket closed
 [7094] Request upload-pack for '/repo'
 [3974] [7094] Disconnected
 ```
+
 Browse `http://${DOCKER_MACHINE_IP}:8080`- in our example <http://139.181.213.96:8080/>
+
 then follow the instructions at <https://github.com/jenkinsci/workflow-plugin/blob/master/demo/README.md>
+
 TODO
+
 ## Trying the Jenkins Pipeline tutorial using easy-jenkins
+
 See <https://github.com/jenkinsci/workflow-plugin/blob/master/TUTORIAL.md>
+
 ### Create a Jenkins instance using easy-jenkins
+
 Logged as gmacario@itm-gmacario-w7, open a Git Bash shell and type the following commands:
+
 (OPTIONAL) If you want to deploy Jenkins to an existing Docker machine
+
 ```
 $ eval $(docker-machine env ies-genbld01-vm)
 ```
+
 Clone the git repository, then launch the startup script
+
 ```
 $ git clone https://github.com/gmacario/easy-jenkins
 $ cd easy-jenkins
 $ ./runme.sh
 ```
+
 Result:
+
 ```
 gmacario@ITM-GMACARIO-W7 MINGW64 ~/easy-jenkins (master)
 $ ./runme.sh
@@ -308,20 +336,31 @@ easyjenkins_build-yocto-slave_1 is up-to-date
 INFO: Browse http://139.181.213.96:9080/ to access the Jenkins dashboard
 INFO: Run the following command to configure your shell:
 INFO: eval $(docker-machine env ies-genbld01-vm)
+
 gmacario@ITM-GMACARIO-W7 MINGW64 ~/easy-jenkins (master)
 $
 ```
+
 Then browse the URL displayed on the console (in our example, <http://139.181.213.96:9080/>) to access the Jenkins dashboard.
+
 ### Creating my first Pipeline
+
 To create a pipeline, browse the Jenkins dashboard and perform the following steps:
+
 1. Click "New Item", pick a name for your job (example: `my-first-pipeline`), select **Pipeline**, and click **OK**.
+
   You will be taken to the configuration screen for the Pipeline. The *Script* text area is important as ... Pipeline script is defined. We'll start with a trivial script:
+
 ```
 echo 'hello from Pipeline'
 ```
+
 Click "Save" when you are done.
+
 Click "Build Now" to run the pipeline. You should see `#1` under *Build History*.
+
 Click "V" and select "Console Output" to see the output:
+
 ```
 Started by user anonymous
 [Pipeline] echo
@@ -329,23 +368,36 @@ hello from Pipeline
 [Pipeline] End of Pipeline
 Finished: SUCCESS
 ```
+
 #### Understanding Pipeline Scripts
+
 ...
+
 ### Creating a simple pipeline
+
 #### Setting Up
+
 Browse `${JENKINS_URL}` Manage Jenkins > Configure System
+
 * Maven > Maven installations > Add Maven
   - Name: `M3`
   - Install automatically: Yes
     - Install from Apache; Version: `3.3.9`
+
 Click **Save**.
+
 #### Checking out and Building Sources
+
 Browse `${JENKINS_URL}` > New Item
+
 * Name: `a-simple-pipeline`
 * Type: Copy existing Item
   - Copy from: `my-first-pipeline`
+
 Click **OK**.
+
 Inside the project configuration:
+
 * Pipeline
   - Definition: Pipeline script
   - Script:
@@ -356,24 +408,36 @@ node {
   sh "${mvnHome}/bin/mvn -B verify"
 }
 ```
+
 Click **Save**, then **Build Now**.
+
 #### Understanding Syntax
+
 TODO
+
 ### Create GDP Build Pipeline
+
+
 -------------------------
 (2016-01-27 10:47 CET)
+
 Logged as gmacario@itm-gmacario-w7 on a Git Bash
+
 ```
 $ cd ~/easy-jenkins/
 $ git checkout feat-test-pipeline && git pull --all --prune && git status
 $ eval $(docker-machine env ies-genbld01-vm)
 ```
+
 Reboot VM
+
 ```
 $ docker-machine ssh ies-genbld01-vm
 # sudo apt-get update && sudo apt-get -y dist-upgrade && sudo reboot
 ```
+
 Rebuild
+
 ```
 $ cd ~/easy-jenkins/
 $ eval $(docker-machine env ies-genbld01-vm)
@@ -382,11 +446,15 @@ $ docker-compose rm
 $ docker-compose pull
 $ docker-compose build
 ```
+
 Run
+
 ```
 $ ./runme.sh
 ```
+
 Result:
+
 ```
 gmacario@ITM-GMACARIO-W7 MINGW64 ~/easy-jenkins (feat-test-pipeline)
 $ ./runme.sh
@@ -397,26 +465,40 @@ Creating easyjenkins_build-yocto-slave_1
 INFO: Browse http://139.181.213.96:9080/ to access the Jenkins dashboard
 INFO: Run the following command to configure your shell:
 INFO: eval $(docker-machine env ies-genbld01-vm)
+
 gmacario@ITM-GMACARIO-W7 MINGW64 ~/easy-jenkins (feat-test-pipeline)
 $
 ```
+
 (2016-01-27 12:00 CET)
+
 Browse <http://139.181.213.96:9080/> ==> Jenkins dashboard displayed
+
 * Browse <http://139.181.213.96:9080/script>, paste script from <https://raw.githubusercontent.com/gmacario/easy-jenkins/master/myscripts/list-plugins.groovy>
 * Compare result with <https://github.com/gmacario/easy-jenkins/blob/feat-test-pipeline/myjenkins/plugins.txt> ==> OK, same contents
+
 Merging [easy-jenkins PR #14](https://github.com/gmacario/easy-jenkins/pull/14)
+
+
 ----------------------
 # Test easy-jenkins with the Jenkins Pipeline tutorial
+
 (2016-01-27 13:34 CET)
+
 See <https://github.com/gmacario/easy-jenkins/issues/15>
+
+
 Logged as gmacario@itm-gmacario-w7 on a Git Bash
+
 ```
 $ cd ~/easy-jenkins/
 $ git checkout master && git pull --all --prune && git status
 $ eval $(docker-machine env ies-genbld01-vm)
 $ ./runme.sh
 ```
+
 Result:
+
 ```
 gmacario@ITM-GMACARIO-W7 MINGW64 ~/easy-jenkins (master)
 $ ./runme.sh
@@ -427,17 +509,24 @@ easyjenkins_build-yocto-slave_1 is up-to-date
 INFO: Browse http://139.181.213.96:9080/ to access the Jenkins dashboard
 INFO: Run the following command to configure your shell:
 INFO: eval $(docker-machine env ies-genbld01-vm)
+
 gmacario@ITM-GMACARIO-W7 MINGW64 ~/easy-jenkins (master)
 $
 ```
+
 Browse the Jenkins dashboard at <http://139.181.213.96:9080/>
+
 Notice that docker-compose service `build-yocto-slave_1` is running, but there is no slave in Jenkins dashboard.
+
 Create new issue: <https://github.com/gmacario/easy-jenkins/issues/16>
+
 Temporary workaround:
+
 * (Recommended) Watch docker-compose logs
   ```
   $ docker-compose logs
   ```
+
 * Browse `http://${DOCKER_MACHINE_IP}:9080/computer/` to show the defined Jenkins nodes
 * If slave node `build-yocto-slave` is not shown, click **New Node**
   - Node name: `build-yocto-slave`
@@ -447,25 +536,40 @@ Temporary workaround:
   - Remote root directory: `/home/jenkins`
   - Labels: `yocto`
   - Launch method: Launch slave agents via Java Web Start
+
   then click **Save**
+
 * Verify that node `build-yocto-slave` is now connected
+
+
+
 ------------------
 ### Continue replaying Jenkins Pipeline tutorial
+
 (2016-01-27 13:30 CET)
+
 See <https://github.com/gmacario/easy-jenkins/issues/15>
+
 * Browse `http://${DOCKER_MACHINE_IP}:9080/`, click **New Item**
   - Item name: `build-genivi-swm-poc`
   - Type: **Pipeline**
+
   then click **OK**
+
 * Inside the project configuration page, fill-in the following information:
   - Pipeline
     - Definition: Pipeline script from SCM
     - SCM: Git
       - Repositories
         - Repository URL: `https://gist.github.com/gmacario/5b13a4514c5062f1bfa1`
+
   then click **Save**
+
 * Browse `http://${DOCKER_MACHINE_IP}:9080/job/build-genivi-swm-poc/build?delay=0sec` to trigger a build
+
+
 FIXME: Build error - see <http://139.181.213.96:9080/job/build-genivi-swm-poc/1/console>:
+
 ```
 Started by user anonymous
 Cloning the remote Git repository
@@ -488,29 +592,45 @@ First time build. Skipping changelog.
 ERROR: /var/jenkins_home/workspace/build-genivi-swm-poc@script/Jenkinsfile not found
 Finished: FAILURE
 ```
+
+
 ----------------------
 (2016-02-01 17:15)
+
 Deploy master branch of gmacario/easy-jenkins to machine `ies-genbld01-vm`
+
 Browse `${JENKINS_URL}` at <http://ies-genbld01-vm.ies.mentorg.com:9080/>
+
 Browse `${JENKINS_URL}/view/All`, then click **New Item**
+
 * Item name: `seed_sysadmin_projects`
 * Item type: Copy existing Item
   - Copy from: `TEST-seed-gm-projects`
+
 then click **OK**. Edit the project configuration:
+
 * Build > Add build step > Process Job DSLs
   - Look on Filesystem: Yes
     - DSL Scripts: `mydsl/seed_add_jenkins_slave.groovy`
     - Action for existing jobs and views: Ignore changes: No
     - Action for removed jobs: Ignore
     - Action for removed views: Ignore
+
 Inside `${JENKINS_URL}/job/seed_sysadmin_projects/`, click **Build Now**.
+
 Browse `${JENKINS_URL}/job/add_jenkins_slave`, review project configuration:
+
 - Adjust Branches to build: `*/master` (was: `fix-issue-16-v2`)
 - TODO
+
 Browse `${JENKINS_URL}/job/add_jenkins_slave`, then click **Build with Parameters**
+
 - TODO
+
 Result: ERROR
+
 Excerpt from <http://ies-genbld01-vm.ies.mentorg.com:9080/job/add_jenkins_slave/2/console>
+
 ```
 ...
 First time build. Skipping changelog.
@@ -534,12 +654,17 @@ Caused by: hudson.plugins.git.GitException: Command "git tag -a -f -m Jenkins Bu
 stdout:
 stderr:
 *** Please tell me who you are.
+
 Run
+
   git config --global user.email "you@example.com"
   git config --global user.name "Your Name"
+
 to set your account's default identity.
 Omit --global to set the identity only in this repository.
+
 fatal: unable to auto-detect email address (got 'root@16b3dcf7846d.(none)')
+
 	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommandIn(CliGitAPIImpl.java:1693)
 	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommandIn(CliGitAPIImpl.java:1669)
 	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommandIn(CliGitAPIImpl.java:1665)
@@ -550,24 +675,36 @@ fatal: unable to auto-detect email address (got 'root@16b3dcf7846d.(none)')
 Notifying upstream projects of job completion
 Finished: FAILURE
 ```
+
 FIXME: Must configure git first (or at least define `domainname`)
+
 WORKAROUND:
+
 ```
 # docker exec -u root -ti easyjenkins_myjenkins_1 /bin/bash
 # git config --global user.name "$(whoami)"
 # git config --global user.email "$(whoami)@$(hostname)"
 ```
+
 (2016-02-01 17:40 CET)
+
 Browse `${JENKINS_URL}/job/add_jenkins_slave/configure`
+
 * Build > Add build step > Execute system Groovy script
   - Groovy script file: `myscripts/add_slave_nodes.groovy`
+
 click **Save**, then **Build with Parameters**
+
 - AgentList: `build-yocto-slave` (default)
 - AgentDescription: (default)
 - AgentExecutors: 2 (default)
+
 then click **Build**.
+
 Result: SUCCESS
+
 Excerpt from <http://ies-genbld01-vm.ies.mentorg.com:9080/job/add_jenkins_slave/5/console>
+
 ```
 Started by user anonymous
 [EnvInject] - Loading node environment variables.
@@ -589,70 +726,115 @@ Agent 'build-yocto-slave' created with 2 executors and home '/home/jenkins'
 Notifying upstream projects of job completion
 Finished: SUCCESS
 ```
+
 Browse `${JENKINS_URL}/computer/`, verify that the new slave node is listed and connected
+
+
 ----------------------
 (2016-02-01 18:58 CET)
+
 Deploy master branch of gmacario/easy-jenkins to machine `mv-linux-powerhorse`
+
 Browse `${JENKINS_URL}` at <http://mv-linux-powerhorse.solarma.it:9080/>
+
 Browse `${JENKINS_URL}/job/seed`, then click **Build Now**
+
 Result: Three generated items:
+
 1. add_jenkins_slave
 2. build_gdp
 3. configure_git
+
 Browse `${JENKINS_URL}/job/add_jenkins_slave`, then click **Build with Parameters**
+
 - AgentList: `build-yocto-slave`
 - AgentDescription: `Auto-created Jenkins agent`
 - AgentHome: `/home/jenkins`
 - AgentExecutors: `2`
+
 TODO: Add Text parameter "AgentLabels"
+
 then click **Build**
+
 Result: FAILURE
+
 Excerpt from <http://mv-linux-powerhorse.solarma.it:9080/job/add_jenkins_slave/1/console>
+
 ```
 ...
 Build #1 jenkins-add_jenkins_slave-1" returned status code 128:
 stdout:
 stderr:
 *** Please tell me who you are.
+
 Run
+
   git config --global user.email "you@example.com"
   git config --global user.name "Your Name"
+
 to set your account's default identity.
 Omit --global to set the identity only in this repository.
+
 fatal: unable to auto-detect email address (got 'root@452d4b206b23.(none)')
 ...
 ```
+
 TODO: Create issue
 Workaround: Run `configure_git` first
+
 (2016-02-01 19:05 CET)
+
 Browse `${JENKINS_URL}/job/configure_git/`, then click **Build Now**
+
 Verify in the Console Output that the job was run on the master node.
+
 (2016-02-01 19:07 CET)
+
 Browse `${JENKINS_URL}/job/add_jenkins_slave/` then click **Build with Parameters**
+
 - AgentList: `build-yocto-slave`
 - AgentDescription: `Auto-created Jenkins agent`
 - AgentHome: `/home/jenkins`
 - AgentExecutors: `2`
+
 TODO: Add Text parameter "AgentLabels"
+
 then click **Build**
+
 Result: SUCCESS
+
 Browse `${JENKINS_URL}`, verify that node `build-yocto-slave` is running.
+
 Browse `${JENKINS_URL}/computer/build-yocto-slave/`, then click **Configure**
+
 - Labels: `yocto`
+
 Then click **Save**.
+
 Browse `${JENKINS_URL}/job/build_gdp/`, then click **Configure**
+
 - Restrict where this project can be run: Yes
   - Label Expression: `yocto`
+
 Then click **Save**.
+
 (2016-02-01 19:10 CET)
+
 Browse `${JENKINS_URL}/job/configure_git/`, then click **Configure**
+
 - Restrict where this project can be run: Yes
   - Label Expression: `build-yocto-slave`
+
 Click **Save**, then click **Build Now**
+
 Browse `${JENKINS_URL}/job/build_gdp/`, then click **Build Now**
+
 (2016-02-02 09:44)
+
 Result: SUCCESS
+
 Excerpt from <http://mv-linux-powerhorse.solarma.it:9080/job/build_gdp/2/console>
+
 ```
 ...
 NOTE: Running noexec task 4390 of 4394 (ID: 3607, /home/jenkins/workspace/build_gdp/gdp-src-build/../meta-genivi-demo/recipes-devtools/python/python-pyqt_5.3.1.bb, do_build)
@@ -663,11 +845,14 @@ NOTE: recipe genivi-demo-platform-1.3+snapshot-20160201-r0: task do_rootfs: Star
 NOTE: recipe genivi-demo-platform-1.3+snapshot-20160201-r0: task do_rootfs: Succeeded
 NOTE: Running noexec task 4394 of 4394 (ID: 11, /home/jenkins/workspace/build_gdp/gdp-src-build/../meta-genivi-demo/recipes-demo-platform/images/genivi-demo-platform.bb, do_build)
 NOTE: Tasks Summary: Attempted 4394 tasks of which 22 didn't need to be rerun and all succeeded.
+
 Summary: There were 16 WARNING messages shown.
 Notifying upstream projects of job completion
 Finished: SUCCESS
 ```
+
 Inspecting [project workspace](http://mv-linux-powerhorse.solarma.it:9080/job/build_gdp/ws/)
+
 ```
 - .git
 + gdp-src-build
@@ -716,16 +901,22 @@ Inspecting [project workspace](http://mv-linux-powerhorse.solarma.it:9080/job/bu
 - init.sh	908 B
 - README.md
 ```
+
+
 -----------------------------
 (2016-02-02 07:58 CET)
+
 Deploy master branch of gmacario/easy-jenkins to machine `dc7600-gm`
+
 ```
 $ cd ~/easy-jenkins
 $ eval $(docker-machine env dc7600-gm)
 $ docker-compose stop; docker-compose rm -f; docker-compose build --pull
 $ ./runme.sh
 ```
+
 (Optional) Watch docker-compose logs until line `INFO: Jenkins is fully up and running` is displayed:
+
 ```
 $ docker-compose logs
 ...
@@ -734,45 +925,80 @@ myjenkins_1         | Feb 02, 2016 7:05:31 AM hudson.WebAppMain$3 run
 myjenkins_1         | INFO: Jenkins is fully up and running
 ...
 ```
+
 Browse `${JENKINS_URL}` at <http://dc7600-gm.solarma.it:9080/> and verify that the Jenkins dashboard is displayed correctly.
+
 Browse `${JENKINS_URL}/job/seed`, then click **Build Now**
+
 Result: The following items will be generated and show up in the Jenkins dashboard:
+
 1. add_jenkins_slave
 2. build_gdp
 3. configure_git
+
 (2016-02-02 08:08 CET)
+
 Browse `${JENKINS_URL}/job/configure_git/`, then click **Build Now**
+
 Verify in the Console Output that the job was run on the master node (at this point there should not be any slave nodes yet)
+
 (2016-02-02 08:10 CET)
+
 Browse `${JENKINS_URL}/job/add_jenkins_slave/` then click **Build with Parameters**
+
 - AgentList: `build-yocto-slave`
 - AgentDescription: `Auto-created Jenkins agent`
 - AgentHome: `/home/jenkins`
 - AgentExecutors: `2`
+
 TODO: Add Text parameter "AgentLabels"
+
 then click **Build**
+
 Result: SUCCESS
+
 Browse `${JENKINS_URL}`, verify that node `build-yocto-slave` is running.
+
 (2016-02-02 08:11 CET)
+
 Browse `${JENKINS_URL}/computer/build-yocto-slave/`, then click **Configure**
+
 - Labels: `yocto`
+
 Then click **Save**.
+
 (2016-02-02 08:14 CET)
+
 Browse `${JENKINS_URL}/job/configure_git/`, then click **Configure**
+
 - Restrict where this project can be run: Yes
   - Label Expression: `build-yocto-slave`
+
 Click **Save**, then click **Build Now**
+
 Verify in the Console Output that the job was run on the slave.
+
 (2016-02-02 08:15 CET)
+
 Browse `${JENKINS_URL}/job/build_gdp/`, then click **Configure**
+
 - Restrict where this project can be run: Yes
   - Label Expression: `yocto`
+
 Then click **Save**.
+
 Browse `${JENKINS_URL}/job/build_gdp/`, then click **Build Now**
+
 Result:
+
 TODO TODO TODO
+
+
 ------------
 1.0.92.303740
+
 1.0.21.303740
-<-- markdown-link-check-enable-->
-<-- EOF -->
+
+
+<!-- markdown-link-check-enable -->
+<!-- EOF -->

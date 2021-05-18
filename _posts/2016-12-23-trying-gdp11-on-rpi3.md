@@ -4,17 +4,26 @@ title:  "Trying GDP-11 on a Raspberry Pi 3"
 date:   2016-12-23 14:00:00 CET
 tags:   howto genivi gdp rpi
 ---
-<-- markdown-link-check-disable -->
+<!-- markdown-link-check-disable -->
+
 ### Introduction
+
 I wrote a couple of notes trying the Release 11 of the [GENIVI Development Platform](https://at.projects.genivi.org/wiki/x/aoCw) on a [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/).
+
 ### Writing the SD-Card with GDP-11 for Raspberry Pi 3
-<00 CET -->
+
+<!-- 2016-12-22 16:00 CET -->
+
 Browse the [GDP Download page](https://at.projects.genivi.org/wiki/x/64Kw).
+
 Download the "GDP 11 Raspberry Pi 3 gzipped SD image"
+
 ```
 wget -c http://docs.projects.genivi.org/gdp_files/v11/GDP11/raspberrypi3/final/gdp-11-rpi3-sdimg.gz
 ```
+
 Result:
+
 ```
 gmacario@ITM-GPAOLO-W10 /cygdrive/d/data/GENIVI/download-gdp/tmp/gdp-11-rpi3
 $ wget -c http://docs.projects.genivi.org/gdp_files/v11/GDP11/raspberrypi3/final/gdp-11-rpi3-sdimg.gz
@@ -24,51 +33,76 @@ Connecting to docs.projects.genivi.org (docs.projects.genivi.org)|38.101.164.236
 HTTP request sent, awaiting response... 200 OK
 Length: 1249902592 (1.2G) [application/x-gzip]
 Saving to: ‘gdp-11-rpi3-sdimg.gz’
+
 gdp-11-rpi3-sdimg.gz                         100%[=============================================================================================>]   1.16G  1.08MB/s    in 18m 52s
+
 2016-12-22 16:52:24 (1.05 MB/s) - ‘gdp-11-rpi3-sdimg.gz’ saved [1249902592/1249902592]
+
+
 gmacario@ITM-GPAOLO-W10 /cygdrive/d/data/GENIVI/download-gdp/tmp/gdp-11-rpi3
 $
 ```
+
 Verify the checksum of the downloaded file matches the one published on the wiki page above
+
 ```
 md5sum gdp-11-rpi3-sdimg.gz
 ```
+
 Result:
+
 ```
 gmacario@ITM-GPAOLO-W10 /cygdrive/d/data/GENIVI/download-gdp/tmp/gdp-11-rpi3
 $ md5sum gdp-11-rpi3-sdimg.gz
 70b92361b25dbb25b8642f28eb12899d *gdp-11-rpi3-sdimg.gz
+
 gmacario@ITM-GPAOLO-W10 /cygdrive/d/data/GENIVI/download-gdp/tmp/gdp-11-rpi3
 $
 ```
+
 Check what contains the downloaded image
+
 ```
 gmacario@ITM-GPAOLO-W10 /cygdrive/d/data/GENIVI/download-gdp/tmp/gdp-11-rpi3
 $ zcat gdp-11-rpi3-sdimg.gz
+
 gzip: gdp-11-rpi3-sdimg.gz: not in gzip format
+
 gmacario@ITM-GPAOLO-W10 /cygdrive/d/data/GENIVI/download-gdp/tmp/gdp-11-rpi3
 $ file gdp-11-rpi3-sdimg.gz
 gdp-11-rpi3-sdimg.gz: DOS/MBR boot sector; partition 1 : ID=0xc, active, start-CHS (0x40,0,1), end-CHS (0x2bf,3,32), startsector 8192, 81920 sectors; partition 2 : ID=0x83, start-CHS (0x2c0,0,1), end-CHS (0x3ff,3,32), startsector 90112, 2351104 sectors
+
 gmacario@ITM-GPAOLO-W10 /cygdrive/d/data/GENIVI/download-gdp/tmp/gdp-11-rpi3
 $
 ```
+
 it looks like in spite of the filename, `gdp-11-rpi3-sdimg.gz` was not gzipped (it is the raw image of the SD-card), so rename it more appropriately
+
 ```
 mv gdp-11-rpi3-sdimg.gz gdp-11-rpi3.sdimg
 ```
+
 Then use Win32DiskImager on your host to write file `gdp-11-rpi1.sdimg` to a blank SD-Card
+
 Unmount the SD-Card before removing it from the laptop.
+
 ### Booting GDP-11 on the Raspberry Pi 3
+
 1. Insert the microSD with GDP-11 image into the Raspberry Pi 3 microSD-Card slot.
 2. Connect a HDMI display to the Raspberry Pi using a HDMI cable
 3. Connect the Ethernet connector to your router using an Ethernet cable
 4. Connect a USB Mouse to the Raspberry Pi 3
 5. Connect a USB Keyboard to the Raspberry Pi 3
 6. Finally, power up the Raspberry Pi 3 by connecting a power supply to its MicroUSB connector
+
 After a few seconds you should see the GDP Home Page on the HDMI display.
+
 ### Inspect the target
+
 Discover the IP address that was assigned by your router to the Raspberry Pi 3 (for instance, I used the [Fing](https://www.fing.io/) app from an Android phone connected via Wi-Fi to the same router). In my case, this is `192.168.12.105`
+
 Login to the target via SSH as user `root` (default password: `root`)
+
 ```
 gmacario@ITM-GPAOLO-W10 ~
 $ ssh root@192.168.12.105
@@ -76,7 +110,9 @@ root@192.168.12.105's password:
 Last login: Fri Dec 23 13:03:44 2016 from 192.168.12.101
 root@raspberrypi3:~#
 ```
+
 #### Inspect `/proc/cpuinfo`
+
 ```
 root@raspberrypi3:~# cat /proc/cpuinfo
 processor       : 0
@@ -88,6 +124,7 @@ CPU architecture: 7
 CPU variant     : 0x0
 CPU part        : 0xd03
 CPU revision    : 4
+
 processor       : 1
 model name      : ARMv7 Processor rev 4 (v7l)
 BogoMIPS        : 38.40
@@ -97,6 +134,7 @@ CPU architecture: 7
 CPU variant     : 0x0
 CPU part        : 0xd03
 CPU revision    : 4
+
 processor       : 2
 model name      : ARMv7 Processor rev 4 (v7l)
 BogoMIPS        : 38.40
@@ -106,6 +144,7 @@ CPU architecture: 7
 CPU variant     : 0x0
 CPU part        : 0xd03
 CPU revision    : 4
+
 processor       : 3
 model name      : ARMv7 Processor rev 4 (v7l)
 BogoMIPS        : 38.40
@@ -115,18 +154,23 @@ CPU architecture: 7
 CPU variant     : 0x0
 CPU part        : 0xd03
 CPU revision    : 4
+
 Hardware        : BCM2709
 Revision        : a02082
 Serial          : 0000000053213f76
 root@raspberrypi3:~#
 ```
+
 #### Inspect `/proc/version`
+
 ```
 root@raspberrypi3:~# cat /proc/version
 Linux version 4.4.16 (go@cb359f7478a8) (gcc version 5.3.0 (GCC) ) #1 SMP Fri Dec 16 03:21:28 UTC 2016
 root@raspberrypi3:~#
 ```
+
 #### Inspect `/proc/meminfo`
+
 ```
 root@raspberrypi3:~# cat /proc/meminfo
 MemTotal:         881740 kB
@@ -167,8 +211,11 @@ CmaTotal:         262144 kB
 CmaFree:          133780 kB
 root@raspberrypi3:~#
 ```
+
 #### Inspect MicroSD card layout
+
 Result of `lsbok`
+
 ```
 root@raspberrypi3:~# lsblk
 NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
@@ -177,7 +224,9 @@ mmcblk0     179:0    0 14.5G  0 disk
 `-mmcblk0p2 179:2    0  1.1G  0 part /
 root@raspberrypi3:~#
 ```
+
 Result of `fdisk -l /dev/mmcblk0`
+
 ```
 root@raspberrypi3:~# fdisk -l /dev/mmcblk0
 Disk /dev/mmcblk0: 14.5 GiB, 15523119104 bytes, 30318592 sectors
@@ -186,12 +235,15 @@ Sector size (logical/physical): 512 bytes / 512 bytes
 I/O size (minimum/optimal): 512 bytes / 512 bytes
 Disklabel type: dos
 Disk identifier: 0x51480b57
+
 Device         Boot Start     End Sectors  Size Id Type
 /dev/mmcblk0p1 *     8192   90111   81920   40M  c W95 FAT32 (LBA)
 /dev/mmcblk0p2      90112 2441215 2351104  1.1G 83 Linux
 root@raspberrypi3:~#
 ```
+
 Result of `mount`
+
 ```
 root@raspberrypi3:~# mount
 /dev/mmcblk0p2 on / type ext4 (rw,relatime,data=ordered)
@@ -218,12 +270,16 @@ tmpfs on /var/volatile type tmpfs (rw,relatime)
 tmpfs on /run/user/0 type tmpfs (rw,nosuid,nodev,relatime,size=88176k,mode=700)
 root@raspberrypi3:~#
 ```
+
 **SUMMARY**: The GDP-11 image creates two partitions on the SD-Card:
+
 | Device         | Size | Type         | Notes  |
 |----------------|------|--------------|--------|
 | /dev/mmcblk0p1 | 40M  | W95 FAT32    | bootcode.bin, kernel, DTB, etc. |
 | /dev/mmcblk0p2 | 1.1G | Linux (ext4) | rootfs |
+
 #### Inspect `df -h`
+
 ```
 root@raspberrypi3:~# df -h
 Filesystem      Size  Used Avail Use% Mounted on
@@ -237,7 +293,9 @@ tmpfs           431M  8.0K  431M   1% /var/volatile
 tmpfs            87M   72K   87M   1% /run/user/0
 root@raspberrypi3:~#
 ```
+
 #### Inspect DOS partition on MicroSD
+
 ```
 root@raspberrypi3:~# mkdir /tmp/boot
 root@raspberrypi3:~# mount -o ro /dev/mmcblk0p1 /tmp/boot
@@ -268,7 +326,9 @@ drwxr-xr-x  2 root root    2048 Dec 16 05:50 overlays
 root@raspberrypi3:~# umount /tmp/boot
 root@raspberrypi3:~#
 ```
+
 #### Inspect installed version of Qt
+
 ```
 root@raspberrypi3:~# rpm -qa | grep qt | sort
 kernel-module-qt1010-4.4.16+git0+26550dcfb8-r0.raspberrypi3
@@ -308,8 +368,11 @@ qtwebkit-5.6.0+git0+71136c9621-r0.cortexa7hf_neon_vfpv4
 qtwebkit-qmlplugins-5.6.0+git0+71136c9621-r0.cortexa7hf_neon_vfpv4
 root@raspberrypi3:~#
 ```
+
 ### See also
+
 * [GENIVI Development Platform](https://at.projects.genivi.org/wiki/x/aoCw)
 * [Raspberry Pi 2 and 3 setup and software installation](https://at.projects.genivi.org/wiki/x/fomw)
-<-- markdown-link-check-enable-->
-<-- EOF -->
+
+<!-- markdown-link-check-enable -->
+<!-- EOF -->

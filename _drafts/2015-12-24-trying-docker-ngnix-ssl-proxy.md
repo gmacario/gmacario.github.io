@@ -4,34 +4,51 @@ title:  "Trying Docker nginx SSL Proxy"
 date:   2015-12-21 18:00:00 CET
 categories: howto docker nginx webserver ssl
 ---
-<-- markdown-link-check-disable -->
+<!-- markdown-link-check-disable -->
+
 ### Introduction
+
 See <https://github.com/DanielDent/docker-nginx-ssl-proxy>
+
 ### Installing docker-compose on mv-linux-powerhorse
+
 See <https://docs.docker.com/compose/install/>
+
 Logged as gmacario@mv-linux-powerhorse
+
 ```
 $ curl -L https://github.com/docker/compose/releases/download/1.5.2/docker-compose-`uname -s`-`uname -m` > docker-compose
 $ sudo install -m 755 docker-compose /usr/local/bin/
 ```
+
 ### Creating
+
 New issue: apache: Docker image does not build
+
 Following instructions at <https://github.com/fedora-cloud/Fedora-Dockerfiles/tree/master/apache>
+
 ```
 $ cd Fedora-Dockerfiles/apache
 $ docker build --rm -t test/httpd .
 ```
+
 Result:
+
 ```
 TODO
 ```
+
 ### Creating docker-compose.yml
+
 Logged as gmacario@mv-linux-powerhorse
+
 ```
 $ cd ~/maxlab-guests/maxlab-nginx
 $ vi docker-compose.yml
 ```
+
 Contents of `docker-compose.yml`
+
 ```
 nginx-ssl-proxy:
   image: danieldent/nginx-ssl-proxy
@@ -44,15 +61,21 @@ nginx-ssl-proxy:
     - "443:443"
   volumes:
     - "/certs"
+
 # EOF
 ```
+
 ### Bring up containers
+
 Logged as gmacario@mv-linux-powerhorse
+
 ```
 $ cd ~/maxlab-guests/maxlab-nginx
 $ docker-compose up
 ```
+
 Result:
+
 ```
 gmacario@mv-linux-powerhorse:~/maxlab-guests/maxlab-nginx⟫ docker-compose up
 Starting maxlabnginx_nginx-ssl-proxy_1
@@ -87,7 +110,7 @@ nginx-ssl-proxy_1 | 2015-12-22 09:58:58,089:INFO:requests.packages.urllib3.conne
 nginx-ssl-proxy_1 | 2015-12-22 09:58:58,444:INFO:requests.packages.urllib3.connectionpool:758: Starting new HTTPS connection (1): acme-v01.api.letsencrypt.org
 nginx-ssl-proxy_1 | 2015-12-22 09:58:58,956:INFO:requests.packages.urllib3.connectionpool:207: Starting new HTTP connection (1): test.example.com
 nginx-ssl-proxy_1 | 2015-12-22 09:58:59,044:ERROR:acme.challenges:267: Unable to reach http://test.example.com/.well-known/acme-challenge/qVg_w25agoHSl2NexQcwK2L7uaLIXCFteTmDeeSnNg0: HTTPConnectionPool(host='test.example.com', port=80): Max retries exceeded with url: /.well-known/acme-challenge/qVg_w25agoHSl2NexQcwK2L7uaLIXCFteTmDeeSnNg0 (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x7f8d30a1add0>: Failed to establish a new connection: [Errno -2] Name or service not known',))
-nginx-ssl-proxy_1 | 2015-12-22 09:58:59,044:WARNING:simp_le:801: test.example.com was not successfully verified by the client. CA is likely to fail as well
+nginx-ssl-proxy_1 | 2015-12-22 09:58:59,044:WARNING:simp_le:801: test.example.com was not successfully verified by the client. CA is likely to fail as well!
 nginx-ssl-proxy_1 | 2015-12-22 09:58:59,065:INFO:requests.packages.urllib3.connectionpool:758: Starting new HTTPS connection (1): acme-v01.api.letsencrypt.org
 nginx-ssl-proxy_1 | 2015-12-22 09:58:59,901:INFO:requests.packages.urllib3.connectionpool:758: Starting new HTTPS connection (1): acme-v01.api.letsencrypt.org
 nginx-ssl-proxy_1 | Traceback (most recent call last):
@@ -103,14 +126,21 @@ nginx-ssl-proxy_1 |   File "/opt/simp_le/venv/local/lib/python2.7/site-packages/
 nginx-ssl-proxy_1 |     raise errors.PollError(waiting, updated)
 nginx-ssl-proxy_1 | acme.errors.PollError
 ```
+
 TODO
+
 # OLD STUFF BELOW
+
 This blog post explains how I did [something](http://www.something.com/) on my laptop running MS Windows 7.
+
 Sample table
-< <http://www.tablesgenerator.com/markdown_tables> -->
+
+<!-- TIP: <http://www.tablesgenerator.com/markdown_tables> -->
+
 | First | Last  | Role | Notes             |
 |-------|-------|------|-------------------|
 | John  | Doe   | CEO  | The big boss      |
 | Mary  | Smith | CFO  | She got the money |
-<-- markdown-link-check-enable-->
-<-- EOF -->
+
+<!-- markdown-link-check-enable -->
+<!-- EOF -->

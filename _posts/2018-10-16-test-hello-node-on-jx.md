@@ -1,27 +1,45 @@
 ---
+
 layout: post
 title:  "Deploying a Node.JS application on Kubernetes using Jenkins X"
 date:   2018-10-12 12:00:00 CEST
 tags:   howto kubernetes gcp jenkins nodejs
+
 ---
-<-- markdown-link-check-disable -->
+<!-- markdown-link-check-disable -->
+
 ### Introduction
+
 This article explains how to deploy a simple [Node.JS](https://nodejs.org/) application on a [Kubernetes](https://kubernetes.io/) cluster using [Jenkins X](https://jenkins-x.io/).
+
 This post is the follow-up to my previous article [Installing Jenkins X on Google Cloud Platform](https://gmacario.github.io/howto/kubernetes/gcp/jenkins/2018/10/09/install-jenkinsx-on-gcp.html).
+
 The following instructions have been tested on host "nemo" (Ubuntu 18.04.1 LTS 64-bit).
+
 We will create our sample application using Jenkins X Quickstart. Quickstarts are pre-made applications you can start a project from, instead of starting from scratch.
+
 ### References
+
 * <https://jenkins-x.io/getting-started/>
 * <https://gmacario.github.io/howto/kubernetes/gcp/jenkins/2018/10/09/install-jenkinsx-on-gcp.html>
+
 ### Prerequisites
+
 * The `jx` binary is installed and available from your shell
 * Jenkins X properly configured
+
 Browse <https://console.cloud.google.com/>
+
 Select the proper GCP project (in our case, `kubernetes-workshop-218213`)
+
 Click on the "Activate Cloud Shell" icon.
+
 #### Reinstalling the `jx` binary
-<21 CEST -->
+
+<!-- 2018-10-15 12:21 CEST -->
+
 Type the following commands in case the `jx` command was not properly installed:
+
 ```shell
 mkdir -p ~/.jx/bin
 curl -L \
@@ -30,22 +48,31 @@ curl -L \
 export PATH=$PATH:~/.jx/bin
 echo 'export PATH=$PATH:~/.jx/bin' >> ~/.bashrc
 ```
+
 #### Verify that jx is correctly configured
-<17 CEST -->
+
+<!-- 2018-10-15 16:17 CEST -->
+
 ```shell
 jx status
 ```
+
 Expected output:
+
 ```
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$ jx status
 Jenkins X checks passed for Cluster(gke_kubernetes-workshop-218213_europe-west1-b_howlernoon): 3 nodes, memory 15% of 17354292Ki, cpu 41% of 5790m. Jenkins is running at http://jenkins.jx.35.195.140.178.nip.io
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 ```
-<18 CEST -->
+
+<!-- 2018-10-15 16:18 CEST -->
+
 ```shell
 jx diagnose
 ```
+
 Expected output:
+
 ```
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$ jx diagnose
 Running in namespace: jx
@@ -59,8 +86,10 @@ kubectl            v1.10.7
 helm client        v2.10.0+g9ad53aa
 helm server        v2.10.0+g9ad53aa
 git                git version 2.11.0
+
 Jenkins X Status:
  Jenkins X checks passed for Cluster(gke_kubernetes-workshop-218213_europe-west1-b_howlernoon): 3 nodes, memory 15% of 17354292Ki, cpu 41% of 5790m. Jenkins is running at http://jenkins.jx.35.195.140.178.nip.io
+
 Kubernetes PVCs:
  NAME                        STATUS    VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 jenkins                     Bound     pvc-59d7abdc-d065-11e8-8172-42010a8401ee   30Gi       RWO            standard       3h
@@ -68,6 +97,7 @@ jenkins-x-chartmuseum       Bound     pvc-59d670d0-d065-11e8-8172-42010a8401ee  
 jenkins-x-docker-registry   Bound     pvc-59d72bce-d065-11e8-8172-42010a8401ee   100Gi      RWO            standard       3h
 jenkins-x-mongodb           Bound     pvc-59d90e70-d065-11e8-8172-42010a8401ee   8Gi        RWO            standard       3h
 jenkins-x-nexus             Bound     pvc-59da88d9-d065-11e8-8172-42010a8401ee   8Gi        RWO            standard       3h
+
 Kubernetes Pods:
  NAME                                            READY     STATUS    RESTARTS   AGE
 jenkins-5dcf5bcd85-7xflw                        1/1       Running   0          3h
@@ -81,6 +111,7 @@ jenkins-x-monocular-api-6cff5d65df-9wwgq        1/1       Running   2          3
 jenkins-x-monocular-prerender-6d8897856-dx4kq   1/1       Running   0          3h
 jenkins-x-monocular-ui-6b7645b67-w8qt6          1/1       Running   0          3h
 jenkins-x-nexus-55f87888dc-b5l59                1/1       Running   0          3h
+
 Kubernetes Ingresses:
  NAME              HOSTS                                      ADDRESS          PORTS     AGE
 chartmuseum       chartmuseum.jx.35.195.140.178.nip.io       35.233.119.214   80        3h
@@ -88,6 +119,7 @@ docker-registry   docker-registry.jx.35.195.140.178.nip.io   35.233.119.214   80
 jenkins           jenkins.jx.35.195.140.178.nip.io           35.233.119.214   80        3h
 monocular         monocular.jx.35.195.140.178.nip.io         35.233.119.214   80        3h
 nexus             nexus.jx.35.195.140.178.nip.io             35.233.119.214   80        3h
+
 Kubernetes Secrets:
  NAME                                       TYPE                                  DATA      AGE
 cleanup-token-bql7k                        kubernetes.io/service-account-token   3         3h
@@ -112,18 +144,26 @@ jx-basic-auth                              Opaque                               
 jx-install-config                          Opaque                                3         3h
 jx-pipeline-git-github-github              Opaque                                2         3h
 nexus                                      Opaque                                1         3h
+
 Please visit https://jenkins-x.io/faq/issues/ for any known issues.
 Finished printing diagnostic information.
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 ```
+
 ### Create quickstart application `node-http-hmi-repository`
-<51CEST -->
+
+<!-- 2018-10-12 16:51CEST -->
+
 Reference: <https://jenkins-x.io/developing/create-quickstart/>
+
 Logged as `gmacario@cloudshell`
+
 ```shell
 jx create quickstart
 ```
+
 Result
+
 ```
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$ jx create quickstart
 ? select the quickstart you wish to create  [Use arrows to move, type to filter]
@@ -135,34 +175,46 @@ gmacario@cloudshell:~ (kubernetes-workshop-218213)$ jx create quickstart
   jenkins-cwp-quickstart
   jenkins-quickstart
 ```
+
 Select `node-http`
+
 ```
 ? select the quickstart you wish to create node-http
 ? Project name (node-http)
 ```
+
 Type `node-http-hmi-repository`
+
 ```
 ? Project name node-http-hmi-repository
 Generated quickstart at /home/gmacario/node-http-hmi-repository
  ### NO charts folder /home/gmacario/node-http-hmi-repository/charts/node-http
 Created project at /home/gmacario/node-http-hmi-repository
-No username defined for the current Git server
+
+No username defined for the current Git server!
 ? Do you wish to use gmacario as the Git user name: (Y/n)
 ```
+
 Type `Y`
+
 ```
 ? Do you wish to use gmacario as the Git user name: Yes
 The directory /home/gmacario/node-http-hmi-repository is not yet using git
 ? Would you like to initialise git now? (Y/n)
 ```
+
 Type `Y`
+
 ```
 ? Would you like to initialise git now? Yes
 ? Commit message:  (Initial import)
 ```
+
 Accept default
+
 ```
 ? Commit message:  Initial import
+
 Git repository created
 performing pack detection in folder /home/gmacario/node-http-hmi-repository
 --> Draft detected JavaScript (36.530078%)
@@ -171,6 +223,8 @@ replacing placeholders in directory /home/gmacario/node-http-hmi-repository
 app name: node-http-hmi-repository, git server: github.com, org: gmacario, Docker registry org: gmacario
 skipping directory "/home/gmacario/node-http-hmi-repository/.git"
 Using Git provider GitHub at https://github.com
+
+
 About to create repository node-http-hmi-repository on server https://github.com with user gmacario
 ? Which organisation do you want to use?  [Use arrows to move, type to filter]
   SOLARMA
@@ -181,57 +235,86 @@ About to create repository node-http-hmi-repository on server https://github.com
   kuruho
   robotrokers
 ```
+
 Select gmacario
+
 ```
 ? Which organisation do you want to use? gmacario
 ? Enter the new repository name:  (node-http-hmi-repository)
 ```
+
 Accept default
+
 ```
 ? Enter the new repository name:  node-http-hmi-repository
+
+
 Creating repository gmacario/node-http-hmi-repository
 Pushed Git repository to https://github.com/gmacario/node-http-hmi-repository
+
 Created Jenkins Project: http://jenkins.jx.35.195.52.165.nip.io/job/gmacario/job/node-http-hmi-repository/
+
 Watch pipeline activity via:    jx get activity -f node-http-hmi-repository -w
 Browse the pipeline log via:    jx get build logs gmacario/node-http-hmi-repository/master
 Open the Jenkins console via    jx console
 You can list the pipelines via: jx get pipelines
 When the pipeline is complete:  jx get applications
+
 For more help on available commands see: https://jenkins-x.io/developing/browsing/
-Note that your first pipeline may take a few minutes to start while the necessary images get downloaded
+
+Note that your first pipeline may take a few minutes to start while the necessary images get downloaded!
+
 Creating GitHub webhook for gmacario/node-http-hmi-repository for url http://jenkins.jx.35.195.52.165.nip.io/github-webhook/
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 ```
+
 #### Run `jx status`
-<21 CEST -->
+
+<!-- 2018-10-15 16:21 CEST -->
+
 Command
+
 ```shell
 jx status
 ```
+
 Result
+
 ```
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$ jx status
 Jenkins X checks passed for Cluster(gke_kubernetes-workshop-218213_europe-west1-b_howlernoon): 3 nodes, memory 15% of 17354292Ki, cpu 41% of 5790m. Jenkins is running at http://jenkins.jx.35.195.140.178.nip.io
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 ```
+
 #### Run `jx console`
-<21 CEST -->
+
+<!-- 2018-10-15 16:21 CEST -->
+
 To know the URL of the Jenkins Dashboard, use the `jx console` command:
+
 ```
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$ jx console
 Jenkins Console: http://jenkins.jx.35.195.140.178.nip.io/blue
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 ```
+
 In our example, browse <http://jenkins.jx.35.195.140.178.nip.io/blue>
+
 **NOTE**: Jenkins login credentials (username: `admin`, password: `****`) were displayed during the installation of Jenkins X, and are stored in file `~/.jx/jenkinsAuth.yaml`.
+
 You should find three pipelines:
+
 * gmacario/environment-howlernoon-production
 * gmacario/environment-howlernoon-staging
 * gmacario/node-http-hmi-repository
+
 #### Run `jx get build logs`
-<23 CEST -->
+
+<!-- 2018-10-15 16:23 CEST -->
+
 You may also inspect the logs of the Jenkins pipelines
 with the `jx build logs` command:
+
 ```
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$ jx get build logs
 ? Which pipeline do you want to view the logs of?:   [Use arrows to move, type to filter]
@@ -239,11 +322,17 @@ gmacario@cloudshell:~ (kubernetes-workshop-218213)$ jx get build logs
   gmacario/environment-howlernoon-staging/master
   gmacario/node-http-hmi-repository/master
 ```
+
 Inspect each of the above pipelines and make sure that all of them
 have completed successfully.
+
+
 ### Preview the application
-<23 CEST -->
+
+<!-- 2018-10-15 16:23 CEST -->
+
 Use the `jx get environment` command to display the configured Jenkins X environments:
+
 ```
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$ jx get environment
 NAME       LABEL       KIND        PROMOTE NAMESPACE     ORDER CLUSTER SOURCE                                                            REF PR
@@ -252,49 +341,73 @@ staging    Staging     Permanent   Auto    jx-staging    100           https://g
 production Production  Permanent   Manual  jx-production 200           https://github.com/gmacario/environment-howlernoon-production.git
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 ```
+
 #### Preview the staging environment
-<23 CEST -->
+
+<!-- 2018-10-15 16:23 CEST -->
+
 ```
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$ jx open --env staging
 Name                     URL
 node-http-hmi-repository http://node-http-hmi-repository.jx-staging.35.195.140.178.nip.io
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 ```
+
 then browse the URL corresponding to service `node-http-hmi-repository` -
 in our case, <http://node-http-hmi-repository.jx-staging.35.195.140.178.nip.io>
+
 Alternatively:
+
 Browse GCP Console > Kubernetes Engine > Services
+
 In tab "Kubernetes services", filter by "Service Type: Ingress"
+
 Browse the staging environment of "node-http-hmi-repository" at
 <http://node-http-hmi-repository.jx-staging.35.195.140.178.nip.io/>
+
 #### Preview the production environment
+
 For the time being no applications have been deployed to the production environment:
+
 ```
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$ jx open --env production
 Name URL
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 ```
+
 As demonstrated by the `jx get environment` command above,
 the deployment to the production environment is configured to be performed manually.
+
 ### Typical application development workflow
+
 #### Create an issue to node-http-hmi-repository
-<21 CEST -->
+
+<!-- 2018-10-12 17:21 CEST -->
+
 Logged as gmacario@cloudshell
+
 ```shell
 cd ~/node-http-hmi-repository
 jx create issue -t "Change message on the homepage"
 ```
+
 ```
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$ cd node-http-hmi-repository/
 gmacario@cloudshell:~/node-http-hmi-repository (kubernetes-workshop-218213)$ jx create issue -t "Change message on the homepage"
 ? Do you wish to use gmacario as the user name to use for authenticating with git issues Yes
+
 Created issue #1 at https://github.com/gmacario/node-http-hmi-repository/issues/1
 gmacario@cloudshell:~/node-http-hmi-repository (kubernetes-workshop-218213)$
 ```
+
 Double check: <https://github.com/gmacario/node-http-hmi-repository/issues>
+
 #### Create a development branch
-<23 CEST -->
+
+<!-- 2018-10-12 17:23 CEST -->
+
 Now let us switch to a branch where we can work on fixing the issue
+
 ```shell
 git checkout -b feature/update-index
 vi index.html
@@ -302,28 +415,41 @@ git add index.html
 git commit -a -m "index.html: Update text - fixes #1"
 git push -u origin feature/update-index
 ```
+
 Now if we installed the "[hub](https://hub.github.com/)" tool,
 we could create a Pull Request directly from the Command Line.
 Otherwise we can just do it from the GitHub web interface.
+
 #### Create a Pull Request to node-http-hmi-repository
+
 Browse <https://github.com/gmacario/node-http-hmi-repository>
 and create a Pull Request from the branch you have just pushed
+
 From <https://github.com/gmacario/node-http-hmi-repository/pull/2>
+
 > PR built and available in a preview environment **gmacario-node-http-hmi-repository-pr-2** [here](http://node-http-hmi-repository.jx-gmacario-node-http-hmi-repository-pr-2.35.195.52.165.nip.io/)
+
 After the PR is merged to master, the change will be deployed to the staging environment.
+
 You may verify the progress of the pipelines with the following command
+
 ```shell
 jx get build logs
 ```
-<26 CEST -->
+
+<!-- 2018-10-15 09:26 CEST -->
+
 If we run the `jx get apps` command, we can see that version 0.0.2 has been deployed to the staging environment:
+
 ```
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$ jx get apps
 APPLICATION              STAGING PODS URL                                                             PRODUCTION PODS URL
 node-http-hmi-repository 0.0.2   1/1  http://node-http-hmi-repository.jx-staging.35.195.52.165.nip.io
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 ```
+
 List the services in the development environment:
+
 ```
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$ jx open
 Name                      URL
@@ -335,25 +461,34 @@ jenkins-x-monocular-ui    http://monocular.jx.35.195.52.165.nip.io
 nexus                     http://nexus.jx.35.195.52.165.nip.io
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 ```
+
 List the services in the staging environment:
+
 ```
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$ jx open --env staging
 Name                     URL
 node-http-hmi-repository http://node-http-hmi-repository.jx-staging.35.195.52.165.nip.io
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 ```
+
 List the services in the production environment:
+
 ```
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$ jx open --env production
 Name URL
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 ```
-<58 CEST -->
+
+<!-- 2018-10-15 09:58 CEST -->
+
 Display the activities for application "node-http-hmi-repository"
+
 ```shell
 jx get activity -f node-http-hmi-repository
 ```
+
 Result:
+
 ```
 gmacario@cloudshell:~/node-http-hmi-repository (kubernetes-workshop-218213)$ jx get activity -f node-http-hmi-repository
 STEP                                                        STARTED AGO DURATION STATUS
@@ -387,12 +522,17 @@ gmacario/node-http-hmi-repository/PR-2 #1                     64h31m13s    1m43s
   Clean up                                                    64h29m30s       0s Succeeded
 gmacario@cloudshell:~/node-http-hmi-repository (kubernetes-workshop-218213)$
 ```
+
 #### Creating a devpod
-<18 CEST -->
+
+<!-- 2018-10-15 10:18 CEST -->
+
 ```shell
 jx create devpod
 ```
+
 Result:
+
 ```
 gmacario@cloudshell:~/node-http-hmi-repository (kubernetes-workshop-218213)$ jx create devpod
 Installing the ExposecontrollerService in the namespace: jx-edit-gmacario
@@ -403,7 +543,7 @@ Creating a DevPod of label: nodejs
 Created pod gmacario-nodejs - waiting for it to be ready...
 Updating Helm repository...
 Helm repository update done.
-Pod gmacario-nodejs is now ready
+Pod gmacario-nodejs is now ready!
 You can open other shells into this DevPod via jx create devpod
 You can edit your app using Theia (a browser based IDE) at http://gmacario-nodejs-theia.jx.35.195.52.165.nip.io
 Port 80 is open on [http://gmacario-nodejs-port-3000.jx.35.195.52.165.nip.io http://gmacario-nodejs-port-9229.jx.35.195.52.165.nip.io] and forwarded to the devpod
@@ -420,9 +560,12 @@ Unpacking objects: 100% (62/62), done.
 Checking connectivity... done.
 [root@gmacario-nodejs node-http-hmi-repository]#
 ```
+
 The command has now opened a devshell in my devpod.
 It's a bit like ssh-ing into my devpod.
+
 If I now type `docker ps` I will list the containers running on my Kubernetes cluster:
+
 ```
 [root@gmacario-nodejs node-http-hmi-repository]# docker ps
 CONTAINER ID        IMAGE                                                 COMMAND                  CREATED             STATUS              PORTS               NAMES
@@ -437,8 +580,10 @@ a5349f2f3e1e        055e8e6ae33a                                          "/moni
 d0543cb37dfa        k8s.gcr.io/pause-amd64:3.1                            "/pause"                 2 days ago          Up 2 days                               k8s_POD_kube-proxy-gke-craftersaber-default-pool-9203d5e5-xkws_kube-system_0cfe54e72c47cb3c4efc7f396ebbda85_0
 [root@gmacario-nodejs node-http-hmi-repository]#
 ```
+
 This command has also run the `ksync` command.
 [Ksync](https://vapor-ware.github.io/ksync) is an open source tool which syncs files from your local system to a specific container running in a Kubernetes cluster.
+
 ```
 [root@gmacario-nodejs node-http-hmi-repository]# pwd
 /workspace/node-http-hmi-repository
@@ -465,12 +610,16 @@ drwxr-xr-x 8 root root  4096 Oct 15 08:30 .git
 -rwxr-xr-x 1 root root   179 Oct 15 08:30 watch.sh
 [root@gmacario-nodejs node-http-hmi-repository]#
 ```
-< jx sync returns "ksync version mismatch" -->
+
+<!-- FIXME: jx sync returns "ksync version mismatch" -->
+
 ```shell
 cd ~/node-http-hmi-repository
 jx sync
 ```
+
 Result:
+
 ```
 gmacario@cloudshell:~/node-http-hmi-repository (kubernetes-workshop-218213)$ jx sync
 ksync is already available on your PATH at /home/gmacario/.jx/bin/ksync
@@ -479,15 +628,21 @@ Started the ksync watch
 INFO[0000] listening                                     bind=127.0.0.1 port=40322
 INFO[0003] syncthing listening                           port=8384 syncthing=localhost
 ```
+
 #### Promote to production
-<30 CEST -->
+
+<!-- 2018-10-16 10:30 CEST -->
+
 The promotion to the production environment should be performed by an user with the proper permissions to create and merge Pull Request to repository <https://github.com/gmacario/environment-howlernoon-production>
+
 ```shell
 cd ~/node-http-hmi-repository
 git status
 jx promote --version 0.0.3 --env production
 ```
+
 Result:
+
 ```
 gmacario@cloudshell:~/node-http-hmi-repository (kubernetes-workshop-218213)$ jx promote --version 0.0.3 --env production
 Using helmBinary helm with feature flag: none
@@ -504,64 +659,93 @@ Pull Request https://github.com/gmacario/environment-howlernoon-production/pull/
 Merge commit has not yet any statuses on repo gmacario/environment-howlernoon-production merge sha 9d64dad34d425d90b846b3bfdcf5904f9ed017cd
 merge status: pending for URL https://api.github.com/repos/gmacario/environment-howlernoon-production/statuses/9d64dad34d425d90b846b3bfdcf5904f9ed017cd with target: http://jenkins.jx.35.195.140.178.nip.io/job/gmacario/job/environment-howlernoon-production/job/master/3/display/redirect description: This commit is being built
 merge status: success for URL https://api.github.com/repos/gmacario/environment-howlernoon-production/statuses/9d64dad34d425d90b846b3bfdcf5904f9ed017cd with target: http://jenkins.jx.35.195.140.178.nip.io/job/gmacario/job/environment-howlernoon-production/job/master/3/display/redirect description: This commit looks good
-Merge status checks all passed so the promotion worked
+Merge status checks all passed so the promotion worked!
 ? Do you wish to use gmacario as the user name to comment on issues Yes
 Commenting that issue https://github.com/gmacario/node-http-hmi-repository/issues/1 is now in Production
 gmacario@cloudshell:~/node-http-hmi-repository (kubernetes-workshop-218213)$
 ```
+
 You may follow the progress of the PR at <https://github.com/gmacario/environment-howlernoon-production/pull/2>
+
 Verify that release 0.0.3 of `node-http-hmi-repository` has been deployed in production:
+
 ```
 gmacario@cloudshell:~/node-http-hmi-repository (kubernetes-workshop-218213)$ jx get apps -e production
 APPLICATION              PRODUCTION PODS URL
 node-http-hmi-repository 0.0.3      1/1  http://node-http-hmi-repository.jx-production.35.195.140.178.nip.io
 gmacario@cloudshell:~/node-http-hmi-repository (kubernetes-workshop-218213)$
 ```
+
 Browse the production environment of "node-http-hmi-repository" at
 <http://node-http-hmi-repository.jx-production.35.195.140.178.nip.io/>
+
+
 ### Things which do not yet work as expected
-< Browsing theia URL returns "403 Service Unavailable" -->
+
+<!-- FIXME: Browsing theia URL returns "403 Service Unavailable" -->
+
 #### Browse Monocular instance
+
 ```shell
 jx open
 ```
+
 Browse <http://monocular.jx.35.195.140.178.nip.io/>
+
 The page seems to hang after displaying title.
 Maybe is this due to [jx issues/1417](https://github.com/jenkins-x/jx/issues/1417)?
-<--
+
+<!--
 TODO TODO TODO
+
 ```shell
 jx get env
 ```
+
 ```shell
 jx env production
 ```
+
 Result:
+
 ```
 TODO
 ```
 -->
-<--
+
+<!--
 #### Run `TODO`
+
 Command
+
 ```shell
 TODO
 ```
+
 Result
+
 ```
 TODO
 ```
+
 TODO TODO
 -->
+
 ### Summary
+
 This article explained how to perform CI/CD of a Node.JS web application on a Kubernetes cluster using Jenkins X.
+
 Jenkins X is quite recent and therefore presents a few rough edges as the list of [issues on GitHub](https://github.com/jenkins-x/jx/issues) can testify, however it shows great potential to represent a very helpful tool for making the journey of application developers to Kubernetes smoother.
+
 ### See also
+
 * <https://jenkins-x.io/>
 * <https://jenkins.io/projects/jenkins-x/>
 * [Jenkins X: Easy CI/CD for Kubernetes - James Strachan, CloudBees (Intermediate Skill Level)](https://youtu.be/UTKIT6STSVM) (YouTube Video, 34:55)
-<--
+
+<!--
 * [Jenkins X - Automated CI/CD for Kubernetes](https://www.cloudbees.com/resource/webinar-recording/ondemand-webinar-easy-cicd-kubernetes/thank-you)
 -->
-<-- markdown-link-check-enable-->
-<-- EOF -->
+
+<!-- markdown-link-check-enable -->
+<!-- EOF -->

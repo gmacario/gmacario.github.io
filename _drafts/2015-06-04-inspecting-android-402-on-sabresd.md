@@ -4,14 +4,21 @@ title:  "Inspecting Android 4.0.x on a Freescale Sabre SD"
 date:   2015-05-26 11:45:00
 categories: android howto development debugging
 ---
-<-- markdown-link-check-disable -->
+<!-- markdown-link-check-disable -->
+
 Booting SABRE SD with stock "MX6Q-SDB Android r13.4.1" SD-Card inserted in slot SD3 (J507)
+
 Start PuTTY: COM13:115200,8,n,1
+
 PuTTY Reconfiguration: Logging All session output to file `20150604-1148-android40x-sabresd.txt`
+
 Power up and press "ENTER" to get the U-Boot prompt.
+
 #### Verify U-Boot delivered with stock Android 4.0.4 (2009.08)
+
 ```
 U-Boot 2009.08 (Apr 10 2013 - 18:58:57)
+
 CPU: Freescale i.MX6 family TO1.2 at 792 MHz
 Temperature:   37 C, calibration data 0x5984fb7d
 mx6q pll1: 792MHz
@@ -41,13 +48,15 @@ Out:   serial
 Err:   serial
 i2c: I2C3 SDA is low, start i2c recovery...
 I2C3 Recovery success
-Found PFUZE100 deviceid=10,revid=11
+Found PFUZE100! deviceid=10,revid=11
 Net:   got MAC address from IIM: 00:04:9f:02:b0:36
 FEC0 [PRIME]
 Hit any key to stop autoboot:  0
 MX6Q SABRESD U-Boot >
 ```
+
 Print U-Boot environment variables
+
 ```
 MX6Q SABRESD U-Boot > printenv
 bootdelay=3
@@ -69,10 +78,13 @@ bootargs=console=ttymxc0,115200 androidboot.console=ttymxc0 vmalloc=400M init=/i
 stdin=serial
 stdout=serial
 stderr=serial
+
 Environment size: 465/8188 bytes
 MX6Q SABRESD U-Boot >
 ```
+
 List MMC devices
+
 ```
 MX6Q SABRESD U-Boot > mmc list
 FSL_USDHC: 0
@@ -81,16 +93,22 @@ FSL_USDHC: 2
 FSL_USDHC: 3
 MX6Q SABRESD U-Boot >
 ```
+
 Change default MMC device
+
 ```
 MX6Q SABRESD U-Boot > mmc dev 2
 mmc2 is current device
 MX6Q SABRESD U-Boot >
 ```
+
 Inspect partitions of default MMC device (mmc2)
+
 ```
 MX6Q SABRESD U-Boot > mmc part
+
 Partition Map for UNKNOWN device 2  --   Partition Type: DOS
+
 Partition     Start Sector     Num Sectors     Type
     1                16384           16384      83
     2                32768           16384      83
@@ -103,22 +121,29 @@ Partition     Start Sector     Num Sectors     Type
     9              5832705           16383      83
 MX6Q SABRESD U-Boot >
 ```
+
 MMC2 partition 1 is actually raw
+
 ```
 MX6Q SABRESD U-Boot >  ext2ls mmc 2:1 /
 Failed to mount ext2 filesystem...
 ** Bad ext2 partition or disk - mmc 2:1 **
 MX6Q SABRESD U-Boot >
 ```
+
 MMC2 partition 2 is actually raw
+
 ```
 MX6Q SABRESD U-Boot >  ext2ls mmc 2:2 /
 Failed to mount ext2 filesystem...
 ** Bad ext2 partition or disk - mmc 2:2 **
 MX6Q SABRESD U-Boot >
 ```
+
 MMC2 partition 3 is the extended partition for logical partitions 5-9
+
 MMC partition 4 is a DOS partition containing user data
+
 ```
 MX6Q SABRESD U-Boot >  fatls mmc 2:4 /
             lost.dir/
@@ -133,11 +158,16 @@ MX6Q SABRESD U-Boot >  fatls mmc 2:4 /
             download/
             dcim/
             android/
+
 0 file(s), 12 dir(s)
+
 MX6Q SABRESD U-Boot >
 ```
+
 Cannot inspect MMC2 partition 5: U-Boot command `ext2ls mmc 2:5 /` hangs
+
 Inspecting MMC2 partition 6
+
 ```
 MX6Q SABRESD U-Boot >  ext2ls mmc 2:6 /
 <DIR>       1024 .
@@ -145,7 +175,9 @@ MX6Q SABRESD U-Boot >  ext2ls mmc 2:6 /
 <DIR>      12288 lost+found
 MX6Q SABRESD U-Boot >
 ```
+
 Inspecting MMC2 partition 7
+
 ```
 MX6Q SABRESD U-Boot >  ext2ls mmc 2:7 /
 <DIR>       4096 .
@@ -166,7 +198,9 @@ MX6Q SABRESD U-Boot >  ext2ls mmc 2:7 /
 <DIR>       4096 backup
 MX6Q SABRESD U-Boot >
 ```
+
 Inspecting MMC2 partition 8
+
 ```
 MX6Q SABRESD U-Boot >  ext2ls mmc 2:8 /
 <DIR>       1024 .
@@ -175,15 +209,20 @@ MX6Q SABRESD U-Boot >  ext2ls mmc 2:8 /
 <DIR>       1024 wifi
 MX6Q SABRESD U-Boot >
 ```
+
 Inspecting MMC2 partition 9 ==> no data
+
 ```
 MX6Q SABRESD U-Boot >  ext2ls mmc 2:9 /
 Failed to mount ext2 filesystem...
 ** Bad ext2 partition or disk - mmc 2:9 **
 MX6Q SABRESD U-Boot >
 ```
+
 ### Boot Android
+
 Reset to have Android 4.0.2 boot, then access the serial console
+
 ```
 ...
 imx-ipuv3 imx-ipuv3.1: IPU DMFC NORMAL mode: 1(0~1), 5B(4,5), 5F(6,7)
@@ -236,8 +275,8 @@ mxc_sdc_fb mxc_sdc_fb.0: register mxc display driver hdmi
 mxc_hdmi mxc_hdmi: Detected HDMI controller 0x13:0xa:0xa0:0xc1
 fbcvt: 1920x1080@60: CVT Name - 2.073M9
 imx-ipuv3 imx-ipuv3.1: IPU DMFC DP HIGH RESOLUTION: 1(0,1), 5B(2~5), 5F(6,7)
-mxc_sdc_fb mxc_sdc_fb.1: Can't get fb option for mxcfb1
-mxc_sdc_fb mxc_sdc_fb.2: Can't get fb option for mxcfb2
+mxc_sdc_fb mxc_sdc_fb.1: Can't get fb option for mxcfb1!
+mxc_sdc_fb mxc_sdc_fb.2: Can't get fb option for mxcfb2!
 imx-sdma imx-sdma: loaded firmware 1.1
 imx-sdma imx-sdma: initialized
 fbcvt: 1920x1080@60: CVT Name - 2.073M9
@@ -343,7 +382,7 @@ mxc_asrc registered
 revserved_memory_account:viv_gpu registerd
 Thermal calibration data is 0x5984fb7d
 Anatop Thermal registered as thermal_zone0
-anatop_thermal_probe: default cooling device is cpufreq
+anatop_thermal_probe: default cooling device is cpufreq!
 usbcore: registered new interface driver usbhid
 usbhid: USB HID core driver
 logger: created 256K log 'log_main'
@@ -421,10 +460,10 @@ init: cannot find '/system/etc/install-recovery.sh', disabling 'flash_recovery'
 android_usb: already disabled
 mtp_bind_config
 input: eCompass as /devices/virtual/input/input5
-root@android:/ # ERROR: v4l2 capture: slave not found
-ERROR: v4l2 capture: slave not found
-ERROR: v4l2 capture: slave not found
-ERROR: v4l2 capture: slave not found
+root@android:/ # ERROR: v4l2 capture: slave not found!
+ERROR: v4l2 capture: slave not found!
+ERROR: v4l2 capture: slave not found!
+ERROR: v4l2 capture: slave not found!
 warning: `zygote' uses 32-bit capabilities (legacy support in use)
 request_suspend_state: wakeup (3->0) at 17924585339 (1970-01-02 00:18:36.928043670 UTC)
 eth0: Freescale FEC PHY driver [Generic PHY] (mii_bus:phy_addr=1:01, irq=-1)
@@ -443,24 +482,32 @@ acc_open
 acc_release
 android_readwrite_file: ret=-2
 android_readwrite_file: ret=-2
+
 root@android:/ #
 ```
+
 Inspect kernel version ==> 3.0.35
+
 ```
 root@android:/ # cat /proc/version
 Linux version 3.0.35-05524-g8513494-dirty (enrique@enrique-desktop) (gcc version 4.4.3 (GCC) ) #1 SMP PREEMPT Wed Apr 10 18:32:18 CDT 2013
 root@android:/ #
 ```
+
 Inspect kernel cmdline
+
 ```
 root@android:/ # cat /proc/cmdline
 console=ttymxc0,115200 androidboot.console=ttymxc0 vmalloc=400M init=/init video=mxcfb0:dev=hdmi,1920x1080M@60 video=mxcfb1:off video=mxcfb2:off fbmem=28M
 root@android:/ #
 ```
+
 Inspect partitions
+
 ```
 root@android:/ # cat /proc/partitions
 major minor  #blocks  name
+
  179        0    7757824 mmcblk0
  179       16       2048 mmcblk0boot1
  179        8       2048 mmcblk0boot0
@@ -476,7 +523,9 @@ major minor  #blocks  name
  259        1       8191 mmcblk1p9
 root@android:/ #
 ```
+
 Inspect mounted filesystems
+
 ```
 root@android:/ # cat /proc/mounts
 rootfs / rootfs ro,relatime 0 0
@@ -499,7 +548,9 @@ none /sys/kernel/debug debugfs rw,relatime 0 0
 tmpfs /mnt/sdcard/.android_secure tmpfs ro,relatime,size=0k,mode=000 0 0
 root@android:/ #
 ```
+
 Inspect disk usage
+
 ```
 root@android:/ # df
 Filesystem             Size   Used   Free   Blksize
@@ -515,7 +566,9 @@ Filesystem             Size   Used   Free   Blksize
 /mnt/secure/asec         4G     1M     4G   32768
 root@android:/ #
 ```
+
 Inspect root filesystem
+
 ```
 root@android:/ # ls -la /
 drwxr-xr-x root     root              1970-01-02 00:18 acct
@@ -547,9 +600,13 @@ lrwxrwxrwx root     root              1970-01-02 00:18 udisk -> /mnt/udisk
 lrwxrwxrwx root     root              1970-01-02 00:18 vendor -> /system/vendor
 root@android:/ #
 ```
+
 Connect USB mouse and keyboard
+
 Connect HDMI display
+
 Android: Settings > About phone
+
 * Additional system updates
 * Status - Phone number, signal, etc.
 * Legal information
@@ -558,7 +615,9 @@ Android: Settings > About phone
 * Baseband version: Unknown
 * Kernel version: 3.0.35-05524-g8513494-dirty enrique@enrique-desktop #1 SMP PREEMPT Wed Apr 10 18:32:18 CDT 2013
 * Build number: UKNNOWN
+
 Android: Settings > Developer options
+
 * USB Debugging: No
   Debug mode when USB is connected
 * Developmetn device ID
@@ -569,7 +628,9 @@ Android: Settings > Developer options
   Allow mock locations
 * Desktop backup password
   Desktop full backups aren't currently protected.
+
 USER INTERFACE
+
 * Strict mode enabled: No
   Flash screen when apps do long operations on main thread
 * Pointer location: No
@@ -586,12 +647,15 @@ USER INTERFACE
   Animation scale 1x
 * Transition animation scale
   Animation scale 1x
+
 APPS
+
 * Don't keep activities: No
   Destroy every activity as soon as the user leaves it
 * Background process limit
   Standard limit
 * Show all ANRs: No
   Show App not Responding dialog for background apps
-<-- markdown-link-check-enable-->
-<-- EOF -->
+
+<!-- markdown-link-check-enable -->
+<!-- EOF -->

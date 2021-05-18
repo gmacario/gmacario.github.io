@@ -4,34 +4,55 @@ title:  "Inspecting the Linux configuration of my Arduino YUN"
 date:   2015-03-22 14:00:00 CET
 tags:   arduino yun fablab torino
 ---
-<-- markdown-link-check-disable -->
+<!-- markdown-link-check-disable -->
+
 Let us get familiar with my brand new [Arduino Yun](http://arduino.cc/en/Main/ArduinoBoardYun), focusing on the Linux side of it.
+
 Read [Guide to the Arduino Yún](http://arduino.cc/en/Guide/ArduinoYun)
+
 ## Configure networking on my Arduino Yun
+
 Plug the Ethernet cable to to home router.
+
 Power on Yun by connecing a +5Vdc power source to the MicroUSB port - you may just use a USB-to-MicroUSB cable then hook it to your laptop, or a powerbank.
+
 When the white LED is turned on, browse Wi-Fi networks on your laptop.
+
 Connect to Wi-Fi network "Arduino-Yun-90A2DAF30C7B" (the second part of the SSID corresponds to the MAC address of the WiFi transceiver on your Yun).
+
 Browse http://arduino.local/
+
 * Default password: `arduino`
+
 You may then configure the network to connect to an existing Wi-Fi access point, or alternatively use the wired Ethernet.
+
 One the networking on your Yun is properly configured, you may login to it via SSH and get a shell.
+
 ## Login via SSH to my YUN
+
 ```
 $ ssh root@arduino.local
 root@arduino.local's password:
+
+
 BusyBox v1.19.4 (2014-04-10 11:08:41 CEST) built-in shell (ash)
 Enter 'help' for a list of built-in commands.
+
 _______                     ________        __
 |       |.-----.-----.-----.|  |  |  |.----.|  |_
 |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
 |_______||   __|_____|__|__||________||__|  |____|
 |__| W I R E L E S S   F R E E D O M
 -----------------------------------------------------
+
+
 root@Arduino:~#
 ```
+
 Once you have successfully logged into your YUN, you may inspect the software configuration of the [Linino](http://www.linino.org/) Linux distribution running on the Atheros AR 9331 chipset.
+
 ### cat /proc/cpuinfo
+
 ```
 root@Arduino:~# cat /proc/cpuinfo
 system type             : Atheros AR9330 rev 1
@@ -50,15 +71,20 @@ kscratch registers      : 0
 core                    : 0
 VCED exceptions         : not available
 VCEI exceptions         : not available
+
 root@Arduino:~#
 ```
+
 ### cat /proc/version
+
 ```
 root@Arduino:~# cat /proc/version
 Linux version 3.3.8 (jenkins@jenkins) (gcc version 4.6.3 20120201 (prerelease) (Linaro GCC 4.6-2012.02) ) #1 Fri Apr 11 07:16:38 CEST 2014
 root@Arduino:~#
 ```
+
 ### df -h
+
 ```
 root@Arduino:~# df -h
 Filesystem                Size      Used Available Use% Mounted on
@@ -70,7 +96,9 @@ tmpfs                   512.0K         0    512.0K   0% /dev
 overlayfs:/overlay        7.0M    360.0K      6.6M   5% /
 root@Arduino:~#
 ```
+
 ### ls -la
+
 ```
 root@Arduino:~# ls -la /
 drwxr-xr-x    1 root     root             0 Sep  8  2011 .
@@ -94,13 +122,17 @@ lrwxrwxrwx    1 root     root             4 Apr 17  2014 var -> /tmp
 drwxr-xr-x    5 root     root            99 Feb 18  2014 www
 root@Arduino:~#
 ```
+
 ### cat /.extroot.md5sum
+
 ```
 root@Arduino:~# cat /.extroot.md5sum
 6e17e158dbfa1ea4da2e3f90c2819ca6
 root@Arduino:~#
 ```
+
 ### lsusb
+
 ```
 root@Arduino:~# lsusb
 Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
@@ -108,7 +140,10 @@ Bus 001 Device 002: ID 058f:6254 Alcor Micro Corp. USB Hub
 Bus 001 Device 003: ID 058f:6366 Alcor Micro Corp. Multi Flash Reader
 root@Arduino:~#
 ```
+
+
 ### uci show
+
 ```
 root@Arduino:~# uci show
 arduino.@arduino[0]=arduino
@@ -280,11 +315,14 @@ wireless.@wifi-iface[0].encryption=none
 wireless.@wifi-iface[0].ssid=Arduino Yun-90A2DAF30C7B
 root@Arduino:~#
 ```
+
 We have a total of 167 configuration entries
+
 ```
 root@Arduino:~# uci show | wc -l
 167
 root@Arduino:~#
 ```
-<-- markdown-link-check-enable-->
-<-- EOF -->
+
+<!-- markdown-link-check-enable -->
+<!-- EOF -->

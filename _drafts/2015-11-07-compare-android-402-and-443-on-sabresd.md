@@ -4,46 +4,71 @@ title:  "Comparing Android 4.0.2 and 4.4.3 on a Freescale Sabre SD"
 date:   2015-05-15 08:00:00
 categories: android howto update debugging
 ---
-<-- markdown-link-check-disable -->
+<!-- markdown-link-check-disable -->
+
 # Tests
+
 ### Show U-Boot Log
+
 Excerpt from serial console Log
+
 ### Show U-Boot version
+
 ```
 U-Boot> version
 ```
+
 ### Show U-Boot environment variables
+
 ```
 U-Boot> printenv
 ```
+
 ### Show Kernel Boot Log
+
 TODO
+
 ### Show Kernel Version
+
 ```
 # cat /proc/version
 ```
+
 ### Show Kernel Commandline
+
 ```
 # cat /proc/cmdline
 ```
+
 ### Inspect disk usage
+
 ```
 # df
 ```
+
 ### Show mounted filesystems
+
 ```
 # mount
 ```
+
 ### Show running processes
+
 ```
 # ps
 ```
+
 # Test Results
+
 ## Android 4.0.2 (stock SD-Card)
+
 ### Show U-Boot Log
+
 Excerpt from serial console Log
+
 ```
 U-Boot 2009.08 (Apr 10 2013 - 18:58:57)
+
 CPU: Freescale i.MX6 family TO1.2 at 792 MHz
 Temperature:   34 C, calibration data 0x5984fb7d
 mx6q pll1: 792MHz
@@ -71,7 +96,7 @@ MMC:   FSL_USDHC: 0,FSL_USDHC: 1,FSL_USDHC: 2,FSL_USDHC: 3
 In:    serial
 Out:   serial
 Err:   serial
-Found PFUZE100 deviceid=10,revid=11
+Found PFUZE100! deviceid=10,revid=11
 Net:   got MAC address from IIM: 00:04:9f:02:b0:36
 FEC0 [PRIME]
 Hit any key to stop autoboot:  0
@@ -80,15 +105,21 @@ ramdisk  @ 11800000 (167741)
 kernel cmdline:
         use uboot command line:
         console=ttymxc0,115200 androidboot.console=ttymxc0 vmalloc=400M init=/init video=mxcfb0:dev=hdmi,1920x1080M@60 video=mxcfb1:off video=mxcfb2:off fbmem=28M
+
 Starting kernel ...
 ```
+
 ### Show U-Boot version
+
 ```
 MX6Q SABRESD U-Boot > version
+
 U-Boot 2009.08 (Apr 10 2013 - 18:58:57)
 MX6Q SABRESD U-Boot >
 ```
+
 ### Show U-Boot environment variables
+
 ```
 MX6Q SABRESD U-Boot > printenv
 bootdelay=3
@@ -110,30 +141,41 @@ bootargs=console=ttymxc0,115200 androidboot.console=ttymxc0 vmalloc=400M init=/i
 stdin=serial
 stdout=serial
 stderr=serial
+
 Environment size: 465/8188 bytes
 MX6Q SABRESD U-Boot >
 ```
+
 ### Show Kernel Boot Log
+
 TODO
+
 ### Show Kernel Version
+
 ```
 root@android:/ # cat /proc/version
 Linux version 3.0.35-05524-g8513494-dirty (enrique@enrique-desktop) (gcc version 4.4.3 (GCC) ) #1 SMP PREEMPT Wed Apr 10 18:32:18 CDT 2013
 root@android:/ #
 ```
+
 ### Show Kernel Commandline
+
 ```
 # cat /proc/cmdline
 ```
+
 ```
 root@android:/ # cat /proc/cmdline
 console=ttymxc0,115200 androidboot.console=ttymxc0 vmalloc=400M init=/init video=mxcfb0:dev=hdmi,1920x1080M@60 video=mxcfb1:off video=mxcfb2:off fbmem=28M
 root@android:/ #
 ```
+
 ### Inspect disk usage
+
 ```
 # df
 ```
+
 ```
 root@android:/ # df
 Filesystem             Size   Used   Free   Blksize
@@ -149,7 +191,9 @@ Filesystem             Size   Used   Free   Blksize
 /mnt/secure/asec         4G     1M     4G   32768
 root@android:/ #
 ```
+
 ### Show mounted filesystems
+
 ```
 root@android:/ # mount
 rootfs / rootfs ro,relatime 0 0
@@ -172,7 +216,9 @@ none /sys/kernel/debug debugfs rw,relatime 0 0
 tmpfs /mnt/sdcard/.android_secure tmpfs ro,relatime,size=0k,mode=000 0 0
 root@android:/ #
 ```
+
 ### Show running processes
+
 ```
 root@android:/ # ps
 USER     PID   PPID  VSIZE  RSS     WCHAN    PC         NAME
@@ -290,9 +336,13 @@ root      3084  2     0      0     c008f200 00000000 S kworker/1:0
 root      3086  2213  956    280   00000000 400d6458 R ps
 root@android:/ #
 ```
+
 ## Overrding Android 4.4.3 bootargs (image TODO)
+
 Power up, then press "ENTER" to get the U-Boot prompt
+
 Type the following commands:
+
 ```
 => setenv fastboot_dev mmc1
 => setenv bootcmd booti mmc1
@@ -300,7 +350,9 @@ Type the following commands:
 => printenv
 => saveenv
 ```
+
 Result
+
 ```
 => printenv
 baudrate=115200
@@ -315,19 +367,26 @@ fdt_high=0xffffffff
 initrd_high=0xffffffff
 loadaddr=0x12000000
 splashpos=m,m
+
 Environment size: 381/8188 bytes
 => saveenv
 Saving Environment to MMC...
 Writing to MMC(1)... done
 =>
 ```
+
 Now boot Android
+
 ```
 => boot
 ```
+
 TODO: A string "A N D R O I D _" is shown on the HDMI display but then get
+
 ```
 binder: 142:142 transaction failed 29189, size 0-0
 ```
+
 TODO: Compare ALL the U-Boot environment variables...
+
 TODO

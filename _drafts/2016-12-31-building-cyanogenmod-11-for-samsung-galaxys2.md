@@ -6,38 +6,58 @@ tags:
   - android
   - howto
 ---
-<-- markdown-link-check-disable -->
+<!-- markdown-link-check-disable -->
+
 Start the container with the build environment
+
     gmacario@mv-linux-powerhorse:~$ cd ~/docker-cyanogenmod
     gmacario@mv-linux-powerhorse:~/docker-cyanogenmod$ ./run.sh
+
 Logged as cmbuild@_container_:
+
 ### Install Repo
+
 TODO
+
 ### Install Android SDK
+
 TODO
+
 ### Create build directory
+
     $ mkdir -p ~/android/cm11
     $ cd ~/android/cm11
+
 ### Fetch sources
-<15 CEST -->
+
+<!-- 2015-04-11 15:15 CEST -->
+
     $ repo init -u https://github.com/CyanogenMod/android.git -b cm-11.0
     $ repo sync
+
 Result:
+
 ```
 cmbuild@c8226ae3ff79:~/android/cm11$ du -sh
 25G     .
 cmbuild@c8226ae3ff79:~/android/cm11$
 ```
+
 ### Start the build
-<24 CEST -->
+
+<!-- 2015-04-11 21:24 CEST -->
+
     $ cd ~/android/cm11
     $ source build/envsetup.sh
     $ breakfast aosp_arm-eng
+
 Result:
+
 ```
 cmbuild@c8226ae3ff79:~/android/cm11$ breakfast aosp_arm-eng
 including vendor/cm/vendorsetup.sh
 Trying dependencies-only mode on a non-existing device tree?
+
 ============================================
 PLATFORM_VERSION_CODENAME=REL
 PLATFORM_VERSION=4.4.4
@@ -56,10 +76,14 @@ HOST_BUILD_TYPE=release
 BUILD_ID=KTU84Q
 OUT_DIR=/home/cmbuild/android/cm11/out
 ============================================
+
 cmbuild@c8226ae3ff79:~/android/cm11$
 ```
+
 Start the build:
+
     $ brunch aosp_arm-eng
+
 ```
 ...
 ============================================
@@ -83,21 +107,25 @@ OUT_DIR=/home/cmbuild/android/cm11/out
 Checking build tools versions...
 ************************************************************
 You are attempting to build with an unsupported JDK.
+
 You use OpenJDK but only Sun/Oracle JDK is supported.
 Please follow the machine setup instructions at
     https://source.android.com/source/download.html
-Continue at your own peril
+
+Continue at your own peril!
 ************************************************************
 ************************************************************
 You are attempting to build with an unsupported version
 of java.
+
 Your version is: java version "1.7.0_75".
 The correct version is: Java SE 1.6 or 1.7.
+
 Please follow the machine setup instructions at
 https://source.android.com/source/download.html
 ************************************************************
 /home/cmbuild/android/cm11/out/target/product/generic/obj/APPS/SignatureTest_intermediates
-ebtables is disabled on this build
+"ebtables is disabled on this build"
 find: `src': No such file or directory
 find: `bootable/recovery/res-720': No such file or directory
 No private recovery resources for TARGET_DEVICE generic
@@ -109,14 +137,19 @@ build/core/tasks/kernel.mk:95: *************************************************
 make: *** No rule to make target `bacon'.  Stop.
 cmbuild@c8226ae3ff79:~/android/cm11$
 ```
-<37 CEST -->
+
+<!-- 2015-04-11 21:37 CEST -->
+
 Use lunch
+
 ```
 $ cd ~/android/cm11
 $ lunch aosp_arm-eng
 $ mka
 ```
+
 Result:
+
 ```
 ...
 Copying: /home/cmbuild/android/cm11/out/target/common/obj/JAVA_LIBRARIES/core_intermediates/classes-jarjar.jar
@@ -139,6 +172,8 @@ make: *** [/home/cmbuild/android/cm11/out/target/product/generic/kernel] Error 2
 make: *** Waiting for unfinished jobs....
 cmbuild@c8226ae3ff79:~/android/cm11$
 ```
+
 TODO
-<-- markdown-link-check-enable-->
-<-- EOF -->
+
+<!-- markdown-link-check-enable -->
+<!-- EOF -->

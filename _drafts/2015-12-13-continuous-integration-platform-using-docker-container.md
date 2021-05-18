@@ -4,15 +4,24 @@ title:  "Continuous Integration Platform using Docker containers"
 date:   2015-12-13 14:10:00 CET
 categories: howto docker compose continuous integration jenkins gitlab
 ---
-<-- markdown-link-check-disable -->
+<!-- markdown-link-check-disable -->
+
 ### Introduction
+
 This page explains how to install an integrated set of open-source CI Tools (Jenkins, Gitlab, Nexus, SonarQube and Selenium Grid) inside Docker containers.
+
 This is based on the excellent [blog post by Mark Birkner](https://blog.codecentric.de/en/2015/10/continuous-integration-platform-using-docker-container-jenkins-sonarqube-nexus-gitlab).
+
 Tested on a laptop with MS Windows 7 64-bit.
+
 ### Install Docker Toolbox 1.9.1c
+
 Download Docker Toolbox for your host OS (I chose MS Windows) from <https://www.docker.com/docker-toolbox>
+
 Double click the Docker Toolbox installer.
+
 When the installation is complete, launch "Docker Quickstart Terminal"
+
 ```
 .                        ##         .
                    ## ## ##        ==
@@ -22,34 +31,51 @@ When the installation is complete, launch "Docker Quickstart Terminal"
             \______ o           __/
              \    \         __/
               \____\_______/
+
 docker is configured to use the default machine with IP 192.168.99.101
 For help getting started, check out the docs at https://docs.docker.com
+
+
 gmacario@ITM-GMACARIO-W7 MINGW64 ~
 $ docker-machine version
 C:\Program Files\Docker Toolbox\docker-machine.exe version 0.5.2 ( 0456b9f )
+
 gmacario@ITM-GMACARIO-W7 MINGW64 ~
 $
 ```
+
 You may want to allocate more resources to the docker-machine VM.
+
 For instance, assuming you want to allocate 4096 MB of RAM to the VM
 (you need to have at least twice the memory on your host):
+
 ```
 $ docker-machine stop default
 $ VBoxManage modifyvm default --memory 4096
 ```
+
 Then launch the Docker Quickstart Terminal, the docker-machine VM will be restarted with the new memory settings.
+
+
 ### Deploy containers using docker-ci-tool-stack
+
 Inside the Docker Quickstart Terminal, clone project docker-ci-tool-stack from GitHub
+
 ```
 $ git clone https://github.com/marcelbirkner/docker-ci-tool-stack
 $ cd docker-ci-tool-stack
 ```
+
 Now bring up the containers using `docker-compose up`
+
 ```
 $ docker-compose up
 ```
+
 Note: The first time the Docker images have to be pulled or built, so this may take a long time to execute.
+
 Unfortunately I got an error:
+
 ```
 gmacario@ITM-GMACARIO-W7 MINGW64 /e/data/MYGIT/docker-ci-tool-stack (master)
 $ docker-compose up
@@ -100,16 +126,25 @@ Removing intermediate container e4e236656546
 Successfully built e3b9da9eed3f
 Creating dockercitoolstack_sonar_1
 Cannot start container 7f83a11bdf605b1d66d1d65b8af3f7440548aab3a79f580af45c26a06d75051e: [8] System error: no such file or directory
+
 gmacario@ITM-GMACARIO-W7 MINGW64 /e/data/MYGIT/docker-ci-tool-stack (master)
 $
 ```
-<51 CET -->
+
+<!-- 2015-12-12 15:51 CET -->
+
 Create new issue on <https://github.com/marcelbirkner/docker-ci-tool-stack/issues>
+
 > Does not work on Docker Toolbox for Windows
+
 <https://github.com/marcelbirkner/docker-ci-tool-stack/issues/2>
+
 #### Fix issue marcelbirkner/docker-ci-tool-stack/issues/2
+
 Fork project [marcelbirkner/docker-ci-tool-stack](https://github.com/marcelbirkner/docker-ci-tool-stack)
+
 Create file `.gitattributes`
+
 ```
 $ git remote add gmacario git@github.com:gmacario/docker-ci-tool-stack.git
 $ git checkout -b fix-issue-2
@@ -118,13 +153,21 @@ $ git add .gitattributes
 $ git commit
 $ git push -u gmacario fix-issue-2
 ```
-<26 CET -->
+
+<!-- 2015-12-12 17:26 CET -->
+
 Created new PR on <https://github.com/marcelbirkner/docker-ci-tool-stack/pulls>
+
 > Add .gitattributes
+
 <https://github.com/marcelbirkner/docker-ci-tool-stack/pull/3>
+
 (Update 2015-12-12 23:00): PR merged to <https://github.com/marcelbirkner/docker-ci-tool-stack>
+
 #### Cleanup and retry `docker-compose up`
-<30 CET -->
+
+<!-- 2015-12-12 17:30 CET -->
+
 ```
 gmacario@ITM-GMACARIO-W7 MINGW64 /e/data/MYGIT/docker-ci-tool-stack (fix-issue-2)
 $ docker-compose.exe up
@@ -200,30 +243,41 @@ Traceback (most recent call last):
   File "C:\projects\compose\compose\cli\multiplexer.py", line 35, in loop
 socket.error: [Errno 10054] An existing connection was forcibly closed by the remote host
 docker-compose returned -1
+
 gmacario@ITM-GMACARIO-W7 MINGW64 /e/data/MYGIT/docker-ci-tool-stack (fix-issue-2)
 $
 ```
+
 **NOTE**: The error is mostly due to low memory.
+
 #### Extend VM Base Memory, then retry `docker-compose up`
-<19 CET -->
+
+<!-- 2015-12-13 09:19 CET -->
+
 Adjust VM settings (set Base Memory: 3048 MB), then retry.
+
 ```
 $ docker-machine stop default
 $ VBoxManage modifyvm default --memory 3048
 $ docker-machine start default
 $ eval "docker-machine env default"
 ```
+
 Result:
+
 ```
 gmacario@ITM-GMACARIO-W7 MINGW64 ~
 $ docker-machine stop default
 (default) Stopping VM...
+
 gmacario@ITM-GMACARIO-W7 MINGW64 ~
 $ VBoxManage modifyvm default --memory 3048
+
 gmacario@ITM-GMACARIO-W7 MINGW64 ~
 $ docker-machine start default
 (default) Starting VM...
 Started machines may have new IP addresses. You may need to re-run the `docker-machine env` command.
+
 gmacario@ITM-GMACARIO-W7 MINGW64 ~
 $ eval "docker-machine env default"
 export DOCKER_TLS_VERIFY="1"
@@ -232,30 +286,42 @@ export DOCKER_CERT_PATH="C:\Users\gmacario\.docker\machine\machines\default"
 export DOCKER_MACHINE_NAME="default"
 # Run this command to configure your shell:
 # eval "$(C:\Program Files\Docker Toolbox\docker-machine.exe env default)"
+
 gmacario@ITM-GMACARIO-W7 MINGW64 ~
 $
 ```
-<10 CET -->
+
+<!-- 2015-12-13 13:10 CET -->
+
 Now bring up the containers
+
 ```
 $ cd /e/data/MYGIT/docker-ci-tool-stack
 $ docker-compose up
 ```
+
 You may verify that all the containers are up and running by doing
+
 Start > Kitematic (Alpha)
+
 then verifying that all the containers are green.
+
 Access the web interface of the installed tools:
+
 ```
 BASE=$(docker-machine ip default)
 ```
+
 | Tool          | URL                            | Credentials       | Notes                  |
 |---------------|--------------------------------|-------------------|------------------------|
 | Jenkins       | http://$BASE:18080/            | no login required | OK                     |
 | SonarQube     | http://$BASE:19000/            | admin/admin       | OK                     |
 | Nexus         | http://$BASE:18081/nexus       | admin/admin123    | OK                     |
-| GitLab        | http://$BASE:10080/            | root/5iveLfe     | ERR_CONNECTION_REFUSED |
+| GitLab        | http://$BASE:10080/            | root/5iveL!fe     | ERR_CONNECTION_REFUSED |
 | Selenium Grid | http://$BASE:4444/grid/console | no login required | OK                     |
+
 **NOTE**: The URL for Jenkins Dashboard documented in the `README.md` is incorrect.
 Submitted PR <https://github.com/marcelbirkner/docker-ci-tool-stack/pull/4>
-<-- markdown-link-check-enable-->
-<-- EOF -->
+
+<!-- markdown-link-check-enable -->
+<!-- EOF -->

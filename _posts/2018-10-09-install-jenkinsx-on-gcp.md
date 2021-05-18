@@ -4,18 +4,30 @@ title:  "Installing Jenkins X on Google Cloud Platform"
 date:   2018-10-09 10:00:00
 tags:   howto kubernetes gcp jenkins
 ---
-<-- markdown-link-check-disable -->
+<!-- markdown-link-check-disable -->
+
 ### Introduction
+
 Here are my notes while deploying Jenkins X on a Kubernetes cluster on GCP.
+
 The commands in this page have been tested on host "nemo" (Ubuntu 18.04.1 LTS 64-bit).
+
 ### References
+
 * <https://jenkins-x.io/getting-started/>
+
 ### Create cluster on GCP
-<47 CEST -->
+
+<!-- 2018-10-09 09:47 CEST -->
+
 Reference: <https://jenkins-x.io/getting-started/create-cluster/>
+
 Browse Google Cloud Console at <https://console.cloud.google.com/>
+
 Select GCP project "kubernetes-workshop-218213", then click on the "Activate Cloud Shell" icon.
+
 Logged as `gmacario@cloudshell`, install the `jx` binary:
+
 ```shell
 mkdir -p ~/.jx/bin
 curl -L https://github.com/jenkins-x/jx/releases/download/v1.3.414/jx-linux-amd64.tar.gz | tar xzv -C ~/.jx/bin
@@ -23,12 +35,17 @@ export PATH=$PATH:~/.jx/bin
 echo 'export PATH=$PATH:~/.jx/bin' >> ~/.bashrc
 source ~/.bashrc
 ```
+
 Now use the [jx create cluster gke](https://jenkins-x.io/commands/jx_create_cluster_gke) command.
+
 You can see a demo of this command here: <https://jenkins-x.io/demos/create_cluster_gke/>
+
 ```shell
 jx create cluster gke --skip-login
 ```
+
 Result:
+
 ```
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$ jx create cluster gke --skip-login
 ? Missing required dependencies, deselect to avoid auto installing: helm
@@ -68,19 +85,26 @@ Note: this loadbalancer will fail to be provisioned if you have insufficient quo
 External loadbalancer created
 Waiting to find the external host name of the ingress controller Service in namespace kube-system with name jxing-nginx-ingress-controller
 You can now configure a wildcard DNS pointing to the new loadbalancer address 35.241.213.226
+
 If you do not have a custom domain setup yet, Ingress rules will be set for magic dns nip.io.
 Once you have a customer domain ready, you can update with the command jx upgrade ingress --cluster
 If you don't have a wildcard DNS setup then setup a new CNAME and point it at: 35.241.213.226.nip.io then use the DNS domain in the next input...? Domain 35.241.213.226.nip.io
 nginx ingress controller installed and configured
 Lets set up a Git username and API token to be able to perform CI/CD
+
 ? GitHub user name: gmacario
 To be able to create a repository on GitHub we need an API Token
 Please click this URL https://github.com/settings/tokens/new?scopes=repo,read:user,read:org,user:email,write:repo_hook,delete_repo
+
 Then COPY the token and enter in into the form below:
+
 ? API Token:
 ```
+
 Browse <https://github.com/settings/tokens/new?scopes=repo,read:user,read:org,user:email,write:repo_hook,delete_repo>
+
 then paste the API Token into the terminal
+
 ```
 ? API Token: ****************************************
 Updated the team settings in namespace jx
@@ -94,58 +118,95 @@ Installing Jenkins X platform helm chart from: /home/gmacario/.jx/cloud-environm
 Installing jx into namespace jx
 waiting for install to be ready, if this is the first time then it will take a while to download images
 Jenkins X deployments ready in namespace jx
+
+
         ********************************************************
+
              NOTE: Your admin password is: xxxxxx
+
         ********************************************************
+
+
 Getting Jenkins API Token
 Using url http://jenkins.jx.35.241.213.226.nip.io/me/configure
 Unable to automatically find API token with chromedp using URL http://jenkins.jx.35.241.213.226.nip.io/me/configure
 Error: fork/exec /usr/bin/google-chrome: no such file or directory
 Please go to http://jenkins.jx.35.241.213.226.nip.io/me/configure and click Show API Token to get your API Token
 Then COPY the token and enter in into the form below:
+
 ? API Token:
 ```
-<30 CEST -->
+
+<!-- 2018-10-09 10:30 CEST -->
+
 Login to <http://jenkins.jx.35.241.213.226.nip.io/me/configure> (username: admin; password: see above),
 copy the API Token and paste it into the terminal
+
 ```
 ? API Token: ********************************
 Created user admin API Token for Jenkins server jenkins.jx.35.241.213.226.nip.io at http://jenkins.jx.35.241.213.226.nip.io
 Updating Jenkins with new external URL details http://jenkins.jx.35.241.213.226.nip.io
 Creating default staging and production environments
 Using Git provider GitHub at https://github.com
+
+
 About to create repository environment-tonguetree-staging on server https://github.com with user gmacario
+
+
 Creating repository gmacario/environment-tonguetree-staging
 Creating Git repository gmacario/environment-tonguetree-staging
 Pushed Git repository to https://github.com/gmacario/environment-tonguetree-staging
+
 Created environment staging
 Created Jenkins Project: http://jenkins.jx.35.241.213.226.nip.io/job/gmacario/job/environment-tonguetree-staging/
-Note that your first pipeline may take a few minutes to start while the necessary images get downloaded
+
+Note that your first pipeline may take a few minutes to start while the necessary images get downloaded!
+
 Creating GitHub webhook for gmacario/environment-tonguetree-staging for url http://jenkins.jx.35.241.213.226.nip.io/github-webhook/
 Using Git provider GitHub at https://github.com
+
+
 About to create repository environment-tonguetree-production on server https://github.com with user gmacario
+
+
 Creating repository gmacario/environment-tonguetree-production
 Creating Git repository gmacario/environment-tonguetree-production
 Pushed Git repository to https://github.com/gmacario/environment-tonguetree-production
+
 Created environment production
 Created Jenkins Project: http://jenkins.jx.35.241.213.226.nip.io/job/gmacario/job/environment-tonguetree-production/
-Note that your first pipeline may take a few minutes to start while the necessary images get downloaded
+
+Note that your first pipeline may take a few minutes to start while the necessary images get downloaded!
+
 Creating GitHub webhook for gmacario/environment-tonguetree-production for url http://jenkins.jx.35.241.213.226.nip.io/github-webhook/
+
 Jenkins X installation completed successfully
+
+
         ********************************************************
+
              NOTE: Your admin password is: xxxx
+
         ********************************************************
+
+
+
 Your Kubernetes context is now set to the namespace: jx
 To switch back to your original namespace use: jx ns default
 For help on switching contexts see: https://jenkins-x.io/developing/kube-context/
+
 To import existing projects into Jenkins:       jx import
 To create a new Spring Boot microservice:       jx create spring -d web -d actuator
 To create a new microservice from a quickstart: jx create quickstart
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 ```
+
 ### Inspecting the products of `jx create cluster gke`
+
 #### Kubernetes cluster
+
 Logged as `gmacario@cloudshell`
+
 ```
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$ kubectl cluster-info
 Kubernetes master is running at https://35.195.217.164
@@ -154,20 +215,29 @@ Heapster is running at https://35.195.217.164/api/v1/namespaces/kube-system/serv
 KubeDNS is running at https://35.195.217.164/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
 kubernetes-dashboard is running at https://35.195.217.164/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy
 Metrics-server is running at https://35.195.217.164/api/v1/namespaces/kube-system/services/https:metrics-server:/proxy
+
 To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 ```
+
 #### Others
+
 * Jenkins instance: <http://jenkins.jx.35.241.213.226.nip.io/>
 * GitHub repository for staging environment: <https://github.com/gmacario/environment-tonguetree-staging>
 * GitHub repository for production environment: <https://github.com/gmacario/environment-tonguetree-production>
+
 #### Run `jx diagnose` as gmacario@cloudshell
-<39 CEST -->
+
+<!-- 2018-10-09 11:39 CEST -->
+
 Logged in as `gmacario@cloudshell`, type the following command
+
 ```shell
 jx diagnose
 ```
+
 Result
+
 ```
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$ jx diagnose
 Running in namespace: jx
@@ -181,8 +251,10 @@ kubectl            v1.10.7
 helm client        v2.11.0+g2e55dbe
 helm server        v2.10.0+g9ad53aa
 git                git version 2.11.0
+
 Jenkins X Status:
  Jenkins X checks passed for Cluster(gke_kubernetes-workshop-218213_europe-west1-b_tonguetree): 3 nodes, memory 14% of 17354292Ki, cpu 37% of 5790m. Jenkins is running at http://jenkins.jx.35.241.213.226.nip.io
+
 Kubernetes PVCs:
  NAME                        STATUS    VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 jenkins                     Bound     pvc-4014d9f4-cb9c-11e8-a1b0-42010a84014f   30Gi       RWO            standard       1h
@@ -190,6 +262,7 @@ jenkins-x-chartmuseum       Bound     pvc-40120cba-cb9c-11e8-a1b0-42010a84014f  
 jenkins-x-docker-registry   Bound     pvc-40131c4c-cb9c-11e8-a1b0-42010a84014f   100Gi      RWO            standard       1h
 jenkins-x-mongodb           Bound     pvc-4015b339-cb9c-11e8-a1b0-42010a84014f   8Gi        RWO            standard       1h
 jenkins-x-nexus             Bound     pvc-401782ce-cb9c-11e8-a1b0-42010a84014f   8Gi        RWO            standard       1h
+
 Kubernetes Pods:
  NAME                                            READY     STATUS    RESTARTS   AGE
 jenkins-6d89bdd984-kgdrk                        1/1       Running   0          1h
@@ -203,6 +276,7 @@ jenkins-x-monocular-api-745c8dcd5f-kr6tg        1/1       Running   5          1
 jenkins-x-monocular-prerender-6d8897856-nlln5   1/1       Running   0          1h
 jenkins-x-monocular-ui-7854f96776-njl6g         1/1       Running   0          1h
 jenkins-x-nexus-55f87888dc-h5s4h                1/1       Running   0          1h
+
 Kubernetes Ingresses:
  NAME              HOSTS                                      ADDRESS         PORTS     AGE
 chartmuseum       chartmuseum.jx.35.241.213.226.nip.io       35.205.100.81   80        1h
@@ -210,6 +284,7 @@ docker-registry   docker-registry.jx.35.241.213.226.nip.io   35.205.100.81   80 
 jenkins           jenkins.jx.35.241.213.226.nip.io           35.205.100.81   80        1h
 monocular         monocular.jx.35.241.213.226.nip.io         35.205.100.81   80        1h
 nexus             nexus.jx.35.241.213.226.nip.io             35.205.100.81   80        1h
+
 Kubernetes Secrets:
  NAME                                       TYPE                                  DATA      AGE
 cleanup-token-8dflb                        kubernetes.io/service-account-token   3         1h
@@ -234,20 +309,28 @@ jx-basic-auth                              Opaque                               
 jx-install-config                          Opaque                                3         1h
 jx-pipeline-git-github-github              Opaque                                2         1h
 nexus                                      Opaque                                1         1h
+
 Please visit https://jenkins-x.io/faq/issues/ for any known issues.
 Finished printing diagnostic information.
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$:
 ```
+
 #### Run `jx compliance` as gmacario@cloudshell
-<42 CEST -->
+
+<!-- 2018-10-09 11:42 CEST -->
+
 Logged in as `gmacario@cloudshell`, type the following command
+
 ```shell
 jx compliance
 ```
+
 Result
+
 ```
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$ jx compliance
 Run compliance tests against Kubernetes cluster
+
 Available Commands:
   compliance delete  Deletes the Kubernetes resources allocated by the compliance tests
   compliance logs    Prints the logs of compliance tests
@@ -260,12 +343,17 @@ Use "jx <command> --help" for more information about a given command.
 Use "jx options" for a list of global command-line options (applies to all commands).
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 ```
-<44 CEST -->
+
+<!-- 2018-10-09 11:44 CEST -->
+
 Command
+
 ```shell
 jx compliance run
 ```
+
 Result
+
 ```
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$ jx compliance run
 INFO[0000] created object                                name=heptio-sonobuoy namespace= resource=namespaces
@@ -278,32 +366,45 @@ INFO[0000] created object                                name=sonobuoy namespace
 INFO[0000] created object                                name=sonobuoy-master namespace=heptio-sonobuoy resource=services
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 ```
+
 Command
+
 ```shell
 jx compliance status
 ```
+
 Result
+
 ```
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$ jx compliance status
 Compliance tests are still running, it can take up to 60 minutes.
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 ```
-<45 CEST -->
+
+<!-- 2018-10-09 13:45 CEST -->
+
 After about 1h
+
 ```shell
 jx compliance status
 ```
+
 Result
+
 ```
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$ jx compliance status
 Compliance tests completed. Use `jx compliance results` to display the results.
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 ```
+
 Command
+
 ```shell
 jx compliance results
 ```
+
 Result
+
 ```
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$ jx compliance results
 STATUS TEST
@@ -428,18 +529,26 @@ PASSED [sig-storage] Subpath Atomic writer volumes should support subpaths with 
 PASSED [sig-storage] Subpath Atomic writer volumes should support subpaths with secret pod [Conformance]
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 ```
+
 ### Control cluster from nemo
+
 Browse <https://console.cloud.google.com> > Kubernetes Engine > Clusters
+
 * Select cluster "tonguetree" > Details
   - Take note of Endpoint: 35.195.217.164
 * Click "Show cluster certificate"
   - Take note of Cluster CA certificate: ...
+
 Reference: <https://cloud.google.com/sdk/gcloud/reference/container/clusters/get-credentials>
+
 #### List Kubernetes clusters on GCP
+
 Logged as `gpmacario@nemo`
+
 ```shell
 gcloud container clusters list
 ```
+
 Result:
 ```
 gpmacario@nemo:~ $ gcloud container clusters list
@@ -448,24 +557,34 @@ kube-101    europe-west1-b  1.10.7-gke.2    35.241.146.224  n1-standard-1  1.10.
 tonguetree  europe-west1-b  1.9.7-gke.6     35.195.217.164  n1-standard-2  1.9.7-gke.6   3          RUNNING
 gpmacario@nemo:~ $
 ```
+
 #### Get credentials for GKE cluster "tonguetree"
+
 Logged as gpmacario@nemo
+
 ```shell
 gcloud container clusters get-credentials tonguetree
 ```
+
 Result
+
 ```
 gpmacario@nemo:~ $ gcloud container clusters get-credentials tonguetree
 Fetching cluster endpoint and auth data.
 kubeconfig entry generated for tonguetree.
 gpmacario@nemo:~ $
 ```
+
 #### run `kubectl cluster-info`
+
 Command
+
 ```shell
 kubectl cluster-info
 ```
+
 Result
+
 ```
 gpmacario@nemo:~ $ kubectl cluster-info
 Kubernetes master is running at https://35.195.217.164
@@ -474,15 +593,21 @@ Heapster is running at https://35.195.217.164/api/v1/namespaces/kube-system/serv
 KubeDNS is running at https://35.195.217.164/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
 kubernetes-dashboard is running at https://35.195.217.164/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy
 Metrics-server is running at https://35.195.217.164/api/v1/namespaces/kube-system/services/https:metrics-server:/proxy
+
 To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 gpmacario@nemo:~ $
 ```
+
 #### Run `kubectl get nodes`
+
 Command
+
 ```shell
 kubectl get nodes
 ```
+
 Result
+
 ```
 gpmacario@nemo:~ $ kubectl get nodes
 NAME                                        STATUS   ROLES    AGE   VERSION
@@ -491,12 +616,17 @@ gke-tonguetree-default-pool-5c0fe7ba-x7mw   Ready    <none>   68m   v1.9.7-gke.6
 gke-tonguetree-default-pool-5c0fe7ba-xj5l   Ready    <none>   68m   v1.9.7-gke.6
 gpmacario@nemo:~ $
 ```
+
 #### Run `kubectl get namespaces`
+
 Command
+
 ```shell
 kubectl get namespaces
 ```
+
 Result
+
 ```
 gpmacario@nemo:~ $ kubectl get namespaces
 NAME            STATUS   AGE
@@ -508,12 +638,17 @@ kube-public     Active   75m
 kube-system     Active   75m
 gpmacario@nemo:~ $
 ```
+
 #### Run `kubectl get services -n jx`
+
 Command
+
 ```shell
 kubectl get services -n jx
 ```
+
 Result
+
 ```
 gpmacario@nemo:~ $ kubectl get services -n jx
 NAME                            TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)     AGE
@@ -529,18 +664,25 @@ jenkins-x-monocular-ui          ClusterIP   10.27.243.130   <none>        80/TCP
 nexus                           ClusterIP   10.27.243.12    <none>        80/TCP      63m
 gpmacario@nemo:~ $
 ```
+
 #### Run `kubectl proxy`
+
 Command
+
 ```shell
 kubectl proxy
 ```
+
 ```
 gpmacario@nemo:~ $ kubectl proxy
 Starting to serve on 127.0.0.1:8001
 ```
+
 #### Display Kubernetes dashboard
+
 Logged as `gpmacario@nemo`,
 browse <http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy>
+
 > **Kubeconfig**
 >
 > Please select the kubeconfig file that you have created to configure access to the cluster.
@@ -552,23 +694,35 @@ browse <http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/https:kuber
 > Every Service Account has a Secret with valid Bearer Token that can be used to log in to Dashboard.
 > To find out more about how to configure and use Bearer Tokens, please refer to the
 > [Authentication](https://kubernetes.io/docs/admin/authentication/) section.
+
 Select "Token", then paste the result of the following command
+
 ```shell
 kubectl config view | grep access-token
 ```
+
 and click "SIGN IN".
+
 ### Trying `jx` commands from nemo
+
 #### Install the `jx` binary
+
 Reference: <https://jenkins-x.io/getting-started/install/>
+
 Logged as gpmacario@nemo
+
 ```shell
 mkdir -p ~/Downloads && cd ~/Downloads
 curl -L https://github.com/jenkins-x/jx/releases/download/v1.3.399/jx-linux-amd64.tar.gz | tar xzv
 sudo mv jx /usr/local/bin
 ```
+
 #### Display jx help
+
 ```
 gpmacario@nemo:~ $ jx
+
+
 Installing:
   install                   Install Jenkins X in the current Kubernetes cluster
   uninstall                 Uninstall the Jenkins X platform
@@ -577,6 +731,7 @@ Installing:
   update cluster            Updates an existing Kubernetes cluster
   create jenkins token      Adds a new username and API token for a Jenkins server
   init                      Init Jenkins X
+
 Adding Projects to Jenkins X:
   import                    Imports a local project or Git repository into Jenkins
   create archetype          Create a new app from a Maven Archetype and import the generated code into Git and Jenkins for CI/CD
@@ -585,16 +740,21 @@ Adding Projects to Jenkins X:
   create micro              Create a new micro based application and import the generated code into Git and Jenkins for CI/CD
   create quickstart         Create a new app from a Quickstart and import the generated code into Git and Jenkins for CI/CD
   create quickstartlocation Create a location of quickstarts for your team
+
 Addons:
   create addon              Creates an addon
   create token addon        Adds a new token/login for a user for a given addon
   delete addon              Deletes one or more addons
   delete token addon        Deletes one or more API tokens for a user on an issue addon server
+
 Git:
   create git server         Creates a new Git server URL
+
+
 Working with CloudBees application:
   cloudbees                 Opens the CloudBees app for Kubernetes for visualising CI/CD and your environments
   login                     Onboard an user into the CloudBees application
+
 Working with Environments:
   preview                   Creates or updates a Preview Environment for the current version of an application
   promote                   Promotes a version of an application to an Environment
@@ -602,6 +762,7 @@ Working with Environments:
   delete environment        Deletes one or more Environments
   edit environment          Edits an Environment which is used to promote your Team's Applications via Continuous Delivery
   get environments          Display one or more Environments
+
 Working with Jenkins X resources:
   get                       Display one or more resources
   edit                      Edit a resource
@@ -610,11 +771,14 @@ Working with Jenkins X resources:
   delete                    Deletes one or more resources
   start                     Starts a process such as a pipeline
   stop                      Stops a process such as a pipeline
+
 Jenkins X Pipeline Commands:
   step                      pipeline steps
+
 Jenkins X services:
   controller                Runs a controller
   gc                        Garbage collects Jenkins X resources
+
 Other Commands:
   diagnose                  Print diagnostic information about the Jenkins X installation
   docs                      Open the documentation in a browser
@@ -628,23 +792,33 @@ Use "jx <command> --help" for more information about a given command.
 Use "jx options" for a list of global command-line options (applies to all commands).
 gpmacario@nemo:~ $
 ```
+
 #### Run `jx --version`
+
 Command
+
 ```shell
 jx --version
 ```
+
 Result
+
 ```
 gpmacario@nemo:~ $ jx --version
 1.3.399
 gpmacario@nemo:~ $
 ```
+
 #### Run `jx diagnose` as gpmacario@nemo
+
 Command
+
 ```shell
 jx diagnose
 ```
+
 Result
+
 ```
 gpmacario@nemo:~ $ jx diagnose
 Running in namespace: default
@@ -662,23 +836,37 @@ Unable to get the Jenkins X Status
 error: Command failed 'jx status': Unable to find JX components in Cluster(gke_kubernetes-workshop-218213_europe-west1-b_tonguetree): 3 nodes, memory 14% of 17354292Ki, cpu 37% of 5790m
 you could try:   # Default installer which uses interactive prompts to generate git secrets
   jx install
+
   # Install with a GitHub personal access token
   jx install --git-username jenkins-x-bot --git-api-token 9fdbd2d070cd81eb12bca87861bcd850
+
   # If you know the cloud provider you can pass this as a CLI argument. E.g. for AWS
   jx install --provider=aws
+
 Installs the Jenkins X platform on a Kubernetes cluster
+
 Requires a --git-username and --git-api-token that can be used to create a new token. This is so the Jenkins X platform can git tag your releases
+
 For more documentation see: https://jenkins-x.io/getting-started/install-on-cluster/
+
 The current requirements are:
+
  *RBAC is enabled on the cluster
+
  *Insecure Docker registry is enabled for Docker registries running locally inside Kubernetes on the service IP range. See the above documentation for more detailerror: no deployments found in namespace default exit status 1
 gpmacario@nemo:~ $
 ```
+
 ### Summary
+
 This post explained how to set up a Jenkins X instance on Google Cloud Platform.
-Stay tuned for future posts on the subject
+
+Stay tuned for future posts on the subject!
+
 ### See also
+
 * <https://jenkins-x.io/>
 * <https://jenkins.io/projects/jenkins-x/>
-<-- markdown-link-check-enable-->
-<-- EOF -->
+
+<!-- markdown-link-check-enable -->
+<!-- EOF -->

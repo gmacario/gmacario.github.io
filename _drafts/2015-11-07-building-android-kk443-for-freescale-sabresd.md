@@ -4,9 +4,12 @@ title:  "Building Android KitKat 4.4.3 for Freescale SABRE SD"
 date:   2015-05-22 17:20:00
 categories: android howto development freescale sabre
 ---
-<-- markdown-link-check-disable -->
+<!-- markdown-link-check-disable -->
+
 This blog post explains how I built the images of Android KitKat 4.4.3 for the [Freescale SABRE SD Board](http://www.freescale.com/webapp/sps/site/prod_summary.jsp?code=RDIMX6SABREBRD).
+
 ### Prerequisites
+
 * A powerful host (local workstation or cloud instance) with
   - At least 16 GB RAM
   - At least 100 GB of free disk space
@@ -19,35 +22,52 @@ This blog post explains how I built the images of Android KitKat 4.4.3 for the [
   - You may download file `android_KK4.4.3_2.0.0-ga_core_source.gz`  [here](http://www.freescale.com/webapp/sps/site/prod_summary.jsp?code=RDIMX6SABREBRD&fpsp=1&tab=Design_Tools_Tab)
 * Java SE Development Kit 6 for Linux/x64
   - You may download file `jdk-6u45-linux-x64.bin`  [here](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase6-419409.html)
+
 ### Preparation
+
 Logged as user@host, checkout the [easy-build](https://github.com/gmacario/easy-build) project from GitHub
+
 ```
 $ git clone https://github.com/gmacario/easy-build.git
 ```
+
 Locally build the container image
+
 ```
 $ cd easy-build/build-aosp
 $ ./build.sh
 ```
+
 Alternatively, you may pull it from Docker Hub:
+
 ```
 $ docker pull gmacario/build-aosp
 ```
+
 Make sure you have no older versions of the same container:
+
 ```
 $ docker rm build-aosp 2>/dev/null
 ```
+
 Create a subdirectory `shared` under `easy-build/build-aosp` and copy the following files:
+
 * `android_KK4.4.3_2.0.0-ga_core_source.gz`
 * `jdk-6u45-linux-x64.bin`
+
 ### Running the container
+
 Logged as user@host, run the container
+
 ```
 $ cd easy-build/build-aosp
 $ ./run.sh
 ```
+
 ### First time preparation of the container
+
 The first time the container is run, logged as root@container execute the following steps
+
 ```
 # mkdir -p ~build/shared/myandroid && chown build ~build/shared/myandroid
 # mkdir -p ~build/shared/extra  && chown build ~build/shared/extra
@@ -56,74 +76,106 @@ The first time the container is run, logged as root@container execute the follow
 # chown build ~build/.profile
 # su - build
 ```
+
 TODO: Explain how to create the files in `~/shared/extra`
+
 ```
 $ cd ~/shared/extra
 $ tar xvzf ~/shared/xxx/android_KK4.4.3_2.0.0-ga_core_source.gz
 ```
+
 Logged as build@container
+
 #### Configure git
+
 Configure git (specify your user.email and user.name)
+
 ```
 $ git config --global user.email "you@example.com"
 $ git config --global user.name "Your Name"
 $ git config --global color.ui auto
 ```
+
 #### Clone AOSP source tree
+
 If you have a recent backup of the AOSP source tree, extract it to `~/shared/myandroid`:
+
 ```
 $ cd ~/shared/myandroid
 $ tar -xvzf ~/shared/extra/bk-aosp-20150521-1620.tar.gz
 $ repo sync -j16
 ```
+
 otherwise fetch the AOSP source repositories via `repo` and `git`
+
 ```
 $ cd ~/shared/myandroid
 $ repo init -u https://android.googlesource.com/platform/manifest -b android-4.4.3_r1
 $ repo sync -j16
 ```
+
 (Recommended) Create a new backup of the AOSP source tree to save time on future builds
+
 ```
 $ cd ~/shared/myandroid
 $ tar -cvzf ~/shared/extra/bk-aosp-20150522-1755.tar.gz .
 ```
+
 #### Clone uboot-imx source tree
+
 If you have a recent backup of the uboot-imx source tree, extract it to `~/shared/myandroid/bootable/bootloader`:
+
 ```
 $ cd ~/shared/myandroid
 $ cp -a ~/shared/extra/uboot-imx bootable/bootloader/
 ```
+
 otherwise clone the `uboot-imx` repository using git
+
 ```
 TODO
 ```
+
 #### Clone linux_imx source tree
+
 If you have a recent backup of the uboot-imx source tree, extract it to `~/shared/myandroid`:
+
 ```
 $ cd ~/shared/myandroid
 $ cp -a ~/shared/extra/kernel_imx .
 ```
+
 otherwise clone the `linux_imx` repository using git
+
 ```
 TODO
 ```
+
 #### Apply the Freescale patches on top of the vanilla AOSP tree
+
 ```
 $ source ~/shared/extra/android_KK4.4.3_2.0.0-ga_core_source/code/KK4.4.3_2.0.0-ga/and_patch.sh
 $ c_patch ~/shared/extra/android_KK4.4.3_2.0.0-ga_core_source/code/KK4.4.3_2.0.0-ga imx_KK4.4.3_2.0.0-ga 2>c_patch_err.txt >c_patch_out.txt
 ```
+
 ### Performing the build
+
 Prerequisites:
+
 * Container prepared as described in the previous section
 * Logged in as build@container (`./run-NEW.sh` and `su - build`)
+
 (2015-05-22 18:35 CEST) Start the build
+
 ```
 $ cd ~/shared/myandroid
 $ source build/envsetup.sh
 $ lunch sabresd_6dq-eng
 $ make 2>&1 | tee build_sabresd_6dq_android.log
 ```
+
 Result: Build OK
+
 ```
 ...
 Install: out/host/linux-x86/bin/e2fsck
@@ -135,7 +187,7 @@ in mkuserimg.sh PATH=out/host/linux-x86/bin/:/opt/java/jdk1.6.0_45/bin:/usr/loca
 + '[' out/target/product/generic/system = -s ']'
 + '[' 6 -ne 5 -a 6 -ne 6 ']'
 + SRC_DIR=out/target/product/generic/system
-+ '[' '' -d out/target/product/generic/system ']'
++ '[' '!' -d out/target/product/generic/system ']'
 + OUTPUT_FILE=out/target/product/generic/obj/PACKAGING/systemimage_intermediates/system.img
 + EXT_VARIANT=ext4
 + MOUNT_POINT=system
@@ -179,7 +231,7 @@ in mkuserimg.sh PATH=out/host/linux-x86/bin/:/opt/java/jdk1.6.0_45/bin:/usr/loca
 + '[' out/target/product/generic/data = -s ']'
 + '[' 6 -ne 5 -a 6 -ne 6 ']'
 + SRC_DIR=out/target/product/generic/data
-+ '[' '' -d out/target/product/generic/data ']'
++ '[' '!' -d out/target/product/generic/data ']'
 + OUTPUT_FILE=out/target/product/generic/userdata.img
 + EXT_VARIANT=ext4
 + MOUNT_POINT=data
@@ -216,7 +268,7 @@ in mkuserimg.sh PATH=out/host/linux-x86/bin/:/opt/java/jdk1.6.0_45/bin:/usr/loca
 + '[' out/target/product/generic/cache = -s ']'
 + '[' 6 -ne 5 -a 6 -ne 6 ']'
 + SRC_DIR=out/target/product/generic/cache
-+ '[' '' -d out/target/product/generic/cache ']'
++ '[' '!' -d out/target/product/generic/cache ']'
 + OUTPUT_FILE=out/target/product/generic/cache.img
 + EXT_VARIANT=ext4
 + MOUNT_POINT=cache
@@ -248,7 +300,9 @@ Running:  mkuserimg.sh out/target/product/generic/cache out/target/product/gener
 out/target/product/generic/cache.img maxsize=70654848 blocksize=2112 total=69206016 reserve=713856
 build@d2086a0b7ec7:~/shared/myandroid$
 ```
+
 Inspect results:
+
 ```
 build@d2086a0b7ec7:~/shared/myandroid$ ls -la out/target/product/generic/*.img
 -rw-r--r-- 1 build build  69206016 May 23 04:35 out/target/product/generic/cache.img
@@ -257,8 +311,11 @@ build@d2086a0b7ec7:~/shared/myandroid$ ls -la out/target/product/generic/*.img
 -rw-r--r-- 1 build build 209715200 May 23 04:35 out/target/product/generic/userdata.img
 build@d2086a0b7ec7:~/shared/myandroid$
 ```
+
 (2015-05-23 09:40 CEST) Doing it again
+
 Result
+
 ```
 CC      net/wireless/cfg80211.mod.o
 LD [M]  net/wireless/cfg80211.ko
@@ -275,11 +332,15 @@ for ubootplat in imx6q:mx6qsabresdandroid_config imx6dl:mx6dlsabresdandroid_conf
               install -D bootable/bootloader/uboot-imx/u-boot.imx out/target/product/sabresd_6dq/u-boot-$UBOOT_PLATFORM.imx; \
               install -D bootable/bootloader/uboot-imx/u-boot.imx out/target/product/sabresd_6dq/u-boot.imx; \
       done
+
+
 make: *** bootable/bootloader/uboot-imx/: No such file or directory.  Stop.
 make: *** bootable/bootloader/uboot-imx/: No such file or directory.  Stop.
 make: *** bootable/bootloader/uboot-imx/: No such file or directory.  Stop.
 install: cannot stat 'bootable/bootloader/uboot-imx/u-boot.imx': No such file or directory
 install: cannot stat 'bootable/bootloader/uboot-imx/u-boot.imx': No such file or directory
+
+
 make: *** bootable/bootloader/uboot-imx/: No such file or directory.  Stop.
 make: *** bootable/bootloader/uboot-imx/: No such file or directory.  Stop.
 make: *** bootable/bootloader/uboot-imx/: No such file or directory.  Stop.
@@ -288,19 +349,25 @@ install: cannot stat 'bootable/bootloader/uboot-imx/u-boot.imx': No such file or
 make: *** [out/target/product/sabresd_6dq/u-boot.imx] Error 1
 build@d2086a0b7ec7:~/shared/myandroid$
 ```
+
 **FIX**: Install U-Boot sources (TODO: Copy in section above)
+
 ```
 $ cd ~/shared/myandroid
 $ cp -a ~/shared/extra/uboot-imx bootable/bootloader/
 ```
+
 (2015-05-23 09:49 CEST) Start the build
+
 ```
 $ cd ~/shared/myandroid
 $ source build/envsetup.sh
 $ lunch sabresd_6dq-eng
 $ make 2>&1 | tee build_sabresd_6dq_android.log
 ```
+
 Result:
+
 ```
 ...
 Install: out/target/product/sabresd_6dq/system/etc/firmware/ath6k/AR6003/hw2.0/otp.bin.z77
@@ -314,23 +381,32 @@ compilation terminated.
 make: *** [out/host/linux-x86/obj/EXECUTABLES/mkfs.ubifs_intermediates/mkfs.ubifs.o] Error 1
 build@d2086a0b7ec7:~/shared/myandroid$
 ```
+
 **FIX**: Install the missing package (should add to Dockerfile)
+
 ```
 # apt-get install -y uuid-dev
 ```
+
 **TIP**: To find which package provides a certain file you may use the `apt-file` command
+
 Reference: <http://stackoverflow.com/questions/18874183/perl-module-uuid-0-05-make-failed-in-ubuntu-12-04>
+
 ```
 # apt-get install -y apt-file
 # apt-file update
 $ apt-file search uuid/uuid.h
 ```
+
 (2015-05-23 12:06) Restart the build
+
 ```
 # su -l -c "cd ~/shared/myandroid && source build/envsetup.sh && \
 lunch sabresd_6dq-eng && make 2>&1 | tee build_sabresd_6dq_android.log" build
 ```
+
 Result:
+
 ```
 ...
 external/mtd-utils/mkfs.ubifs/compr.c:28:23: fatal error: lzo/lzo1x.h: No such file or directory
@@ -340,17 +416,23 @@ compilation terminated.
 make: *** [out/host/linux-x86/obj/EXECUTABLES/mkfs.ubifs_intermediates/compr.o] Error 1
 root@d2086a0b7ec7:/#
 ```
+
 **FIX**: Install the missing package (should add to Dockerfile)
+
 ```
 # apt-file search lzo/lzo1x.h
 # apt-get install -y liblzo2-dev
 ```
+
 (2015-05-23 12:06) Restart the build
+
 ```
 # su -l -c "cd ~/shared/myandroid && source build/envsetup.sh && \
 lunch sabresd_6dq-eng && make 2>&1 | tee build_sabresd_6dq_android.log" build
 ```
+
 Result:
+
 ```
 host StaticLib: libbz (out/host/linux-x86/obj/STATIC_LIBRARIES/libbz_intermediates/libbz.a)
 Export includes file: bootable/recovery/applypatch/Android.mk -- out/host/linux-x86/obj/EXECUTABLES/imgdiff_intermediates/export_includes
@@ -382,12 +464,16 @@ Install system fs image: out/target/product/sabresd_6dq/system.img
 out/target/product/sabresd_6dq/system.img+out/target/product/sabresd_6dq/obj/PACKAGING/recovery_patch_intermediates/recovery_from_boot.p maxsize=385389312 blocksize=4224 total=377890747 reserve=3894528
 root@d2086a0b7ec7:/#
 ```
+
 (2015-05-23 18:00) Restart the build
+
 ```
 # su -l -c "cd ~/shared/myandroid && source build/envsetup.sh && \
 lunch sabresd_6dq-eng && make 2>&1 | tee build_sabresd_6dq_android.log" build
 ```
+
 Result: Build OK
+
 ```
 ...
 ----- Made recovery image: out/target/product/sabresd_6dq/recovery.img --------
@@ -399,7 +485,7 @@ in mkuserimg.sh PATH=out/host/linux-x86/bin/:/usr/lib/jvm/java-6-sun/bin:/home/b
 + '[' out/target/product/sabresd_6dq/system = -s ']'
 + '[' 6 -ne 5 -a 6 -ne 6 ']'
 + SRC_DIR=out/target/product/sabresd_6dq/system
-+ '[' '' -d out/target/product/sabresd_6dq/system ']'
++ '[' '!' -d out/target/product/sabresd_6dq/system ']'
 + OUTPUT_FILE=out/target/product/sabresd_6dq/obj/PACKAGING/systemimage_intermediates/system.img
 + EXT_VARIANT=ext4
 + MOUNT_POINT=system
@@ -445,18 +531,33 @@ Install system fs image: out/target/product/sabresd_6dq/system.img
 out/target/product/sabresd_6dq/system.img+out/target/product/sabresd_6dq/obj/PACKAGING/recovery_patch_intermediates/recovery_from_boot.p maxsize=385389312 blocksize=4224 total=377890747 reserve=3894528
 root@d2086a0b7ec7:/#
 ```
+
 (2015-05-23 19:31 CEST) Restart the build
+
 ```
 # su -l -c "cd ~/shared/myandroid && source build/envsetup.sh && \
 lunch sabresd_6dq-eng && make 2>&1 | tee build_sabresd_6dq_android.log" build
 ```
+
 Result: Build OK
+
 Inspect results
+
 ```
 ```
+
+
+
+
+
+
+
 ### Known issues and workarounds
+
 #### Errors building uim-sysfs
+
 If you encounter the following error
+
 ```
 ...
 target thumb C: uim-sysfs <= hardware/ti/wpan/ti_st/uim-sysfs/uim.c
@@ -503,20 +604,26 @@ bionic/libc/kernel/common/asm-generic/termbits.h:37:8: note: originally defined 
 make: *** [out/target/product/generic/obj/EXECUTABLES/uim-sysfs_intermediates/uim.o] Error 1
 build@d2086a0b7ec7:~/shared/myandroid$
 ```
+
 **WORKAROUND**: Skip building `hardware/ti/wpan/ti_st/uim-sysfs`
+
 ```
 $ croot && cd hardware/ti/wpan
 $ vi Android.mk (Comment out line "#include $(call first ...)")
 ```
+
 FIXME: Cannot understand why this is needed -- apparently this line was already skipped because wrapped inside "ifneq ()... imx6)"
+
 ```
 #wpan utilties and TI ST user space manager
 ifneq ($(TARGET_BOARD_PLATFORM),imx6)
 #include $(call first-makefiles-under,$(call my-dir))
 endif
 ```
+
 TIP: Read `device/fsl/sabresd_6dq/BoardConfig.mk`.
 Search for `TARGET_BOARD_PLATFORM` ==> defined inside included file `device/fsl/imx6/BoardConfigCommon.mk`
+
 ```
 gmacario@mv-linux-powerhorse:/opt/projects/gmacario/MYGIT/easy-build/build-aosp/shared/myandroid/device/fsl⟫ rgrep TARGET_BOARD_PLATFORM .
 ./imx6/BoardConfigCommon.mk:TARGET_BOARD_PLATFORM := imx6
@@ -524,34 +631,48 @@ gmacario@mv-linux-powerhorse:/opt/projects/gmacario/MYGIT/easy-build/build-aosp/
 ./imx5x/BoardConfigCommon.mk:TARGET_BOARD_PLATFORM := imx5x
 gmacario@mv-linux-powerhorse:/opt/projects/gmacario/MYGIT/easy-build/build-aosp/shared/myandroid/device/fsl⟫
 ```
+
 Restart the build
+
 ```
 $ croot
 $ make 2>&1 | tee -a build_sabresd_6dq_android.log
 ```
+
 Result: Build OK
+
 ### Trying project build-android-kk443-sabresd
+
 (2015-05-24 19:57 CEST)
+
 ```
 $ cd easy-build/build-android-kk443-sabresd
 $ mkdir -p shared
 $ cp ~/Downloads/jdk-6u45-linux-x64.bin shared/
 $ cp ~/Downloads/android_KK4.4.3_2.0.0-ga_core_source.gz shared/
 ```
+
 Run the container to download and patch the Android source tree
+
 ```
 $ ./run.sh
 ```
+
 To force building
+
 ```
 # touch ~build/shared/extra/.do_build_sabresd_6dq
 # exit
 ```
+
 Then run the container again:
+
 ```
 $ ./run.sh
 ```
+
 Build result:
+
 ```
 root@ceaa469dc17c:/# ls -la ~build/shared/myandroid/out/target/product/sabresd_6dq/
 total 437368
@@ -589,12 +710,16 @@ drwxrwxr-x 13 build build      4096 May 25 01:39 system
 -rwxr-xr-x  1 build build    392192 May 24 18:07 u-boot.imx
 root@ceaa469dc17c:/#
 ```
+
 (2015-05-25 08:00 CEST) Try again
+
 ```
 $ cd easy-build/build-android-kk443-sabresd 
 $ ./run.sh
 ```
+
 Result:
+
 ```
 ...
 Running:  mkuserimg.sh out/target/product/sabresd_6dq/system out/target/product/sabresd_6dq/obj/PACKAGING/systemimage_intermediates/system.img ext4 system 377487360 out/target/product/sabresd_6dq/root/file_contexts
@@ -613,13 +738,16 @@ chunk   1: deflate  (   6725642,    1059236)      402874  (null)
 chunk   2: normal   (   7784878,      54010)         198
 Install system fs image: out/target/product/sabresd_6dq/system.img
 out/target/product/sabresd_6dq/system.img+out/target/product/sabresd_6dq/obj/PACKAGING/recovery_patch_intermediates/recovery_from_boot.p maxsize=385389312 blocksize=4224 total=377890778 reserve=3894528
+
 real    13m4.581s
 user    14m26.123s
 sys     3m11.937s
 DEBUG: startup2.sh END
 root@194ba687ef36:~#
 ```
+
 (NOTE: This is an incremental build)
+
 ```
 root@194ba687ef36:~# ls -la ~build/shared/myandroid/out/target/product/sabresd_6dq/
 total 437364
@@ -657,12 +785,19 @@ drwxrwxr-x 13 build build      4096 May 25 01:39 system
 -rwxr-xr-x  1 build build    392192 May 24 18:07 u-boot.imx
 root@194ba687ef36:~#
 ```
+
+
+
 # OLD STUFF BELOW
+
 Sample table
-< <http://www.tablesgenerator.com/markdown_tables> -->
+
+<!-- TIP: <http://www.tablesgenerator.com/markdown_tables> -->
+
 | First | Last  | Role | Notes             |
 |-------|-------|------|-------------------|
 | John  | Doe   | CEO  | The big boss      |
 | Mary  | Smith | CFO  | She got the money |
-<-- markdown-link-check-enable-->
-<-- EOF -->
+
+<!-- markdown-link-check-enable -->
+<!-- EOF -->

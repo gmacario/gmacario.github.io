@@ -4,15 +4,22 @@ title:  "Trying Docker image for workflow demo"
 date:   2015-12-16 09:00:00 CET
 categories: howto docker jenkins workflow
 ---
-<-- markdown-link-check-disable -->
+<!-- markdown-link-check-disable -->
+
 # Trying Docker image for workflow demo
+
 See <https://github.com/jenkinsci/workflow-plugin/blob/master/demo/README.md>
+
 Start Docker Quickstart Terminal
-<26 CET -->
+
+<!-- 2015-12-16 17:26 CET -->
+
 ```
 $ docker run -p 8080:8080 -p 8081:8081 -p 9418:9418 -t jenkinsci/workflow-demo:latest
 ```
+
 Result: FAIL
+
 ```
 Dec 16, 2015 1:43:59 PM jenkins.util.ErrorLoggingScheduledThreadPoolExecutor afterExecute
 WARNING: failure in task not wrapped in SafeTimerTask
@@ -49,6 +56,7 @@ Caused by: java.net.SocketException: Socket closed
         at hudson.remoting.ChunkedCommandTransport.readBlock(ChunkedCommandTransport.java:39)
         at hudson.remoting.AbstractSynchronousByteArrayCommandTransport.read(AbstractSynchronousByteArrayCommandTransport.java:34)
         at hudson.remoting.SynchronousCommandTransport$ReaderThread.run(SynchronousCommandTransport.java:48)
+
 [7036] Connection from 127.0.0.1:37846
 [7036] Extended attributes (16 bytes) exist <host=localhost>
 [7036] Request upload-pack for '/repo'
@@ -66,24 +74,40 @@ Caused by: java.net.SocketException: Socket closed
 [7048] Request upload-pack for '/repo'
 [3957] [7048] Disconnected
 ```
-<26 CET -->
+
+<!-- 2015-12-16 17:26 CET -->
+
 Read [Workflow Plugin Tutorial](https://github.com/jenkinsci/workflow-plugin/blob/master/TUTORIAL.md)
+
 TODO
+
+
 # Trying cloudbees Workflow Demo
+
 See <https://hub.docker.com/r/cloudbees/workflow-demo/>
+
 Start Docker Quickstart Terminal
-<55 CET -->
+
+<!-- 2015-12-16 14:55 CET -->
+
 ```
 $ docker run -p 8080:8080 -p 8081:8081 -p 8022:22 -p 9418:9418 -ti cloudbees/workflow-demo
 ```
+
 TODO
+
 # OLD STUFF BELOW
+
 This blog post explains how I did [something](http://www.something.com/) on my laptop running MS Windows 7.
+
 Sample table
-< <http://www.tablesgenerator.com/markdown_tables> -->
+
+<!-- TIP: <http://www.tablesgenerator.com/markdown_tables> -->
+
 | First | Last  | Role | Notes             |
 |-------|-------|------|-------------------|
 | John  | Doe   | CEO  | The big boss      |
 | Mary  | Smith | CFO  | She got the money |
-<-- markdown-link-check-enable-->
-<-- EOF -->
+
+<!-- markdown-link-check-enable -->
+<!-- EOF -->
