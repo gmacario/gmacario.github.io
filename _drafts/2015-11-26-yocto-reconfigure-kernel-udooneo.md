@@ -4,18 +4,13 @@ title:  "Reconfiguring the UDOO Neo kernel with Yocto"
 date:   2015-11-26 18:00:00 CET
 categories: howto yocto linux kernel udoo udooneo
 ---
-
+<-- markdown-link-check-disable -->
 TODO TODO TODO
-
 ### References
-
 * [Patch: Configure Renesas kernel for containers support](https://gerrit.automotivelinux.org/gerrit/#/c/4389/1/meta-rcar-gen2/recipes-kernel/linux/linux.inc)
-
 * [Code Review / AGL/meta-renesas.git / meta-rcar-gen2/recipes-kernel/linux/](https://gerrit.automotivelinux.org/gerrit/gitweb?p=AGL/meta-renesas.git;a=tree;f=meta-rcar-gen2/recipes-kernel/linux;hb=616068396063ee1802799905b527a6464f0adf93)
   * [Code Review / AGL/meta-renesas.git / meta-rcar-gen2/recipes-kernel/linux/ linux.inc](https://gerrit.automotivelinux.org/gerrit/gitweb?p=AGL/meta-renesas.git;a=blob;f=meta-rcar-gen2/recipes-kernel/linux/linux.inc;h=aedf3005db7260b6e62278d5871a4fe4626758e9;hb=616068396063ee1802799905b527a6464f0adf93)
-
 From `recipes-kernel/linux/linux-renesas_3.10.bb`:
-
 ```
  1 require linux.inc
 ...
@@ -27,9 +22,7 @@ From `recipes-kernel/linux/linux-renesas_3.10.bb`:
 77         install -m 0644 ${S}/arch/${ARCH}/configs/${KERNEL_DEFCONFIG} ${WORKDIR}/defconfig || die "No default configuration for ${MACHINE} / ${KERNEL_DEFCONFIG} available."
 78 }
 ```
-
 From `recipes-kernel/linux/linux.inc`:
-
 ```
 37 do_configure_prepend() {
 38         # Clean .config
@@ -57,11 +50,8 @@ From `recipes-kernel/linux/linux.inc`:
 129         yes '' | oe_runmake oldconfig
 130 }
 ```
-
-
 * [Building Linux Kernel](https://community.freescale.com/docs/DOC-100847)
   * [Task #5 - Kernel](https://community.freescale.com/docs/DOC-95045)
-
 TODO
-
-<!-- EOF -->
+<-- markdown-link-check-enable-->
+<-- EOF -->

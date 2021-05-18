@@ -4,64 +4,47 @@ title:  "Testing Rancher OS"
 date:   2015-12-10 19:00:00 CET
 tags:   howto rancheros linux containers docker
 ---
-
+<-- markdown-link-check-disable -->
 ### Introduction
-
 My first steps trying [RancherOS](http://rancher.com/rancher-os/).
-
 ### References
-
 * <https://medium.com/devs-foodit/pimp-my-jenkins-continuous-delivery-dashboard-edition-229463755730>
 * <http://rancher.com/deploying-a-scalable-jenkins-cluster-with-docker-and-rancher/>
 * <http://thenewstack.io/now-in-beta-rancher-labs-runs-docker-natively-in-production/>
 * <https://www.quora.com/What-are-the-differences-between-RancherOS-and-CoreOS>
 * <https://github.com/rancher/os>
 * <http://docs.rancher.com/os/quick-start-guide/>
-
 ### Launching RancherOS using Vagrant
-
 (adapted from <http://docs.rancher.com/os/quick-start-guide/>)
-
 Logged in as gmacario@itm-gmacario-w7, start a Cygwin terminal
-
 Clone the RancherOS Vagrant repository.
-
 ```
 $ mkdir -p ~/test && cd ~/test
 $ git clone https://github.com/rancher/os-vagrant.git
 $ cd os-vagrant
 ```
-
 Startup your VM with `vagrant up`
-
 ```
 $ vagrant up
 Bringing machine 'rancher-01' up with 'virtualbox' provider...
 ...
-==> rancher-01: Machine booted and ready!
+==> rancher-01: Machine booted and ready
 ==> rancher-01: Setting hostname...
 ==> rancher-01: Configuring and enabling network interfaces...
 ```
-
 Log into your VM with `vagrant ssh`
-
 ```
 $ vagrant ssh
 [rancher@rancher-01 ~]$
 ```
-
 ### A first look at RancherOS
-
 #### Check kernel version
-
 ```
 [rancher@rancher-01 ~]$ uname -a
 Linux rancher-01 4.2.3-rancher #1 SMP Wed Oct 14 11:25:04 UTC 2015 x86_64 GNU/Linux
 [rancher@rancher-01 ~]$
 ```
-
 #### Inspect disk usage
-
 ```
 [rancher@rancher-01 ~]$ sudo df -h
 Filesystem                Size      Used Available Use% Mounted on
@@ -108,9 +91,7 @@ devtmpfs                484.9M         0    484.9M   0% /dev
 shm                      64.0M         0     64.0M   0% /dev/shm
 [rancher@rancher-01 ~]$
 ```
-
 #### Check network interfaces
-
 ```
 [root@rancher-01 ~]$ ifconfig
 docker-sys Link encap:Ethernet  HWaddr 00:00:00:00:00:00
@@ -121,7 +102,6 @@ docker-sys Link encap:Ethernet  HWaddr 00:00:00:00:00:00
           TX packets:8 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:0
           RX bytes:368 (368.0 B)  TX bytes:648 (648.0 B)
-
 docker0   Link encap:Ethernet  HWaddr 02:42:46:53:C8:82
           inet addr:172.17.0.1  Bcast:0.0.0.0  Mask:255.255.0.0
           inet6 addr: fe80::42:46ff:fe53:c882/64 Scope:Link
@@ -130,7 +110,6 @@ docker0   Link encap:Ethernet  HWaddr 02:42:46:53:C8:82
           TX packets:54 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:0
           RX bytes:4003 (3.9 KiB)  TX bytes:4563 (4.4 KiB)
-
 eth0      Link encap:Ethernet  HWaddr 08:00:27:9F:1D:71
           inet addr:10.0.2.15  Bcast:10.0.2.255  Mask:255.255.255.0
           inet6 addr: fe80::a00:27ff:fe9f:1d71/64 Scope:Link
@@ -139,7 +118,6 @@ eth0      Link encap:Ethernet  HWaddr 08:00:27:9F:1D:71
           TX packets:55480 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:1000
           RX bytes:75924932 (72.4 MiB)  TX bytes:3401703 (3.2 MiB)
-
 eth1      Link encap:Ethernet  HWaddr 08:00:27:19:16:E4
           inet addr:172.19.8.101  Bcast:0.0.0.0  Mask:255.255.255.0
           inet6 addr: fe80::a00:27ff:fe19:16e4/64 Scope:Link
@@ -148,7 +126,6 @@ eth1      Link encap:Ethernet  HWaddr 08:00:27:19:16:E4
           TX packets:29 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:1000
           RX bytes:755660 (737.9 KiB)  TX bytes:3362 (3.2 KiB)
-
 lo        Link encap:Local Loopback
           inet addr:127.0.0.1  Mask:255.0.0.0
           inet6 addr: ::1/128 Scope:Host
@@ -157,7 +134,6 @@ lo        Link encap:Local Loopback
           TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:0
           RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
-
 veth0196292 Link encap:Ethernet  HWaddr FE:49:55:09:12:AA
           inet6 addr: fe80::fc49:55ff:fe09:12aa/64 Scope:Link
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
@@ -165,12 +141,9 @@ veth0196292 Link encap:Ethernet  HWaddr FE:49:55:09:12:AA
           TX packets:30 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:0
           RX bytes:822 (822.0 B)  TX bytes:1944 (1.8 KiB)
-
 [root@rancher-01 ~]$
 ```
-
 #### Check Docker version
-
 ```
 [rancher@rancher-01 ~]$ docker version
 Client:
@@ -180,7 +153,6 @@ Client:
  Git commit:   4663423
  Built:        Mon Nov 16 06:05:31 UTC 2015
  OS/Arch:      linux/amd64
-
 Server:
  Version:      1.9.1-rc1
  API version:  1.21
@@ -190,11 +162,8 @@ Server:
  OS/Arch:      linux/amd64
 [rancher@rancher-01 ~]$
 ```
-
 #### Inspect running system containers
-
 Notice that `system-docker ps` fails unless it is run as `root`.
-
 ```
 [rancher@rancher-01 ~]$ sudo -i
 [root@rancher-01 ~]# system-docker ps
@@ -210,9 +179,7 @@ f6f621151318        rancher/os-acpid:v0.4.1     "/usr/sbin/entry.sh /"   2 hours
 logout
 [rancher@rancher-01 ~]$
 ```
-
 #### Run Ubuntu inside a container
-
 ```
 [rancher@rancher-01 ~]$ docker run -it ubuntu
 root@f2180b351d1b:/# lsb_release -a
@@ -223,9 +190,7 @@ Release:        14.04
 Codename:       trusty
 root@f2180b351d1b:/#
 ```
-
 #### Run nginx inside a container
-
 ```
 [rancher@rancher-01 ~]$ ifconfig eth1 | grep "inet addr"
           inet addr:172.19.8.101  Bcast:0.0.0.0  Mask:255.255.255.0
@@ -233,37 +198,26 @@ root@f2180b351d1b:/#
 8331240ea5fdf078822dc3f79380627e6137d2a5d7d1c75fad567da12419b850
 [rancher@rancher-01 ~]$
 ```
-
 Now logged as gmacario@itm-gmacario-w7, browse <http://172.19.8.101:8000/>
-
 #### Deploy a system service container
-
 ```
 [rancher@rancher-01 ~]$ sudo system-docker run -d --net=host --name busydash husseingalal/busydash
 b6fb4f1983399f285c1e29f0133b454837d2d9d2f461f3328b3467233573195f
 [rancher@rancher-01 ~]$
 ```
-
 logged as gmacario@itm-gmacario-w7, browse <http://172.19.8.101/>
-
-
 **NOTE 1**: Docker image `husseingalal/busydash` was built from the following `Dockerfile`:
-
 ```
 FROM hwestphal/nodebox
 MAINTAINER hussein.galal.ahmed.11@gmail.com
-
 RUN opkg-install unzip
 RUN curl -k -L -o master.zip https://github.com/afaqurk/linux-dash/archive/master.zip
 RUN unzip master.zip
 WORKDIR linux-dash-master
 RUN npm install
-
 ENTRYPOINT ["node","server"]
 ```
-
 **NOTE 2**: Sources for Docker image `hwestphal/nodebox` are available at <https://github.com/hwestphal/docker-nodebox>
-
-That's all for today... Stay tuned for future posts about RancherOS!
-
-<!-- EOF -->
+That's all for today... Stay tuned for future posts about RancherOS
+<-- markdown-link-check-enable-->
+<-- EOF -->

@@ -4,37 +4,25 @@ title:  "Debugging Android KitKat 4.4.3 on a Freescale Sabre SD"
 date:   2015-05-26 16:49:00
 categories: android howto development debugging
 ---
-
+<-- markdown-link-check-disable -->
 This blog post explains how I debugged Android KK443 on a SABRE SD board.
-
 (2015-05-26 16:49)
-
 SD-Card created with kk443 images built from sources on 2015-05-26, 10:06 CEST:
-
 ```
 gmacario@mv-linux-powerhorse:~/easy-build/build-android-kk443-sabresd⟫ ls -la shared/myandroid/build_sabresd_6dq_android.log
 -rw-rw-r-- 1 massimoviolante massimoviolante 71988 May 26 10:06 shared/myandroid/build_sabresd_6dq_android.log
 gmacario@mv-linux-powerhorse:~/easy-build/build-android-kk443-sabresd⟫
 ```
-
 Command used for writing the SD-Card
-
 ```
 TODO
 ```
-
 Booting SABRE SD from SD-Card inserted in slot SD3 (J507)
-
 Start PuTTY: COM13:115200,8,n,1
-
 PuTTY Reconfiguration: Logging All session output
-
-
 Press "ENTER" when U-Boot starts to get the U-Boot prompt:
-
 ```
 U-Boot 2014.04-08637-gaffa032 (May 24 2015 - 18:06:57)
-
 CPU:   Freescale i.MX6Q rev1.2 at 792 MHz
 CPU:   Temperature 38 C, calibration data: 0x5984fb7d
 Reset cause: POR
@@ -43,7 +31,6 @@ I2C:   ready
 DRAM:  1 GiB
 MMC:   FSL_SDHC: 0, FSL_SDHC: 1, FSL_SDHC: 2
 *** Warning - bad CRC, using default environment
-
 No panel detected: default to Hannstar-XGA
 Display: Hannstar-XGA (1024x768)
 In:    serial
@@ -58,9 +45,7 @@ Normal Boot
 Hit any key to stop autoboot:  0
 =>
 ```
-
 Print U-Boot environment variables
-
 ```
 => printenv
 baudrate=115200
@@ -74,13 +59,10 @@ fdt_high=0xffffffff
 initrd_high=0xffffffff
 loadaddr=0x12000000
 splashpos=m,m
-
 Environment size: 215/8188 bytes
 =>
 ```
-
 Manually boot Android kk4.4.3:
-
 ```
 => boot
 booti mmc1
@@ -90,30 +72,23 @@ fdt      @ 14f00000 (50782)
 kernel cmdline:
 	use boot.img command line:
 	console=ttymxc0,115200 init=/init video=mxcfb0:dev=ldb,bpp=32 video=mxcfb1:off video=mxcfb2:off video=mxcfb3:off vmalloc=400M androidboot.console=ttymxc0 consoleblank=0 androidboot.hardware=freescale cma=384M androidboot.serialno=0d1e29d4d81917c9
-switch to ldo_bypass mode!
+switch to ldo_bypass mode
    Using Device Tree in place at 14f00000, end 14f0f65d
-
 Starting kernel ...
 ```
-
 Save log as `E:\20150526-1709-android-sabresd.txt`.
-
 Configure kernel cmdline using U-Boot `bootargs` environment variable
-
-* TODO: Double check which FDT has been written to the SD-Card!!!
+* TODO: Double check which FDT has been written to the SD-Card
 * TODO:
 * TODO:
 * FIXME: Replace kernel cmdline using U-Boot `bootargs` envvar
 * FIXME: Change bootargs option: `video=mxcfb0:dev=ldb,bpp=32` ==> `video=mxcfb0:dev=hdmi,1920x1080M@60,bpp=32`
-
 ````
 => setenv bootargs console=ttymxc0,115200 init=/init video=mxcfb0:dev=hdmi,1920x1080M@60,bpp=32 video=mxcfb1:off video=mxcfb2:off video=mxcfb3:off vmalloc=400M androidboot.console=ttymxc0 consoleblank=0 androidboot.hardware=freescale cma=384M androidboot.serialno=0d1e29d4d81917c9
 => saveenv
 => reset
 ```
-
 Boot progress:
-
 ```
 ...
 type=1404 audit(22222.750:3): enforcing=1 old_enforcing=0 auid=4294967295 ses=4294967295
@@ -127,36 +102,25 @@ init: fs_mgr_mount_all returned an error
 init: /dev/hw_random not found
 init: Unable to open persistent property directory /data/property errno: 2
 ```
-
 It looks like `/system` is loaded from `/dev/block/mmcblk3p5`
-
 Test
-
 ```
 => setenv bootargs console=ttymxc0,115200 root=/dev/null debug kdebug
 => boot
 ```
-
 Unpack `boot-imx66q.img`
-
 ```
 gmacario@kruk:~/easy-build/build-android-kk443-sabresd/tmp/myandroid-kk443-sabresd$ ../android_bootimg_tools/unpackbootimg -i boot-imx6q.img
 BOARD_KERNEL_CMDLINE console=ttymxc0,115200 init=/init video=mxcfb0:dev=ldb,bpp=32 video=mxcfb1:off video=mxcfb2:off video=mxcfb3:off vmalloc=400M androidboot.console=ttymxc0 consoleblank=0 androidboot.hardware=freescale cma=384M
 BOARD_KERNEL_BASE 14000000
 BOARD_PAGE_SIZE 2048
 Press any key to continue...
-
 gmacario@kruk:~/easy-build/build-android-kk443-sabresd/tmp/myandroid-kk443-sabresd$
 ```
-
 FIXME: In `{boot.img,recovery.img}/ramdisk/fstab.freescale`
 Replace "/dev/block/mmcblk3p?" with "/dev/block/mmcblk1p?"
-
 (NOTE: With Android 4.0.x this is hardcoded in `/init.freescale.rc`)
-
-
 With myandroid-kk3 SD-Card:
-
 ```
 => mmc list
 FSL_SDHC: 0
@@ -165,9 +129,7 @@ FSL_SDHC: 0
 => mmc dev 1
 mmc1 is current device
 => mmc part
-
 Partition Map for MMC device 1  --   Partition Type: DOS
-
 Part    Start Sector    Num Sectors     UUID            Type
   1     2048            16384           7710c2a1-01     83
   2     18432           16384           7710c2a1-02     83
@@ -179,12 +141,9 @@ Part    Start Sector    Num Sectors     UUID            Type
   8     2156544         8192            7710c2a1-08     83
 =>
 ```
-
 Check U-Boot with KK443:
-
 ```
 U-Boot 2014.04-08637-gaffa032 (May 24 2015 - 18:06:57)
-
 CPU:   Freescale i.MX6Q rev1.2 at 792 MHz
 CPU:   Temperature 31 C, calibration data: 0x5984fb7d
 Reset cause: POR
@@ -206,17 +165,11 @@ Normal Boot
 Hit any key to stop autoboot:  0
 =>
 ```
-
-
 ------------------------------
-
 (2015-06-04 12:05 CEST)
-
 PuTTY Reconfiguration: Logging All session output to file `E:\20150604-1205-kk443-sabresd.txt`
-
 ```
 U-Boot 2014.04-08637-gaffa032 (May 24 2015 - 18:06:57)
-
 CPU:   Freescale i.MX6Q rev1.2 at 792 MHz
 CPU:   Temperature 32 C, calibration data: 0x5984fb7d
 Reset cause: POR
@@ -243,14 +196,11 @@ fdt      @ 14f00000 (50782)
 kernel cmdline:
 	use boot.img command line:
 	console=ttymxc0,115200 init=/init video=mxcfb0:dev=hdmi,1920x1080M@60,bpp=32 video=mxcfb1:off video=mxcfb2:off video=mxcfb3:off vmalloc=400M androidboot.console=ttymxc0 consoleblank=0 androidboot.hardware=freescale cma=384M androidboot.serialno=0d1e29d4d81917c9
-switch to ldo_bypass mode!
+switch to ldo_bypass mode
    Using Device Tree in place at 14f00000, end 14f0f65d
-
 Starting kernel ...
 ```
-
 Kernel boot log:
-
 ```
 Booting Linux on physical CPU 0x0
 Initializing cgroup subsys cpu
@@ -322,7 +272,7 @@ vddpu: 725 <--> 1450 mV
 vddsoc: 725 <--> 1450 mV
 syscon 20e0000.iomuxc-gpr: regmap [mem 0x020e0000-0x020e0037] registered
 syscon 21bc000.ocotp-ctrl: regmap [mem 0x021bc000-0x021bffff] registered
-!!request miniPCIE Power On gpio
+request miniPCIE Power On gpio
 hw-breakpoint: found 5 (+1 reserved) breakpoint and 1 watchpoint registers.
 hw-breakpoint: maximum watchpoint size is 4 bytes.
 imx6q-pinctrl 20e0000.iomuxc: initialized IMX pinctrl driver
@@ -419,9 +369,9 @@ fbcvt: 1920x1080@60: CVT Name - 2.073M9
 mxc_sdc_fb fb.30: registered mxc display driver hdmi
 imx-ipuv3 2400000.ipu: IPU DMFC DP HIGH RESOLUTION: 1(0,1), 5B(2~5), 5F(6,7)
 Console: switching to colour frame buffer device 240x67
-mxc_sdc_fb fb.31: Can't get fb option for mxcfb1!
-mxc_sdc_fb fb.32: Can't get fb option for mxcfb2!
-mxc_sdc_fb fb.33: Can't get fb option for mxcfb3!
+mxc_sdc_fb fb.31: Can't get fb option for mxcfb1
+mxc_sdc_fb fb.32: Can't get fb option for mxcfb2
+mxc_sdc_fb fb.33: Can't get fb option for mxcfb3
 imx-sdma 20ec000.sdma: no iram assigned, using external mem
 imx-sdma 20ec000.sdma: loaded firmware 1.1
 imx-sdma 20ec000.sdma: initialized
@@ -594,14 +544,10 @@ mmcblk3rpmb: mmc3:0001 SEM08G partition 3 128 KiB
  mmcblk3boot1: unknown partition table
  mmcblk3boot0: unknown partition table
 ```
-
 TODO: Why does the kernel (3.10.53) identifies the on-board 8GB MMC as mmcblk3, while Android 4.0.x identifies it as mmcblk0?
-
 Looks like (with KK443 linux-3.10.53):
-
 * MMC2: External SD-Card (16 GB) in slot SD3
 * MMC3: On-board MMC (8 GB)
-
 ```
 mxc_vdoa 21e4000.vdoa: i.MX Video Data Order Adapter(VDOA) driver probed
 mxc_asrc 2034000.asrc: mxc_asrc registered
@@ -735,15 +681,10 @@ binder: 143:143 transaction failed 29189, size 0-0
 binder: 143:143 transaction failed 29189, size 0-0
 binder: 143:143 transaction failed 29189, size 0-0
 ```
-
 TODO: Write internal MMC
-
-
 -------------------
 (2015-06-04 14:00 CEST)
-
 Run the `fixup-bootimg.sh` script to download the `imgtool` command for your OS:
-
 ```
 gmacario@kruk:/opt/export/tmp-gmacario/easy-build/build-android-kk443-sabresd$ ./fixup-bootimg.sh
 DEBUG: BOOT_IMAGE=/opt/export/tmp-gmacario/easy-build/build-android-kk443-sabresd/tmp/myandroid-kk443-sabresd/boot-imx6q.img
@@ -754,19 +695,14 @@ Connecting to newandroidbook.com (newandroidbook.com)|192.99.39.176|:80... conne
 HTTP request sent, awaiting response... 200 OK
 Length: 135168 (132K) [application/x-tar]
 Saving to: ‘imgtool.tar’
-
 100%[=========================================================================================>] 135.168      281KB/s   in 0,5s
-
 2015-06-04 14:43:38 (281 KB/s) - ‘imgtool.tar’ saved [135168/135168]
-
 INFO: Extracting file imgtool.ELF32 (GNU/Linux i686)
 imgtool.ELF32
 INFO: imgtool installed to ~/bin - please logout and login to have it available in PATH
 gmacario@kruk:/opt/export/tmp-gmacario/easy-build/build-android-kk443-sabresd$
 ```
-
 Use the `imgtool` command to extract the contents of `boot-imx6q.img`:
-
 ```
 gmacario@kruk:/opt/export/tmp-gmacario/easy-build/build-android-kk443-sabresd/tmp2$ imgtool boot-imx6q.img extract
 Boot image detected
@@ -783,9 +719,7 @@ Found LZO Magic at offset 5692
 Looking for device tree...
 gmacario@kruk:/opt/export/tmp-gmacario/easy-build/build-android-kk443-sabresd/tmp2$
 ```
-
 Inspect extracted files
-
 ```
 gmacario@kruk:/opt/export/tmp-gmacario/easy-build/build-android-kk443-sabresd/tmp2$ ls -la extracted/
 total 13680
@@ -797,9 +731,7 @@ drwxrwxr-x 3 gmacario gmacario    4096 giu  4 14:39 ..
 -rw-rw-rw- 1 gmacario gmacario   50782 giu  4 14:39 second
 gmacario@kruk:/opt/export/tmp-gmacario/easy-build/build-android-kk443-sabresd/tmp2$
 ```
-
 Use the `file` command to better understand:
-
 ```
 gmacario@kruk:/opt/export/tmp-gmacario/easy-build/build-android-kk443-sabresd/tmp2$ file extracted/*
 extracted/kernel:          Linux kernel ARM boot executable zImage (little-endian)
@@ -808,9 +740,7 @@ extracted/ramdisk:         gzip compressed data, from Unix
 extracted/second:          gzip compressed data, from Unix
 gmacario@kruk:/opt/export/tmp-gmacario/easy-build/build-android-kk443-sabresd/tmp2$
 ```
-
 Inspect contents of extracted `ramdisk`
-
 ```
 gmacario@kruk:/opt/export/tmp-gmacario/easy-build/build-android-kk443-sabresd/tmp2$ zcat extracted/ramdisk | cpio -tv
 -rwxr-x---   1 root     root       268244 Jan  1  1970 charger
@@ -853,21 +783,15 @@ drwxr-xr-x   1 root     root            0 Jan  1  1970 system
 1756 blocks
 gmacario@kruk:/opt/export/tmp-gmacario/easy-build/build-android-kk443-sabresd/tmp2$
 ```
-
 Inspect contents of extracted `second` ==> Is this something meaningful???
-
 ```
 gmacario@kruk:/opt/export/tmp-gmacario/easy-build/build-android-kk443-sabresd/tmp2$ zcat extracted/second | cpio -tv
 -rwxr-x---   1 root     root       268244 Jan  1  1970 charger
-
 gzip: extracted/second: unexpected end of file
 cpio: premature end of file
 gmacario@kruk:/opt/export/tmp-gmacario/easy-build/build-android-kk443-sabresd/tmp2$
 ```
-
-
 Extract contents of `ramdisk`
-
 ```
 gmacario@kruk:/opt/export/tmp-gmacario/easy-build/build-android-kk443-sabresd/tmp2/extracted/ramdisk.tmp$ zcat ../ramdisk | cpio -iv
 charger
@@ -910,10 +834,8 @@ ueventd.rc
 1756 blocks
 gmacario@kruk:/opt/export/tmp-gmacario/easy-build/build-android-kk443-sabresd/tmp2/extracted/ramdisk.tmp$
 ```
-
 FIXME: Look at the contents of `/fstab.freescale`:
-
 ```
 ```
-
-<!-- EOF -->
+<-- markdown-link-check-enable-->
+<-- EOF -->

@@ -4,127 +4,87 @@ title:  "Experiences with the C.H.I.P. 9$ Computer"
 date:   2017-03-14 18:00:00 CET
 # categories: template android howto development
 ---
-
+<-- markdown-link-check-disable -->
 This blog post explains my experiences with [C.H.I.P.](https://getchip.com/pages/chip) - the World's First $9 Computer.
-
 ### Reflash CHIP
-
 Browse <http://flash.getchip.com/>
-
 > Your CHIP details:
 >
 > * Serial #: 162542130082604c
 > * NAND:Hynix 8G MLC
-
 * Select image "Headless 4.4"
-
 Downloading file `stable-server-b149-Hynix_8G_MLC.chp` (312 MB)
-
 > * Serial #: 162542130082604c
 > * NAND:Hynix 8G MLC
 > * MD5 Hash: 165e3a2a2c9353e06b98136beac777eb
-
 ### Manually configure Wi-Fi from command line
-
 See <https://docs.getchip.com/chip.html#wifi-connection>
-
 ### Install TINC on C.H.I.P.
-
 Based on the instructions at <https://github.com/gmacario/tinc-ninuxto/blob/master/configuring-tinc-ninuxto-on-udoobuntu2.md>
-
 Logged as chip@chip, change default password for user `chip`, then configure hostname (let us choose `chipgm34` in our example)
-
 ```script
 password chip
 echo "chipgm32" | sudo tee /etc/hostname
 sudo vi /etc/hosts      (Replace occurrences of old hostname with new)
 ```
-
 Update installed Debian packages, then reboot to activate the changes
-
 ```script
 sudo apt update && sudo apt -y dist-upgrade
 sudo reboot
 ```
-
 As soon as the host is up and running, remote login via SSH as chip@chipgm32, then install TINC and other required pacakges
-
 ```script
 sudo apt -y install git rsync tinc
 ```
-
 Clone the "gmacario/tinc-ninuxto" repository from GitHub
-
 ```script
 mkdir -p ~/MYGIT &&  cd ~/MYGIT
-[ ! -e tinc-ninuxto ] && git clone https://github.com/gmacario/tinc-ninuxto
+[ //github.com/gmacario/tinc-ninuxto
 ```
-
 Create the local TINC configuration
-
 ```script
 cd ~/MYGIT/tinc-ninuxto && git pull --all --prune && \
   sudo mkdir -p /etc/tinc/ninuxto/hosts/ && \
   sudo rsync -avz hosts/ /etc/tinc/ninuxto/hosts/
 ```
-
 Customize TINC configuration files starting from some templates
-
 ```script
 sudo cp ~/MYGIT/tinc-ninuxto/sample-tinc.conf /etc/tinc/ninuxto/tinc.conf
 sudo vi /etc/tinc/ninuxto/tinc.conf      (Adjust Name="chipgm32")
 ```
-
 ```script
 sudo cp ~/MYGIT/tinc-ninuxto/sample-tinc-up /etc/tinc/ninuxto/tinc-up
 sudo vi /etc/tinc/ninuxto/tinc-up        (Choose an available IP Address according to the table at README.md)
 sudo chmod 755 /etc/tinc/ninuxto/tinc-up
 ```
-
 ```script
 sudo cp ~/MYGIT/tinc-ninuxto/sample-tinc-down /etc/tinc/ninuxto/tinc-down
 sudo vi /etc/tinc/ninuxto/tinc-down      (Everything should be OK, but double check)
 sudo chmod 755 /etc/tinc/ninuxto/tinc-down
 ```
-
 Create a public/private key pair if they do not exist
-
 ```script
-sudo -i sh -c "[ ! -e /etc/tinc/ninuxto/rsa_key.priv ] && /usr/sbin/tincd -n ninuxto -K4096"
+sudo -i sh -c "[  -e /etc/tinc/ninuxto/rsa_key.priv ] && /usr/sbin/tincd -n ninuxto -K4096"
 ```
-
 Accept the suggested paths where to save private and public RSA key.
-
 Submit a Pull Request to https://github.com/gmacario/tinc-ninuxto with the following changes:
-
 * A new line in the table at `README.md` to mark the IP address you chose for your node
 * Your **public** key `/etc/tinc/ninuxto/hosts/chipgm32` saved under `hosts/`
-
 After the PR is merged, update the gmacario/tinc-ninuxto repository in all your peer nodes (i.e. tincgw21, rpi3gm23) to make sure the new node is recognized.
-
 ##### Test connectivity to tinc-ninuxto
-
 Try connecting to TINC network ninuxto
-
 ```script
 sudo tincd -n ninuxto --no-detach -d7
 ```
-
 ##### Automatically start tinc at boot
-
 Type the following commands to have TINC network `ninuxto` active at boot:
-
 ```
 echo "ninuxto" | sudo tee -a /etc/tinc/nets.boot
 sudo service tinc restart
 ```
-
 ### Install Docker on TINC
-
 See <https://blog.hypriot.com/post/docker-supported-on-chip-computer/>
-
 Prerequisite: chip running the latest Debian image (headless) with kernel 4.4
-
 ```script
 chip@chipgm32:~$ cat /etc/os-release
 PRETTY_NAME="Debian GNU/Linux 8 (jessie)"
@@ -139,24 +99,17 @@ chip@chipgm32:~$ uname -a
 Linux chipgm32 4.4.13-ntc-mlc #1 SMP Tue Dec 6 21:38:00 UTC 2016 armv7l GNU/Linux
 chip@chipgm32:~$
 ```
-
 Login as `root` on the chip
-
 ```script
 chip@chipgm32:~$ sudo -i
 root@chipgm32:~#
 ```
-
-<!-- 2017-03-13 14:55 CET -->
-
+<55 CET -->
 Logged as root@chip, install Docker using the official script
-
 ```script
 curl -sSL https://get.docker.com | sh
 ```
-
 Result:
-
 ```script
 root@chipgm32:~# curl -sSL https://get.docker.com | sh
 modprobe: FATAL: Module aufs not found.
@@ -420,7 +373,6 @@ Client:
  Git commit:   60ccb22
  Built:        Thu Feb 23 11:36:35 2017
  OS/Arch:      linux/arm
-
 Server:
  Version:      17.03.0-ce
  API version:  1.26 (minimum version 1.12)
@@ -429,20 +381,14 @@ Server:
  Built:        Thu Feb 23 11:36:35 2017
  OS/Arch:      linux/arm
  Experimental: false
-
 If you would like to use Docker as a non-root user, you should now consider
 adding your user to the "docker" group with something like:
-
   sudo usermod -aG docker your-user
-
-Remember that you will have to log out and back in for this to take effect!
-
+Remember that you will have to log out and back in for this to take effect
 root@chipgm32:~#
 ```
-
 **NOTE**: The message above `modprobe: FATAL: Module aufs not found.`
 should be harmless as Docker engine is using the overlay2 Storage Driver:
-
 ```script
 root@chipgm32:~# docker info
 Containers: 0
@@ -487,25 +433,17 @@ Insecure Registries:
 Live Restore Enabled: false
 root@chipgm32:~#
 ```
-
 Add user `chip` to group `docker`
-
 ```script
 sudo usermod -aG docker chip
 ```
-
 Logout and login to apply the changes
-
 #### Run your first Docker Container on chipgm32
-
 Logged as chip@chipgm32
-
 ```script
 docker run -d -p 80:80 hypriot/rpi-busybox-httpd
 ```
-
 Result:
-
 ```script
 root@chipgm32:~# docker run -d -p 80:80 hypriot/rpi-busybox-httpd
 Unable to find image 'hypriot/rpi-busybox-httpd:latest' locally
@@ -519,123 +457,79 @@ Status: Downloaded newer image for hypriot/rpi-busybox-httpd:latest
 0dcc31c2d196a7285391eb33437fdf7f3b75df295cf8724451ecf768b9cb3220
 root@chipgm32:~#
 ```
-
 Now browse <http://192.168.64.206/> and verfiy that the webserver is up and running:
-
 ### Install docker-compose on chipgm32
-
-<!-- 2071-03-13 15:24 CET -->
-
+<24 CET -->
 **NOTE**: As of 2017-03-13 there is no pre-built `docker-compose` binary for Linux/armv7l, therefore the following commands will return "Not Found":
-
 ```script
 sudo curl -L "https://github.com/docker/compose/releases/download/1.10.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 file /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 ```
-
 Read <https://github.com/hypriot/arm-compose>
-
 See <https://packagecloud.io/Hypriot/Schatzkiste/install>
-
 Logged as chip@chipgm32
-
 ```script
 curl -s https://packagecloud.io/install/repositories/Hypriot/Schatzkiste/script.deb.sh | sudo bash
 ```
-
 Now install package `docker-compose`
-
 ```script
 sudo apt install docker-compose
 ```
-
 Test
-
 ```
 chip@chipgm32:~ $ docker-compose --version
 docker-compose version 1.9.0, build 2585387
 pi@rpi3gm23:~ $
 ```
-
-
 ### Run Portainer on chipgm32
-
 See <https://blog.hypriot.com/post/new-docker-ui-portainer/>
-
 Prerequisites: docker and docker-compose already installed
-
 Login as chip@chipgm32 and type the following commands:
-
 ```script
 mkdir -p ~/MYGIT && cd ~/MYGIT
 git clone https://github.com/gmacario/rpi3-compose-portainer
 cd rpi3-compose-portainer
 ```
-
 Now run the containers
-
 ```
 docker-compose up -d
 ```
-
 Browse <http://192.168.64.206:9000> to access Portainer web UI.
-
 ### Configure Wi-Fi from command line
-
-<!-- 2017-03-14 15:25 CET -->
-
+<25 CET -->
 See <https://docs.getchip.com/chip.html#wifi-connection>
-
 Connect via USB to your laptop,
-
 Using Windows Device Manager identify the new USB serial port created (in our example, COM21)
-
 Start PuTTY:COM21:115200,8,n,1, you will get a login prompt
-
 ```
 Debian GNU/Linux 8 chipgm32 ttyGS0
-
 chipgm32 login:
 ```
-
 Login as user `chip` (default password: `chip` but you should have already changed it, right?)
-
 Logged as chip@chipgm32, list available Wi-Fi networks
-
 ```script
 nmcli device wifi list
 ```
-
 #### Connect to a password-protected Wi-Fi network
-
 Logged as chip@chipgm32, type the following command
-
 ```script
 sudo nmcli device wifi connect '(your wifi network name/SSID)' password '(your wifi password)' ifname wlan0
 ```
-
 #### Connect to a hidden Wi-Fi network
-
 Connect to a password-protected Wi-Fi network with the following commnand
 (reference: <http://stackoverflow.com/questions/35476428/how-to-connect-to-hidden-wifi-network-using-nmcli>)
-
 ```script
 sudo nmcli con add type wifi con-name '(connection name)' ifname wlan0 ssid '(your wifi hidden ssid)'
 sudo nmcli con modify '(connection name)' wifi-sec.key-mgmt wpa-psk
 sudo nmcli con modify '(connection name)' wifi-sec.psk '(password)'
 sudo nmcli con up '(connection name)'
 ```
-
 Step 3: Test your Connection
-
 ```script
 nmcli device status
 ```
-
-
 ### See also
-
 * C.H.I.P. Documentation: <https://docs.getchip.com/chip.html>
-
-<!-- EOF -->
+<-- markdown-link-check-enable-->
+<-- EOF -->

@@ -3,38 +3,25 @@ title: Using Jekyill with GitHub Pages
 date: 2015/04/15
 layout: post
 ---
-
+<-- markdown-link-check-disable -->
 ## Summary
-
-<!-- 2015-04-12 11:35 CEST -->
-
+<35 CEST -->
 This post explains how I managed to install [Jekyll](http://jekyllrb.com/) to serve my GitHub pages locally on my laptop.
-
 This can be really useful for testing your website before it goes public, or to access your blog post, wiki while not online, etc.
-
 ## Installing Jekyll on itm-gmacario-w7
-
 Installing on my laptop (OS: MS Windows 7 64-bit)
-
 Reference: <https://help.github.com/articles/using-jekyll-with-pages/>
-
 ### Install Ruby
-
 I have already installed [Cygwin](https://www.cygwin.com/) in my laptop, and Ruby is already available:
-
 ```
 gmacario@ITM-GMACARIO-W7 ~
 $ ruby --version
 ruby 2.0.0p598 (2014-11-13) [x86_64-cygwin]
-
 gmacario@ITM-GMACARIO-W7 ~
 $
 ```
-
 ### Install Bundler
-
 Invoke command `gem install bundler`:
-
 ```
 gmacario@ITM-GMACARIO-W7 ~
 $ gem install bundler
@@ -44,36 +31,26 @@ Parsing documentation for bundler-1.9.2
 Installing ri documentation for bundler-1.9.2
 Done installing documentation for bundler after 8 seconds
 1 gem installed
-
 gmacario@ITM-GMACARIO-W7 ~
 $
 ```
-
 ### Install Jekyll
-
 In the root of your site repository, create a file with the following contents:
-
 ```
 source 'https://rubygems.org'
-
 require 'json'
 require 'open-uri'
 versions = JSON.parse(open('https://pages.github.com/versions.json').read)
-
 gem 'github-pages', versions['github-pages']
 ```
 and save it as `Gemfile`
-
 ```
 gmacario@ITM-GMACARIO-W7 /cygdrive/e/data/MYGIT/gmacario.github.io
 $ bundle config build.nokogiri --use-system-libraries
-
 gmacario@ITM-GMACARIO-W7 /cygdrive/e/data/MYGIT/gmacario.github.io
 $
 ```
-
 Then invoke `bundle install`:
-
 ```
 gmacario@ITM-GMACARIO-W7 /cygdrive/e/data/MYGIT/gmacario.github.io
 $ bundle install
@@ -134,22 +111,19 @@ Installing rdiscount 2.1.7
 Installing terminal-table 1.4.5
 Installing github-pages 33
 Using bundler 1.9.2
-Bundle complete! 1 Gemfile dependency, 54 gems now installed.
+Bundle complete 1 Gemfile dependency, 54 gems now installed.
 Use `bundle show [gemname]` to see where a bundled gem is installed.
 Post-install message from html-pipeline:
 -------------------------------------------------
-Thank you for installing html-pipeline!
+Thank you for installing html-pipeline
 You must bundle Filter gem dependencies.
 See html-pipeline README.md for more details.
 https://github.com/jch/html-pipeline#dependencies
 -------------------------------------------------
-
 gmacario@ITM-GMACARIO-W7 /cygdrive/e/data/MYGIT/gmacario.github.io
 $
 ```
-
 If the previous command fails, run Cygwin `setup-x86_64.exe` and make sure the following packages are installed:
-
 * ruby
 * gcc-core
 * libcrypt-devel
@@ -161,19 +135,12 @@ If the previous command fails, run Cygwin `setup-x86_64.exe` and make sure the f
 * libiconv-devel
 * libxml2-devel
 * libxslt-devel
-
 ## Configure Jekyll
-
 Fix Jekyll under MS Windows
-
     $ echo "export COMSPEC=/cygdrive/c/Windows/System32/cmd.exe" >> ~/.bashrc
-
 See more at <https://necurity.co.uk/linux/2014/07/06/2014-07-06-Cygwin_and_Jekyll.md.html>
-
 You can now start the built-in http server
-
     $ bundle exec jekyll serve
-
 Now browse <http://localhost:4000/> to see the pages rendered by Jekyll.
-
-<!-- EOF -->
+<-- markdown-link-check-enable-->
+<-- EOF -->

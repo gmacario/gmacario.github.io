@@ -4,9 +4,8 @@ title:  "My First Post"
 date:   2015-01-21 14:00:00 CET
 tags:   post test
 ---
-
-Hello, this is my first blog post!
-
+<-- markdown-link-check-disable -->
+Hello, this is my first blog post
 [Gianpaolo](http://gmacario.github.io/)
-
-<!-- EOF -->
+<-- markdown-link-check-enable-->
+<-- EOF -->

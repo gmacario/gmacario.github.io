@@ -4,58 +4,36 @@ title:  "Trying Android KitKat 4.4.3 on Freescale SabreSD"
 date:   2015-05-15 12:40:00
 categories: android howto development freescale embedded imx6
 ---
-
+<-- markdown-link-check-disable -->
 This blog post explains how to install and run Android KitKat 4.4.3 on the Freescale [SABRE Platform for Smart Devices](http://www.freescale.com/webapp/sps/site/prod_summary.jsp?code=RDIMX6SABREPLAT) Reference Design based on the i.MX 6 Series Application Processor.
-
 ### Download files from the Freescale website
-
 #### Download Android BSP documentation
-
 Browse <http://www.freescale.com/webapp/sps/site/prod_summary.jsp?code=RDIMX6SABREBRD>
-
 Select tab "Documentation" then select the "Download" button of the following package
-
 | Package ID | Description | Type | Format | Size (KB) | Rev # | Date Last Modified |
 |------------|-------------|------|--------|-----------|-------|--------------------|
 | **IMX6_KK443_200_ANDROID_DOCS** | i.MX6 Android kk4.4.3_2.0.0 BSP Documentation	| Supporting Information | gz | 7625 | kk4.4.3_2.0.0 | 2015-06-02 |
-
 #### Download Manufacturing Tools
-
 Select tab "Software & Tools".
-
 In section "Hardware Development Tools", expand group "Programmers (Flash, etc.)", then select the "Download" button of the following packages:
-
 | Package ID | Description | Format | Size (KB) | Rev # | Date Last Modified |
 |------------|-------------|--------|-----------|-------|--------------------|
 | **IMX_KK4.4.3_MFG_TOOL** | i.MX 6Family Manufacturing Toolkit for kk4.4.3_2.0.0 | gz | 36796 | kk4.4.3_2.0.0 | 2015-06-02 |
-
 #### Download Android BSP and demo image for SabreSD
-
 Select tab "Software & Tools".
-
 In section "Run-time Software", expand group "Operating System Software-Board Support Packages", then select the "Download" button of the following packages:
-
-<!-- TIP: <http://www.tablesgenerator.com/markdown_tables> -->
-
+< <http://www.tablesgenerator.com/markdown_tables> -->
 | Package ID | Description | Format | Size (KB) | Rev # | Date Last Modified |
 |------------|-------------|--------|-----------|-------|--------------------|
 | **IMX6_KK443_200_ANDROID_DEMO_SD_BSP** | i.MX 6Quad, i.MX 6Dual, i.MX 6DualLite, and i.MX 6Solo Android KK4.4.3_2.0.0 BSP Binary Demo Files for the SABRE Platform and SABRE Board for Smart Devices | gz | 1166696 | kk4.4.3_2.0.0 | 2015-06-02 |
-
 #### (Optional) Download source code for BSP
-
 Select tab "Software & Tools".
-
 In section "Run-time Software", expand group "Operating System Software-Board Support Packages", then select the "Download" button of the following packages:
-
 | Package ID | Description | Format | Size (KB) | Rev # | Date Last Modified |
 |------------|-------------|--------|-----------|-------|--------------------|
 | **IMX6_KK443_200_ANDROID_SOURCE_BSP**  | i.MX 6Quad, i.MX 6Dual, i.MX 6DualLite, i.MX 6Solo and i.MX 6Sololite Android KK4.4.3_2.0.0 BSP, Source Code for BSP and Codecs | gz | 66824 | kk4.4.3_2.0.0 | 2015-06-02 |
-
-
 NOTE: Before being able to download the software, you should first login to the Freescale website, then accept the Freescale Semiconductor Software License Agreement.
-
 Inspect size of the downloaded files:
-
 ```
 gmacario@ITM-GMACARIO-W7 /cygdrive/e/data/MOVEME/Freescale/20150514-Android_KK443_200_SabreSD
 $ ls -la *.gz
@@ -63,13 +41,10 @@ $ ls -la *.gz
 -rwxrwx---+ 1 Administrators Domain Users    7808540 May 14 16:04 android_kk4.4.3_2.0.0-ga_doc.gz
 -rwxrwx---+ 1 Administrators Domain Users 1194696105 May 14 16:06 android_kk4.4.3_2.0.0-ga_images_6qsabresd.gz
 -rwxrwx---+ 1 Administrators Domain Users   37679059 May 14 17:06 android_KK4.4.3_2.0.0-ga_tools.gz
-
 gmacario@ITM-GMACARIO-W7 /cygdrive/e/data/MOVEME/Freescale/20150514-Android_KK443_200_SabreSD
 $
 ```
-
 Verify file checksums:
-
 ```
 gmacario@ITM-GMACARIO-W7 /cygdrive/e/data/MOVEME/Freescale/20150514-Android_KK443_200_SabreSD
 $ md5sum *.gz
@@ -77,20 +52,15 @@ $ md5sum *.gz
 cb298854a1cea2d35133f1e972464fcd *android_kk4.4.3_2.0.0-ga_doc.gz
 99ee83507692a7e7355cf4b596b91b2f *android_kk4.4.3_2.0.0-ga_images_6qsabresd.gz
 ec6e236662cb6b7d1919d1cb48defe3b *android_KK4.4.3_2.0.0-ga_tools.gz
-
 gmacario@ITM-GMACARIO-W7 /cygdrive/e/data/MOVEME/Freescale/20150514-Android_KK443_200_SabreSD
 $
 ```
-
 ### Extract documentation
-
 ```
 $ mkdir -p tmp/doc
 $ tar -C tmp/doc -xvzf android_kk4.4.3_2.0.0-ga_doc.gz
 ```
-
 Result
-
 ```
 gmacario@ITM-GMACARIO-W7 /cygdrive/e/data/MOVEME/Freescale/20150514-Android_KK443_200_SabreSD
 $ tar -C tmp/doc -xvzf android_kk4.4.3_2.0.0-ga_doc.gz
@@ -104,37 +74,27 @@ final/i.MX_Android_Camera_Issues_on_the_SDP_Board.pdf
 final/i.MX_Android_Extended_Codec_Release_Notes.pdf
 final/i.MX_Android_Extended_Wi-Fi_Display_Sink_Release_Notes.pdf
 final/i.MX_Android_Wi-Fi_Display_Sink_API_Introduction.pdf
-
 gmacario@ITM-GMACARIO-W7 /cygdrive/e/data/MOVEME/Freescale/20150514-Android_KK443_200_SabreSD
 $
 ```
-
 Read documentation in the following order
-
 1. Android_Quick_Start_Guide.pdf (26 pages)
 2. ...
-
 ### Extract KK images for SabreSD
-
 ```
 $ mkdir -p tmp/images
 $ tar -C tmp/images -xvzf android_kk4.4.3_2.0.0-ga_images_6qsabresd.gz
 ```
-
 Result
-
 ```
 gmacario@ITM-GMACARIO-W7 /cygdrive/e/data/MOVEME/Freescale/20150514-Android_KK443_200_SabreSD
 $ tar -C tmp/images -xvzf android_kk4.4.3_2.0.0-ga_images_6qsabresd.gz
 android_KK4.4.3_2.0.0-ga_core_image_6qsabresd.tar.gz
 android_KK4.4.3_2.0.0-ga_full_image_6qsabresd.tar.gz
-
 gmacario@ITM-GMACARIO-W7 /cygdrive/e/data/MOVEME/Freescale/20150514-Android_KK443_200_SabreSD
 $
 ```
-
 Inspect size of the extracted files:
-
 ```
 gmacario@ITM-GMACARIO-W7 /cygdrive/e/data/MOVEME/Freescale/20150514-Android_KK443_200_SabreSD
 $ ls -la tmp/images
@@ -143,20 +103,15 @@ drwxrwxr-x+ 1 gmacario Domain Users         0 May 14 16:21 .
 drwxrwxr-x+ 1 gmacario Domain Users         0 May 14 16:21 ..
 -rwxrwxr-x+ 1 gmacario Domain Users 596332389 Jan 19 18:58 android_KK4.4.3_2.0.0-ga_core_image_6qsabresd.tar.gz
 -rwxrwxr-x+ 1 gmacario Domain Users 604488992 Jan 19 18:17 android_KK4.4.3_2.0.0-ga_full_image_6qsabresd.tar.gz
-
 gmacario@ITM-GMACARIO-W7 /cygdrive/e/data/MOVEME/Freescale/20150514-Android_KK443_200_SabreSD
 $
 ```
-
 Now extract contents of `android_KK4.4.3_2.0.0-ga_full_image_6qsabresd.tar.gz`
-
 ```
 $ tar -C tmp/ -xvzf tmp/images/android_KK4.4.3_2.0.0-ga_full_image_6qsabresd.tar.gz
 $ ls -laR tmp/android_KK4.4.3_2.0.0-ga_full_image_6qsabresd
 ```
-
 Result
-
 ```
 gmacario@ITM-GMACARIO-W7 /cygdrive/e/data/MOVEME/Freescale/20150514-Android_KK443_200_SabreSD
 $ ls -laR tmp/android_KK4.4.3_2.0.0-ga_full_image_6qsabresd
@@ -169,7 +124,6 @@ drwxrwxr-x+ 1 gmacario Domain Users      0 Jan  8 07:11 NFS
 drwxrwxr-x+ 1 gmacario Domain Users      0 Jan  8 07:27 SD
 -rwxrwxr-x+ 1 gmacario Domain Users 392192 Jan  8 07:08 u-boot-imx6dl.imx
 -rwxrwxr-x+ 1 gmacario Domain Users 392192 Jan  8 07:08 u-boot-imx6q.imx
-
 tmp/android_KK4.4.3_2.0.0-ga_full_image_6qsabresd/eMMC:
 total 412920
 drwxrwxr-x+ 1 gmacario Domain Users         0 Jan  8 07:09 .
@@ -181,7 +135,6 @@ drwxrwxr-x+ 1 gmacario Domain Users         0 Jan  8 07:08 ..
 -rw-rwxr--+ 1 gmacario Domain Users   7834934 Jan  8 07:08 recovery-imx6q.img
 -rw-rwxr--+ 1 gmacario Domain Users   7834934 Jan  8 07:08 recovery-imx6q-ldo.img
 -rw-rwxr--+ 1 gmacario Domain Users 377487360 Jan  8 07:08 system.img
-
 tmp/android_KK4.4.3_2.0.0-ga_full_image_6qsabresd/NFS:
 total 175196
 drwxrwxr-x+ 1 gmacario Domain Users         0 Jan  8 07:11 .
@@ -191,7 +144,6 @@ drwxrwxr-x+ 1 gmacario Domain Users         0 Jan  8 07:08 ..
 -rwxrwxr-x+ 1 gmacario Domain Users     50782 Jan  8 07:08 imx6q-sabresd.dtb
 -rwxrwxr-x+ 1 gmacario Domain Users     50782 Jan  8 07:08 imx6q-sabresd-ldo.dtb
 -rwxrwxr-x+ 1 gmacario Domain Users   6723120 Jan  8 07:09 zImage
-
 tmp/android_KK4.4.3_2.0.0-ga_full_image_6qsabresd/SD:
 total 412920
 drwxrwxr-x+ 1 gmacario Domain Users         0 Jan  8 07:27 .
@@ -203,24 +155,18 @@ drwxrwxr-x+ 1 gmacario Domain Users         0 Jan  8 07:08 ..
 -rw-rwxr--+ 1 gmacario Domain Users   7834935 Jan  8 07:26 recovery-imx6q.img
 -rw-rwxr--+ 1 gmacario Domain Users   7834935 Jan  8 07:26 recovery-imx6q-ldo.img
 -rw-rwxr--+ 1 gmacario Domain Users 377487360 Jan  8 07:26 system.img
-
 gmacario@ITM-GMACARIO-W7 /cygdrive/e/data/MOVEME/Freescale/20150514-Android_KK443_200_SabreSD
 $
 ```
-
 TODO
-
 ### Extract the Manufacturing Tools
-
 ```
 $ mkdir -p tmp
 $ tar -C tmp/ -xvzf android_KK4.4.3_2.0.0-ga_tools.gz
 $ tar -C tmp/ -xvzf tmp/android_KK4.4.3_2.0.0-ga_tools/mfgtools.tar.gz
 $ ls -la tmp/mfgtools
 ```
-
 Result:
-
 ```
 gmacario@ITM-GMACARIO-W7 /cygdrive/e/data/MOVEME/Freescale/20150514-Android_KK443_200_SabreSD
 $ ls -la tmp/mfgtools
@@ -277,28 +223,18 @@ drwxrwxr-x+ 1 gmacario Domain Users       0 Dec  2 11:55 Drivers
 drwxrwxr-x+ 1 gmacario Domain Users       0 Dec  2 11:55 Profiles
 -rw-rwxr--+ 1 gmacario Domain Users      21 Dec  2 11:55 UICfg.ini
 drwxrwxr-x+ 1 gmacario Domain Users       0 Dec  2 11:55 Utils
-
 gmacario@ITM-GMACARIO-W7 /cygdrive/e/data/MOVEME/Freescale/20150514-Android_KK443_200_SabreSD
 $
 ```
-
 TODO
-
-
-
 ### Get familiar with the Sabre SD Board
-
 Read the [SABRE Board for Smart Devices - Quick Start Guide](http://cache.freescale.com/files/32bit/doc/quick_start_guide/SABRESDB_IMX6_QSG.pdf).
-
 Check hardware inventory provided with the SABRESD board:
-
 * One SabreSD board
 * One USB-to-MicroUSB cable
 * Power supply +5Vdc (barrel plug)
 * One 8 GB SD-Card containing the system image
-
 Additional hardware to be sourced:
-
 * One controlling PC (used for formatting the SD-Card and as terminal emulator)
 * One HDMI cable
 * One HDMI display
@@ -308,58 +244,36 @@ Additional hardware to be sourced:
 * USB hub (one USB A male, two or more USB A female)
 * USB keyboard
 * USB mouse
-
 ### Setting up the system
-
 #### Insert SD Card
-
 Insert the SD-Card containing the software image into **J507 (SD3)**
-
-**NOTE**: Do not insert the SD-Card into J500 (SD2) instead, otherwise the board will not boot!
-
+**NOTE**: Do not insert the SD-Card into J500 (SD2) instead, otherwise the board will not boot
 #### Connect the USB Debug Cable
-
 **NOTE**: This step is optional, but strongly advised to make sure everything works as expected.
-
 * Connect a MicroSD-to-USB cable to J509 (USB TO UART).
   Connect the other endpoint to into a USB port on your laptop
 * On the Windows Device Manager inspect the serial port created when plugging into the target serial port. In our example this is COM13
 * Launch a terminal emulator program on the controlling PC (i.e. PuTTY on Windows, or minicom on Linux)
 * Configure the terminal emulator program as _target-serial-port_:115200,8,n,1
-
 #### Connect User Interface Devices
-
 * Connect a HDMI cable into J8.
   Connect the other endpoint of the HDMI cable to a HDMI display.
-
 * TODO: Attach a USB hub to USB jack J505.
   Connect a USB mouse and keyboard to the hub.
-
 #### Connect Ethernet Cable (optional)
-
 * Connect the Ethernet cable to J7.
   Connect the other endpoint of the Ethernet cable into one empty socket of the Internet router / LAN switch
-
 #### Verify the Boot Mode DIP Switch Configuration (SW6)
-
 The following configuration will cause the system software to be booted from the SD-Card inserted into the SD3 socket:
-
 | D1  | D2  | D3  | D4  | D5  | D6  | D7  | D8  |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | off | ON  | off | off | off | off | ON  | off |
-
 #### Connect Power Supply
-
 Plug the +5Vdc power supply into P1.
-
 The SabreSD will then boot.
-
 Watch the bootup messages on the terminal emulator connected to the debug serial console.
-
 **NOTE:** The messages shown below refer to the stock "MX6Q-SDB Android r13.4.1 110-77482 B" SD-Card that was delivered together with the SabreSD board
-
 If you press "ENTER" on the debug serial console you should get a root shell on the Android Operating System:
-
 ```
 RPC: Registered tcp transport module.
 RPC: Registered tcp NFSv4.1 backchannel transport module.
@@ -385,8 +299,8 @@ mxc_sdc_fb mxc_sdc_fb.0: register mxc display driver hdmi
 mxc_hdmi mxc_hdmi: Detected HDMI controller 0x13:0xa:0xa0:0xc1
 fbcvt: 1920x1080@60: CVT Name - 2.073M9
 imx-ipuv3 imx-ipuv3.1: IPU DMFC DP HIGH RESOLUTION: 1(0,1), 5B(2~5), 5F(6,7)
-mxc_sdc_fb mxc_sdc_fb.1: Can't get fb option for mxcfb1!
-mxc_sdc_fb mxc_sdc_fb.2: Can't get fb option for mxcfb2!
+mxc_sdc_fb mxc_sdc_fb.1: Can't get fb option for mxcfb1
+mxc_sdc_fb mxc_sdc_fb.2: Can't get fb option for mxcfb2
 imx-sdma imx-sdma: loaded firmware 1.1
 imx-sdma imx-sdma: initialized
 Serial: IMX driver
@@ -491,7 +405,7 @@ mxc_asrc registered
 revserved_memory_account:viv_gpu registerd
 Thermal calibration data is 0x5984fb7d
 Anatop Thermal registered as thermal_zone0
-anatop_thermal_probe: default cooling device is cpufreq!
+anatop_thermal_probe: default cooling device is cpufreq
 usbcore: registered new interface driver usbhid
 usbhid: USB HID core driver
 logger: created 256K log 'log_main'
@@ -568,10 +482,10 @@ init: cannot find '/system/etc/install-recovery.sh', disabling 'flash_recovery'
 android_usb: already disabled
 mtp_bind_config
 root@android:/ # input: eCompass as /devices/virtual/input/input5
-ERROR: v4l2 capture: slave not found!
-ERROR: v4l2 capture: slave not found!
-ERROR: v4l2 capture: slave not found!
-ERROR: v4l2 capture: slave not found!
+ERROR: v4l2 capture: slave not found
+ERROR: v4l2 capture: slave not found
+ERROR: v4l2 capture: slave not found
+ERROR: v4l2 capture: slave not found
 warning: `zygote' uses 32-bit capabilities (legacy support in use)
 request_suspend_state: wakeup (3->0) at 17786497338 (1970-01-02 00:00:07.904135335 UTC)
 eth0: Freescale FEC PHY driver [Generic PHY] (mii_bus:phy_addr=1:01, irq=-1)
@@ -581,12 +495,9 @@ acc_release
 CPU3: shutdown
 CPU2: shutdown
 binder: release proc 2293, transaction 5785, not freed
-
 root@android:/ #
 ```
-
 Inspect the running processes
-
 ```
 root@android:/ # ps
 USER     PID   PPID  VSIZE  RSS     WCHAN    PC         NAME
@@ -695,11 +606,8 @@ app_5     2743  2222  454092 28736 ffffffff 4005b3c0 S com.android.calendar
 root      2767  2215  956    276   00000000 40012458 R ps
 root@android:/ #
 ```
-
 ### Create a SD-Card with Android 4.4.3 for SabreSD
-
 From sec 4.1.1 of "Android User's Guide":
-
 | Partition type/index   | Name        | Start offset    | Size   | File system | Content |
 |------------------------|-------------|-----------------|--------|-------------|---------|
 | N/A                    | BOOT Loader | 1 KB            | 1 MB   | N/A | bootloader |
@@ -711,93 +619,48 @@ From sec 4.1.1 of "Android User's Guide":
 | Logical 7 (Extended 3) | Device      | Follow CACHE    | 8 MB   | EXT4. Mount as /device | To store MAC address files |
 | Logical 8 (Extended 3) | Misc        | Follow Device   | 4 MB   | N/A | For recovery store bootloader message, reserve |
 | Primary 4              | DATA        | Follow Misc     | Total - Other images | EXT4. Mount as /data | Application data storage for the system application and the internal media partition in /mnt/sdcard/ dir |
-
-
 Copy file `android_kk4.4.3_2.0.0-ga_images_6qsabresd.gz` to a Linux machine with a SD-Card reader.
-
 Get an SD-Card (at least 2 GB size) with no valuable contents (will be erased)
-
 On the Linux machine, run the script `sabresd-prepare-sdcard-android.sh` (to be published as part of project <https://github.com/gmacario/easy-build>).
-
 Make sure you properly define `SDCARD` and `SDCARD_SIZE` environment variables. Example
-
 ```
 $ SDCARD=/dev/sdX SDCARD_SIZE=15720251392 ./sabresd-prepare-sdcard-android.sh
 ```
-
 Look at the messages displayed on the terminal to verify that the SD-Card has been correctly written, then extract the SD-Card and insert it into J507 (SD3) of the SabreSD board.
-
 Power up the SabreSD bard and watch the boot messages on the serial console (**NOTE**: Only U-Boot, boot.img and recovery.img were flashed to the SD-Card):
-
 ```
 U-Boot 2014.04-00190-gaffa032 (Jan 08 2015 - 09:56:55)
-
-
 CPU:   Freescale i.MX6Q rev1.2 at 792 MHz
-
 CPU:   Temperature 25 C, calibration data: 0x5984fb7d
-
 Reset cause: POR
-
 Board: MX6-SabreSD
-
 I2C:   ready
-
 DRAM:  1 GiB
-
 MMC:   FSL_SDHC: 0, FSL_SDHC: 1, FSL_SDHC: 2
-
 *** Warning - bad CRC, using default environment
-
-
 No panel detected: default to Hannstar-XGA
-
 Display: Hannstar-XGA (1024x768)
-
 In:    serial
-
 Out:   serial
-
 Err:   serial
-
 Found PFUZE100 deviceid=10,revid=11
-
 check_and_clean: reg 0, flag_set 0
-
 Fastboot: Normal
-
 flash target is MMC:1
-
 Bad partition index:5 for partition:system
-
 Net:   FEC [PRIME]
-
 Normal Boot
-
 Hit any key to stop autoboot:  1  0
-
 booti mmc1
-
 kernel   @ 14008000 (6723120)
-
 ramdisk  @ 15000000 (497370)
-
 fdt      @ 14f00000 (50782)
-
 kernel cmdline:
-
 	use boot.img command line:
-
 	console=ttymxc0,115200 init=/init video=mxcfb0:dev=ldb,bpp=32 video=mxcfb1:off video=mxcfb2:off video=mxcfb3:off vmalloc=400M androidboot.console=ttymxc0 consoleblank=0 androidboot.hardware=freescale cma=384M androidboot.serialno=0d1e29d4d81917c9
-
-switch to ldo_bypass mode!
-
+switch to ldo_bypass mode
    Using Device Tree in place at 14f00000, end 14f0f65d
-
-
 Starting kernel ...
-
-
 Booting Linux on physical CPU 0x0
 Initializing cgroup subsys cpu
 Initializing cgroup subsys cpuacct
@@ -868,7 +731,7 @@ vddpu: 725 <--> 1450 mV
 vddsoc: 725 <--> 1450 mV
 syscon 20e0000.iomuxc-gpr: regmap [mem 0x020e0000-0x020e0037] registered
 syscon 21bc000.ocotp-ctrl: regmap [mem 0x021bc000-0x021bffff] registered
-!!request miniPCIE Power On gpio
+request miniPCIE Power On gpio
 hw-breakpoint: found 5 (+1 reserved) breakpoint and 1 watchpoint registers.
 hw-breakpoint: maximum watchpoint size is 4 bytes.
 imx6q-pinctrl 20e0000.iomuxc: initialized IMX pinctrl driver
@@ -963,9 +826,9 @@ mxc_lcdif: probe of lcd.34 failed with error -22
 mxc_sdc_fb fb.30: registered mxc display driver ldb
 imx-ipuv3 2800000.ipu: IPU DMFC DP HIGH RESOLUTION: 1(0,1), 5B(2~5), 5F(6,7)
 Console: switching to colour frame buffer device 128x48
-mxc_sdc_fb fb.31: Can't get fb option for mxcfb1!
-mxc_sdc_fb fb.32: Can't get fb option for mxcfb2!
-mxc_sdc_fb fb.33: Can't get fb option for mxcfb3!
+mxc_sdc_fb fb.31: Can't get fb option for mxcfb1
+mxc_sdc_fb fb.32: Can't get fb option for mxcfb2
+mxc_sdc_fb fb.33: Can't get fb option for mxcfb3
 imx-sdma 20ec000.sdma: no iram assigned, using external mem
 imx-sdma 20ec000.sdma: loaded firmware 1.1
 imx-sdma 20ec000.sdma: initialized
@@ -1136,7 +999,7 @@ fsl-hdmi-dai hdmi_audio.17: failed to probe. Load HDMI-video first.
 fsl-hdmi-dai: probe of hdmi_audio.17 failed with error -12
 input: WM8962 Beep Generator as /devices/soc0/soc.1/2100000.aips-bus/21a0000.i2c/i2c-0/0-001a/input/input4
 imx-wm8962 sound.28:  wm8962 <-> 202c000.ssi mapping ok
-imx-audio-hdmi sound-hdmi.29: initialize HDMI-audio failed. load HDMI-video first!
+imx-audio-hdmi sound-hdmi.29: initialize HDMI-audio failed. load HDMI-video first
 NET: Registered protocol family 26
 u32 classifier
     Actions configured
@@ -1237,24 +1100,15 @@ mtp_bind_config
 binder: 143:143 transaction failed 29189, size 0-0
 binder: 143:143 transaction failed 29189, size 0-0
 ```
-
 TODO: Update after successfully loading /system
-
-
 ### TODO: Download the board images to the SabreSD
-
 See Chapter 3 of the "Android_Quick_Sart_Guide.pdf"
-
 **NOTE**: The Freescale Manufacturing Tools only work in MS Windows.
-
 For Linux you may use the (TODO: link) project on GitHub which provides similar functionalities.
-
 Refer to the Android Quick Start Guide and to understand which image
 you should choose for your target board.
-
 Create directory `android/sabresd` under
 `_MFGTool-Dir_/Profiles/Linux/OS Firmware/files/` and copy the relevant files:
-
 ```
 $ mkdir -p "tmp/mfgtools/Profiles/Linux/OS Firmware/files/android/sabresd/"
 $ ls -la "tmp/mfgtools/Profiles/Linux/OS Firmware/files/android/sabresd/"
@@ -1268,9 +1122,7 @@ $ for f in \
   done
 $ ls -la "tmp/mfgtools/Profiles/Linux/OS Firmware/files/android/sabresd/"
 ```
-
 Result:
-
 ```
 gmacario@ITM-GMACARIO-W7 /cygdrive/e/data/MOVEME/Freescale/20150514-Android_KK443_200_SabreSD
 $ ls -la "tmp/mfgtools/Profiles/Linux/OS Firmware/files/android/sabresd/"
@@ -1282,135 +1134,95 @@ drwxrwxr-x+ 1 gmacario Domain Users         0 Dec  2 11:55 ..
 -rw-rwxr--+ 1 gmacario Domain Users   7834934 May 14 17:56 recovery-imx6q.img
 -rw-rwxr--+ 1 gmacario Domain Users 377487360 May 14 17:56 system.img
 -rwxrwxr-x+ 1 gmacario Domain Users    392192 May 14 17:56 u-boot-imx6q.imx
-
 gmacario@ITM-GMACARIO-W7 /cygdrive/e/data/MOVEME/Freescale/20150514-Android_KK443_200_SabreSD
 $
 ```
-
 ### TODO: Building Android images for i.MX SabreSD from sources
-
 TODO: Integrate into <https://github.com/gmacario/easy-build/blob/master/build-aosp/README.md>
-
 (2015-05-20 16:15 CEST)
-
 Login as gmacario@mv-linux-powerhorse
-
 ```
 $ cd ~/easy-build/build-aosp
 $ ./build.sh
 $ ./run-NEW.sh
 ```
-
 TODO: build-aosp: Commit "run-NEW.sh" as updated "run.sh" in resolution of issue ???
-
 Logged as root@container, create subdirectory `myandroid` inside the directory shared with the host, then change to user `build`:
-
 ```
 # cd ~build/shared && mkdir myandroid && chown build.build myandroid && ln -sf ${PWD}/myandroid ~build/
 # cd ~build/shared && mkdir extra && chown build.build extra && ln -sf ${PWD}/extra ~build/
 # su - build
 ```
-
 Logged as build@container, configure git (specify your user.email and user.name)
-
 ```
 $ git config --global user.email "you@example.com"
 $ git config --global user.name "Your Name"
 $ git config --global color.ui auto
 ```
-
 #### Unpacking the Freescale Android release package
-
 Unpack the Freescale Android release package downloaded from <http://www.freescale.com/webapp/sps/site/prod_summary.jsp?code=RDIMX6SABREBRD>
-
 ```
 $ cd ~/extra
 $ tar xzvf ~/shared/20150514-Android_KK443_200_SabreSD/android_KK4.4.3_2.0.0-ga_core_source.gz
 $ cd android_KK4.4.3_2.0.0-ga_core_source/code/
 $ tar xzvf KK4.4.3_2.0.0-ga.tar.gz
 ```
-
 #### Getting Android source code (AOSP/kernel/U-Boot)
-
 See Sec 3.1 of "Android_User's_Guide.pdf" and <https://community.freescale.com/thread/353644>
-
 Download the source code of Android KitKat 4.4.3:
-
 ```
 $ cd ~/myandroid
 $ repo init -u https://android.googlesource.com/platform/manifest -b android-4.4.3_r1
 $ repo sync -j16
 ```
-
 **NOTE**: The last command will download about 40 GB of code and may take a few hours depending on the speed of your Internet connection.
-
 (Optional) Save a backup of the AOSP tree under ~/extra - so you will save time when restoring in case you screwed it...
-
 ```
 $ cd ~/myandroid && tar cvfz ~/extra/bk-aosp-yyyymmdd-hhmm.tar.gz .
 ```
-
 Get the KK4.4.3_2.0.0 Linux kernel sources from Freescale open source git:
-
 ```
 $ cd ~/extra
 $ git clone git://git.freescale.com/imx/linux-2.6-imx.git kernel_imx
 $ cd kernel_imx
 $ git checkout kk4.4.3_2.0.0-ga
 ```
-
 Clone the U-Boot git repository from Freescale open source git:
-
 ```
 $ cd ~/extra
 $ git clone git://git.freescale.com/imx/uboot-imx.git uboot-imx
 $ cd uboot-imx
 $ git checkout kk4.4.3_2.0.0-ga
 ```
-
 Copy the i.MX kernel and u-boot source tree inside the AOSP directory:
-
 ```
 $ cd ~/extra && cp -a kernel_imx ~/myandroid/
 $ cd ~/extra && cp -a uboot-imx  ~/myandroid/bootable/bootloader/
 ```
-
-
 #### Patch code for i.MX
-
 Repo tutorial: https://source.android.com/source/developing.html
-
 (Optional) create a new topic branch BEFORE applying Freescale patches:
-
 ```
 $ cd ~/myandroid
 $ repo start try-kk443-200-sabresd --all
 ```
-
 Show the working tree status (will take TBD minutes):
-
 ```
 $ repo status -j8 -o
 ```
-
 Install the patch script tool (will add the "c_patch" function):
-
 ```
 $ cd ~/myandroid
 $ source build/envsetup.sh
 $ source ~/extra/android_KK4.4.3_2.0.0-ga_core_source/code/KK4.4.3_2.0.0-ga/and_patch.sh
 $ help
 ```
-
 (2015-05-21 18:11 CEST)
 Create a topic branch and apply Freescale patches:
-
 ```
 $ c_patch ~/extra/android_KK4.4.3_2.0.0-ga_core_source/code/KK4.4.3_2.0.0-ga imx_KK4.4.3_2.0.0-ga
 ```
-
 Result:
-
 ```
 build@59681ae38fc9:~/myandroid$ c_patch ~/extra/android_KK4.4.3_2.0.0-ga_core_source/code/KK4.4.3_2.0.0-ga imx_KK4.4.3_2.0.0-ga
 Parsing basefile /home/build/shared/extra/android_KK4.4.3_2.0.0-ga_core_source/code/KK4.4.3_2.0.0-ga/baseversion...
@@ -2293,9 +2105,7 @@ all: $(LIBNAME).so $(LIBNAME).a
 warning: squelched 19675 whitespace errors
 warning: 19680 lines add whitespace errors.
 /home/build/myandroid/external/linux-lib/.git/rebase-apply/patch:45317: trailing whitespace.
-
 /home/build/myandroid/external/linux-lib/.git/rebase-apply/patch:46136: trailing whitespace.
-
 warning: 2 lines add whitespace errors.
 ...
 ┬▒⎼┼☃┼±: ⎽─┤e┌c▒ed 36 ┬▒☃├e⎽⎻▒ce e⎼⎼⎺⎼⎽
@@ -2306,29 +2116,21 @@ S┤cce⎽⎽: N⎺┬ ≤⎺┤ c▒┼ b┤☃┌d ▒┼d⎼⎺☃d c⎺de °
 *************************************************************
 b┤☃┌d@59681▒e38°c9:·/└≤▒┼d⎼⎺☃d$
 ```
-
 If everything is OK, "c_patch" will generate the following output to indicate the successful patch:
-
 ```
 **************************************************************
 Success: Now you can build the Android code for FSL i.MX platform
 **************************************************************
 ```
-
 (2015-05-21 18:30 CEST) TRY AGAIN
-
 ```
 $ c_patch ~/extra/android_KK4.4.3_2.0.0-ga_core_source/code/KK4.4.3_2.0.0-ga imx_KK4.4.3_2.0.0-ga 2> c_patch_err.txt | tee c_patch_out.txt
 ```
-
 (2015-05-21 18:37 CEST) Inspect Android source tree
-
 ```
 $ cd ~/myandroid && repo status -j16 -o
 ```
-
 Result:
-
 ```
 build@59681ae38fc9:~/myandroid$ repo status -j16 -o
 project bionic/                                 branch imx_KK4.4.3_2.0.0-ga
@@ -2394,23 +2196,16 @@ Objects not within a project (orphans)
  --     packages/apps/fsl_imx_demo/
  --     kernel_imx/
 ```
-
 #### Building Android images
-
 (2015-05-21 18:55 CEST)
-
 ```
 $ cd ~/myandroid
 $ source build/envsetup.sh
 ```
-
 If you invoke `lunch` without parameters you will get the complete lunch menu:
-
 ```
 build@59681ae38fc9:~/myandroid$ lunch
-
 You're building on Linux
-
 Lunch menu... pick a combo:
      1. aosp_arm-eng
      2. aosp_x86-eng
@@ -2444,96 +2239,65 @@ Lunch menu... pick a combo:
      30. mini_armv7a_neon-userdebug
      31. mini_x86-userdebug
      32. mini_mips-userdebug
-
 Which would you like? [aosp_arm-eng]
 ```
-
 Here is the list of the supported Freescale SABRE boards:
-
 * `sabresd_6dq-user`: i.MX 6 SABRE-SD boards
 * `sabreauto_6dq-user`: i.MX 6 SABRE-AI boards
 * `evk_6sl-user`: i.MX 6SoloLite EVK boards
 * `sabresd_6sx-user`: i.MX6SoloX SABRE-SD boards
 * `sabreauto_6sx-user`: i.MX 6SoloX SABRE-AI boards
-
 We want to build Android for the SABRE-SD, so "sabresd_6dq" is the product name to choose (see `~/myandroid/device/fsl/product`).
-
 We will also choose the "-eng" rather than the "-user" combo:
-
 ```
 $ lunch sabresd_6dq-eng
 $ make 2>&1 | tee build_sabresd_6dq_android.log
 ```
-
 After build, check file `build_*_android.log` to make sure no build error.
-
 For BUILD_ID & BUILD_NUMBER, add a `buildspec.mk` in your `~/myandroid directory`. For details, see the Android
 Frequently Asked Questions document.
-
-
 FIXME: JDK6 is missing inside the container:
-
 ```
 build@59681ae38fc9:~/myandroid$ lunch sabresd_6dq-eng
 build/core/config.mk:367: *** Error: could not find jdk tools.jar, please install JDK6, which you can download from java.sun.com.  Stop.
-
 ** Don't have a product spec for: 'sabresd_6dq'
 ** Do you have the right repo manifest?
-
 build@59681ae38fc9:~/myandroid$
 ```
-
 According to http://source.android.com/source/initializing.html
-
 > To develop older versions of Android, download and install the corresponding version of the Java JDK:
 > * Java 6: for Gingerbread through KitKat
 > * Java 5: for Cupcake through Froyo
-
 Browse the Oracle Java Archive at <http://www.oracle.com/technetwork/java/javase/archive-139210.html>
-
 * Choose "JAVA SE 6"
 * Choose "Java SE Development Kit 6u45" for Linux x64 (`jdk-6u45-linux-x64.bin`, 68.75 MB)
 * Accept the Oracle Binary Code License Agreement for Java SE to download the software
-
 http://download.oracle.com/otn/java/jdk/6u45-b06/jdk-6u45-linux-x64.bin
-
 Logged as root@container, install the prerequisite packages as detailed in <http://source.android.com/source/initializing.html#installing-required-packages-ubuntu-1404> (TODO: add to `Dockerfile`)
-
 ```
 # sudo apt-get update
 # sudo apt-get -y install bison g++-multilib git gperf libxml2-utils make zlib1g-dev:i386 zip
 ```
-
-
 ---------------------------------
 (2015-05-21 20:10) Rebuilding container with modified `Dockerfile`.
-
 # TODO
-
 (2015-05-21 20:15 CEST)
-
 Run a new container
-
 ```
 $ ./run-NEW.sh
 ```
-
 Logged as root@container
-
 ```
 # su - build
 $ ln -sf ~/shared/myandroid
 $ ln -sf ~/shared/extra
 ```
-
 ```
 $ cd ~/myandroid && source build/envsetup.sh
 $ lunch sabresd_6dq-eng
 $ make 2>&1 | tee build_sabresd_6dq_android.log
 ```
-
 Result:
-
 ```
 build@cba858cd148a:~/myandroid$ make 2>&1 | tee build_sabresd_6dq_android.log
 ============================================
@@ -2556,7 +2320,6 @@ OUT_DIR=out
 Checking build tools versions...
 ************************************************************
 You are attempting to build with an unsupported JDK.
-
 You use OpenJDK but only Sun/Oracle JDK is supported.
 Please follow the machine setup instructions at
     https://source.android.com/source/download.html
@@ -2564,9 +2327,7 @@ Please follow the machine setup instructions at
 build/core/main.mk:152: *** stop.  Stop.
 build@cba858cd148a:~/myandroid$
 ```
-
 (2015-05-21 21:00 CEST) Install Oracle JDK 6:
-
 ```
 # mkdir -p /opt/java
 # cd /opt/java
@@ -2576,9 +2337,7 @@ $ echo 'PATH=/opt/java/jdk1.6.0_45/bin:$PATH' >~/.profile
 $ exit
 # su - build
 ```
-
 Logged as build@container, verify that Java is correctly installed
-
 ```
 build@cba858cd148a:~$ java -version
 java version "1.6.0_45"
@@ -2586,25 +2345,19 @@ Java(TM) SE Runtime Environment (build 1.6.0_45-b06)
 Java HotSpot(TM) 64-Bit Server VM (build 20.45-b01, mixed mode)
 build@cba858cd148a:~$
 ```
-
 Install package "zlib1g-dev:1386"
-
 ```
 sudo dpkg --add-architecture i386
 sudo apt-get update
 sudo apt-get -y install zlib1g-dev:i386
 ```
-
 (2015-05-21 21:18 CEST) Try again
-
 ```
 $ cd ~/myandroid && source build/envsetup.sh
 $ lunch sabresd_6dq-eng
 $ make 2>&1 | tee build_sabresd_6dq_android.log
 ```
-
 Result:
-
 ```
 ...
 target thumb C: tc <= external/iproute2/tc/m_mirred.c
@@ -2685,20 +2438,13 @@ bionic/libc/kernel/common/asm-generic/termbits.h:37:8: note: originally defined 
 make: *** [out/target/product/generic/obj/EXECUTABLES/uim-sysfs_intermediates/uim.o] Error 1
 build@cba858cd148a:~/myandroid$
 ```
-
-
 TODO: Add to Dockerfile:
-
 ```
 RUN sudo apt-get -y install flex
 RUN sudo apt-get -y install lib32stdc++6 lib32z1 lib32z1-dev
 ```
-
 Result:
-
-
 ### See also
-
 * http://embedded-computing.com/guest-blogs/android-embedded-in-5-easy-steps/
-
-<!-- EOF -->
+<-- markdown-link-check-enable-->
+<-- EOF -->

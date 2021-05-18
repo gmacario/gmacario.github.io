@@ -4,91 +4,62 @@ title:  "Building the GENIVI Demo Platform using the easy-build tools"
 date:   2015-04-23 14:00:00
 tags:   howto genivi yocto development
 ---
-
+<-- markdown-link-check-disable -->
 This blog post explains the steps I tried to rebuild the [GENIVI Demo Platform](http://wiki.projects.genivi.org/index.php/GENIVI_Demo_Platform) using the [easy-build](https://github.com/gmacario/easy-build) tools.
-
 Tested on Ubuntu 14.04.1 LTS 64-bit.
-
 Clone the `gmacario/easy-build` project
-
 ```
 git clone https://github.com/gmacario/easy-build.git
 cd easy-build
 ```
-
 Create a development branch (in case we need any changes to the master branch)
-
 ```
 $ git checkout -b fix-issue#76
 ```
-
 Build and run the Docker container that will be used to rebuild the platform
-
 ```
 $ ./build.sh
 $ ./run.sh
 ```
-
 TODO: Merge `build.sh` as a corner case inside `run.sh`
-
 When running inside the container
-
 TODO
-
 ```
 # Make sure that /dev/shm is writable
 chmod a+w /dev/shm
-
 # Make sure that ~build/shared directory is owned by user "build"
 chown build.build ~build/shared
-
 # Switch to user 'build'
 su - build
 ```
-
 TODO: Initialize the build environment
-
 ```
 $ export GENIVI=~/genivi-baseline
 $ source ${GENIVI}/poky/oe-init-build-env ~/shared/my-gdp-build01
 $ export TOPDIR=${PWD}
 ```
-
 TODO: Should use (Yocto env var) BUILDDIR rather than defining a new one TOPDIR
-
 According to [Yocto Project Reference Manual](http://www.yoctoproject.org/docs/current/ref-manual/ref-manual.html)
-
 * `BUILDDIR`: Points to the location of the Build Directory. You can define this directory indirectly through the oe-init-build-env and oe-init-build-env-memres scripts by passing in a Build Directory path when you run the scripts. If you run the scripts and do not provide a Build Directory path, the BUILDDIR defaults to build in the current directory.
 * `TOPDIR`: The top-level Build Directory. BitBake automatically sets this variable when you initialize your build environment using either oe-init-build-env or oe-init-build-env-memres.
-
 Note that as of Yocto 1.x (dizzy), `oe-init-build-env` does not seem to define TOPDIR any longer (only BUILDDIR).
-
-
-
-
-<!--
+<--
 Adapted from <http://wiki.projects.genivi.org/index.php/Hardware_Setup_and_Software_Installation/qemux86-64> -->
-
 TODO: Clone the extra repositories for meta-genivi-demo
-
 ```
 $ cd ${GENIVI}
-$ [ ! -e meta-genivi-demo ]  && git clone git://git.projects.genivi.org/meta-genivi-demo
-$ [ ! -e meta-ivi ]          && git clone git://git.yoctoproject.org/meta-ivi
-$ [ ! -e poky ]              && git clone git://git.yoctoproject.org/poky
-$ [ ! -e meta-qt5 ]          && git clone https://github.com/meta-qt5/meta-qt5
-$ [ ! -e meta-openembedded ] && git clone git://git.openembedded.org/meta-openembedded
+$ [ //git.projects.genivi.org/meta-genivi-demo
+$ [ //git.yoctoproject.org/meta-ivi
+$ [ //git.yoctoproject.org/poky
+$ [ //github.com/meta-qt5/meta-qt5
+$ [ //git.openembedded.org/meta-openembedded
 ```
-
 Verify the local repositories
-
 ```
 $ cd ${GENIVI}
 $ du -sh *
 ```
-
 Result:
-
 ```
 build@4f3caf384331:~/genivi-baseline$ du -sh *
 29M     meta-genivi-demo
@@ -98,39 +69,27 @@ build@4f3caf384331:~/genivi-baseline$ du -sh *
 175M    poky
 build@4f3caf384331:~/genivi-baseline$
 ```
-
 TODO: Configure the build
-
 ```
 $ sh ~/configure_build.sh
 ```
-
 For the time being let us do it manually
 (TODO: Merge into file `configure_build.sh`)
-
 Save a backup of file `conf/local.conf`, then adjust as follows
-
 ```
 MACHINE=qemux86-64
 ```
-
 Save a backup of file `conf/bblayers.conf`, then adjust as follows
-
 ```
 TODO
 ```
-
 Perform the build of the image
-
 ```
 $ cd ${BUILDDIR}
 $ bitbake -k jupiter-image
 ```
-
-<!-- 2015-04-23 21:49 CEST -->
-
+<49 CEST -->
 Result:
-
 ```
 build@4f3caf384331:~/shared/my-gdp-build01$ ls -la tmp/deploy/images/qemux86-64/
 total 306552
@@ -150,32 +109,21 @@ lrwxrwxrwx 1 build build        54 Apr 23 16:53 jupiter-image-qemux86-64.tar.bz2
 lrwxrwxrwx 1 build build        76 Apr 23 16:23 modules-qemux86-64.tgz -> modules--3.14.24+git0+a227f20eff_02120556b0-r0-qemux86-64-20150423134301.tgz
 build@4f3caf384331:~/shared/my-gdp-build01$
 ```
-
 -------------------------
-
-<!-- 2015-04-24 11:45 CEST  -->
-
+<45 CEST  -->
 Perform the build of the sdk
-
 ```
 TODO
 ```
-
 Result: TODO
-
-
 ------------------------
-
 (2015-04-24 14:55 CEST)
-
 ```
 $ export GENIVI=${HOME}/genivi-baseline
 $ cd ${BUILDDIR}
 $ ${HOME}/shared/configure_build_gdp.sh
 ```
-
 Use the `bitbake-layers show-layers` command to verify:
-
 ```
 build@4f3caf384331:~/shared/my-gdp-build01$ bitbake-layers show-layers
 layer                 path                                      priority
@@ -191,25 +139,16 @@ meta-qt5              /home/build/genivi-baseline/meta-qt5      7
 meta-renesas          /home/build/genivi-baseline/meta-renesas  5
 build@4f3caf384331:~/shared/my-gdp-build01$
 ```
-
 TODO: Should checkout layers under `${HOME}/yp/sources` rather than `${HOME}/genivi-baseline`.
-
 Append to `conf/local.conf`:
-
 ```
 MACHINE = "porter"
 ```
-
-
-
 TODO: Then
-
 ```
 $ bitbake genivi-demo-platform
 ```
-
 Result:
-
 ```
 build@4f3caf384331:~/shared/my-gdp-build01$ bitbake genivi-demo-platform
 Loading cache: 100% |##############################################################################################| ETA:  00:00:00
@@ -225,36 +164,27 @@ NOTE: Runtime target 'packagegroup-gdp-browser' is unbuildable, removing...
 Missing or unbuildable dependency chain was: ['packagegroup-gdp-browser', 'browser-poc', 'qtwebkit', 'ruby-native']
 ERROR: Required build target 'genivi-demo-platform' has no buildable providers.
 Missing or unbuildable dependency chain was: ['genivi-demo-platform', 'packagegroup-gdp-browser', 'browser-poc', 'qtwebkit', 'ruby-native']
-
 Summary: There were 2 ERROR messages shown, returning a non-zero exit code.
 build@4f3caf384331:~/shared/my-gdp-build01$
 ```
-
 -------------------------
 (2015-04-24 15:24 CEST)
-
 ```
 # su - build
 ```
-
 Logged as build@container:
-
 ```
 $ ~/shared/configure_build_gdp.sh
 $ cd ~/shared
 $ source ~/yp/sources/poky/oe-init-build-env my-gdp-build02
-
 $ ~/shared/configure_build_gdp.sh
 $ bitbake genivi-demo-platform
 ```
-
 Result:
-
 ```
 ...
 ERROR: Nothing PROVIDES 'libxcursor' (but /home/build/yp/sources/poky/meta/recipes-qt/qt4/qt4-x11-free_4.8.6.bb DEPENDS on or otherwise requires it)
 ERROR: libxcursor was skipped: missing required distro feature 'x11' (not in DISTRO_FEATURES)
-
 Build Configuration:
 BB_VERSION        = "1.24.0"
 BUILD_SYS         = "x86_64-linux"
@@ -275,7 +205,6 @@ meta-genivi-demo  = "master:d0f5baa9b8de89bfa392f9855a99a2053ba14be5"
 meta-qt5          = "master:48ebff679e5dc084d395b861a1fc4cb21790d51b"
 meta-ruby         = "dizzy:2ebb8752f378c9987b0ece5a14915d703b872c1d"
 meta-renesas      = "master:5e5b52b6861fd297ac3de229e91a391a821d2df3"
-
 NOTE: Preparing runqueue
 NOTE: Executing SetScene Tasks
 NOTE: Executing RunQueue Tasks
@@ -293,7 +222,7 @@ Use of PRINC is deprecated.  The PR server should be used to automatically incre
 ERROR: Command Error: exit status: 1  Output:
 Applying patch 0016-xdg-shell-Add-xdg-shell-protocol-file-version-1.4.0.patch
 The next patch would create the file src/3rdparty/protocol/xdg-shell.xml,
-which already exists!  Applying it anyway.
+which already exists  Applying it anyway.
 patching file src/3rdparty/protocol/xdg-shell.xml
 Hunk #1 FAILED at 1.
 1 out of 1 hunk FAILED -- rejects in file src/3rdparty/protocol/xdg-shell.xml
@@ -303,31 +232,23 @@ ERROR: Logfile of failure stored in: /home/build/shared/my-gdp-build02/tmp/work/
 ERROR: Task 1978 (/home/build/yp/sources/meta-qt5/recipes-qt/qt5/qtwayland_5.4.1.bb, do_patch) failed with exit code '1'
 NOTE: Tasks Summary: Attempted 1438 tasks of which 0 didn't need to be rerun and 1 failed.
 Waiting for 0 running tasks to finish:
-
 Summary: 1 task failed:
   /home/build/yp/sources/meta-qt5/recipes-qt/qt5/qtwayland_5.4.1.bb, do_patch
 Summary: There were 13 WARNING messages shown.
 Summary: There were 8 ERROR messages shown, returning a non-zero exit code.
 build@4f3caf384331:~/shared/my-gdp-build02$
 ```
-
-
 ---------------------
 # Build GDP
-
 (2015-04-25 16:00 CEST)
-
 Create a new container
-
 ```
 $ cd .../easy-build/build-yocto-genivi
 $ docker rm build-yocto-genivi
 $ ./build.sh
 $ ./run.sh
 ```
-
 Logged inside the container
-
 ```
 # su - build
 $ rm -rf ~/shared/my-gdp-build03
@@ -335,18 +256,13 @@ $ ~/shared/configure_build_gdp.sh
 $ cd ~/shared && source /home/build/shared/sources/poky/oe-init-build-env my-gdp-build03
 $ ~/shared/configure_build_gdp.sh
 ```
-
-<!-- (2015-04-25 18:10 CEST) -->
-
+<10 CEST) -->
 Review and (if necessary) adjust contents
 of `conf/local.conf` and `conf/bblayers.conf`, then
-
 ```
 $ time bitbake -k genivi-demo-platform
 ```
-
 Result:
-
 ```
 ...
 NOTE: Runtime target 'qt4-qt3to4-dbg' is unbuildable, removing...
@@ -366,7 +282,6 @@ ERROR: Nothing PROVIDES 'libxrandr' (but /home/build/shared/sources/poky/meta/re
 ERROR: libxrandr was skipped: missing required distro feature 'x11' (not in DISTRO_FEATURES)
 ERROR: Nothing PROVIDES 'libxcursor' (but /home/build/shared/sources/poky/meta/recipes-qt/qt4/qt4-x11-free_4.8.6.bb DEPENDS on or otherwise requires it)
 ERROR: libxcursor was skipped: missing required distro feature 'x11' (not in DISTRO_FEATURES)
-
 Build Configuration:
 BB_VERSION        = "1.24.0"
 BUILD_SYS         = "x86_64-linux"
@@ -387,7 +302,6 @@ meta-genivi-demo  = "master:d0f5baa9b8de89bfa392f9855a99a2053ba14be5"
 meta-qt5          = "dizzy:adeca0db212d61a933d7952ad44ea1064cfca747"
 meta-ruby         = "dizzy:2ebb8752f378c9987b0ece5a14915d703b872c1d"
 meta-renesas      = "genivi-7.0-bsp-1.8.0:6e829fe6e422793bbb05ec563c8544154c0e9bd8"
-
 NOTE: Preparing runqueue
 NOTE: Executing SetScene Tasks
 NOTE: Executing RunQueue Tasks
@@ -396,18 +310,14 @@ WARNING: QA Issue: mesa: configure was passed unrecognised options: --with-llvm-
 WARNING: QA Issue: ELF binary '/home/build/shared/my-gdp-build03/tmp/work/core2-64-poky-linux/wayland-ivi-extension/1.3.0-r0/packages-split/wayland-ivi-extension/usr/lib/weston/ivi-controller.so' has relocations in .text [textrel]
 WARNING: QA Issue: pulseaudio-module-console-kit rdepends on consolekit, but it isn't a build dependency? [build-deps]
 NOTE: Tasks Summary: Attempted 4166 tasks of which 22 didn't need to be rerun and all succeeded.
-
 Summary: There were 3 WARNING messages shown.
 Summary: There were 6 ERROR messages shown, returning a non-zero exit code.
-
 real    439m45.152s
 user    838m45.354s
 sys     365m21.247s
 build@4f3caf384331:~/shared/my-gdp-build03$
 ```
-
 Inspecting generated files:
-
 ```
 build@4f3caf384331:~/shared/my-gdp-build03$ ls -la tmp/deploy/images/qemux86-64/
 total 893812
@@ -427,84 +337,61 @@ lrwxrwxrwx 1 build build        61 Apr 25 23:38 genivi-demo-platform-qemux86-64.
 lrwxrwxrwx 1 build build        76 Apr 25 19:32 modules-qemux86-64.tgz -> modules--3.14.29+git0+6eddbf4787_21ba402e0a-r0-qemux86-64-20150425161842.tgz
 build@4f3caf384331:~/shared/my-gdp-build03$
 ```
-
 #### Create SDK
-
-<!-- 2015-04-26 06:35 CEST -->
-
+<35 CEST -->
 ```
 $ time bitbake -k genivi-demo-platform-sdk
 ```
-
 Result:
-
 ```
 ...
 WARNING: log_check: There is a warn message in the logfile
 WARNING: log_check: Matched keyword: [warn]
 WARNING: log_check: warning: libogg-dev-1.3.2-r0@core2_64 is already installed
-
 WARNING: log_check: There is a warn message in the logfile
 WARNING: log_check: Matched keyword: [warn]
 WARNING: log_check: warning: m4-dev-1.4.17-r0@core2_64 is already installed
-
 WARNING: log_check: There is a warn message in the logfile
 WARNING: log_check: Matched keyword: [warn]
 WARNING: log_check: warning: libacl-dev-2.2.52-r0@core2_64 is already installed
-
 WARNING: log_check: There is a warn message in the logfile
 WARNING: log_check: Matched keyword: [warn]
 WARNING: log_check: warning: libdbus-glib-1-dev-0.100.2-r0@core2_64 is already installed
-
 WARNING: log_check: There is a warn message in the logfile
 WARNING: log_check: Matched keyword: [warn]
 WARNING: log_check: warning: ncurses-dev-5.9-r15.1@core2_64 is already installed
-
 WARNING: log_check: There is a warn message in the logfile
 WARNING: log_check: Matched keyword: [warn]
 WARNING: log_check: warning: libglib-2.0-dev-1:2.40.0-r0@core2_64 is already installed
-
 WARNING: log_check: There is a warn message in the logfile
 WARNING: log_check: Matched keyword: [warn]
 WARNING: log_check: warning: libusb-1.0-dev-1.0.19-r0@core2_64 is already installed
-
 WARNING: log_check: There is a warn message in the logfile
 WARNING: log_check: Matched keyword: [warn]
 WARNING: log_check: warning: kmod-dev-18+git0+ae58de0fcb-r0@core2_64 is already installed
-
 WARNING: log_check: There is a warn message in the logfile
 WARNING: log_check: Matched keyword: [warn]
 WARNING: log_check: warning: libsamplerate0-dev-0.1.8-r1@core2_64 is already installed
-
 WARNING: log_check: There is a warn message in the logfile
 WARNING: log_check: Matched keyword: [warn]
 WARNING: log_check: warning: Can't install alsa-plugins-dev-1.0.28-r1@core2_64: Can't install alsa-plugins-dev-1.0.28-r1@core2_64: no package provides alsa-plugins = 1.0.28-r1
-
 WARNING: log_check: There is a warn message in the logfile
 WARNING: log_check: Matched keyword: [warn]
 WARNING: log_check: warning: group xuser does not exist - using root
-
 NOTE: Tasks Summary: Attempted 6086 tasks of which 4170 didn't need to be rerun and all succeeded.
-
 Summary: There were 276 WARNING messages shown.
 Summary: There were 7 ERROR messages shown, returning a non-zero exit code.
-
 real    251m55.564s
 user    338m58.465s
 sys     163m15.146s
 build@4f3caf384331:~/shared/my-gdp-build03$
 ```
-
-<!-- 2015-04-26 11:25 CEST -->
-
+<25 CEST -->
 Trying again
-
 ```
 $ time bitbake -k genivi-demo-platform-sdk
 ```
-
 Result:
-
 ```
 ...
 Build Configuration:
@@ -527,70 +414,53 @@ meta-genivi-demo  = "master:d0f5baa9b8de89bfa392f9855a99a2053ba14be5"
 meta-qt5          = "dizzy:adeca0db212d61a933d7952ad44ea1064cfca747"
 meta-ruby         = "dizzy:2ebb8752f378c9987b0ece5a14915d703b872c1d"
 meta-renesas      = "genivi-7.0-bsp-1.8.0:6e829fe6e422793bbb05ec563c8544154c0e9bd8"
-
 NOTE: Preparing runqueue
 ...
 WARNING: log_check: There is a warn message in the logfile
 WARNING: log_check: Matched keyword: [warn]
 WARNING: log_check: warning: libc6-dev-2.20-r0@core2_64 is already installed
-
 WARNING: log_check: There is a warn message in the logfile
 WARNING: log_check: Matched keyword: [warn]
 WARNING: log_check: warning: libogg-dev-1.3.2-r0@core2_64 is already installed
-
 WARNING: log_check: There is a warn message in the logfile
 WARNING: log_check: Matched keyword: [warn]
 WARNING: log_check: warning: m4-dev-1.4.17-r0@core2_64 is already installed
-
 WARNING: log_check: There is a warn message in the logfile
 WARNING: log_check: Matched keyword: [warn]
 WARNING: log_check: warning: libacl-dev-2.2.52-r0@core2_64 is already installed
-
 WARNING: log_check: There is a warn message in the logfile
 WARNING: log_check: Matched keyword: [warn]
 WARNING: log_check: warning: libdbus-glib-1-dev-0.100.2-r0@core2_64 is already installed
-
 WARNING: log_check: There is a warn message in the logfile
 WARNING: log_check: Matched keyword: [warn]
 WARNING: log_check: warning: ncurses-dev-5.9-r15.1@core2_64 is already installed
-
 WARNING: log_check: There is a warn message in the logfile
 WARNING: log_check: Matched keyword: [warn]
 WARNING: log_check: warning: libglib-2.0-dev-1:2.40.0-r0@core2_64 is already installed
-
 WARNING: log_check: There is a warn message in the logfile
 WARNING: log_check: Matched keyword: [warn]
 WARNING: log_check: warning: libusb-1.0-dev-1.0.19-r0@core2_64 is already installed
-
 WARNING: log_check: There is a warn message in the logfile
 WARNING: log_check: Matched keyword: [warn]
 WARNING: log_check: warning: kmod-dev-18+git0+ae58de0fcb-r0@core2_64 is already installed
-
 WARNING: log_check: There is a warn message in the logfile
 WARNING: log_check: Matched keyword: [warn]
 WARNING: log_check: warning: libsamplerate0-dev-0.1.8-r1@core2_64 is already installed
-
 WARNING: log_check: There is a warn message in the logfile
 WARNING: log_check: Matched keyword: [warn]
 WARNING: log_check: warning: Can't install alsa-plugins-dev-1.0.28-r1@core2_64: Can't install alsa-plugins-dev-1.0.28-r1@core2_64: no package provides alsa-plugins = 1.0.28-r1
-
 WARNING: log_check: There is a warn message in the logfile
 WARNING: log_check: Matched keyword: [warn]
 WARNING: log_check: warning: group xuser does not exist - using root
-
 NOTE: Tasks Summary: Attempted 6086 tasks of which 6082 didn't need to be rerun and all succeeded.
-
 Summary: There were 270 WARNING messages shown.
 Summary: There were 6 ERROR messages shown, returning a non-zero exit code.
-
 real    54m36.810s
 user    32m41.421s
 sys     15m56.593s
 build@4f3caf384331:~/shared/my-gdp-build03$
 ```
-
 Inspecting generated files:
-
 ```
 build@4f3caf384331:~/shared/my-gdp-build03$ ls -la tmp/deploy/sdk/
 total 1552860
@@ -600,6 +470,5 @@ drwxr-xr-x 6 build build       4096 Apr 26 07:42 ..
 -rwxr-xr-x 1 build build 1590010669 Apr 26 10:19 oecore-x86_64-core2-64-toolchain-nodistro.0.sh
 build@4f3caf384331:~/shared/my-gdp-build03$
 ```
-
-
-<!-- EOF -->
+<-- markdown-link-check-enable-->
+<-- EOF -->

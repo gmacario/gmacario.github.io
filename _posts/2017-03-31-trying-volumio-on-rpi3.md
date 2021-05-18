@@ -3,61 +3,43 @@ layout: post
 title:  "Trying Volumio on a Raspberry Pi 3"
 date:   2017-03-31 18:00:00 CEST
 ---
-
+<-- markdown-link-check-disable -->
 This blog post explains my experiences with the [Volumio](https://volumio.org/)
 Music Player on a Raspberry Pi 3.
-
 ### Prepare the SD-Card image
-
 See <https://volumio.org/get-started/>
-
 Download Volumio your platform: Raspberry Pi
-
 * VERSION: 2.129
 * RELEASE DATE: 23-03-2017
 * TOTAL DOWNLOADS: 677960
 * IMAGE MD5: 7c8cb096671ffa754440fb66bae62bdd
-
 Click "Download", will download file `volumio-2.129-2017-03-23-pi.img.zip`
-
 Unzip the file and verify the checksum
-
 ```shell
 gmacario@ITM-GPAOLO-W10 /cygdrive/d/temp
 $ unzip ~/Downloads/volumio-2.129-2017-03-23-pi.img.zip
 Archive:  /home/gmacario/Downloads/volumio-2.129-2017-03-23-pi.img.zip
   inflating: volumio-2.129-2017-03-23-pi.img
-
 gmacario@ITM-GPAOLO-W10 /cygdrive/d/temp
 $ ls -la volumio-2.129-2017-03-23-pi.img
 -rw-r--r--+ 1 gmacario Domain Users 2936012800 Mar 23 00:22 volumio-2.129-2017-03-23-pi.img
-
 gmacario@ITM-GPAOLO-W10 /cygdrive/d/temp
 $ md5sum volumio-2.129-2017-03-23-pi.img
 7c8cb096671ffa754440fb66bae62bdd *volumio-2.129-2017-03-23-pi.img
-
 gmacario@ITM-GPAOLO-W10 /cygdrive/d/temp
 $
 ```
-
 Then write the `*.img` file to an empty MicroSD-Card (4 GB or bigger)
-
 **NOTE**: On MS Windows you may use
 [Win32DiskImager](http://sourceforge.net/projects/win32diskimager/files/latest/download)
-
 Insert the MicroSD into the RPi3.
 Plug an Ethernet cable into your RPi3
 Power up the RPi3 from the microUSB port.
-
 **NOTE**: There are no messages displayed on the RPi3 serial console, don't worry.
-
 Run Fing and verify that a new device called `volumio` is displayed.
 In my example this get the assigned IP Address: 192.168.12.105.
-
 Browse `\\volumio.local` ==> Does not work from my Windows 10 laptop (WHY???)
-
 Try logging into the device via SSH:
-
 ```
 gmacario@ITM-GPAOLO-W10 ~
 $ ssh volumio@192.168.12.105
@@ -73,19 +55,13 @@ volumio@192.168.12.105's password:
         \ \ \_/ |/\ \L\ \\_\ \_\ \ \_\ \/\ \/\ \/\ \ \ \/\ \L\ \
          \ \___/ \ \____//\____\\ \____/\ \_\ \_\ \_\ \_\ \____/
           \/__/   \/___/ \/____/ \/___/  \/_/\/_/\/_/\/_/\/___/
-
              Free Audiophile Linux Music Player - Version 2.0
-
           C 2015 Michelangelo Guarise - Volumio Team - Volumio.org
-
-
 Volumio Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
 volumio@volumio:~$
 ```
-
 Inspect mounted filesystems
-
 ```
 volumio@volumio:~$ df -h
 Filesystem      Size  Used Avail Use% Mounted on
@@ -105,9 +81,7 @@ tmpfs           487M     0  487M   0% /var/spool/cups/tmp
 tmpfs            98M     0   98M   0% /run/user/1000
 volumio@volumio:~$
 ```
-
 The image is based on Raspbian
-
 ```
 volumio@volumio:~$ cat /etc/os-release
 PRETTY_NAME="Raspbian GNU/Linux 8 (jessie)"
@@ -125,14 +99,11 @@ VOLUMIO_BE_VERSION="0ee5830d72efb2a019e23de171f1306bf3499e26"
 VOLUMIO_VARIANT="volumio"
 VOLUMIO_TEST="FALSE"
 VOLUMIO_BUILD_DATE="Thu Mar 23 00:15:25 CET 2017"
-
 VOLUMIO_VERSION="2.129"
 VOLUMIO_HARDWARE="pi"
 volumio@volumio:~$
 ```
-
 The Volumio application is based on NodeJS:
-
 ```
 volumio@volumio:~$ ps axfw
   PID TTY      STAT   TIME COMMAND
@@ -152,10 +123,8 @@ volumio@volumio:~$ ps axfw
 2744 ?        S      0:00  \_ (sd-pam)
 volumio@volumio:~$
 ```
-
 ### See also
-
 * <https://www.volumio.org/>
 * <https://github.com/VOLUMIO>
-
-<!-- EOF -->
+<-- markdown-link-check-enable-->
+<-- EOF -->

@@ -4,62 +4,39 @@ title:  "Notes from the Arduino Day 2015 c/o Officine Arduino Torino"
 date:   2015-03-28 14:00:00 CET
 tags:   arduino day fablab torino
 ---
-
+<-- markdown-link-check-disable -->
 The [Arduino Day 2015](https://day.arduino.cc/) in Torino took place at [Toolbox Coworking](http://www.toolboxoffice.it/), home of [FabLab Torino](http://fablabtorino.org/) and [Officine Arduino](http://local.arduino.cc/torino/).
-
 I made a quick visit, mostly to attend the Arduino PRO workshop in the afternoon.
-
 ## Talks
-
 I had some time to attend a few talks before the Arduino PRO workshop started.
-
 ### Arduino e l’Internet of Things
-
 (14:00-14:30)
-
 Speaker: Federico Vanzati
-
 Guest stars: Bruce and Jasmina Sterling -- talking about Casa Jasmina.
-
 ### Il lato web di Arduino, dalle evoluzioni dei siti Arduino all’IoT
-
 (14:30-15:10)
-
 Speaker: Luca Cipriani
-
 ## Workshop Arduino PRO @Arduino DAY 2015
-
 (2015-03-28 15:00-17:00 CET)
-
 Reference: <http://www.eventbrite.it/e/biglietti-workshop-pro-arduino-day-2015-torino-16276959825>
-
 > Dettagli evento
 >
-> Scopri le basi della progettazione con Arduino!
+> Scopri le basi della progettazione con Arduino
 >
 > Una demo per scoprire Arduino Yùn e l'IoT. con Arturo Guadalupi e Angelo Scialabba (Officine Arduino)
 >
-> Collega Arduino Yùn ai servizi web tramite temboo e crea la tua interfaccia web di controllo!
-> La demo inizierà alle 15:00, quindi ti consigliamo di arrivare 10 minuti prima e non dimenticare di portare con te il tuo laptop per mettere subito in pratica quanto appreso!
+> Collega Arduino Yùn ai servizi web tramite temboo e crea la tua interfaccia web di controllo
+> La demo inizierà alle 15:00, quindi ti consigliamo di arrivare 10 minuti prima e non dimenticare di portare con te il tuo laptop per mettere subito in pratica quanto appreso
 >
 > Per ogni informazione, contattare <mailto:arduinoday2015-it@arduino.cc>
-
 ### Preparation
-
 See [my blog post](https://github.com/gmacario/gmacario.github.io/blob/master/_posts/2015-03-27-preparing-my-yun-for-the-arduino-day.md).
-
 ### Arduino PRO workshop
-
 The worshop took place in "sala didattica" of FabLab Torino.
-
 About 30 participants were preregisterd and brought their own laptop.
-
 Each participant was provided with the following kit, then walked through some exercises to get familiar with the Arduino YUN and connect it to the web.
-
 Kudos to the few instructors who were very helpful to resolve the few issues -- mainly because of each PC settings -- which some of the participants encountered during the workshop.
-
 #### Contents of the TinkerKit box
-
 * 1 x Laser-cut wooden box
 * 1 x [Arduino YUN](http://store.arduino.cc/product/A000008)
 * 1 x [Arduino Leonardo with Headers](http://store.arduino.cc/product/A000057)
@@ -80,45 +57,28 @@ Kudos to the few instructors who were very helpful to resolve the few issues -- 
 * 1 x [TinkerKit Tilt Sensor](http://store.arduino.cc/product/T000190)
 * 1 x [TinkerKit Cable [50cm]](http://store.arduino.cc/product/T020070) (3-pin jumper on both sides)
 * 1 x USB-A/MicroUSB cable l=1m
-
 Reference: <https://www1.elfa.se/data1/wwwroot/assets/datasheets/K000001_eng_tds.pdf>
-
 #### Architecture of the Arduino YUN
-
 From <http://arduino.cc/en/Main/ArduinoBoardYun>
-
-![Arduino YUN Block Diagram](http://arduino.cc/en/uploads/Main/BridgeInShort.png)
-
-
+//arduino.cc/en/uploads/Main/BridgeInShort.png)
 #### Restore Yun to factory settings
-
 Let us first upload a sketch to the ATmega to be able to debug the AR9331 side of the Arduino YUN.
-
 Start the Arduino IDE on your laptop - if you haven't installed yet, you may download it from <http://arduino.cc/en/main/software>.
-
 Arduino:
-
 * File > Examples > Bridge > YunSerialTerminal
 * Tools > Board > Arduino YUN
 * Tools > Port > COMxx (Arduino YUN)
 * File > Upload
 * Tools > Serial Monitor
-
 Check settings
 - Newline
 - 115200 baud
-
 Plug YUN, wait for the blue WLAN LED to blink
-
 Press the "WiFi" button for 30 seconds to restore factory image and settings.
-
 Console log:
-
 ```
 U-Boot 1.1.4-g15f12ddd-dirty (Oct 14 2014 - 16:01:08)
-
 Arduino Yun (ar9331) U-boot
-
 DRAM:  64 MB
 Top of RAM usable for U-Boot at: 84000000
 Reserving 142k for U-Boot at: 83fdc000
@@ -132,7 +92,6 @@ Flash Manuf Id 0xef, DeviceId0 0x40, DeviceId1 0x18
 flash size 16777216, sector count = 256
 Flash: 16 MB
 Using default environment
-
 In:    serial
 Out:   serial
 Err:   serial
@@ -162,9 +121,7 @@ autoboot in 4 seconds (type 'ard' to enter u-boot console)...
 No initrd
 ## Transferring control to Linux (at address 80060000) ...
 ## Giving linux memsize in bytes, 67108864
-
 Starting kernel ...
-
 [    0.000000] Linux version 3.3.8 (federico@smilzo) (gcc version 4.6.3 20120201 (prerelease) (Linaro GCC 4.6-2012.02) ) #1 Tue Oct 14 16:17:49 CEST 2014
 [    0.000000] bootconsole [early0] enabled
 [    0.000000] CPU revision is: 00019374 (MIPS 24Kc)
@@ -318,26 +275,18 @@ switching to jffs2
 [   40.660000] i2c /dev entries driver
 [   40.690000] Linux video capture interface: v2.00
 [   40.810000] fuse init (API version 7.18)
-
 Please press Enter to activate this console.
-
-
 BusyBox v1.19.4 (2014-10-14 16:01:45 CEST) built-in shell (ash)
 Enter 'help' for a list of built-in commands.
-
   _______                     ________        __
  |       |.-----.-----.-----.|  |  |  |.----.|  |_
  |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
  |_______||   __|_____|__|__||________||__|  |____|
           |__| W I R E L E S S   F R E E D O M
  -----------------------------------------------------
-
-
 root@Arduino:/#
 ```
-
 Verify default networking
-
 ```
 root@Arduino:/# ifconfig -a
 eth0      Link encap:Ethernet  HWaddr 90:A2:DA:F0:1B:D4  
@@ -347,7 +296,6 @@ eth0      Link encap:Ethernet  HWaddr 90:A2:DA:F0:1B:D4
           collisions:0 txqueuelen:1000
           RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
           Interrupt:5
-
 eth1      Link encap:Ethernet  HWaddr 90:A2:DA:F8:1B:D4  
           UP BROADCAST MULTICAST  MTU:1500  Metric:1
           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
@@ -355,7 +303,6 @@ eth1      Link encap:Ethernet  HWaddr 90:A2:DA:F8:1B:D4
           collisions:0 txqueuelen:1000
           RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
           Interrupt:4
-
 lo        Link encap:Local Loopback  
           inet addr:127.0.0.1  Mask:255.0.0.0
           UP LOOPBACK RUNNING  MTU:16436  Metric:1
@@ -363,7 +310,6 @@ lo        Link encap:Local Loopback
           TX packets:336 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:0
           RX bytes:22848 (22.3 KiB)  TX bytes:22848 (22.3 KiB)
-
 wlan0     Link encap:Ethernet  HWaddr 90:A2:DA:F0:1B:D4  
           inet addr:192.168.240.1  Bcast:192.168.240.255  Mask:255.255.255.0
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
@@ -371,87 +317,56 @@ wlan0     Link encap:Ethernet  HWaddr 90:A2:DA:F0:1B:D4
           TX packets:16 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:1000
           RX bytes:0 (0.0 B)  TX bytes:3197 (3.1 KiB)
-
 root@Arduino:/#
 ```
-
 Look at "HWAddr" value for wlan0.
-
 When reset from factory, the YUN creates an access point named after the wlan0 MAC address.
-
 Connect to WiFi Network `Arduino YUN-xxxxxxxxxxxx` (in our case, this is `Arduino YUN-90A2DAF01BD4`).
-
 Once you are successfully connected to the YUN, browse the contents of <http://arduino.local> to access the YUN configuration page.
-
 Here I had some troubles, which I debugged as follows.
-
 As my laptop was running MS Windows 7 and I had Cygwin installed, I used the following commands
-
 ```
 $ ipconfig
 $ ping 192.168.240.1
 $ ping arduino.local
 $ ssh root@arduino.local
 ```
-
 Apparently in my case I was unable to get an IP address in the 192.168.240.x range from the YUN.
-
 **TIP**: Set a static IP for your PC if you cannot get an IP address from the YUN.
-
 Open Network and Sharing Center
-
 * Select connection: "Wireless Network Connection (Arduino Yun-xxxxxx)" > Properties
 * Select "Internet Protocol Version 4 (TCP/IPv4)" > Properties
   * Use the following IP address: TODO
   * Use the following DNS server addresses
     * Preferred DNS server: 8.8.8.8
     * Alternate DNS server: 8.8.4.4
-
 Browse <http://192.168.240.1>
-
 * Password: `xxxx` (default: `arduino`)
-
 > WELCOME TO **ARDUINO**, YOUR ARDUINO YUN
 > ...
 >
 > This Yun runs a version of OpenWrt-Yun built on oct 14,2014
-
 Select "CONFIGURE"
-
 > YUN BOARD CONFIGURATION
-
 * YUN NAME: `AdayGmacario`
 * Password: `sesam2015`
 * Timezone: Europe/Rome
-
 > WIRELESS PARAMETERS
-
 * Configure a wireless network: Yes
 * WIRELESS NAME: `FABLAB_TORINO` (WPA2, quality 74%)
 * Security: WPA2
 * Password: `xxxx`
-
 REST API ACCESS
-
 * WITH PASSWORD
-
 Double check, then select "CONFIGURE & RESTART"
-
 Watch Serial Monitor, the AR9331 will restart.
-
 Reconnect your laptop to WiFi SSID `FABLAB_TORINO`
-
 Make sure you reset your IPv4 properties to:
-
 * Obtain an IP address automatically
 * Obtain DNS server address automatically
-
 Now access <http://adaygmacario.local>
-
 * Password: (the one you chose before)
-
 From the serial terminal
-
 ```
 root@AdayGmacario:/# ifconfig
 eth1      Link encap:Ethernet  HWaddr 90:A2:DA:F8:1B:D4  
@@ -461,7 +376,6 @@ eth1      Link encap:Ethernet  HWaddr 90:A2:DA:F8:1B:D4
           collisions:0 txqueuelen:1000
           RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
           Interrupt:4
-
 lo        Link encap:Local Loopback  
           inet addr:127.0.0.1  Mask:255.0.0.0
           UP LOOPBACK RUNNING  MTU:16436  Metric:1
@@ -469,7 +383,6 @@ lo        Link encap:Local Loopback
           TX packets:17 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:0
           RX bytes:1661 (1.6 KiB)  TX bytes:1661 (1.6 KiB)
-
 wlan0     Link encap:Ethernet  HWaddr 90:A2:DA:F0:1B:D4  
           inet addr:192.168.1.246  Bcast:192.168.1.255  Mask:255.255.255.0
           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
@@ -477,34 +390,20 @@ wlan0     Link encap:Ethernet  HWaddr 90:A2:DA:F0:1B:D4
           TX packets:563 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:1000
           RX bytes:4217384 (4.0 MiB)  TX bytes:172166 (168.1 KiB)
-
 root@AdayGmacario:/#
 ```
-
 Look at field "inet addr" for interface "wlan0".
-
 In my case the new IP address of my YUN (assigned by the WiFi access point which both my YUN and my laptop are now connected) is 192.168.1.246.
-
 ### How control I/O pin from the web
-
 The Arduino YUN features a built-in webserver running on the AR9331 (Linino) which communicates through a bridge with the ATmega 32u4 (Arduino).
-
 Example: see <http://arduino.cc/en/Tutorial/Bridge>
-
 Arduino:
-
 * File > Examples > Bridge > Bridge
-
 Take the TinkerKit shield (take it off from the Arduino UNO)
-
 Connect a LED to TinkerKit output 05 (digital output 3)
-
 Browse <http://adaygmacario.local/>
-
 Choose REST API ACCESS: OPEN (to avoid being asked for password every time)
-
 Test:
-
 * Turn off LED on TinkerKit Output 05
   * Command: <http://adaygmacario.local/arduino/digital/3/1>
   * Result: `Pin D3 set to 1`
@@ -514,22 +413,16 @@ Test:
 * Read state of TinkerKit Output 05
   * Command: <http://adaygmacario.local/arduino/digital/3>
   * Result: `Pin D3 set to 0`
-
 Connect the linear potentiometer to TinkerKit I0
-
 Read <http://adaygmacario.local/arduino/analog/0>
-
 * Min read: 10
 * Max read: 855
-
 Connect the green LED to TinkerKit O5
-
 Change the intensity:
-
 * Max: <http://adaygmacario.local/arduino/analog/3/255>
 * 50%: <http://adaygmacario.local/arduino/analog/3/128>
 * 25%: <http://adaygmacario.local/arduino/analog/3/64>
 * 12%: <http://adaygmacario.local/arduino/analog/3/32>
 * Off: <http://adaygmacario.local/arduino/analog/3/0>
-
-<!-- EOF -->
+<-- markdown-link-check-enable-->
+<-- EOF -->
