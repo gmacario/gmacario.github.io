@@ -1,7 +1,7 @@
-{
-    "ignorePatterns": [
-        {
-            "pattern": "^http://*.com"
-        }
-    ]
+{  
+  "ignorePatterns": [
+    {
+      "pattern": "^http://localhost"
+    }
+  ]
 }
