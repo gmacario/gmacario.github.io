@@ -25,6 +25,8 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Check links
-        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        uses: gaurav-nelson/github-action-markdown-link-check@v
         with:
-          use-quiet-mode: no
+          folder-path: './_posts, ./_drafts'
+          file-path: './README.md, ./LICENSE'
+          use-quiet-mode: yes
