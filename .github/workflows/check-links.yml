@@ -30,3 +30,5 @@ jobs:
           folder-path: './_posts, ./_drafts'
           file-path: './README.md, ./LICENSE'
           use-quiet-mode: yes
+
+# EOF
