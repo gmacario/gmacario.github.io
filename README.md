@@ -14,7 +14,9 @@ The blog is based on the [Next.js](https://nextjs.org/) framework as explained i
 Blog posts are created under the `_posts` folder and get compiled to a static website
 using the commands detailed below.
 
-### Install the dependencies
+### Prerequisites
+
+Install Node.js 14.x from <https://nodejs.org/>
 
 To install the dependencies simply run
 
