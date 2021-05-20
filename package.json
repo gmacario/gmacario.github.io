@@ -10,6 +10,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "test": "npm run build",
     "export": "npm run build && next export -o _static"
   },
   "keywords": [],
