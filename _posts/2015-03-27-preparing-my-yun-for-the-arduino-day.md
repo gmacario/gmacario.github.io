@@ -4,6 +4,7 @@ title:  "Preparing my Arduino YUN for the Arduino Day"
 date:   2015-03-26 14:00:00 CET
 tags:   arduino yun day fablab torino
 ---
+<!-- markdown-link-check-disable -->
 
 Hi there!
 
@@ -98,4 +99,5 @@ From <https://www.temboo.com/arduino/yun/getting-started>
 
 TODO
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

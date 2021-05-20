@@ -4,6 +4,7 @@ title:  "Configuring gmacario/vagrant-atlassian"
 date:   2015-05-18 12:40:00
 categories: template android howto development
 ---
+<!-- markdown-link-check-disable -->
 
 TODO: Merge contents into <https://github.com/gmacario/vagrant-atlassian/blob/master/docs/confluence_change_server_base_url.md>
 
@@ -72,4 +73,5 @@ Sample table
 | John  | Doe   | CEO  | The big boss      |
 | Mary  | Smith | CFO  | She got the money |
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

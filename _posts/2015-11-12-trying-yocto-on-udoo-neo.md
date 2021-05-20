@@ -1,9 +1,10 @@
 ---
 layout: post
 title:  "Trying Yocto on the UDOO Neo"
-date:   2015-11-12 22:00:00
+date:   2015/11/12 22:00:00
 tags:   howto udoo imx6x yocto build embedded
 ---
+<!-- markdown-link-check-disable -->
 
 ### Introduction
 
@@ -78,4 +79,5 @@ Linux version 3.14.28_1.0.0_ga-udooboard+gb15f827 (chris@quadros) (gcc version 5
 root@udooneo:~#
 ```
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

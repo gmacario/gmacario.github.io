@@ -4,6 +4,7 @@ title:  "Trying Sysdig"
 date:   2017-02-20 18:00:00 CET
 # categories: template android howto development
 ---
+<!-- markdown-link-check-disable -->
 
 This blog post explains my experiences with [Sysdig](http://www.sysdig.org/).
 
@@ -44,4 +45,5 @@ Video: <https://www.youtube.com/watch?v=-PyXXrf9V0E> (YouTube video, 1:02:03)
 
 * <http://www.sysdig.org/>
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

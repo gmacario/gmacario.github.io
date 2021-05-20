@@ -4,6 +4,7 @@ title:  "Building Android KitKat 4.4.3 for Freescale SABRE SD"
 date:   2015-05-22 17:20:00
 categories: android howto development freescale sabre
 ---
+<!-- markdown-link-check-disable -->
 
 This blog post explains how I built the images of Android KitKat 4.4.3 for the [Freescale SABRE SD Board](http://www.freescale.com/webapp/sps/site/prod_summary.jsp?code=RDIMX6SABREBRD).
 
@@ -798,4 +799,5 @@ Sample table
 | John  | Doe   | CEO  | The big boss      |
 | Mary  | Smith | CFO  | She got the money |
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

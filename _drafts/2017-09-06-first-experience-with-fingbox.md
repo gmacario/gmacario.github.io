@@ -3,6 +3,7 @@ layout: post
 title:  "First Experiences with Fingbox"
 date:   2017-09-06 18:00:00 CEST
 ---
+<!-- markdown-link-check-disable -->
 
 I just received my [Fingbox](https://www.fing.io/fingbox/)
 device as a reward for [my pledge on Indiegogo](https://www.indiegogo.com/projects/fingbox-network-security-wi-fi-troubleshooting/x/7852060#/) on December 2016.
@@ -31,4 +32,5 @@ TODO
 
 * Fingbox Full Length Features Demo: <https://www.youtube.com/watch?v=yibbY9MiwPQ>
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

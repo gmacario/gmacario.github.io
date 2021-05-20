@@ -4,6 +4,7 @@ title:  "Connecting to UDOO Neo serial console"
 date:   2015-11-08 19:00:00
 tags:   howto udoo neo embedded software development
 ---
+<!-- markdown-link-check-disable -->
 
 ### Introduction
 
@@ -60,4 +61,5 @@ Connect the TTL-level pins of the USB-to-TTL serial cable to your UDOO Neo as fo
 
 Sample logfile: [20151107-1106-udoobuntu2_beta3-udooneo.txt](/images/20151107-1106-udoobuntu2_beta3-udooneo.txt)
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

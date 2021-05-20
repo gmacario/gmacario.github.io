@@ -4,6 +4,7 @@ title:  "Restoring Arduino Yun factory settings"
 date:   2017-03-03 18:00:00 CET
 # categories: arduino yun day fablab torino
 ---
+<!-- markdown-link-check-disable -->
 
 ### The problem
 
@@ -566,4 +567,5 @@ Enter 'help' for a list of built-in commands.
 root@Arduino:/#
 ```
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

@@ -4,6 +4,7 @@ title:  "Updating OpenWrt on Arduino YUN"
 date:   2015-11-30 18:00:00 CET
 categories: howto arduino yun openwrt install
 ---
+<!-- markdown-link-check-disable -->
 
 Browse <https://www.arduino.cc/en/Guide/ArduinoYun>
 
@@ -235,4 +236,5 @@ root@YunGmacario:/#
 
 TODO
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

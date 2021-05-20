@@ -4,6 +4,7 @@ title:  "Configuring MLWG2 to act as a Wi-Fi Datalogger"
 date:   2015-11-30 21:20:00 CET
 categories: howto datalogger mlwg2 openwrt
 ---
+<!-- markdown-link-check-disable -->
 
 This blog post explains how I did [something](http://www.something.com/) on my laptop running MS Windows 7.
 
@@ -121,4 +122,5 @@ Sample table
 | John  | Doe   | CEO  | The big boss      |
 | Mary  | Smith | CFO  | She got the money |
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

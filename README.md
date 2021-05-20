@@ -1,36 +1,64 @@
-gmacario.github.io
-==================
+# gmacario.github.io
 
 [![CircleCI](https://circleci.com/gh/gmacario/gmacario.github.io.svg?style=shield)](https://circleci.com/gh/gmacario/gmacario.github.io)
 
 Gianpaolo Macario public website on GitHub.com.
 
-Automatically published to https://gmacario.github.io/
+Automatically published to <https://gmacario.github.io/>
 
-### Testing the website locally
+## How this site was made
 
-Install [Jekyll](https://jekyllrb.com/) on your machine, then
+The blog is based on the [Next.js](https://nextjs.org/) framework as explained in
+<https://css-tricks.com/building-a-blog-with-next-js/>
 
-```shell
-bundle install
+Blog posts are created under the `_posts` folder and get compiled to a static website
+using the commands detailed below.
+
+### Prerequisites
+
+Install Node.js 14.x from <https://nodejs.org/>
+
+To install the dependencies simply run
+
+```sh
+npm install
 ```
 
-Serve the pages locally
+### Test the code
 
-```shell
-bundle exec jekyll serve
+To test the code locally, run the npm script
+
+```sh
+npm run dev
 ```
 
-If you want to display the draft pages as well:
+and follow the instructions.
 
-```shell
-bundle exec jekyll serve --draft
+### Deploy the blog
+
+To create an optimized production build run the following commands:
+
+```sh
+npm run build
+npm run start
 ```
 
-Browse <http://localhost:4000>
+### Generate static files
 
-### Copyright
+To generate static files under `_static`:
+
+```sh
+npm run export
+```
+
+---
+
+## Copyright and license
 
 Copyright 2006-2021 [Gianpaolo Macario](https://gmacario.github.io/).
+
+The contents of this repository are subject to the [MIT License](LICENSE),
+with the exception of the `_posts` and `_drafts` folders which are licensed as CC BY-SA (Attribution-ShareAlike)
+as detailed in <https://creativecommons.org/licenses/>.
 
 <!-- EOF -->

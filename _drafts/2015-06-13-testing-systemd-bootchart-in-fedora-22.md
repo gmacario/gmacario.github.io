@@ -4,6 +4,7 @@ title:  "Trying systemd inside a container"
 date:   2015-05-12 22:40:00
 categories: systemd howto development docker
 ---
+<!-- markdown-link-check-disable -->
 
 This blog post explains how ...
 
@@ -41,4 +42,5 @@ If "--per-cpu" is selected, the following bars are added:
 
 Fixup: height_xxx * (2 + n_cpus) / 2
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

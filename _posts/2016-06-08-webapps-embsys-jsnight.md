@@ -4,6 +4,7 @@ title:  "Gianpaolo talk at jsNight, 2016-06-08"
 date:   2016-06-08 19:00:00 CEST
 tags:   slides jsnight udooneo embedded
 ---
+<!-- markdown-link-check-disable -->
 
 From <http://www.treatabit.com/article/torinojs-jsnight-1>
 
@@ -297,4 +298,5 @@ TODO: Check
 
 * [#jsNight: 8giugno2016 - Info e registrazione](https://www.eventbrite.it/e/biglietti-torinojs-jsnight-8giu2016-incontro-su-javascript-e-tecnologie-web-open-source-25083305843)
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

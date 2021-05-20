@@ -4,6 +4,7 @@ title:  "Notes from the Arduino Day 2015 c/o Officine Arduino Torino"
 date:   2015-03-28 14:00:00 CET
 tags:   arduino day fablab torino
 ---
+<!-- markdown-link-check-disable -->
 
 The [Arduino Day 2015](https://day.arduino.cc/) in Torino took place at [Toolbox Coworking](http://www.toolboxoffice.it/), home of [FabLab Torino](http://fablabtorino.org/) and [Officine Arduino](http://local.arduino.cc/torino/).
 
@@ -532,4 +533,5 @@ Change the intensity:
 * 12%: <http://adaygmacario.local/arduino/analog/3/32>
 * Off: <http://adaygmacario.local/arduino/analog/3/0>
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

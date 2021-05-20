@@ -4,6 +4,7 @@ title:  "Transferring files to an embedded target without scp"
 date:   2018-09-20 17:30:00
 tags:   howto embedded file development
 ---
+<!-- markdown-link-check-disable -->
 
 If you have a tiny embedded system which does not include the `scp` tool, you may use the `nc` tool and achieve the same results.
 
@@ -36,4 +37,5 @@ root@target:~# tar -xvzf myfile.tar.gz
 
 Of course you may do many more things, just do `man nc` (on the host) to learn how!
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

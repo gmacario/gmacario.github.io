@@ -1,7 +1,9 @@
 ---
 title: Using Jekyill with GitHub Pages
+date: 2015/04/15
 layout: post
 ---
+<!-- markdown-link-check-disable -->
 
 ## Summary
 
@@ -175,4 +177,5 @@ You can now start the built-in http server
 
 Now browse <http://localhost:4000/> to see the pages rendered by Jekyll.
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

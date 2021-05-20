@@ -4,6 +4,7 @@ title:  "Testing Rancher OS"
 date:   2015-12-10 19:00:00 CET
 tags:   howto rancheros linux containers docker
 ---
+<!-- markdown-link-check-disable -->
 
 ### Introduction
 
@@ -266,4 +267,5 @@ ENTRYPOINT ["node","server"]
 
 That's all for today... Stay tuned for future posts about RancherOS!
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

@@ -1,8 +1,10 @@
 ---
 layout: post
 title:  "Upgrading OpenWrt on my Arduino Yun"
+date: 2015/03/30
 tags:   arduino howto
 ---
+<!-- markdown-link-check-disable -->
 
 Read instructions at <http://arduino.cc/en/Tutorial/YunSysupgrade>
 
@@ -547,4 +549,5 @@ Please press Enter to activate this console. [   38.700000] Loading modules back
 
 After sysupgrade, this Yun runs a version of OpenWrt-Yun built on Nov 14, 2014
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

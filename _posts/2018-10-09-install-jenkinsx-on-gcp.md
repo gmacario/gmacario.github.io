@@ -4,6 +4,7 @@ title:  "Installing Jenkins X on Google Cloud Platform"
 date:   2018-10-09 10:00:00
 tags:   howto kubernetes gcp jenkins
 ---
+<!-- markdown-link-check-disable -->
 
 ### Introduction
 
@@ -867,4 +868,5 @@ Stay tuned for future posts on the subject!
 * <https://jenkins-x.io/>
 * <https://jenkins.io/projects/jenkins-x/>
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

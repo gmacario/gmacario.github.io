@@ -4,6 +4,7 @@ title:  "Installing OpenWrt on Kingston MLWG2"
 date:   2015-11-29 08:30:00 CET
 tags:   howto install openwrt mlwg2
 ---
+<!-- markdown-link-check-disable -->
 
 ### Introduction
 
@@ -282,4 +283,5 @@ Stay tuned for future posts on some interesting uses of OpenWrt on my MLWG2!
 * <https://wiki.openwrt.org/toh/kingston/mlwg2>
 * <https://github.com/gmacario/kingston-mlwg2-hack/wiki/Login-to-a-command-shell-on-MLWG2>
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

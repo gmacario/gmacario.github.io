@@ -4,6 +4,7 @@ title:  "Trying Android KitKat 4.4.3 on Freescale SabreSD"
 date:   2015-05-15 12:40:00
 categories: android howto development freescale embedded imx6
 ---
+<!-- markdown-link-check-disable -->
 
 This blog post explains how to install and run Android KitKat 4.4.3 on the Freescale [SABRE Platform for Smart Devices](http://www.freescale.com/webapp/sps/site/prod_summary.jsp?code=RDIMX6SABREPLAT) Reference Design based on the i.MX 6 Series Application Processor.
 
@@ -2701,4 +2702,5 @@ Result:
 
 * http://embedded-computing.com/guest-blogs/android-embedded-in-5-easy-steps/
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

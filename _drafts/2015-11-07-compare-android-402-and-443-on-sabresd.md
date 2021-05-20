@@ -4,6 +4,7 @@ title:  "Comparing Android 4.0.2 and 4.4.3 on a Freescale Sabre SD"
 date:   2015-05-15 08:00:00
 categories: android howto update debugging
 ---
+<!-- markdown-link-check-disable -->
 
 # Tests
 

@@ -4,6 +4,7 @@ title:  "Installing Terminator on Ubuntu 14.04"
 date:   2015-11-15 10:30:00 CET
 tags:   howto install ubuntu terminal
 ---
+<!-- markdown-link-check-disable -->
 
 If you are one (like myself) who
 
@@ -45,4 +46,5 @@ I will explore this option in a future post. Stay tuned!
 * [Terminator in Launchpad](https://launchpad.net/terminator)
 * [PPA for Terminator](https://launchpad.net/~gnome-terminator/+archive/ubuntu/ppa)
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

@@ -4,6 +4,7 @@ title:  "Trying Kali Linux 2.1.2 on a Raspberry Pi 3"
 date:   2017-01-19 08:00:00 CET
 # categories: template android howto development
 ---
+<!-- markdown-link-check-disable -->
 
 This blog post explains my experiences with [Kali Linux 2.1.2](http://www.kali.org/) on a [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/).
 
@@ -178,4 +179,5 @@ apt-get install kali-linux-full
 * Metasploitable 2: <https://sourceforge.net/projects/metasploitable/files/Metasploitable2/>
 * Rasbperry Pi 3: <http://goo.gl/T1NJ2D>
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

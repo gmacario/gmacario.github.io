@@ -4,6 +4,7 @@ title:  "Reconfiguring the UDOO Neo kernel with Yocto"
 date:   2015-11-26 18:00:00 CET
 categories: howto yocto linux kernel udoo udooneo
 ---
+<!-- markdown-link-check-disable -->
 
 TODO TODO TODO
 
@@ -64,4 +65,5 @@ From `recipes-kernel/linux/linux.inc`:
 
 TODO
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

@@ -4,6 +4,7 @@ title:  "Git Aware Prompt"
 date:   2017-09-11 18:00:00 CEST
 tags:   git github
 ---
+<!-- markdown-link-check-disable -->
 
 As a developer I use Git everyday for managing source code, documentation, etc.
 Unfortunately I sometimes get confused about which branch I am currently on.
@@ -59,4 +60,5 @@ Switched to a new branch 'linux-3.9.y'
 gmacario@ies-genbld01-ub16:~/linux-stable (linux-3.9.y)$
 ```
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

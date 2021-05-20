@@ -4,6 +4,7 @@ title:  "How to compact VirtualBox VDI file"
 date:   2017-01-20 10:00:00 CET
 # categories: template android howto development
 ---
+<!-- markdown-link-check-disable -->
 
 * Make free space in the Ubuntu Linux Guest
 
@@ -27,4 +28,5 @@ date:   2017-01-20 10:00:00 CET
 
   This reduces the `*.vdi` size!!
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

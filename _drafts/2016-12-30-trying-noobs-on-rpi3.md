@@ -4,6 +4,7 @@ title:  "Trying NOOBS on a Raspberry Pi 3"
 date:   2016-12-22 14:00:00 CET
 categories: howto genivi gdp rpi
 ---
+<!-- markdown-link-check-disable -->
 
 Browse the <https://www.raspberrypi.org/downloads/>
 
@@ -39,4 +40,5 @@ TODO TODO TODO
 
 * [NOOBS for Raspberry Pi](http://qdosmsq.dunbar-it.co.uk/blog/2013/06/noobs-for-raspberry-pi/)
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

@@ -6,6 +6,7 @@ tags:
   - android
   - howto
 ---
+<!-- markdown-link-check-disable -->
 
 Start the container with the build environment
 
@@ -174,4 +175,5 @@ cmbuild@c8226ae3ff79:~/android/cm11$
 
 TODO
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

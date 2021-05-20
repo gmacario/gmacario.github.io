@@ -4,6 +4,7 @@ title:  "Trying GDP master on a Raspberry Pi 3"
 date:   2017-05-15 15:15:00 CEST
 # categories: template android howto development
 ---
+<!-- markdown-link-check-disable -->
 
 This blog post illustrates some tests I made running the [GENIVI Development Platform](https://at.projects.genivi.org/wiki/pages/viewpage.action?pageId=11567210) on a [Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/).
 
@@ -75,4 +76,5 @@ Linux version 4.4.50 (jenkins@c7f0d99588be) (gcc version 6.2.0 (GCC) ) #1 SMP We
 root@raspberrypi3:~#
 ```
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

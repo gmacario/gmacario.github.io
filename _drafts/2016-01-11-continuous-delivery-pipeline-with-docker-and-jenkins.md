@@ -4,6 +4,7 @@ title:  "Continuous Delivery Pipeline with Docker and Jenkins"
 date:   2016-01-08 18:00:00 CET
 categories: continuous delivery docker jenkins
 ---
+<!-- markdown-link-check-disable -->
 
 [Video: Continuous Delivery Pipeline with Docker and Jenkins](https://www.youtube.com/watch?v=88ZWAv4jPh4) - Talk by Camilo Ribeiro on Docker Stockholm meetup group, 2015-11-25
 
@@ -41,4 +42,5 @@ Select item "seed" > Build Now
 
 TODO
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

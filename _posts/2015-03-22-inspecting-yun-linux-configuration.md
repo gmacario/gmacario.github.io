@@ -4,6 +4,7 @@ title:  "Inspecting the Linux configuration of my Arduino YUN"
 date:   2015-03-22 14:00:00 CET
 tags:   arduino yun fablab torino
 ---
+<!-- markdown-link-check-disable -->
 
 Let us get familiar with my brand new [Arduino Yun](http://arduino.cc/en/Main/ArduinoBoardYun), focusing on the Linux side of it.
 
@@ -323,4 +324,5 @@ root@Arduino:~# uci show | wc -l
 root@Arduino:~#
 ```
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

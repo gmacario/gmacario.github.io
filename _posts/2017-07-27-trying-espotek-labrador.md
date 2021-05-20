@@ -1,9 +1,10 @@
 ---
 layout: post
 title:  "Trying the EspoTek Labrador"
-# date:   2017-07-27 19:00:00 CET
+date:   2017-07-27 19:00:00 CET
 tags: howto hardware espotek labrador
 ---
+<!-- markdown-link-check-disable -->
 
 This blog post details my first experiences with the [EspoTek Labrador](https://www.crowdsupply.com/espotek/labrador), a small, portable, USB-connected electronics lab-on-a-board which includes an oscilloscope, waveform generator, power supply, logic analyzer, and multimeter.
 
@@ -157,4 +158,5 @@ Open the Windows Device Manager to verify that the device is recognize, then lau
 
 * <https://github.com/tardate/LittleArduinoProjects/tree/master/Equipment/Labrador> - excellent notes by another backer
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

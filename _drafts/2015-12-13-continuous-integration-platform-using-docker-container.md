@@ -4,6 +4,7 @@ title:  "Continuous Integration Platform using Docker containers"
 date:   2015-12-13 14:10:00 CET
 categories: howto docker compose continuous integration jenkins gitlab
 ---
+<!-- markdown-link-check-disable -->
 
 ### Introduction
 
@@ -322,4 +323,5 @@ BASE=$(docker-machine ip default)
 **NOTE**: The URL for Jenkins Dashboard documented in the `README.md` is incorrect.
 Submitted PR <https://github.com/marcelbirkner/docker-ci-tool-stack/pull/4>
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

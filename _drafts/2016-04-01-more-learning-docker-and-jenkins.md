@@ -4,6 +4,7 @@ title:  "More learning Docker and Jenkins"
 date:   2016-02-19 15:30:00 CET
 categories: howto docker jenkins continuous-development
 ---
+<!-- markdown-link-check-disable -->
 
 # TODO
 
@@ -32,4 +33,5 @@ Sample table
 | John  | Doe   | CEO  | The big boss      |
 | Mary  | Smith | CFO  | She got the money |
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

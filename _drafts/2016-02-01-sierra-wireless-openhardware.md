@@ -4,6 +4,7 @@ title:  "Sierra Wireless Opensource and OpenHardware"
 date:   2016-01-29 18:00:00 CET
 categories: openhardware opensource iot arduino
 ---
+<!-- markdown-link-check-disable -->
 
 <!-- (2016-01-29 14:56 CET) -->
 
@@ -108,4 +109,5 @@ From http://source.sierrawireless.com/iotconnector/
 * http://source.sierrawireless.com/
 * http://www.sierrawireless.com/products-and-solutions/embedded-solutions/open-source-initiatives/
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

@@ -2,10 +2,11 @@
 
 layout: post
 title:  "Deploying a Node.JS application on Kubernetes using Jenkins X"
-# date:   2018-10-12 12:00:00 CEST
+date:   2018-10-12 12:00:00 CEST
 tags:   howto kubernetes gcp jenkins nodejs
 
 ---
+<!-- markdown-link-check-disable -->
 
 ### Introduction
 
@@ -746,4 +747,5 @@ Jenkins X is quite recent and therefore presents a few rough edges as the list o
 * [Jenkins X - Automated CI/CD for Kubernetes](https://www.cloudbees.com/resource/webinar-recording/ondemand-webinar-easy-cicd-kubernetes/thank-you)
 -->
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

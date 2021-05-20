@@ -4,6 +4,7 @@ title:  "Installing TINC on Arduino Yun"
 date:   2017-03-03 18:00:00 CET
 # categories: arduino yun day fablab torino
 ---
+<!-- markdown-link-check-disable -->
 
 ### Introduction
 
@@ -182,4 +183,5 @@ Sketch > Upload
 
 TODO TODO TODO
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

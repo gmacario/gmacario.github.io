@@ -4,6 +4,7 @@ title:  "Installing build.rokers.io"
 date:   2017-07-11 19:00:00 CET
 tags: howto jenkins docker server installation rokers
 ---
+<!-- markdown-link-check-disable -->
 
 This blog post details the steps I made to install the [build.rokers.io](https://build.rokers.io/) server on [AWS](https://aws.amazon.com/) using [Docker](https://www.docker.com/) and [easy-jenkins](https://github.com/gmacario/easy-jenkins).
 
@@ -296,4 +297,5 @@ To inspect and/or download the generated artifacts:
 * Select Branch "dev-rokers"
 * Click **Artifacts**
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

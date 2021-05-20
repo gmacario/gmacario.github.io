@@ -2,9 +2,11 @@
 
 layout: post
 title:  "Deploying WordPress and MySQL with Persistent Volumes on GKE"
+date: 2018/10/17
 tags:   howto kubernetes gcp wordpress mysql
 
 ---
+<!-- markdown-link-check-disable -->
 
 <!-- 2018-10-16 12:29 CEST -->
 
@@ -518,4 +520,5 @@ gcloud container clusters delete xxx
 
 This article explained how to deploy WordPress with a MySQL backend on a Kubernetes cluster on GCP.
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

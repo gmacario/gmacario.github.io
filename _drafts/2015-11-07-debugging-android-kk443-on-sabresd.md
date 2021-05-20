@@ -4,6 +4,7 @@ title:  "Debugging Android KitKat 4.4.3 on a Freescale Sabre SD"
 date:   2015-05-26 16:49:00
 categories: android howto development debugging
 ---
+<!-- markdown-link-check-disable -->
 
 This blog post explains how I debugged Android KK443 on a SABRE SD board.
 
@@ -916,4 +917,5 @@ FIXME: Look at the contents of `/fstab.freescale`:
 ```
 ```
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

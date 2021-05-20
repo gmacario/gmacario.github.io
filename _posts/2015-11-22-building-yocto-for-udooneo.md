@@ -4,6 +4,7 @@ title:  "Building a Yocto image for the UDOO Neo"
 date:   2015-11-22 22:00:00
 tags:   howto udoo imx6x yocto build embedded
 ---
+<!-- markdown-link-check-disable -->
 
 ### Introduction
 
@@ -227,4 +228,5 @@ round-trip min/avg/max = 7.091/29.884/103.499 ms
 root@udooneo:~#
 ```
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

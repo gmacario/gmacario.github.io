@@ -4,6 +4,7 @@ title:  "Trying Android Studio on itm-gmacario-w7"
 date:   2015-04-18 17:30:00
 tags:   android howto development
 ---
+<!-- markdown-link-check-disable -->
 
 This blog post explains how I installed [Android Studio](http://developer.android.com/tools/studio/index.html) on my laptop running MS Windows 7.
 
@@ -239,4 +240,5 @@ I feel this is due to the limited memory (8 GB) I have on my laptop.
 
 I will probably have a try at [Genymotion](https://www.genymotion.com/) and will report my results in a future blog post.
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

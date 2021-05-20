@@ -4,6 +4,7 @@ title:  "Hacking IP Power 9258"
 date:   2015-12-12 18:30:00 CET
 categories: howto embedded linux hacking
 ---
+<!-- markdown-link-check-disable -->
 
 ### References
 
@@ -26,4 +27,5 @@ Sample table
 | John  | Doe   | CEO  | The big boss      |
 | Mary  | Smith | CFO  | She got the money |
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

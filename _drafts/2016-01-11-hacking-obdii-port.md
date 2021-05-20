@@ -4,6 +4,7 @@ title:  "Hacking OBD-II Port"
 date:   2015-12-27 12:00:00 CET
 categories: howto car network obd-ii hacking
 ---
+<!-- markdown-link-check-disable -->
 
 [WiFI OBDII ELM-327](http://www.ebay.it/itm/WIFI-ELM327-OBDII-OBD2-AUTO-DIAGNOSTICA-WIRELESS-SCANNER-CD-PER-iPhone-iPad-/121723376227?)
 
@@ -46,4 +47,5 @@ Sample table
 | John  | Doe   | CEO  | The big boss      |
 | Mary  | Smith | CFO  | She got the money |
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

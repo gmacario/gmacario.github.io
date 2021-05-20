@@ -4,6 +4,7 @@ title:  "Trying Android Lollipop 5.0.0 on a Freescale Sabre SD"
 date:   2015-06-04 16:49:00
 categories: android howto development debugging
 ---
+<!-- markdown-link-check-disable -->
 
 This blog post explains my tests of Android Lollipop 5.0.0 on a SABRE SD board.
 
@@ -286,4 +287,5 @@ $ cp ~/temp/Android_L500_100_iMX6/android_L5.0.0_1.0.0-ga_full_image_6qsabresd/
 
 TODO
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

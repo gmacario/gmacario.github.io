@@ -4,6 +4,7 @@ title:  "Trying Docker image for workflow demo"
 date:   2015-12-16 09:00:00 CET
 categories: howto docker jenkins workflow
 ---
+<!-- markdown-link-check-disable -->
 
 # Trying Docker image for workflow demo
 
@@ -108,4 +109,5 @@ Sample table
 | John  | Doe   | CEO  | The big boss      |
 | Mary  | Smith | CFO  | She got the money |
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

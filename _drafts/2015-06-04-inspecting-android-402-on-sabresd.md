@@ -4,6 +4,7 @@ title:  "Inspecting Android 4.0.x on a Freescale Sabre SD"
 date:   2015-05-26 11:45:00
 categories: android howto development debugging
 ---
+<!-- markdown-link-check-disable -->
 
 Booting SABRE SD with stock "MX6Q-SDB Android r13.4.1" SD-Card inserted in slot SD3 (J507)
 
@@ -656,4 +657,5 @@ APPS
 * Show all ANRs: No
   Show App not Responding dialog for background apps
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

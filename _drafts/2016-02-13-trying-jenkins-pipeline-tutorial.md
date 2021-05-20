@@ -4,6 +4,7 @@ title:  "Trying Jenkins Pipeline Tutorial"
 date:   2016-01-25 17:00:00 CET
 categories: howto jenkins pipeline tutorial
 ---
+<!-- markdown-link-check-disable -->
 
 # Introduction
 
@@ -999,4 +1000,5 @@ TODO TODO TODO
 1.0.21.303740
 
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

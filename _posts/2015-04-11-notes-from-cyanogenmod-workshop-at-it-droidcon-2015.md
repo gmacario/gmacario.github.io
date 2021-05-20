@@ -1,8 +1,10 @@
 ---
 layout: post
 title:  "Notes from CyanogenMod Workshop at IT Droidcon 2015"
+date: 2015/04/11
 tags:   android howto
 ---
+<!-- markdown-link-check-disable -->
 
 Here are a few notes which I took when attending the [Cyanogen Workshop](http://it.droidcon.com/2015/sessions/cyanogen-workshop/) during the [IT Droidcon 2015](http://it.droidcon.com/2015/) which took place in Torino on 2015-04-10.
 
@@ -474,4 +476,5 @@ Unfortunately I do not own a Nexus 5 where to try flashing the images, so I need
 
 One of the next days I will try building CM11 for my Samsung Galaxy SII.
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

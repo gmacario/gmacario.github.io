@@ -4,6 +4,7 @@ title:  "Trying Rancher on dc7600-gm"
 date:   2016-02-13 15:00:00 CET
 categories: howto docker rancher container linux ubuntu
 ---
+<!-- markdown-link-check-disable -->
 
 <!-- (2016-02-11 20:10 CET) -->
 
@@ -77,4 +78,5 @@ TODO
 * [Upgrading Rancher](http://docs.rancher.com/rancher/upgrading/)
 * [How to Upgrade Rancher](https://forums.rancher.com/t/how-to-upgrade-rancher/1600)
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

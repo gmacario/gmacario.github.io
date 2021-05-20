@@ -3,6 +3,7 @@ layout: post
 title:  "Trying Volumio on a Raspberry Pi 3"
 date:   2017-03-31 18:00:00 CEST
 ---
+<!-- markdown-link-check-disable -->
 
 This blog post explains my experiences with the [Volumio](https://volumio.org/)
 Music Player on a Raspberry Pi 3.
@@ -158,4 +159,5 @@ volumio@volumio:~$
 * <https://www.volumio.org/>
 * <https://github.com/VOLUMIO>
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

@@ -4,6 +4,7 @@ title:  "Trying Jenkins in Docker with Proxies and Compose"
 date:   2015-12-04 18:00:00 CET
 categories: howto docker jenkins compose nginx
 ---
+<!-- markdown-link-check-disable -->
 
 # Introduction
 
@@ -184,4 +185,5 @@ Sample table
 | John  | Doe   | CEO  | The big boss      |
 | Mary  | Smith | CFO  | She got the money |
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

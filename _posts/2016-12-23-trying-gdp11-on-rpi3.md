@@ -4,6 +4,7 @@ title:  "Trying GDP-11 on a Raspberry Pi 3"
 date:   2016-12-23 14:00:00 CET
 tags:   howto genivi gdp rpi
 ---
+<!-- markdown-link-check-disable -->
 
 ### Introduction
 
@@ -373,4 +374,5 @@ root@raspberrypi3:~#
 * [GENIVI Development Platform](https://at.projects.genivi.org/wiki/x/aoCw)
 * [Raspberry Pi 2 and 3 setup and software installation](https://at.projects.genivi.org/wiki/x/fomw)
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

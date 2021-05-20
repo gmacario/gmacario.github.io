@@ -4,6 +4,7 @@ title:  "Preparing for CoderdojoUpTo"
 date:   2016-01-23 14:30:00 CET
 categories: howto coderdojo scratch
 ---
+<!-- markdown-link-check-disable -->
 
 Browse [Scratch 2 Offline Editor](https://scratch.mit.edu/scratch2download/)
 
@@ -18,4 +19,5 @@ TODO
 
 
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

@@ -4,6 +4,7 @@ title:  "Integrate Genymotion into Android Studio"
 date:   2015-04-20 12:40:00
 categories: android howto development
 ---
+<!-- markdown-link-check-disable -->
 
 This blog post explains how I integrated the [Genymotion Android Emulator](https://www.genymotion.com/) into [Android Studio](http://developer.android.com/tools/studio/index.html).
 
@@ -35,4 +36,5 @@ Use the JetBrains repository method (recommended)
 
 TODO
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

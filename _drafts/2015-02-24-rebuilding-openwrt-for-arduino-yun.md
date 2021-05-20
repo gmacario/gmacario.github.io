@@ -4,6 +4,7 @@ title:  "Rebuilding OpenWRT for Arduino Yun"
 date:   2015-01-18 18:00:00 CET
 #categories: template android howto development
 ---
+<!-- markdown-link-check-disable -->
 
 # Introduction
 
@@ -259,4 +260,5 @@ Result: OK
 
 TODO
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

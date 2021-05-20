@@ -4,6 +4,7 @@ title:  "RabbitMax Flex"
 date:   2017-01-27 18:00:00 CET
 # categories: arduino yun day fablab torino
 ---
+<!-- markdown-link-check-disable -->
 
 ### Links
 
@@ -30,4 +31,5 @@ date:   2017-01-27 18:00:00 CET
   * GitHub: [AnaviTech/anavi-examples](https://github.com/AnaviTech/anavi-examples)
 
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

@@ -4,6 +4,7 @@ title:  "Heading to the GENIVI 13th AMM in Seoul"
 date:   2015-10-17 10:40:00
 tags:   genivi amm
 ---
+<!-- markdown-link-check-disable -->
 
 Hello,
 
@@ -15,4 +16,5 @@ Stay tuned for some future blog posts...
 
 Gianpaolo
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

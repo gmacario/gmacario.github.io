@@ -2,9 +2,11 @@
 
 layout: post
 title: "Writing my first Angular.js application"
+date: 2018/10/29
 tags: 	howto angularjs nodejs
 
 ---
+<!-- markdown-link-check-disable -->
 
 <!-- 2018-10-16 12:29 CEST -->
 
@@ -226,4 +228,5 @@ This concludes the installation of Angular.js on your laptop.
 
 To learn about the features of the Angular.js framework, you may watch the 33 screencasts of the "Build your first Angular app" course which is freely available at <https://scrimba.com/g/gyourfirstangularapp>.
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

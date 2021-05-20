@@ -4,6 +4,7 @@ title:  "My first experiments with the Arduino YUN"
 date:   2015-02-28 14:00:00 CET
 tags:   arduino fablab torino yun
 ---
+<!-- markdown-link-check-disable -->
 
 Please refer to <https://github.com/gmacario/learning-arduino>
 to get the Fritzing schematics and the corresponding the Arduino sketches.
@@ -26,4 +27,5 @@ Adjust the values in the `delay(xxx)` instruction after each
 `digitalWrite`, upload the new sketch and verify that the blinking rate
 is changing accordingly.
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

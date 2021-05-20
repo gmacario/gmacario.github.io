@@ -4,6 +4,7 @@ title:  "Experiences with the C.H.I.P. 9$ Computer"
 date:   2017-03-14 18:00:00 CET
 # categories: template android howto development
 ---
+<!-- markdown-link-check-disable -->
 
 This blog post explains my experiences with [C.H.I.P.](https://getchip.com/pages/chip) - the World's First $9 Computer.
 
@@ -638,4 +639,5 @@ nmcli device status
 
 * C.H.I.P. Documentation: <https://docs.getchip.com/chip.html>
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

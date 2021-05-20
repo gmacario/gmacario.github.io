@@ -4,6 +4,7 @@ title:  "Blinking and LED on the Raspberry Pi 3"
 date:   2017-02-13 21:00:00 CET
 # categories: template android howto development
 ---
+<!-- markdown-link-check-disable -->
 
 <!-- 2017-02-13 12:56 CET) -->
 
@@ -32,6 +33,8 @@ GPIO.output(18, False)
 * RPi.GPIO 0.6.3: <https://pypi.python.org/pypi/RPi.GPIO>
 * RPi.GPIO module basics: <https://sourceforge.net/p/raspberry-gpio-python/wiki/BasicUsage/>
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

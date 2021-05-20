@@ -4,6 +4,7 @@ title:  "NeoPixel LED Strips for Expo Mattoncino 3"
 date:   2017-06-24 20:00:00 CEST
 tag: arduino lego neopixel
 ---
+<!-- markdown-link-check-disable -->
 
 This post explains how we created the light effects at [Expo Mattoncino 3](http://www.tomake.info/expo-mattoncino-2017/) which took place in Pinerolo (TO) on 20 and 21-MAY-2017.
 
@@ -98,4 +99,5 @@ If everything works as expected unplug the USB connector of the Arduino from the
 * [WS2812 Datasheet](https://cdn-shop.adafruit.com/datasheets/WS2812.pdf) (PDF, 5 pages)
 * <https://github.com/craftcodiness/arduino-lights>
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

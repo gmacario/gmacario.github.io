@@ -4,6 +4,7 @@ title:  "Vodafone VF785 Firmware Update"
 date:   2015-05-30 08:00:00
 categories: android phone howto update
 ---
+<!-- markdown-link-check-disable -->
 
 (2015-05-30 08:00 CEST)
 
@@ -99,4 +100,5 @@ Settings >
 
 
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

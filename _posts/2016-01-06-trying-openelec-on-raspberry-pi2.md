@@ -4,6 +4,7 @@ title:  "Trying OpenELEC on Raspberry Pi2"
 date:   2016-01-06 18:00:00 CET
 tags:   howto openelec kodi raspberry-pi2
 ---
+<!-- markdown-link-check-disable -->
 
 This blog post explains my experiences running [OpenELEC](http://openelec.tv/) on my brand new [Raspberry Pi2](http://www.canakit.com/raspberry-pi-starter-ultimate-kit.html).
 
@@ -102,4 +103,5 @@ rpi2-openelec:~ #
 
 That's all for the moment...
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

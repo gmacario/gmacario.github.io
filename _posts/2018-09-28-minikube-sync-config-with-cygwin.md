@@ -4,6 +4,7 @@ title:  "Syncing minikube configuration with Cygwin"
 date:   2018-09-28 07:30:00
 tags:   howto kubernetes minikube windows cygwin
 ---
+<!-- markdown-link-check-disable -->
 
 ### The Problem
 
@@ -79,4 +80,5 @@ kubectl: Correctly Configured: pointing to minikube-vm at 192.168.99.100
 C:\Users\GPMacario>
 ```
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

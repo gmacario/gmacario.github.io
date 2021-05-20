@@ -4,6 +4,7 @@ title:  "Trying CROPS Poky Containers"
 date:   2017-03-02 18:00:00 CET
 # categories: template android howto development
 ---
+<!-- markdown-link-check-disable -->
 
 This blog post explains my experiences with [CROPS poky-container](https://github.com/crops/poky-container).
 
@@ -28,4 +29,5 @@ This blog post explains my experiences with [CROPS poky-container](https://githu
 
 * CROPS at Docker Hub: <https://hub.docker.com/r/crops/>
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

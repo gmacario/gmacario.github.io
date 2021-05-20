@@ -3,6 +3,7 @@ layout: post
 title:  "Trying Volumio on a UDOO NEO"
 date:   2017-04-03 18:00:00 CEST
 ---
+<!-- markdown-link-check-disable -->
 
 This blog post explains my experiences with the [Volumio](https://volumio.org/)
 Music Player on a UDOO Neo.
@@ -62,4 +63,5 @@ TODO
 
 TODO
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

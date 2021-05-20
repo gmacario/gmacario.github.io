@@ -4,6 +4,7 @@ title:  "Using command-line git with GitHub 2FA"
 date:   2017-08-08 22:00:00 CEST
 tags:   git github
 ---
+<!-- markdown-link-check-disable -->
 
 After enabling [two-factor authentication on my GitHub account](https://help.github.com/articles/securing-your-account-with-two-factor-authentication-2fa/) it seemed I became unable to push my local repositories from command-line git using the https transport.
 
@@ -78,4 +79,5 @@ git config credential.helper store
 * <https://git-scm.com/docs/git-credential-cache>
 * <https://git-scm.com/docs/git-credential-store>
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->

@@ -4,6 +4,7 @@ title:  "Trying Total Control Lite"
 date:   2017-01-12 5:00:00 CET
 # categories: template android howto development
 ---
+<!-- markdown-link-check-disable -->
 
 This blog post explains my experiences with [Total Control](http://tc.sigma-rt.com/index.php) to control my Android phone from my laptop running MS Windows 10.
 
@@ -32,4 +33,5 @@ Verify key, then press "ok"
 When the device is detected, the APK is installed.
 You may then press "Connect"
 
+<!-- markdown-link-check-enable -->
 <!-- EOF -->
