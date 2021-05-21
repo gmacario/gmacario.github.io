@@ -1,0 +1,13 @@
+// Configure aliases for imports
+{
+    "compilerOptions": {
+        "baseUrl": "./",
+        "paths": {
+            "@includes/*": ["_includes/*"],
+            "@layouts/*": ["_layouts/*"],
+            "@posts/*": ["_posts/*"],
+            "@api": ["api/index"],
+            "@style": ["styles/globals.css"],
+        }
+    }
+}
