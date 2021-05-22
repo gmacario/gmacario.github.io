@@ -24,12 +24,22 @@ To install the dependencies simply run
 npm install
 ```
 
-### Test the code
+### Run a development server
 
-To test the code locally, run the npm script
+To build and test the pages locally, run the npm script
 
 ```sh
 npm run dev
+```
+
+and follow the instructions.
+
+### Run tests on the static build
+
+To build a production version of the static website and run automated tests, run the npm script
+
+```sh
+npm run test
 ```
 
 and follow the instructions.
