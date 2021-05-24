@@ -32,9 +32,11 @@ jobs:
         env:
             CI: true
 
-      - run: |
+      - name: Export static site
+        run: |
           npm install
           npm run export
+          cp -r .circleci _static
           touch _static/.nojekyll
         working-directory: ${{ github.workspace }}
        
