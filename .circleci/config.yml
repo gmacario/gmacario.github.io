@@ -12,11 +12,23 @@ workflows:
     jobs:
       - node/test:
           version: 14.16.1
+          filters:
+            branches:
+              ignore: gh-pages
       - node/test:
           version: 13.14.0
+          filters:
+            branches:
+              ignore: gh-pages
       - node/test:
           version: 12.22.1
+          filters:
+            branches:
+              ignore: gh-pages
       # - node/test:
       #     version: 10.19.0
+      #     filters:
+      #           branches:
+      #             ignore: gh-pages
 
 # EOF
