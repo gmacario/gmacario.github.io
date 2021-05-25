@@ -1,5 +1,13 @@
 name: Test Build
-on: [push, pull_request]
+on: 
+  push:
+    branches-ignore:
+      - main
+      - master
+  pull_request:
+    branches-ignore:
+      - main
+      - master
 jobs:
   build:
     runs-on: ubuntu-latest
