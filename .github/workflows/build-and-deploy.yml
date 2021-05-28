@@ -66,7 +66,7 @@ jobs:
             
             You can check out the result at
             
-            And approve (or reject) the results [here](https://github.com/${{GITHUB_REPOSITORY}}/actions/runs/${{ GITHUB_RUN_ID }})
+            And approve (or reject) the results [here](https://github.com/${{ env.GITHUB_REPOSITORY }}/actions/runs/${{ env.GITHUB_RUN_ID }})
             
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
@@ -85,11 +85,22 @@ jobs:
       name: staging_environment  
       
     steps:
+    
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
+        with:
+          persist-credentials: false
+        
+      - run: |
+          mkdir _static
+          
       - name: Retrieve artifacts 📦
         uses: actions/download-artifact@v2
         with:
           name: site_artifact
           path: _static
+      
+      - run: ls -al
           
       - name: Deploy production 🚀 ⏳
         uses: JamesIves/github-pages-deploy-action@4.1.2
