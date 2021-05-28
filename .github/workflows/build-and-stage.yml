@@ -1,11 +1,10 @@
-name: Build and Deploy
+name: Continuous deployment
 on:
   push:
-    branches:
-      - master
-      - main
+  pull_request:
+  
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -24,7 +23,7 @@ jobs:
           path: ${{ github.workspace }}/.next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}
 
-      - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
+      - name: Setup node 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
         uses: actions/setup-node@v2
         with:
           node-version: '14'
@@ -39,10 +38,28 @@ jobs:
           touch _static/.nojekyll
         working-directory: ${{ github.workspace }}
        
-      - name: Deploy 🚀
+       #replace with staging code
+      - name: Deploy staging 🚀 ⏳
         uses: JamesIves/github-pages-deploy-action@4.1.2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages # The branch the action should deploy to.
           folder: _static # The folder the action should deploy.
           clean: true # Automatically remove deleted files from the deploy branch
+
+      #- name: Create approval request issue 👀
+        
+      # Add ngrock link
+      - name: Create comment on pr 🧾
+        uses: mshick/add-pr-comment@v1
+        with:
+          message: |
+            Hi!  
+            🛠 Your static site has been built  
+            🚢 and deployed  
+            You can check out the result at
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
+         
+            
+      
