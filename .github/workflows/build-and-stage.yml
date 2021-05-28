@@ -66,7 +66,7 @@ jobs:
             
             You can check out the result at
             
-            And approve (or reject) the results [here](https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID)
+            And approve (or reject) the results [here](https://github.com/${{GITHUB_REPOSITORY}}/actions/runs/${{ GITHUB_RUN_ID }})
             
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
