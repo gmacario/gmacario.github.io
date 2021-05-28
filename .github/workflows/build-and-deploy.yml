@@ -52,26 +52,11 @@ jobs:
         with:
           name: site_artifact
           path: _static
-      #- name: Create approval request issue 👀
-        
-      # Add ngrock link
-      - name: Create comment on pr 🧾
-        uses: mshick/add-pr-comment@v1
-        with:
-          message: |
-            Beep boop. I am a bot 🤖  
-            
-            I have built your static site 🛠   
-            and deployed it in a staging environment 🚢
-            
-            You can check out the result at
-            
-            And approve (or reject) the results [here](https://github.com/${{GITHUB_REPOSITORY}}/actions/runs/${{ GITHUB_RUN_ID }})
-            
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
-         
+ 
+ 
+  # Only deploy if it's a pull request or a push on main (or master)
   deploy:
+    if: ${{ github.event_name == 'pull_request' || (github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')) }}
     runs-on: ubuntu-latest
     
     needs: build
@@ -85,11 +70,46 @@ jobs:
       name: staging_environment  
       
     steps:
+
+      # Add ngrock link
+      - name: Create comment on pr 🧾
+        uses: mshick/add-pr-comment@v1
+        with:
+          message: |
+            Beep boop. I am a bot 🤖  
+            
+            I have built your static site 🛠   
+            and deployed it in a staging environment 🚢
+            
+            You can check out the result at
+            
+            And approve (or reject) the results [here](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
+          
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
+        with:
+          persist-credentials: false
+        
+      - name: Create dir for artifacts
+        run: |
+          mkdir _static
+          ls -al
+        working-directory: ${{ github.workspace }}
+          
       - name: Retrieve artifacts 📦
         uses: actions/download-artifact@v2
         with:
           name: site_artifact
           path: _static
+  
+      
+      - name: Debug
+        run: |
+          ls -al
+        working-directory: ${{ github.workspace }}
           
       - name: Deploy production 🚀 ⏳
         uses: JamesIves/github-pages-deploy-action@4.1.2
