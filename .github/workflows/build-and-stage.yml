@@ -62,9 +62,11 @@ jobs:
             Beep boop. I am a bot 🤖  
             
             I have built your static site 🛠   
-            and deployed it 🚢
+            and deployed it in a staging environment 🚢
             
             You can check out the result at
+            
+            And approve (or reject) the results [here](https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID)
             
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
@@ -89,10 +91,10 @@ jobs:
           name: site_artifact
           path: _static
           
-      - name: Deploy staging 🚀 ⏳
+      - name: Deploy production 🚀 ⏳
         uses: JamesIves/github-pages-deploy-action@4.1.2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages # The branch the action should deploy to.
-          folder: _static # The folder the action should deploy.
+          folder: . # The folder the action should deploy.
           clean: true # Automatically remove deleted files from the deploy branch
