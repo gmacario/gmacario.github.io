@@ -54,10 +54,13 @@ jobs:
         uses: mshick/add-pr-comment@v1
         with:
           message: |
-            Hi!  
-            🛠 Your static site has been built  
-            🚢 and deployed  
+            Beep boop. I am a bot 🤖  
+            
+            I have built your static site 🛠   
+            and deployed it 🚢
+            
             You can check out the result at
+            
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
          
