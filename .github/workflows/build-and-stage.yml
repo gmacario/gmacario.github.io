@@ -46,7 +46,12 @@ jobs:
           branch: staging # The branch the action should deploy to.
           folder: _static # The folder the action should deploy.
           clean: true # Automatically remove deleted files from the deploy branch
-
+      
+      - name: Make artifacts 📦
+        uses: actions/upload-artifact@v2
+        with:
+          name: site_artifact
+          path: _static
       #- name: Create approval request issue 👀
         
       # Add ngrock link
@@ -78,6 +83,12 @@ jobs:
       name: staging_environment  
       
     steps:
+      - name: Retrieve artifacts 📦
+        uses: actions/download-artifact@v2
+        with:
+          name: site_artifact
+          path: _static
+          
       - name: Deploy staging 🚀 ⏳
         uses: JamesIves/github-pages-deploy-action@4.1.2
         with:
