@@ -52,7 +52,6 @@ jobs:
         with:
           name: site_artifact
           path: _static
-      #- name: Create approval request issue 👀
         
       # Add ngrock link
       - name: Create comment on pr 🧾
@@ -102,8 +101,12 @@ jobs:
         with:
           name: site_artifact
           path: _static
+  
       
-      - run: ls -al
+      - name: Debug
+        run: |
+          ls -al
+        working-directory: ${{ github.workspace }}
           
       - name: Deploy production 🚀 ⏳
         uses: JamesIves/github-pages-deploy-action@4.1.2
