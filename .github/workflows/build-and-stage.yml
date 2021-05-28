@@ -1,0 +1,100 @@
+name: Continuous deployment
+on:
+  push:
+  pull_request:
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./src
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
+        with:
+          persist-credentials: false
+
+      - name: Cache  💾
+        uses: actions/cache@v2
+        with:
+          path: ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Setup node 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+        env:
+            CI: true
+
+      - name: Export static site
+        run: |
+          npm install
+          npm run export
+          cp -r .circleci _static
+          touch _static/.nojekyll
+        working-directory: ${{ github.workspace }}
+       
+       #replace with staging code
+      - name: Deploy staging 🚀 ⏳
+        uses: JamesIves/github-pages-deploy-action@4.1.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: staging # The branch the action should deploy to.
+          folder: _static # The folder the action should deploy.
+          clean: true # Automatically remove deleted files from the deploy branch
+      
+      - name: Make artifacts 📦
+        uses: actions/upload-artifact@v2
+        with:
+          name: site_artifact
+          path: _static
+      #- name: Create approval request issue 👀
+        
+      # Add ngrock link
+      - name: Create comment on pr 🧾
+        uses: mshick/add-pr-comment@v1
+        with:
+          message: |
+            Beep boop. I am a bot 🤖  
+            
+            I have built your static site 🛠   
+            and deployed it in a staging environment 🚢
+            
+            You can check out the result at
+            
+            And approve (or reject) the results [here](https://github.com/${{GITHUB_REPOSITORY}}/actions/runs/${{ GITHUB_RUN_ID }})
+            
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
+         
+  deploy:
+    runs-on: ubuntu-latest
+    
+    needs: build
+    
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./src
+        
+    environment:
+      name: staging_environment  
+      
+    steps:
+      - name: Retrieve artifacts 📦
+        uses: actions/download-artifact@v2
+        with:
+          name: site_artifact
+          path: _static
+          
+      - name: Deploy production 🚀 ⏳
+        uses: JamesIves/github-pages-deploy-action@4.1.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages # The branch the action should deploy to.
+          folder: . # The folder the action should deploy.
+          clean: true # Automatically remove deleted files from the deploy branch
