@@ -73,6 +73,7 @@ jobs:
         uses: GGn0/ngrok-tunneling-action@v0.1.7
         with:
           timeout: 1h
+          background: true
           port: 8080
           ngrok_authtoken: ${{ secrets.NGROK_AUTHTOKEN }}
           tunnel_proto: http
