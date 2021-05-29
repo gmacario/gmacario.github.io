@@ -60,12 +60,13 @@ jobs:
         with:
           name: site_artifact
           path: _static
-          
-      - name: Test static site
+  
+      - name: Test static site ⚙
         if: ${{ env.deploy_staging }}
         run: |
-          node ${{ github.workspace }}/.github/tests/server.js
-        working-directory: ${{ github.workspace }}
+          npm install
+          node server.js
+        working-directory: ${{ github.workspace }}/.github/tests
           
       - name: Create a tunnel for the site
         if: ${{ env.deploy_staging }}
