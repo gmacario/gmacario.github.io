@@ -64,7 +64,7 @@ jobs:
       - name: Test static site
         if: ${{ env.deploy_staging }}
         run: |
-          node ${{ github.workspace }}/.github/tests/server.js &
+          node ${{ github.workspace }}/.github/tests/server.js
         working-directory: ${{ github.workspace }}
           
       - name: Create a tunnel for the site
