@@ -4,7 +4,7 @@ on:
   pull_request:
 
 env:
-    deploy_staging: ${{ github.event_name == 'pull_request' || (github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')) }}
+  deploy_staging: ${{ github.event_name == 'pull_request' || (github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')) }}
     
 jobs:
   build:
