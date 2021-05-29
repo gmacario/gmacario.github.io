@@ -54,7 +54,7 @@ jobs:
           path: _static
           
       - name: Test static site
-        uses: apogiatzis/ngrok-tunneling-action@<VERSION>
+        uses: apogiatzis/ngrok-tunneling-action@v0.1.4
         with:
           timeout: 1h
           port: 8080
