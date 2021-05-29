@@ -70,7 +70,7 @@ jobs:
           
       - name: Create a tunnel for the site
         if: ${{ env.deploy_staging }}
-        uses: GGn0/ngrok-tunneling-action@v0.1.5
+        uses: GGn0/ngrok-tunneling-action@v0.1.6
         with:
           timeout: 1h
           port: 8080
