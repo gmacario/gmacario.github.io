@@ -52,7 +52,13 @@ jobs:
         with:
           name: site_artifact
           path: _static
- 
+          
+      - name: Test static site
+        uses: apogiatzis/ngrok-tunneling-action@<VERSION>
+        with:
+          timeout: 1h
+          port: 8080
+          ngrok_authtoken: ${{ secrets.NGROK_AUTHTOKEN }}
  
   # Only deploy if it's a pull request or a push on main (or master)
   deploy:
@@ -104,12 +110,6 @@ jobs:
         with:
           name: site_artifact
           path: _static
-  
-      
-      - name: Debug
-        run: |
-          ls -al
-        working-directory: ${{ github.workspace }}
           
       - name: Deploy production 🚀 ⏳
         uses: JamesIves/github-pages-deploy-action@4.1.2
