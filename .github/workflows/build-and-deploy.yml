@@ -7,7 +7,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      DEPLOY_STAGING: ${{ github.event_name == 'pull_request' || (github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')) }}
+      deploy_staging: ${{ github.event_name == 'pull_request' || (github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')) }}
     defaults:
       run:
         shell: bash
@@ -43,7 +43,7 @@ jobs:
        
        #replace with staging code
       - name: Deploy staging 🚀 ⏳
-        if:  ${{ env.deploy_staging }}
+        if:  ${ env.deploy_staging }
         uses: JamesIves/github-pages-deploy-action@4.1.2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -52,20 +52,20 @@ jobs:
           clean: true # Automatically remove deleted files from the deploy branch
       
       - name: Make artifacts 📦
-        if: ${{ env.deploy_staging }}
+        if: ${ env.deploy_staging }
         uses: actions/upload-artifact@v2
         with:
           name: site_artifact
           path: _static
           
       - name: Test static site
-        if: ${{ env.deploy_staging }}
+        if: ${ env.deploy_staging }
         run: |
           node ${{ github.workspace }}/.github/tests/server.js &
         working-directory: ${{ github.workspace }}
           
       - name: Create a tunnel for the site
-        if: ${{ env.deploy_staging }}
+        if: ${ env.deploy_staging }
         uses: GGn0/ngrok-tunneling-action@v0.1.5
         with:
           timeout: 1h
@@ -75,7 +75,7 @@ jobs:
  
   # Only deploy if it's a pull request or a push on main (or master)
   deploy:
-    if: ${{ env.deploy_staging }}
+    if: ${ env.deploy_staging }
     runs-on: ubuntu-latest
     
     needs: build
