@@ -64,6 +64,8 @@ jobs:
   
       - name: Test static site ⚙
         run: |
+          ls -al ../../
+          ls -al
           npm install
           node server.js &
         working-directory: ${{ github.workspace }}/.github/tests
