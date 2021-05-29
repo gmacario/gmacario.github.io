@@ -1,4 +1,4 @@
-import express from 'express'
+const express = require('express')
 
 //
 // Create a server instance to serve the './www.maindaves.it' folder
