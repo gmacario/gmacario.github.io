@@ -1,7 +1,7 @@
 import express from 'express'
 
 //
-// Create a server instance to serve the './www.maindaves.it' folder
+// Create a server instance to serve the '_static' folder
 //
 
 // Set listening port
