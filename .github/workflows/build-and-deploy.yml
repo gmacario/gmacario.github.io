@@ -23,7 +23,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Cache  💾
+      - name: Cache 💾
         uses: actions/cache@v2
         with:
           path: ${{ github.workspace }}/.next/cache
@@ -42,19 +42,8 @@ jobs:
           npm run export
           cp -r .circleci _static
           touch _static/.nojekyll
-          echo $deploy_staging
         working-directory: ${{ github.workspace }}
        
-       #replace with staging code
-      - name: Deploy staging 🚀 ⏳
-        uses: JamesIves/github-pages-deploy-action@4.1.2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: staging # The branch the action should deploy to.
-          folder: _static # The folder the action should deploy.
-          clean: true # Automatically remove deleted files from the deploy branch
-        if:  ${{ env.deploy_staging }}
-        
       - name: Make artifacts 📦
         uses: actions/upload-artifact@v2
         with:
@@ -62,28 +51,94 @@ jobs:
           path: _static
         if: ${{ env.deploy_staging }}
   
-      - name: Test static site ⚙
-        run: |
-          ls -al ../../
-          ls -al
-          npm install
-          node server.js &
-        working-directory: ${{ github.workspace }}/.github/tests
-        if: ${{ env.deploy_staging }}
-          
-      - name: Create a tunnel for the site
-        uses: GGn0/ngrok-tunneling-action@v0.1.6
+  stage:
+    runs-on: ubuntu-latest
+    needs: build
+    env:
+      heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+      heroku_email: ${{ secrets.HEROKU_EMAIL }}
+      heroku_app: ${{ secrets.HEROKU_STAGING_APP }}
+    if: ${{ needs.build.outputs.deploy_staging }}
+    
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./src
+    
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
         with:
-          timeout: 1h
-          port: 8080
-          ngrok_authtoken: ${{ secrets.NGROK_AUTHTOKEN }}
-          tunnel_proto: http
-        if: ${{ env.deploy_staging }}
+          persist-credentials: false
+
+      - name: Setup node 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+        env:
+            CI: true
+
+#       - name: Install dependencies
+#         run: |
+#           npm install
+#         working-directory: ${{ github.workspace }}
+    
+      - name: Setup heroku CLI
+        run: |
+          curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
+          cat >~/.netrc <<EOF
+          machine api.heroku.com
+              login ${heroku_email}
+              password ${heroku_api_key}
+          machine git.heroku.com
+              login ${heroku_email}
+              password ${heroku_api_key}
+          EOF
+          mkdir -p heroku/_static
+        working-directory: ${{ github.workspace }}
+          
+      - name: Retrieve artifacts 📦
+        uses: actions/download-artifact@v2
+        with:
+          name: site_artifact
+          path: heroku/_static
+      
+      - name: Deploy to heroku
+        run: |
+          cp -r .github/tests/* heroku
+          cd heroku
+          cat >.gitignore <<EOF
+          node_modules/
+          EOF
+          cat >Procfile <<EOF
+          web: npm install && npm start
+          EOF
+          npm install
+          git init
+          git config --global user.email "${heroku_email}"
+          git config --global user.name "Github Action"
+          heroku git:remote -a ${heroku_app}
+          heroku login
+          git add -A
+          git commit -am "make it better"
+          git push heroku master --force
+        working-directory: ${{ github.workspace }}
+        
+#         if: ${{ env.deploy_staging }}
+#       - name: Create a tunnel for the site
+#         uses: GGn0/ngrok-tunneling-action@v0.1.7
+#         with:
+#           timeout: 1h
+#           background: true
+#           port: 8080
+#           ngrok_authtoken: ${{ secrets.NGROK_AUTHTOKEN }}
+#           tunnel_proto: http
+#         if: ${{ env.deploy_staging }}
  
   # Only deploy if it's a pull request or a push on main (or master)
   deploy:
     runs-on: ubuntu-latest
-    needs: build
+    needs: stage
     if: ${{ needs.build.outputs.deploy_staging }}
     
     defaults:
@@ -121,7 +176,6 @@ jobs:
       - name: Create dir for artifacts
         run: |
           mkdir _static
-          ls -al
         working-directory: ${{ github.workspace }}
           
       - name: Retrieve artifacts 📦
