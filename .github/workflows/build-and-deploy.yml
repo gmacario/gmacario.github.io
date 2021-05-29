@@ -64,15 +64,13 @@ jobs:
   
       - name: Test static site ⚙
         run: |
-          ls -al ../../
-          ls -al
           npm install
           node server.js &
         working-directory: ${{ github.workspace }}/.github/tests
         if: ${{ env.deploy_staging }}
           
       - name: Create a tunnel for the site
-        uses: GGn0/ngrok-tunneling-action@v0.1.6
+        uses: GGn0/ngrok-tunneling-action@v0.1.7
         with:
           timeout: 1h
           port: 8080
