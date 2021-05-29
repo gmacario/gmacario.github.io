@@ -65,7 +65,7 @@ jobs:
         if: ${{ env.deploy_staging }}
         run: |
           npm install
-          node server.js
+          node server.js &
         working-directory: ${{ github.workspace }}/.github/tests
           
       - name: Create a tunnel for the site
