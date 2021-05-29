@@ -42,39 +42,43 @@ jobs:
           npm run export
           cp -r .circleci _static
           touch _static/.nojekyll
+          echo $deploy_staging
         working-directory: ${{ github.workspace }}
        
        #replace with staging code
       - name: Deploy staging 🚀 ⏳
-        if:  ${{ env.deploy_staging }}
         uses: JamesIves/github-pages-deploy-action@4.1.2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: staging # The branch the action should deploy to.
           folder: _static # The folder the action should deploy.
           clean: true # Automatically remove deleted files from the deploy branch
-      
+        if:  ${{ env.deploy_staging }}
+        
       - name: Make artifacts 📦
-        if: ${{ env.deploy_staging }}
         uses: actions/upload-artifact@v2
         with:
           name: site_artifact
           path: _static
-          
-      - name: Test static site
         if: ${{ env.deploy_staging }}
+  
+      - name: Test static site ⚙
         run: |
-          node ${{ github.workspace }}/.github/tests/server.js
-        working-directory: ${{ github.workspace }}
+          ls -al ../../
+          ls -al
+          npm install
+          node server.js &
+        working-directory: ${{ github.workspace }}/.github/tests
+        if: ${{ env.deploy_staging }}
           
       - name: Create a tunnel for the site
-        if: ${{ env.deploy_staging }}
-        uses: GGn0/ngrok-tunneling-action@v0.1.5
+        uses: GGn0/ngrok-tunneling-action@v0.1.6
         with:
           timeout: 1h
           port: 8080
           ngrok_authtoken: ${{ secrets.NGROK_AUTHTOKEN }}
           tunnel_proto: http
+        if: ${{ env.deploy_staging }}
  
   # Only deploy if it's a pull request or a push on main (or master)
   deploy:
