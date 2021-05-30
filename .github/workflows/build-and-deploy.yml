@@ -93,7 +93,7 @@ jobs:
           machine git.heroku.com
               login ${heroku_email}
               password ${heroku_api_key}
-          EOF`;
+          EOF
           heroku git:remote --app ${heroku_app}
           mkdir -p heroku/_static
         working-directory: ${{ github.workspace }}
