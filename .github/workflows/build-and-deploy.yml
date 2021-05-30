@@ -23,7 +23,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Cache  💾
+      - name: Cache 💾
         uses: actions/cache@v2
         with:
           path: ${{ github.workspace }}/.next/cache
@@ -64,20 +64,32 @@ jobs:
   
       - name: Test static site ⚙
         run: |
+          mkdir heroku
+          mv _static heroku/.
+          cd heroku
+          cp .github/tests/* .
           npm install
-          node server.js &
-        working-directory: ${{ github.workspace }}/.github/tests
+        working-directory: ${{ github.workspace }}
         if: ${{ env.deploy_staging }}
-          
-      - name: Create a tunnel for the site
-        uses: GGn0/ngrok-tunneling-action@v0.1.7
+       
+      - name: Deploy to heroku
+        uses: onekiloparsec/heroku-node-deploy-subfolder@v1.0.4
         with:
-          timeout: 1h
-          background: true
-          port: 8080
-          ngrok_authtoken: ${{ secrets.NGROK_AUTHTOKEN }}
-          tunnel_proto: http
-        if: ${{ env.deploy_staging }}
+          api_key: ${{secrets.HEROKU_API_KEY}}
+          email: ${{secrets.HEROKU_EMAIL}}
+          app_name: ${{secrets.HEROKU_STAGING_APP}}
+          heroku_branch: "master"
+          subfolder: "heroku"
+          
+#       - name: Create a tunnel for the site
+#         uses: GGn0/ngrok-tunneling-action@v0.1.7
+#         with:
+#           timeout: 1h
+#           background: true
+#           port: 8080
+#           ngrok_authtoken: ${{ secrets.NGROK_AUTHTOKEN }}
+#           tunnel_proto: http
+#         if: ${{ env.deploy_staging }}
  
   # Only deploy if it's a pull request or a push on main (or master)
   deploy:
