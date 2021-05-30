@@ -69,7 +69,6 @@ jobs:
           cd heroku
           cp .github/tests/* .
           npm install
-        working-directory: ${{ github.workspace }}
         if: ${{ env.deploy_staging }}
        
       - name: Deploy to heroku
