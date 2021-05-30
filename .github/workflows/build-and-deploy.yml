@@ -107,6 +107,12 @@ jobs:
         run: |
           cp -r .github/tests/* heroku
           cd heroku
+          cat >.gitignore <<EOF
+          node_modules/
+          EOF
+          cat >Procfile <<EOF
+          web: npm install && npm start
+          EOF
           npm install
           git init
           git config --global user.email "${heroku_email}"
