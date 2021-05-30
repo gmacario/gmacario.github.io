@@ -72,7 +72,7 @@ jobs:
         if: ${{ env.deploy_staging }}
        
       - name: Deploy to heroku
-        uses: onekiloparsec/heroku-node-deploy-subfolder@v1.0.4
+        uses: onekiloparsec/heroku-node-deploy-subfolder@v1.1.0
         with:
           api_key: ${{secrets.HEROKU_API_KEY}}
           email: ${{secrets.HEROKU_EMAIL}}
