@@ -77,7 +77,7 @@ jobs:
           api_key: ${{secrets.HEROKU_API_KEY}}
           email: ${{secrets.HEROKU_EMAIL}}
           app_name: ${{secrets.HEROKU_STAGING_APP}}
-          heroku_branch: "master"
+          branch: "master"
           subfolder: "heroku"
           
 #       - name: Create a tunnel for the site
