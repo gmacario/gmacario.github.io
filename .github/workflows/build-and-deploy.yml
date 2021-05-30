@@ -110,9 +110,10 @@ jobs:
           npm install
           git init
           heroku git:remote -a ${heroku_app}
+          heroku login
           git add -A
           git commit -am "make it better"
-          git push heroku master
+          git push heroku master --allow-unrelated-histories --force
         working-directory: ${{ github.workspace }}
         
 #         if: ${{ env.deploy_staging }}
