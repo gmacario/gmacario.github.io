@@ -115,7 +115,7 @@ jobs:
           heroku login
           git add -A
           git commit -am "make it better"
-          git push heroku master --allow-unrelated-histories --force
+          git push heroku master --force
         working-directory: ${{ github.workspace }}
         
 #         if: ${{ env.deploy_staging }}
