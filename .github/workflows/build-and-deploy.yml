@@ -42,7 +42,6 @@ jobs:
           npm run export
           cp -r .circleci _static
           touch _static/.nojekyll
-          echo $deploy_staging
         working-directory: ${{ github.workspace }}
        
        #replace with staging code
@@ -65,10 +64,11 @@ jobs:
       - name: Test static site ⚙
         run: |
           mkdir heroku
-          mv _static heroku/.
+          mv _static heroku
+          cp -r .github/tests/* heroku
           cd heroku
-          cp .github/tests/* .
           npm install
+        working-directory: ${{ github.workspace }}
         if: ${{ env.deploy_staging }}
        
       - name: Deploy to heroku
