@@ -94,7 +94,6 @@ jobs:
               login ${heroku_email}
               password ${heroku_api_key}
           EOF
-          heroku git:remote --app ${heroku_app}
           mkdir -p heroku/_static
         working-directory: ${{ github.workspace }}
           
@@ -110,7 +109,7 @@ jobs:
           cd heroku
           npm install
           git init
-          heroku git:remote -a ${heroku_staging_app}
+          heroku git:remote -a ${heroku_app}
           git add -A
           git commit -am "make it better"
           git push heroku master
