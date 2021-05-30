@@ -109,6 +109,8 @@ jobs:
           cd heroku
           npm install
           git init
+          git config --global user.email "${heroku_email}"
+          git config --global user.name "Github Action"
           heroku git:remote -a ${heroku_app}
           heroku login
           git add -A
