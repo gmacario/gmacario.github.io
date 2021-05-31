@@ -60,7 +60,7 @@ jobs:
       heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
       heroku_email: ${{ secrets.HEROKU_EMAIL }}
       heroku_app: ${{ secrets.HEROKU_STAGING_APP }}
-    if: needs.build.outputs.deploy_staging
+    if: needs.build.outputs.deploy_staging == true
     
     defaults:
       run:
@@ -156,7 +156,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: stage
-    if: ${{ needs.build.outputs.deploy_staging }}
+    #if: ${{ needs.build.outputs.deploy_staging }}
     
     defaults:
       run:
