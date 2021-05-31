@@ -22,19 +22,19 @@ jobs:
         working-directory: ${{ github.workspace }}
         
       - name: if test 0
-        if: ${{env.deploy_staging}}
+        if: ${{env.deploy_staging == true}}
         run: echo if test 0
         working-directory: ${{ github.workspace }}
       - name: if test 1
-        if: ${{env.deploy_staging == true}}
+        if: ${{env.deploy_staging == 'true'}}
         run: echo if test 1
         working-directory: ${{ github.workspace }}
       - name: if test 2
-        if: (env.deploy_staging)
+        if: env.deploy_staging == 'true'
         run: echo if test 2
         working-directory: ${{ github.workspace }}
       - name: if test 3
-        if: (env.deploy_staging == true)
+        if: (env.deploy_staging == 'true')
         run: echo if test 3
         working-directory: ${{ github.workspace }}
         
