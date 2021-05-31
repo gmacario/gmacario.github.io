@@ -22,7 +22,7 @@ jobs:
         working-directory: ${{ github.workspace }}
         
       - name: if test 0
-        if: ${{env.deploy_staging == true}}
+        if: ${{env.deploy_staging}}
         run: echo if test 0
         working-directory: ${{ github.workspace }}
       - name: if test 1
