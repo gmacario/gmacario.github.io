@@ -143,7 +143,7 @@ jobs:
             I have built your static site 🛠   
             and deployed it in a staging environment 🚢
             
-            You can check out the result at [${{  }}.herokuapp.com]()
+            You can check out the result at [${{ env.heroku_app }}.herokuapp.com]( ${{ env.heroku_app }}.herokuapp.com )
             
             And approve (or reject) the results [here](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
             
