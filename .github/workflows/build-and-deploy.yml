@@ -36,7 +36,7 @@ jobs:
         env:
             CI: true
 
-      - name: Export static site
+      - name: Export static site 💻
         run: |
           npm install
           npm run export
@@ -44,12 +44,12 @@ jobs:
           touch _static/.nojekyll
         working-directory: ${{ github.workspace }}
        
-      - name: Make artifacts 📦
-        uses: actions/upload-artifact@v2
-        with:
-          name: site_artifact
-          path: _static
+      - name: Cache build artifacts 📦
         if: ${{ env.deploy_staging }}
+        uses: actions/cache@v2
+        with:
+          path: ${{ github.workspace }}/_static
+          key: ${{ runner.os }}-static-site-${{ github.sha }}
   
   stage:
     runs-on: ubuntu-latest
@@ -83,7 +83,7 @@ jobs:
 #           npm install
 #         working-directory: ${{ github.workspace }}
     
-      - name: Setup heroku CLI
+      - name: Setup heroku CLI 🛠
         run: |
           curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
           cat >~/.netrc <<EOF
@@ -97,13 +97,13 @@ jobs:
           mkdir -p heroku/_static
         working-directory: ${{ github.workspace }}
           
-      - name: Retrieve artifacts 📦
-        uses: actions/download-artifact@v2
+      - name: Restore build artifacts cache 📦
+        uses: actions/cache@v2
         with:
-          name: site_artifact
-          path: heroku/_static
+          path: ${{ github.workspace }}/_static
+          key: ${{ runner.os }}-static-site-${{ github.sha }}
       
-      - name: Deploy to heroku
+      - name: Deploy to heroku 🚀
         run: |
           cp -r .github/tests/* heroku
           cd heroku
@@ -133,8 +133,23 @@ jobs:
 #           port: 8080
 #           ngrok_authtoken: ${{ secrets.NGROK_AUTHTOKEN }}
 #           tunnel_proto: http
-#         if: ${{ env.deploy_staging }}
- 
+#         if: ${{ env.deploy_staging }
+      - name: Create comment on pr 🧾
+        uses: mshick/add-pr-comment@v1
+        with:
+          message: |
+            Beep boop. I am a bot 🤖  
+            
+            I have built your static site 🛠   
+            and deployed it in a staging environment 🚢
+            
+            You can check out the result at [${{  }}.herokuapp.com]()
+            
+            And approve (or reject) the results [here](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
+          
   # Only deploy if it's a pull request or a push on main (or master)
   deploy:
     runs-on: ubuntu-latest
@@ -149,25 +164,7 @@ jobs:
     environment:
       name: staging_environment  
       
-    steps:
-
-      # Add ngrock link
-      - name: Create comment on pr 🧾
-        uses: mshick/add-pr-comment@v1
-        with:
-          message: |
-            Beep boop. I am a bot 🤖  
-            
-            I have built your static site 🛠   
-            and deployed it in a staging environment 🚢
-            
-            You can check out the result at
-            
-            And approve (or reject) the results [here](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
-            
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
-          
+    steps:          
       - name: Checkout 🛎️
         uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
         with:
@@ -178,16 +175,16 @@ jobs:
           mkdir _static
         working-directory: ${{ github.workspace }}
           
-      - name: Retrieve artifacts 📦
-        uses: actions/download-artifact@v2
+      - name: Restore build artifacts cache 📦
+        uses: actions/cache@v2
         with:
-          name: site_artifact
-          path: _static
+          path: ${{ github.workspace }}/_static
+          key: ${{ runner.os }}-static-site-${{ github.sha }}
           
-      - name: Deploy production 🚀 ⏳
+      - name: Deploy production 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages # The branch the action should deploy to.
-          folder: . # The folder the action should deploy.
+          folder: ${{ github.workspace }}/_static # The folder the action should deploy.
           clean: true # Automatically remove deleted files from the deploy branch
