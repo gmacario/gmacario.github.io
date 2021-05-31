@@ -17,7 +17,8 @@ jobs:
         working-directory: ./src
     
     steps:
-      - run: echo ${deploy_staging}
+      - name: Check staging condition
+        run: echo ${deploy_staging}
         working-directory: ${{ github.workspace }}
       - name: Checkout 🛎️
         uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
@@ -46,7 +47,7 @@ jobs:
         working-directory: ${{ github.workspace }}
        
       - name: Cache build artifacts 📦
-        if: ${{ env.deploy_staging }}
+        if: env.deploy_staging
         uses: actions/cache@v2
         with:
           path: ${{ github.workspace }}/_static
@@ -59,8 +60,7 @@ jobs:
       heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
       heroku_email: ${{ secrets.HEROKU_EMAIL }}
       heroku_app: ${{ secrets.HEROKU_STAGING_APP }}
-      deploy_staging: ${{ needs.build.outputs.deploy_staging }}
-    if: ${{ needs.build.outputs.deploy_staging }}
+    if: needs.build.outputs.deploy_staging
     
     defaults:
       run:
@@ -68,8 +68,6 @@ jobs:
         working-directory: ./src
     
     steps:
-      - run: echo ${deploy_staging}
-        working-directory: ${{ github.workspace }}
       - name: Checkout 🛎️
         uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
         with:
