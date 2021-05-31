@@ -1,0 +1,19 @@
+{
+  "name": "serve-static-site",
+  "version": "1.0.0",
+  "description": "Serve a static site withanhttp server",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "GGn0",
+  "license": "ISC",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
