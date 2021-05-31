@@ -47,7 +47,7 @@ jobs:
         working-directory: ${{ github.workspace }}
        
       - name: Cache build artifacts 📦
-        if: env.deploy_staging
+        if: env.deploy_staging == true
         uses: actions/cache@v2
         with:
           path: ${{ github.workspace }}/_static
