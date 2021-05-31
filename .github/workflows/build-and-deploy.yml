@@ -18,6 +18,7 @@ jobs:
     
     steps:
       - run: echo ${deploy_staging}
+        working-directory: ${{ github.workspace }}
       - name: Checkout 🛎️
         uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
         with:
@@ -68,6 +69,7 @@ jobs:
     
     steps:
       - run: echo ${deploy_staging}
+        working-directory: ${{ github.workspace }}
       - name: Checkout 🛎️
         uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
         with:
