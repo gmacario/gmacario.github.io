@@ -82,18 +82,18 @@ jobs:
               login ${heroku_email}
               password ${heroku_api_key}
           EOF
-          mkdir -p heroku/_static
         working-directory: ${{ github.workspace }}
           
       - name: Restore build artifacts cache 📦
         uses: actions/cache@v2
         with:
-          path: ${{ github.workspace }}/heroku/_static
+          path: ${{ github.workspace }}/_static
           key: ${{ runner.os }}-static-site-${{ github.sha }}
       
       - name: Deploy to heroku 🚀
         run: |
           cp -r .github/tests/* heroku
+          cp -r _static heroku 
           cd heroku
           cat >.gitignore <<EOF
           node_modules/
