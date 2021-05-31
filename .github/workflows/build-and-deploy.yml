@@ -20,6 +20,24 @@ jobs:
       - name: Check staging condition
         run: echo ${deploy_staging}
         working-directory: ${{ github.workspace }}
+        
+      - name: if test 0
+        if: ${{env.deploy_staging}}
+        run: echo if test 0
+        working-directory: ${{ github.workspace }}
+      - name: if test 1
+        if: ${{env.deploy_staging == true}}
+        run: echo if test 1
+        working-directory: ${{ github.workspace }}
+      - name: if test 2
+        if: (env.deploy_staging)
+        run: echo if test 2
+        working-directory: ${{ github.workspace }}
+      - name: if test 3
+        if: (env.deploy_staging == true)
+        run: echo if test 3
+        working-directory: ${{ github.workspace }}
+        
       - name: Checkout 🛎️
         uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
         with:
