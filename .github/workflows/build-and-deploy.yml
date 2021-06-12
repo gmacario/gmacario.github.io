@@ -69,22 +69,22 @@ jobs:
       - name: Check secrets 🔐
         run: |
           if [[ -z "${heroku_email}" ]]; then
-            echo Heroku email found
-          else
             echo Cannot find heroku mail! Add it to the repo secrets as HEROKU_EMAIL
             exit 1
+          else
+            echo Heroku email found
           fi
           if [[ -z "${heroku_app}" ]]; then
-            echo Heroku deploy app name found
-          else
             echo Cannot find heroku deploy app name! Add it to the repo secrets as HEROKU_STAGING_APP
             exit 1
+          else
+            echo Heroku deploy app name found
           fi
           if [[ -z "${heroku_api_key}" ]]; then
-            echo Heroku api key found
-          else
             echo Cannot find api key! Add it to the repo secrets as HEROKU_API_KEY
             exit 1
+          else
+            echo Heroku api key found
           fi
         
         working-directory: ${{ github.workspace }}
