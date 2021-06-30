@@ -1,6 +1,5 @@
 # gmacario.github.io
 
-[![CircleCI](https://circleci.com/gh/gmacario/gmacario.github.io.svg?style=shield)](https://circleci.com/gh/gmacario/gmacario.github.io)
 ![Build and deploy](https://github.com/gmacario/gmacario.github.io/actions/workflows/build-and-deploy.yml/badge.svg)
 ![Check links](https://github.com/gmacario/gmacario.github.io/actions/workflows/check-links.yml/badge.svg)
 
