@@ -2,7 +2,7 @@
 
 layout: post
 title: "Our Journey to the DigitalOcean MongoDB Hackathon"
-date: 2021/07/16
+date: 2021/07/17
 tags: 	mongodb digitalocean hackathon teaser blowfisher
 
 ---
