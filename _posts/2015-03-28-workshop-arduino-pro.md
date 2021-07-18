@@ -115,7 +115,7 @@ Press the "WiFi" button for 30 seconds to restore factory image and settings.
 
 Console log:
 
-```
+```text
 U-Boot 1.1.4-g15f12ddd-dirty (Oct 14 2014 - 16:01:08)
 
 Arduino Yun (ar9331) U-boot
@@ -339,7 +339,7 @@ root@Arduino:/#
 
 Verify default networking
 
-```
+```text
 root@Arduino:/# ifconfig -a
 eth0      Link encap:Ethernet  HWaddr 90:A2:DA:F0:1B:D4  
           BROADCAST MULTICAST  MTU:1500  Metric:1
@@ -388,7 +388,7 @@ Here I had some troubles, which I debugged as follows.
 
 As my laptop was running MS Windows 7 and I had Cygwin installed, I used the following commands
 
-```
+```sh
 $ ipconfig
 $ ping 192.168.240.1
 $ ping arduino.local
@@ -453,7 +453,7 @@ Now access <http://adaygmacario.local>
 
 From the serial terminal
 
-```
+```text
 root@AdayGmacario:/# ifconfig
 eth1      Link encap:Ethernet  HWaddr 90:A2:DA:F8:1B:D4  
           UP BROADCAST MULTICAST  MTU:1500  Metric:1

@@ -1,0 +1,96 @@
+name: Super-Linter
+
+# Run this workflow every time a new commit pushed to your repository
+on: push
+
+jobs:
+  # Set the job key. The key is displayed as the job name
+  # when a job name is not provided
+  super-lint:
+    # Name the Job
+    name: Lint code base
+    # Set the type of machine to run on
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks out a copy of your repository on the ubuntu-latest machine
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Run Super-Linter against code base
+      - name: Super-Lint Code Base
+        # uses: github/super-linter@v4.5.0
+        uses: docker://ghcr.io/github/super-linter:slim-v4
+        env:
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          #
+          # ------------------------------------------------------------
+          # Files with errors based on SuperLinter default settings:
+          #
+          # [jscpd]
+          # ERROR: jscpd found too many duplicates (4.12%) over threshold (0%)
+          # /github/workspace/.github/workflows/build-and-deploy.yml
+          # ------------------------------------------------------------
+          #
+          # See <https://docs.github.com/en/actions/reference/environment-variables>
+          # The syntax of file .jscpd.json is documented in
+          # <https://github.com/kucherenko/jscpd/tree/master/packages/jscpd#config-file>
+          JSCPD_CONFIG_FILE: ../../../$GITHUB_WORKSPACE/.jscpd.json
+          #
+          # ------------------------------------------------------------
+          # Files with errors not displayed thanks to FILTER_REGEX_EXCLUDE:
+          #
+          # /github/workspace/_drafts/*.md
+          #
+          # [stylelint]
+          # /github/workspace/public/bio/cv.css
+          # /github/workspace/styles/globals.css
+          #
+          # [jscpd]
+          # /github/workspace/_posts/2015-03-30-upgrading-openwrt-on-my-yun.md
+          # /github/workspace/_posts/2015-04-11-notes-from-cyanogenmod-workshop-at-it-droidcon-2015.md
+          # /github/workspace/_posts/2015-04-23-building-genivi-demo-platform.md
+          # /github/workspace/_posts/2017-03-03-restoring-arduino-yun-factory-settings.md
+          # /github/workspace/_posts/2017-07-27-trying-espotek-labrador.md
+          #
+          # [markdownlint]
+          # /github/workspace/_posts/2015-03-27-preparing-my-yun-for-the-arduino-day.md
+          # /github/workspace/_posts/2015-03-28-workshop-arduino-pro.md
+          # /github/workspace/_posts/2015-03-30-upgrading-openwrt-on-my-yun.md
+          # /github/workspace/_posts/2015-04-11-notes-from-cyanogenmod-workshop-at-it-droidcon-2015.md
+          # /github/workspace/_posts/2015-04-15-using-jekyll-with-pages.md
+          # /github/workspace/_posts/2015-04-18-trying-android-studio.md
+          # /github/workspace/_posts/2015-04-19-trying-genymotion.md
+          # /github/workspace/_posts/2015-04-23-building-genivi-demo-platform.md
+          # /github/workspace/_posts/2015-11-07-searching-for-files-in-ubuntu-packages.md
+          # /github/workspace/_posts/2015-11-12-trying-yocto-on-udoo-neo.md
+          # /github/workspace/_posts/2015-11-14-running-yocto-image-inside-virtualbox.md
+          # /github/workspace/_posts/2015-11-15-installing-terminator-on-ubuntu-1404.md
+          # /github/workspace/_posts/2015-11-22-building-yocto-for-udooneo.md
+          # /github/workspace/_posts/2015-11-29-install-openwrt-on-kingston-mlwg2.md
+          # /github/workspace/_posts/2015-12-10-testing-rancheros.md
+          # /github/workspace/_posts/2016-01-06-trying-openelec-on-raspberry-pi2.md
+          # /github/workspace/_posts/2016-01-08-installing-dlt-viewer-on-windows.md
+          # /github/workspace/_posts/2016-06-08-webapps-embsys-jsnight.md
+          # /github/workspace/_posts/2016-12-23-trying-gdp11-on-rpi3.md
+          # /github/workspace/_posts/2017-01-19-trying-kali-2.1.2-on-rpi3.md
+          # /github/workspace/_posts/2017-03-03-restoring-arduino-yun-factory-settings.md
+          # /github/workspace/_posts/2017-03-14-trying-chip.md
+          # /github/workspace/_posts/2017-03-31-trying-volumio-on-rpi3.md
+          # /github/workspace/_posts/2017-05-15-trying-gdp-master-raspberrypi3.md
+          # /github/workspace/_posts/2017-07-11-install-build-rokers-io.md
+          # /github/workspace/_posts/2017-08-08-cmdline-git-with-github-2fa.md
+          # /github/workspace/_posts/2017-09-11-git-aware-prompt.md
+          # /github/workspace/_posts/2018-09-20-transfer-files-without-scp.md
+          # /github/workspace/_posts/2018-09-28-minikube-sync-config-with-cygwin.md
+          # /github/workspace/_posts/2018-10-09-install-jenkinsx-on-gcp.md
+          # /github/workspace/_posts/2018-10-16-test-hello-node-on-jx.md
+          # /github/workspace/_posts/2018-10-17-deploy-wordpress-mysql-on-pvc.md
+          # /github/workspace/_posts/2018-10-29-my-first-angular-app.md
+          # ------------------------------------------------------------
+          #
+          # FILTER_REGEX_EXCLUDE: .*_drafts/.*.md
+          FILTER_REGEX_EXCLUDE: .*(_(drafts|posts)\/20(15|16|17|18).*\.md|.*\.css)
+
+# EOF
