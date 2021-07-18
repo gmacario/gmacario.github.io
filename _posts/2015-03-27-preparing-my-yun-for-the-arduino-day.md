@@ -51,14 +51,14 @@ You can change defaults by selecting the "CONFIGURE" button, which will you retu
 >
 > **YUN BOARD CONFIGURATION**
 > * YUN NAME: `Arduino`
-> * PASSWORD: ` `
-> * CONFIRM PASSWORD: ` `
+> * PASSWORD: `_`
+> * CONFIRM PASSWORD: `_`
 > * TIMEZONE: Rest of the World (UTC)
 >
 > **WIRELESS PARAMETERS**
 > * CONFIGURE A WIRELESS NETWORK: Yes
 > * DETECT WIRELESS NETWORKS (Select a wifi network...)
-> * WIRELESS NAME: ` `
+> * WIRELESS NAME: `_`
 > * SECURITY: None
 >
 > (DISCARD) (CONFIGURE & RESTART)
@@ -87,10 +87,10 @@ Reference: <https://www.temboo.com/arduino/yun/>
 From <https://www.temboo.com/arduino/yun/getting-started>
 
 1. [Log in](https://www.temboo.com/login) to Temboo.
-  * Example: gmacario/xxx
+   * Example: gmacario/xxx
 2.  Go to our Library and find the [Yahoo > Weather > GetWeatherByAddress](https://www.temboo.com/library/Library/Yahoo/Weather/GetWeatherByAddress/) Choreo.
 3. Enter any complete address in the **Address** input field.
-  * Example: `Via Egeo, 2 Torino Italy`
+   * Example: `Via Egeo, 2 Torino Italy`
 4. Now click **Run**. After a moment you'll see the data that Yahoo Weather sends back shown in the Output section of the page (which is right below the Input section).
 
 #### Make your Arduino Sketch

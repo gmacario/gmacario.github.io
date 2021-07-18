@@ -20,7 +20,7 @@ When the white LED is turned on, browse Wi-Fi networks on your laptop.
 
 Connect to Wi-Fi network "Arduino-Yun-90A2DAF30C7B" (the second part of the SSID corresponds to the MAC address of the WiFi transceiver on your Yun).
 
-Browse http://arduino.local/
+Browse <http://arduino.local/>
 
 * Default password: `arduino`
 
@@ -30,7 +30,7 @@ One the networking on your Yun is properly configured, you may login to it via S
 
 ## Login via SSH to my YUN
 
-```
+```sh
 $ ssh root@arduino.local
 root@arduino.local's password:
 
@@ -53,7 +53,7 @@ Once you have successfully logged into your YUN, you may inspect the software co
 
 ### cat /proc/cpuinfo
 
-```
+```sh
 root@Arduino:~# cat /proc/cpuinfo
 system type             : Atheros AR9330 rev 1
 machine                 : Arduino Yun
@@ -77,7 +77,7 @@ root@Arduino:~#
 
 ### cat /proc/version
 
-```
+```sh
 root@Arduino:~# cat /proc/version
 Linux version 3.3.8 (jenkins@jenkins) (gcc version 4.6.3 20120201 (prerelease) (Linaro GCC 4.6-2012.02) ) #1 Fri Apr 11 07:16:38 CEST 2014
 root@Arduino:~#
@@ -85,7 +85,7 @@ root@Arduino:~#
 
 ### df -h
 
-```
+```sh
 root@Arduino:~# df -h
 Filesystem                Size      Used Available Use% Mounted on
 rootfs                    7.0M    360.0K      6.6M   5% /
@@ -99,7 +99,7 @@ root@Arduino:~#
 
 ### ls -la
 
-```
+```sh
 root@Arduino:~# ls -la /
 drwxr-xr-x    1 root     root             0 Sep  8  2011 .
 drwxr-xr-x    1 root     root             0 Sep  8  2011 ..
@@ -125,7 +125,7 @@ root@Arduino:~#
 
 ### cat /.extroot.md5sum
 
-```
+```sh
 root@Arduino:~# cat /.extroot.md5sum
 6e17e158dbfa1ea4da2e3f90c2819ca6
 root@Arduino:~#
@@ -133,7 +133,7 @@ root@Arduino:~#
 
 ### lsusb
 
-```
+```sh
 root@Arduino:~# lsusb
 Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 Bus 001 Device 002: ID 058f:6254 Alcor Micro Corp. USB Hub
@@ -144,7 +144,7 @@ root@Arduino:~#
 
 ### uci show
 
-```
+```sh
 root@Arduino:~# uci show
 arduino.@arduino[0]=arduino
 arduino.@arduino[0].password=775e9f944188a7bcb36e9ca5dc51672b44bcceeb7d56d89dfb914eb3a1ff2d69
@@ -318,7 +318,7 @@ root@Arduino:~#
 
 We have a total of 167 configuration entries
 
-```
+```sh
 root@Arduino:~# uci show | wc -l
 167
 root@Arduino:~#

@@ -1,114 +1,138 @@
 /* Applies to overall page */
-BODY{
-	background-color : #FFFFFF;
-	font-family : Arial, Helvetica, sans-serif;
-	font-size : 10pt;
+
+BODY {
+    background-color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
 }
+
 
 /* Headers and titles */
-H1{
-	color : #000066;
-	background-color : transparent;
-	border : thin solid #9999CC;
-	/* padding-left : 10px; */
-	font : bold;
-	font-size : x-large;
+
+H1 {
+    color: #000066;
+    background-color: transparent;
+    border: thin solid #9999CC;
+    /* padding-left : 10px; */
+    font: bold;
+    font-size: x-large;
 }
-H2{
-	color : #000066;
-	background-color : transparent;
-	border-bottom : medium double #9999CC;
-	<!-- margin-left : 10px; -->
-	font : bold;
-	font-size : medium;
+
+H2 {
+    color: #000066;
+    background-color: transparent;
+    border-bottom: medium double #9999CC;
+    /* margin-left : 10px; */
+    font: bold;
+    font-size: medium;
     page-break-before: 10cm;
 }
-H3{
-	color : #000066;
-	/* margin-left : 10px; */
-	font : normal;
-	font-size : small;
+
+H3 {
+    color: #000066;
+    /* margin-left : 10px; */
+    font: normal;
+    font-size: small;
 }
-H4{
-	color : #993333;
-	font : bold;
-	font-size : small;
-	/* margin-left : 10px; */
+
+H4 {
+    color: #993333;
+    font: bold;
+    font-size: small;
+    /* margin-left : 10px; */
 }
-	
+
+
 /* Horizontal  rules */
-HR{
-	color : #CC6666;
-	height : 1px;
-	margin-left : 10px;
-	}
+
+HR {
+    color: #CC6666;
+    height: 1px;
+    margin-left: 10px;
+}
+
 
 /* Paragraphs */
-P{
-	/* color : #000066; */
-	font : small;
-	/* margin-left : 10px; */
-	}
+
+P {
+    /* color : #000066; */
+    font: small;
+    /* margin-left : 10px; */
+}
+
 
 /* Hyperlinks */
-A{
-	color : #0000FF;
-	text-decoration : underline;
-	}
-A:VISITED{
-	color : #9999CC;
-	text-decoration : underline;
-	}
-A:HOVER{
-	color : #993333;
-	text-decoration : underline;
-	}
-A:ACTIVE{
-	color : #993333;
-	text-decoration : underline;
-	}
+
+A {
+    color: #0000FF;
+    text-decoration: underline;
+}
+
+A:VISITED {
+    color: #9999CC;
+    text-decoration: underline;
+}
+
+A:HOVER {
+    color: #993333;
+    text-decoration: underline;
+}
+
+A:ACTIVE {
+    color: #993333;
+    text-decoration: underline;
+}
+
 
 /* Lists */
-OL{
-	/* color : #000066; */
-	font : normal;
-	}
+
+OL {
+    /* color : #000066; */
+    font: normal;
+}
+
 LI {
-	padding-top: 2pt;
-	padding-bottom: 3pt;
-	}
-UL{
-	/* color : #000066; */
-	/* list-style-type : circle; */
-	/* list-style-image : url(folio001bu.gif); */
-	list-style-position : outside;
-	}
+    padding-top: 2pt;
+    padding-bottom: 3pt;
+}
+
+UL {
+    /* color : #000066; */
+    /* list-style-type : circle; */
+    /* list-style-image : url(folio001bu.gif); */
+    list-style-position: outside;
+}
+
 DT {
-	padding-top: 2pt;
-	padding-bottom: 3pt;
-	}
+    padding-top: 2pt;
+    padding-bottom: 3pt;
+}
+
 
 /* Tables */
-TABLE{
-	border : 0px;
-	}
-TH{
-	color : #000066;
-	text-align : center;
-	background-color : #9999CC;
-	font : bold;
-	border-width : 0px;
-	border-bottom: medium solid #666699;
-	padding : 5px;
-	text-align : center;
+
+TABLE {
+    border: 0px;
 }
-TD{
-	color : #000000;
-	text-align : left;
-	background-color : transparent;
-	font : smaller;
-	border-width : 0px;
-	border-bottom : thin dotted #666699;
-	padding : 5px;
-	margin : 0px 0px 0px 5px;
+
+TH {
+    color: #000066;
+    text-align: center;
+    background-color: #9999CC;
+    font: bold;
+    border-width: 0px;
+    border-bottom: medium solid #666699;
+    padding: 5px;
+    text-align: center;
+}
+
+TD {
+    color: #000000;
+    text-align: left;
+    background-color: transparent;
+    font: smaller;
+    border-width: 0px;
+    border-bottom: thin dotted #666699;
+    padding: 5px;
+    margin: 0px 0px 0px 5px;
 }
