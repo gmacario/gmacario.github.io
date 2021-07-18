@@ -25,21 +25,21 @@ jobs:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           #
-          # (/action/lib/.automation/xxx.json) doesn't exist. Terminating...
-          # JSCPD_CONFIG_FILE: xxx.json
-          #
-          # See <https://docs.github.com/en/actions/reference/environment-variables>
-          JSCPD_CONFIG_FILE: ../../../$GITHUB_WORKSPACE/.jscpd.json
-          #
           # ------------------------------------------------------------
-          # Files with SuperLinter errors as of 2021-07-18:
+          # Files with errors based on SuperLinter default settings:
           #
           # [jscpd]
           # ERROR: jscpd found too many duplicates (4.12%) over threshold (0%)
           # /github/workspace/.github/workflows/build-and-deploy.yml
+          # ------------------------------------------------------------
+          #
+          # See <https://docs.github.com/en/actions/reference/environment-variables>
+          # The syntax of file .jscpd.json is documented in
+          # <https://github.com/kucherenko/jscpd/tree/master/packages/jscpd#config-file>
+          JSCPD_CONFIG_FILE: ../../../$GITHUB_WORKSPACE/.jscpd.json
           #
           # ------------------------------------------------------------
-          # Errors not displayed thanks to FILTER_REGEX_EXCLUDE:
+          # Files with errors not displayed thanks to FILTER_REGEX_EXCLUDE:
           #
           # /github/workspace/_drafts/*.md
           #
