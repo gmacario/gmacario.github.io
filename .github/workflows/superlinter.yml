@@ -87,6 +87,6 @@ jobs:
           # /github/workspace/_drafts/*.md
           #
           # FILTER_REGEX_EXCLUDE: .*_drafts/.*.md
-          FILTER_REGEX_EXCLUDE: .*_{drafts,posts}/20{15,16,17,18}.*.md
+          FILTER_REGEX_EXCLUDE: .*_(drafts|posts)\/20(15|16|17|18).*.md
 
 # EOF
