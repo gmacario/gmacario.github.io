@@ -7,7 +7,7 @@
             "@layouts/*": ["_layouts/*"],
             "@posts/*": ["_posts/*"],
             "@api": ["api/index"],
-            "@style": ["styles/globals.css"],
+            "@style": ["styles/globals.css"]
         }
     }
 }
