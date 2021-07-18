@@ -29,25 +29,23 @@ jobs:
           # JSCPD_CONFIG_FILE: xxx.json
           #
           # See <https://docs.github.com/en/actions/reference/environment-variables>
-          # JSCPD_CONFIG_FILE: $GITHUB_WORKSPACE/.jscpd.json
+          JSCPD_CONFIG_FILE: ../../../$GITHUB_WORKSPACE/.jscpd.json
           #
           # ------------------------------------------------------------
           # Files with SuperLinter errors as of 2021-07-18:
           #
+          # [jscpd]
+          # ERROR: jscpd found too many duplicates (4.12%) over threshold (0%)
+          # /github/workspace/.github/workflows/build-and-deploy.yml
+          #
+          # ------------------------------------------------------------
+          # Errors not displayed thanks to FILTER_REGEX_EXCLUDE:
+          #
+          # /github/workspace/_drafts/*.md
+          #
           # [stylelint]
           # /github/workspace/public/bio/cv.css
           # /github/workspace/styles/globals.css
-          #
-          # [jscpd]
-          # /github/workspace/.github/workflows/build-and-deploy.yml
-          #
-          # [eslint]
-          # /github/workspace/jsconfig.json
-          #
-          # ------------------------------------------------------------
-          # NOT CHECKED thanks to FILTER_REGEX_EXCLUDE:
-          #
-          # /github/workspace/_drafts/*.md
           #
           # [jscpd]
           # /github/workspace/_posts/2015-03-30-upgrading-openwrt-on-my-yun.md
@@ -90,6 +88,7 @@ jobs:
           # /github/workspace/_posts/2018-10-16-test-hello-node-on-jx.md
           # /github/workspace/_posts/2018-10-17-deploy-wordpress-mysql-on-pvc.md
           # /github/workspace/_posts/2018-10-29-my-first-angular-app.md
+          # ------------------------------------------------------------
           #
           # FILTER_REGEX_EXCLUDE: .*_drafts/.*.md
           FILTER_REGEX_EXCLUDE: .*(_(drafts|posts)\/20(15|16|17|18).*\.md|.*\.css)
