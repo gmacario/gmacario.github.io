@@ -19,10 +19,10 @@ jobs:
 
       # Runs the Super-Linter action
       - name: Run Super-Linter
-        uses: github/super-linter@v3
+        uses: github/super-linter@v4.5.0
         env:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # Skip .vscode/*.json (JSON files with comments not yet supported - see https://github.com/github/super-linter/issues/921)
-          FILTER_REGEX_EXCLUDE: .*vscode/.*.json
+          # FILTER_REGEX_EXCLUDE: .*vscode/.*.json
 # EOF
