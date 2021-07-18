@@ -17,12 +17,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Runs the Super-Linter action
-      - name: Run Super-Linter
-        uses: github/super-linter@v4.5.0
+      # Run Super-Linter against code base
+      - name: Super-Lint Code Base
+        # uses: github/super-linter@v4.5.0
+        uses: docker://ghcr.io/github/super-linter:slim-v4
         env:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # Skip .vscode/*.json (JSON files with comments not yet supported - see https://github.com/github/super-linter/issues/921)
+          ## Skip .vscode/*.json (JSON files with comments not yet supported - see https://github.com/github/super-linter/issues/921)
           # FILTER_REGEX_EXCLUDE: .*vscode/.*.json
 # EOF
