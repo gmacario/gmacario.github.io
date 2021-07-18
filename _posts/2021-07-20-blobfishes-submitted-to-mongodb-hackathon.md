@@ -14,7 +14,7 @@ A future and more detailed post will be released
 after closing https://github.com/gmacario/blobfishes/issues/28
 -->
 
-As I anticipated in my [previous post]() a few days ago I joined the [DigitalOcean MongoDB Hackathon](https://www.digitalocean.com/mongodb-hackathon/) together with a group of friends.
+As I anticipated in my [previous post](https://gmacario.github.io/posts/2021-07-17-our-journey-to-do-mongodb-hackathon) a few days ago I joined the [DigitalOcean MongoDB Hackathon](https://www.digitalocean.com/mongodb-hackathon/) together with a group of friends.
 
 <!--
 Even though the official objective of joining the Hackathon is to be awarded a prize, I believe all of us shared a few other goals:
