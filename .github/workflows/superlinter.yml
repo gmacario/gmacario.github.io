@@ -24,7 +24,12 @@ jobs:
         env:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          JSCPD_CONFIG_FILE: xxx.json
+          #
+          # (/action/lib/.automation/xxx.json) doesn't exist. Terminating...
+          # JSCPD_CONFIG_FILE: xxx.json
+          #
+          # See https://docs.github.com/en/actions/reference/environment-variables
+          JSCPD_CONFIG_FILE: ${{ github.workspace }}/.jscpd.json
           #
           # ------------------------------------------------------------
           # Files with SuperLinter errors as of 2021-07-18:
