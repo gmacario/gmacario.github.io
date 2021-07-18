@@ -24,6 +24,7 @@ jobs:
         env:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          JSCPD_CONFIG_FILE: xxx.json
           #
           # ------------------------------------------------------------
           # Files with SuperLinter errors as of 2021-07-18:
@@ -32,19 +33,23 @@ jobs:
           # /github/workspace/public/bio/cv.css
           # /github/workspace/styles/globals.css
           #
-          # [standard]
-          # /github/workspace/tailwind.config.js
-          #
           # [jscpd]
           # /github/workspace/.github/workflows/build-and-deploy.yml
+          #
+          # [eslint]
+          # /github/workspace/jsconfig.json
+          #
+          # ------------------------------------------------------------
+          # NOT CHECKED thanks to FILTER_REGEX_EXCLUDE:
+          #
+          # /github/workspace/_drafts/*.md
+          #
+          # [jscpd]
           # /github/workspace/_posts/2015-03-30-upgrading-openwrt-on-my-yun.md
           # /github/workspace/_posts/2015-04-11-notes-from-cyanogenmod-workshop-at-it-droidcon-2015.md
           # /github/workspace/_posts/2015-04-23-building-genivi-demo-platform.md
           # /github/workspace/_posts/2017-03-03-restoring-arduino-yun-factory-settings.md
           # /github/workspace/_posts/2017-07-27-trying-espotek-labrador.md
-          #
-          # [eslint]
-          # /github/workspace/jsconfig.json
           #
           # [markdownlint]
           # /github/workspace/_posts/2015-03-27-preparing-my-yun-for-the-arduino-day.md
@@ -80,11 +85,6 @@ jobs:
           # /github/workspace/_posts/2018-10-16-test-hello-node-on-jx.md
           # /github/workspace/_posts/2018-10-17-deploy-wordpress-mysql-on-pvc.md
           # /github/workspace/_posts/2018-10-29-my-first-angular-app.md
-          #
-          # ------------------------------------------------------------
-          # NOT CHECKED thanks to FILTER_REGEX_EXCLUDE:
-          #
-          # /github/workspace/_drafts/*.md
           #
           # FILTER_REGEX_EXCLUDE: .*_drafts/.*.md
           FILTER_REGEX_EXCLUDE: .*_(drafts|posts)\/20(15|16|17|18).*.md
