@@ -29,7 +29,7 @@ jobs:
           # JSCPD_CONFIG_FILE: xxx.json
           #
           # See https://docs.github.com/en/actions/reference/environment-variables
-          JSCPD_CONFIG_FILE: ${{ github.workspace }}/.jscpd.json
+          JSCPD_CONFIG_FILE: $GITHUB_WORKSPACE/.jscpd.json
           #
           # ------------------------------------------------------------
           # Files with SuperLinter errors as of 2021-07-18:
