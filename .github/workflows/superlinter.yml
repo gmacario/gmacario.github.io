@@ -24,6 +24,90 @@ jobs:
         env:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ## Skip .vscode/*.json (JSON files with comments not yet supported - see https://github.com/github/super-linter/issues/921)
-          # FILTER_REGEX_EXCLUDE: .*vscode/.*.json
+          #
+          # ------------------------------------------------------------
+          # Files with SuperLinter errors as of 2021-07-18:
+          #
+          # /github/workspace/.github/workflows/build-and-deploy.yml
+          #
+          # /github/workspace/_drafts/2015-01-15-trying-meteor.md
+          # /github/workspace/_drafts/2015-02-24-rebuilding-openwrt-for-arduino-yun.md
+          # /github/workspace/_drafts/2015-06-04-inspecting-android-402-on-sabresd.md
+          # /github/workspace/_drafts/2015-06-04-trying-android-l500-on-sabresd.md
+          # /github/workspace/_drafts/2015-06-04-vodafone-vf785-firmware-update.md
+          # /github/workspace/_drafts/2015-06-05-trying-android-on-freescale-sabresd.md
+          # /github/workspace/_drafts/2015-06-13-testing-systemd-bootchart-in-fedora-22.md
+          # /github/workspace/_drafts/2015-11-07-building-android-kk443-for-freescale-sabresd.md
+          # /github/workspace/_drafts/2015-11-07-compare-android-402-and-443-on-sabresd.md
+          # /github/workspace/_drafts/2015-11-07-configure-vagrant-atlassian.md
+          # /github/workspace/_drafts/2015-11-07-debugging-android-kk443-on-sabresd.md
+          # /github/workspace/_drafts/2015-11-26-yocto-reconfigure-kernel-udooneo.md
+          # /github/workspace/_drafts/2015-12-03-update-openwrt-on-arduino-yun.md
+          # /github/workspace/_drafts/2015-12-04-howto-mlwg2-datalogger.md
+          # /github/workspace/_drafts/2015-12-04-jenkins-docker-proxies-and-compose.md
+          # /github/workspace/_drafts/2015-12-13-continuous-integration-platform-using-docker-container.md
+          # /github/workspace/_drafts/2015-12-13-hacking-ip-power-9258.md
+          # /github/workspace/_drafts/2015-12-21-trying-docker-image-for-workflow-demo.md
+          # /github/workspace/_drafts/2015-12-24-trying-docker-ngnix-ssl-proxy.md
+          # /github/workspace/_drafts/2016-01-11-continuous-delivery-pipeline-with-docker-and-jenkins.md
+          # /github/workspace/_drafts/2016-01-11-hacking-obdii-port.md
+          # /github/workspace/_drafts/2016-01-15-configuring-remote-access-to-docker-engine.md
+          # /github/workspace/_drafts/2016-02-01-sierra-wireless-openhardware.md
+          # /github/workspace/_drafts/2016-02-13-trying-jenkins-pipeline-tutorial.md
+          # /github/workspace/_drafts/2016-02-14-trying-rancher.md
+          # /github/workspace/_drafts/2016-04-01-more-learning-docker-and-jenkins.md
+          # /github/workspace/_drafts/2016-12-30-trying-noobs-on-rpi3.md
+          # /github/workspace/_drafts/2016-12-31-building-cyanogenmod-11-for-samsung-galaxys2.md
+          # /github/workspace/_drafts/2017-01-20-compact-virtualbox-vdi-size.md
+          # /github/workspace/_drafts/2017-02-20-trying-sysdig.md
+          # /github/workspace/_drafts/2017-03-03-install-tinc-ardyungm33.md
+          # /github/workspace/_drafts/2017-04-04-trying-volumio-on-udooneo.md
+          #
+          # /github/workspace/_posts/2015-03-22-inspecting-yun-linux-configuration.md
+          # /github/workspace/_posts/2015-03-27-preparing-my-yun-for-the-arduino-day.md
+          # /github/workspace/_posts/2015-03-28-workshop-arduino-pro.md
+          # /github/workspace/_posts/2015-03-30-upgrading-openwrt-on-my-yun.md
+          # /github/workspace/_posts/2015-04-11-notes-from-cyanogenmod-workshop-at-it-droidcon-2015.md
+          # /github/workspace/_posts/2015-04-15-using-jekyll-with-pages.md
+          # /github/workspace/_posts/2015-04-18-trying-android-studio.md
+          # /github/workspace/_posts/2015-04-19-trying-genymotion.md
+          # /github/workspace/_posts/2015-04-23-building-genivi-demo-platform.md
+          # /github/workspace/_posts/2017-03-03-restoring-arduino-yun-factory-settings.md
+          # /github/workspace/_posts/2017-07-27-trying-espotek-labrador.md
+          # /github/workspace/_posts/2015-11-07-searching-for-files-in-ubuntu-packages.md
+          # /github/workspace/_posts/2015-11-12-trying-yocto-on-udoo-neo.md
+          # /github/workspace/_posts/2015-11-14-running-yocto-image-inside-virtualbox.md
+          # /github/workspace/_posts/2015-11-15-installing-terminator-on-ubuntu-1404.md
+          # /github/workspace/_posts/2015-11-22-building-yocto-for-udooneo.md
+          # /github/workspace/_posts/2015-11-29-install-openwrt-on-kingston-mlwg2.md
+          # /github/workspace/_posts/2015-12-10-testing-rancheros.md
+          # /github/workspace/_posts/2016-01-06-trying-openelec-on-raspberry-pi2.md
+          # /github/workspace/_posts/2016-01-08-installing-dlt-viewer-on-windows.md
+          # /github/workspace/_posts/2016-06-08-webapps-embsys-jsnight.md
+          # /github/workspace/_posts/2016-12-23-trying-gdp11-on-rpi3.md
+          # /github/workspace/_posts/2017-01-19-trying-kali-2.1.2-on-rpi3.md
+          # /github/workspace/_posts/2017-03-03-restoring-arduino-yun-factory-settings.md
+          # /github/workspace/_posts/2017-03-14-trying-chip.md
+          # /github/workspace/_posts/2017-03-31-trying-volumio-on-rpi3.md
+          # /github/workspace/_posts/2017-05-15-trying-gdp-master-raspberrypi3.md
+          # /github/workspace/_posts/2017-07-11-install-build-rokers-io.md
+          # /github/workspace/_posts/2017-08-08-cmdline-git-with-github-2fa.md
+          # /github/workspace/_posts/2017-09-11-git-aware-prompt.md
+          # /github/workspace/_posts/2018-09-20-transfer-files-without-scp.md
+          # /github/workspace/_posts/2018-09-28-minikube-sync-config-with-cygwin.md
+          # /github/workspace/_posts/2018-10-09-install-jenkinsx-on-gcp.md
+          # /github/workspace/_posts/2018-10-16-test-hello-node-on-jx.md
+          # /github/workspace/_posts/2018-10-17-deploy-wordpress-mysql-on-pvc.md
+          # /github/workspace/_posts/2018-10-29-my-first-angular-app.md
+          #
+          # /github/workspace/disable_link_check.py
+          # /github/workspace/jsconfig.json
+          # /github/workspace/public/bio/cv.css
+          # /github/workspace/public/bio/gmacario-cv-en.html
+          # /github/workspace/styles/globals.css
+          # /github/workspace/tailwind.config.js
+          # ------------------------------------------------------------
+          #
+          # Exclude "_drafts/*.md"
+          FILTER_REGEX_EXCLUDE: .*_drafts/.*.md
 # EOF
