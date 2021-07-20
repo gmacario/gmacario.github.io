@@ -3,7 +3,7 @@
 layout: post
 title:  "Project Blobfishes submitted to the DigitalOcean MongoDB Hackathon"
 date:   2021/07/20
-tags: 	mongodb digitalocean hackathon blowfishes
+tags: 	mongodb digitalocean hackathon blobfishes
 
 ---
 
