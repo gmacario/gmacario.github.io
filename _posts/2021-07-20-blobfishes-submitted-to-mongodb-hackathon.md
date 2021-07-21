@@ -57,7 +57,8 @@ Based on our skills and interests we also agreed on each [team member role](http
 Hopefully - since I am the eldest and the laziest member of the team - my friends did not ask me to write complex [MongoDB queries](https://docs.mongodb.com/) or arcane [Node.js](https://nodejs.org/it/docs/) or [Svelte](https://svelte.dev/) code.
 Instead, they assigned me the Ops, Deploy and Documentation tasks which are usually neglected by all real developers.
 
-Like a [cherry on top of the ice cream](https://www.quora.com/What-is-the-meaning-of-the-phrase-cherry-on-top#:~:text=A%20%E2%80%9Ccherry%20on%20top%E2%80%9D%20means,cherry%20is%20put%20on%20top.), I also offered to contribute with my skills of ball-breaker and watchdog which I have refined during my work at [AROL](https://www.arol.com/). That's why you may notice that I have currently the highest rank in number of open issues - not in resolved ones, though :-(
+Like a [cherry on top of the ice cream](https://www.quora.com/What-is-the-meaning-of-the-phrase-cherry-on-top), I also offered to contribute with my skills of ball-breaker and watchdog which I have refined during my work at [AROL](https://www.arol.com/).
+That's why you may notice that I have currently the highest rank in number of open issues - not in resolved ones, though :-(
 
 Based on the RASI, each member of the team the responsibility to choose the best tool and/or technology to support his tasks, of course after consulting with the others.
 
