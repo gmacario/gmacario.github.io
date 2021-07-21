@@ -42,7 +42,7 @@ My friends eventually gave up to my insistence, and on 2021-07-14 we met in pers
 
 We soon realized that the time until the closing date of the hackathon ([July 20, 2021, 11:59 pm PST](https://www.digitalocean.com/mongodb-hackathon/)) was quite short, therefore we had to cut corners and agreed the scope of work.
 
-As the [blobfishes project page on GitHub](TODO) states
+As the [blobfishes project page on GitHub](https://github.com/aquariophilie/blobfishes) states
 
 > Blobfishes aims to be the ugliest project participating to the [DigitalOcean MongoDB Hackathon](https://www.digitalocean.com/mongodb-hackathon/).
 
