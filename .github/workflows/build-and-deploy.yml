@@ -120,7 +120,7 @@ jobs:
       
       - name: Deploy to heroku 🚀
         run: |
-          cp -r .github/tests/* heroku
+          cp -r ".github/tests/*" heroku
           cp -r _static heroku
           cd heroku
           cat >.gitignore <<EOF
