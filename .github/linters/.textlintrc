@@ -3,7 +3,7 @@
     "comments": true
   },
   "rules": {
-    "terminology": 
+    "terminology": {
       "exclude": [
         "web[- ]?site(s)?"
       ]
