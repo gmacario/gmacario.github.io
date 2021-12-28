@@ -3,6 +3,10 @@
     "comments": true
   },
   "rules": {
-    "terminology": true
+    "terminology": 
+      "exclude": [
+        "web[- ]?site(s)?"
+      ]
+    }
   }
 }
