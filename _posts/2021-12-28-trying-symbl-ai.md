@@ -110,7 +110,7 @@ $
 ```
 
 When the video is finished processing, you can extract summarization by making a simple REST endpoint call to `GET https://api-labs.symbl.ai/v1/conversations/{conversationId}/summary`.
-Below is a code snippet in Javascript with the ‘request’ module.
+Below is a code snippet in JavaScript with the ‘request’ module.
 
 ```bash
 CONVERSATION_ID=cccc
