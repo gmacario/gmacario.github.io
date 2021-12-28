@@ -1,8 +1,19 @@
-# Trying symbl.ai (gmacario@gmail.com)
+---
+layout: post
+title:  "Participating to the Symbl.ai Summarization API Challenge"
+date:   2021/12/28
+tags: 	symblai rest api ai
+---
+
+![Win a Pair of AirPods Pro](https://blog.symbl.ai/wp-content/uploads/2021/12/summarization-api-challenge-blog-banner-1.jpg.webp)
+
+A few days ago I got an email which turned on my attention
+
+<!-- # Trying symbl.ai (gmacario@gmail.com) -->
 
 <https://platform.symbl.ai/>
 
-(2021-12-26 19:10 CET)
+<!-- (2021-12-26 19:10 CET) -->
 
 Click "Sign in with Google"
 
@@ -18,7 +29,7 @@ Click "Sign in with Google"
 
 ## Authentication
 
-(2021-12-28 15:12 CET)
+<!-- (2021-12-28 15:12 CET) -->
 
 <!--
 Adapted from
@@ -64,7 +75,7 @@ On successful completion, the success message appears as shown below:
 
 ## POST Video API
 
-(2021-12-28 15:26 CET)
+<!-- (2021-12-28 15:26 CET) -->
 
 <!--
 Adapted from
@@ -125,6 +136,7 @@ gpmacario@HW2457 MINGW64 ~
 $
 ```
 
+FIXME
 
 TODO
 
@@ -140,8 +152,6 @@ request({
     console.log(body);
 });
 ```
-
-FIXME
 
 TODO
 
