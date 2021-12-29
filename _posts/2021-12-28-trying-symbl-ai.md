@@ -7,28 +7,34 @@ tags: 	symblai rest api ai
 
 ![Win a Pair of AirPods Pro](https://blog.symbl.ai/wp-content/uploads/2021/12/summarization-api-challenge-blog-banner-1.jpg.webp)
 
-A few days ago I got an email which turned on my attention to [Symbl.ai](https://symbl.ai/).
+A few days ago I got an email which turned on my attention
+
+> Come participate in the Symbl.ai Summarization API Challenge
+> throughout the month of December for a chance to win a pair of AirPods Pro!
+> The challenge takes 5 minutes...
 
 You may find the long story in the [this recent post on the Symbl.ai blog](https://blog.symbl.ai/blog/win-a-pair-of-airpods-pro-symbl-ai-summarization-api-challenge/).
 In a nutshell, the company wants to collect feedbacks on their recently announced Summarization API
-and asked people to submit their favorite video, query the API and twwet the result.
+and asked people to submit their favorite video, query the API and tweet the result. In returns, one user will have a chance of winning a pair of AirPods Pro.
 
-Here is my humble contribution :-)
+I have to admit the my initial motivation to join the contest was to try and win the gadget, but after walking through the instructions I realized that the actual prize I won is that I have discovered quite a nifty API.
+
+If you want to win my same prize, preas read along!
 
 ## Sign in to Symbl.ai
 
 <!-- # Trying symbl.ai (gmacario@gmail.com) -->
 
 First of all you must sign in to <https://platform.symbl.ai/>.
-If you don't have an account yet, you may create one for free (no credit cards required!)
+If you don't have an account yet, you may create one for free (no credit cards are required for the trial, which is good!)
 
 <!-- (2021-12-26 19:10 CET) -->
 
-I created my account using my gmail address, so I will sign in just by clicking on "Sign in with Google"
+I created my account using my Gmail address, there I can sign in just by clicking the "Sign in with Google" icon on the page and entering
 
 * email: gmacario@gmail.com
 
-and get redirected to <https://platform.symbl.ai/#/home>
+Once authenticated, I will get redirected to <https://platform.symbl.ai/#/home>
 
 > **Welcome Gianpaolo Macario!**
 >
@@ -42,13 +48,26 @@ and [POST Video API](https://docs.symbl.ai/docs/async-api/overview/video/post-vi
 
 ## Submit your favourite video
 
-I chose this YouTube video
+For the purpose of testing the Summarization APIs I chose [this recent YouTube video from Jeff Geerling](https://www.youtube.com/watch?v=aXlcNVKK-7Q):
 
-Unfortunately as of today the POST Video API only accept .mp4 files, so I resorted to the youtube-dl tool to fetch the video from YouTube and convert it to the required format.
+[![Can these boards replace the Raspberry Pi CM4?](https://img.youtube.com/vi/aXlcNVKK-7Q/0.jpg)](https://www.youtube.com/watch?v=aXlcNVKK-7Q "Can these boards replace the Raspberry Pi CM4?")
 
-I believe I did not violate any YouTube or video author copyrights in doing so, if anyone believes differently please get in touch with me and I will amend those instructions
+Jeff is one of my favourite video bloggers who regularly talks about Raspberry Pi, Docker, Ansible, home automation and stuff like that.
+If you haven't done yet, I definitely recommend you to check [Jeff Geerling's YouTube channel](https://www.youtube.com/channel/UCR-DXc1voovS8nhAvccRZhg).
 
-### Authentication
+Unfortunately as of today the Symbl.ai POST Video API only accept .mp4 files, so after trying other tools with no success I eventually used the [youtube-dl](https://youtube-dl.org/) tool to fetch the video from YouTube and convert it to the required format. It was as easy as typing the following commands on one of my Ubuntu hosts:
+
+```bash
+sudo snap install youtube-dl
+youtube-dl https://www.youtube.com/watch?v=aXlcNVKK-7Q
+```
+
+**DISCLAIMER**: Yes, I know that online videos are meant to be streamed in order to provide advertising
+and such. I made this just to be able to experiment with the Symbl.ai Summarization API and I believe
+that I have not violated any YouTube or video author copyrights.
+If anyone believes differently please get in touch with me and I will amend the instructions above.
+
+## Authentication
 
 <!-- (2021-12-28 15:12 CET) -->
 
@@ -103,7 +122,7 @@ Adapted from
 https://docs.symbl.ai/docs/async-api/overview/video/post-video/
 -->
 
-Logged as `gpmacario@hw2457` open a Git Bash shell and type the following commands
+Type the following commands from a Bash shell:
 
 ```bash
 AUTH_TOKEN=zzz
