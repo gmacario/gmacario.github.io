@@ -14,8 +14,8 @@ A few days ago I got an email which turned on my attention
 > The challenge takes 5 minutes...
 
 You may find the long story in the [this recent post on the Symbl.ai blog](https://blog.symbl.ai/blog/win-a-pair-of-airpods-pro-symbl-ai-summarization-api-challenge/).
-In a nutshell, the company wants to collect feedbacks on their recently announced Summarization API
-and asked people to submit their favorite video, query the API and tweet the result. In returns, one user will have a chance of winning a pair of AirPods Pro.
+In a nutshell, the company wants to collect feedbacks on their recently announced Summarization API and asked people to submit their favorite video, query the API and tweet the result.
+In return, they will have a chance of winning a pair of [AirPods Pro](https://www.apple.com/airpods-pro/).
 
 I have to admit the my initial motivation to join the contest was to try and win the gadget, but after walking through the instructions I realized that the actual prize I won is that I have discovered quite a nifty API.
 
@@ -26,11 +26,12 @@ If you want to win my same prize, preas read along!
 <!-- # Trying symbl.ai (gmacario@gmail.com) -->
 
 First of all you must sign in to <https://platform.symbl.ai/>.
-If you don't have an account yet, you may create one for free (no credit cards are required for the trial, which is good!)
+If you don't have an account yet, you may create one for free -- no credit cards are required for the trial, which is good!
 
 <!-- (2021-12-26 19:10 CET) -->
 
-I created my account using my Gmail address, there I can sign in just by clicking the "Sign in with Google" icon on the page.
+I created my account using my Gmail address, therefore I can sign in just by clicking the "Sign in with Google" icon on the page.
+
 Once authenticated, I will get redirected to <https://platform.symbl.ai/#/home>
 
 > **Welcome Gianpaolo Macario!**
@@ -52,7 +53,9 @@ For the purpose of testing the Summarization APIs I chose [this recent YouTube v
 Jeff is one of my favourite video bloggers who regularly talks about Raspberry Pi, Docker, Ansible, home automation and stuff like that.
 If you haven't done yet, I definitely recommend you to check [Jeff Geerling's YouTube channel](https://www.youtube.com/channel/UCR-DXc1voovS8nhAvccRZhg).
 
-Unfortunately as of today the Symbl.ai POST Video API only accept .mp4 files, so after trying other tools with no success I eventually used the [youtube-dl](https://youtube-dl.org/) tool to fetch the video from YouTube and convert it to the required format. It was as easy as typing the following commands on one of my Ubuntu hosts:
+Unfortunately as of today the Symbl.ai POST Video API only accept `*.mp4` files, so after trying other tools with little success I eventually used the [youtube-dl](https://youtube-dl.org/) tool to fetch the video from YouTube and convert it to the required format.
+
+It was as easy as typing the following commands on one of my Ubuntu hosts:
 
 ```bash
 sudo snap install youtube-dl
@@ -60,8 +63,7 @@ youtube-dl https://www.youtube.com/watch?v=aXlcNVKK-7Q
 ```
 
 **DISCLAIMER**: Yes, I know that online videos are meant to be streamed in order to provide advertising
-and such. I made this just to be able to experiment with the Symbl.ai Summarization API and I believe
-that I have not violated any YouTube or video author copyrights.
+and such. I made this just to experiment with the Symbl.ai Summarization API and I guess I did not violate any YouTube or video author copyrights.
 If anyone believes differently please get in touch with me and I will amend the instructions above.
 
 ## Authentication
@@ -83,7 +85,7 @@ https://docs.symbl.ai/docs/developer-tools/authentication/
 
 Once you have your API Credentials, you can generate the Access Token and use it in the API Authorization.
 
-To generate the Access Token, make a POST request to the endpoint: <https://api.symbl.ai/oauth2/token:generate>
+To generate the Access Token, make a POST request to the endpoint: <https://api-labs.symbl.ai/oauth2/token:generate>
 
 You must send your App ID and Secret in the request body. See the sample requests below:
 
@@ -150,7 +152,7 @@ When the video is finished processing, you can extract summarization by making a
 
 The [post at blog.symbl.ai](https://blog.symbl.ai/blog/win-a-pair-of-airpods-pro-symbl-ai-summarization-api-challenge/) provides a code snippet in JavaScript with the ‘request’ module which unfortunately does not seem to work properly.
 
-Instead I just relied on the good old [curl](https://curl.se/) tool:
+Instead I just resorted to the good old [curl](https://curl.se/) tool:
 
 ```bash
 CONVERSATION_ID=cccc
@@ -232,7 +234,9 @@ gpmacario@HW2457 MINGW64 ~
 $
 ```
 
-<!-->
+It looks like that `result.json` contains a wealth of useful information that Symbl.ai was able to extract just from the `*.mp4` file which I uploaded earlier!
+
+<!--
 TODO: Try
 
 ```javascript
