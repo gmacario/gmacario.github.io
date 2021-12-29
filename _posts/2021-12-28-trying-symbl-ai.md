@@ -30,10 +30,7 @@ If you don't have an account yet, you may create one for free (no credit cards a
 
 <!-- (2021-12-26 19:10 CET) -->
 
-I created my account using my Gmail address, there I can sign in just by clicking the "Sign in with Google" icon on the page and entering
-
-* email: gmacario@gmail.com
-
+I created my account using my Gmail address, there I can sign in just by clicking the "Sign in with Google" icon on the page.
 Once authenticated, I will get redirected to <https://platform.symbl.ai/#/home>
 
 > **Welcome Gianpaolo Macario!**
@@ -150,7 +147,10 @@ $
 ```
 
 When the video is finished processing, you can extract summarization by making a simple REST endpoint call to `GET https://api-labs.symbl.ai/v1/conversations/{conversationId}/summary`.
-Below is a code snippet in JavaScript with the ‘request’ module.
+
+The [post at blog.symbl.ai](https://blog.symbl.ai/blog/win-a-pair-of-airpods-pro-symbl-ai-summarization-api-challenge/) provides a code snippet in JavaScript with the ‘request’ module which unfortunately does not seem to work properly.
+
+Instead I just relied on the good old [curl](https://curl.se/) tool:
 
 ```bash
 CONVERSATION_ID=cccc
@@ -232,9 +232,8 @@ gpmacario@HW2457 MINGW64 ~
 $
 ```
 
-FIXME
-
-TODO
+<!-->
+TODO: Try
 
 ```javascript
 const request = require('request');
@@ -248,6 +247,9 @@ request({
     console.log(body);
 });
 ```
+-->
+
+## Conclusions
 
 TODO
 
