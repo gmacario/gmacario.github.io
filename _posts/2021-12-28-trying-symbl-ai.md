@@ -7,19 +7,28 @@ tags: 	symblai rest api ai
 
 ![Win a Pair of AirPods Pro](https://blog.symbl.ai/wp-content/uploads/2021/12/summarization-api-challenge-blog-banner-1.jpg.webp)
 
-A few days ago I got an email which turned on my attention
+A few days ago I got an email which turned on my attention to [Symbl.ai](https://symbl.ai/).
+
+You may find the long story in the [this recent post on the Symbl.ai blog](https://blog.symbl.ai/blog/win-a-pair-of-airpods-pro-symbl-ai-summarization-api-challenge/).
+In a nutshell, the company wants to collect feedbacks on their recently announced Summarization API
+and asked people to submit their favorite video, query the API and twwet the result.
+
+Here is my humble contribution :-)
+
+## Sign in to Symbl.ai
 
 <!-- # Trying symbl.ai (gmacario@gmail.com) -->
 
-<https://platform.symbl.ai/>
+First of all you must sign in to <https://platform.symbl.ai/>.
+If you don't have an account yet, you may create one for free (no credit cards required!)
 
 <!-- (2021-12-26 19:10 CET) -->
 
-Click "Sign in with Google"
+I created my account using my gmail address, so I will sign in just by clicking on "Sign in with Google"
 
 * email: gmacario@gmail.com
 
-<https://platform.symbl.ai/#/home>
+and get redirected to <https://platform.symbl.ai/#/home>
 
 > **Welcome Gianpaolo Macario!**
 >
@@ -27,7 +36,19 @@ Click "Sign in with Google"
 >
 > [Try API Playground](TODO)
 
-## Authentication
+While logged on the platform I reviewed the
+[Summarization](https://docs.symbl.ai/docs/concepts/summarization?_ga=2.214827991.1500322423.1640600236-591899878.1639034488)
+and [POST Video API](https://docs.symbl.ai/docs/async-api/overview/video/post-video?_ga=2.214827991.1500322423.1640600236-591899878.1639034488) Docs as suggested.
+
+## Submit your favourite video
+
+I chose this YouTube video
+
+Unfortunately as of today the POST Video API only accept .mp4 files, so I resorted to the youtube-dl tool to fetch the video from YouTube and convert it to the required format.
+
+I believe I did not violate any YouTube or video author copyrights in doing so, if anyone believes differently please get in touch with me and I will amend those instructions
+
+### Authentication
 
 <!-- (2021-12-28 15:12 CET) -->
 
