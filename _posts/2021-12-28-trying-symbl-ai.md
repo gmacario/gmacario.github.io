@@ -236,6 +236,8 @@ $
 
 It looks like that `result.json` contains a wealth of useful information that Symbl.ai was able to extract just from the `*.mp4` file which I uploaded earlier!
 
+Please [click here](/assets/imgs/2021-12-28-trying-symbl-ai/result.json) for a pretty-printed version of the result.
+
 <!--
 TODO: Try
 
@@ -255,6 +257,6 @@ request({
 
 ## Conclusions
 
-TODO
+I made a plan for 2022 to get more into what Symbl.ai platform provides. Stay tuned!
 
 <!-- EOF -->
