@@ -20,6 +20,10 @@ Here is the report of our progress in the ARNEIS project after the end of CW02-2
 
 TODO: Add screenshot of <https://github.com/orgs/B-AROL-O/projects/1/views/5>
 
+Many thanks to [Pietro d'Agostino](https://github.com/pitdagosti) for contributing the [B-AROL-O team](https://github.com/B-AROL-O) logo!
+
+<a href="https://github.com/B-AROL-O">![B-AROL-O logo](https://avatars.githubusercontent.com/u/94399304?s=200&v=4)</a>
+
 ## Next week plans
 
 TODO: Add screenshot of <https://github.com/orgs/B-AROL-O/projects/1/views/1>
