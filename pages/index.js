@@ -4,10 +4,10 @@ import DefaultLayout from '@layouts/default'
 import Link from 'next/link'
 import { getAllPosts, getConfig } from '@api'
 
-export default function Blog (props) {
+export default function Blog(props) {
   return (
-  // Use the DefaultLayout for the homepage
-  // Execute the function below for each post of the posts array
+    // Use the DefaultLayout for the homepage
+    // Execute the function below for each post of the posts array
     <DefaultLayout title={props.title} description={props.description} social={props.social}>
       <div className='prose'>
         <h1>About me:</h1>
@@ -37,6 +37,20 @@ export default function Blog (props) {
         </ul>
         <h2>Some projects I have been working on</h2>
         <ul>
+          <li>
+            <Link href='https://github.com/B-AROL-O/ARNEIS'>
+              <a>
+                ARNEIS
+              </a>
+            </Link> (finalist to the
+            <Link>
+              <a>OpenCV Spatial AI Contest</a>
+            </Link>)
+          </li>
+
+
+
+
           <li>
             <Link href='https://github.com/gmacario/easy-build'>
               <a>
@@ -86,7 +100,7 @@ export default function Blog (props) {
 }
 
 // This is called at build time and passes props to the default component (Blog)
-export async function getStaticProps () {
+export async function getStaticProps() {
   const allPosts = await getAllPosts()
   const config = await getConfig()
 
