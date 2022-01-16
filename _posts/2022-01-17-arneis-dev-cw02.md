@@ -52,7 +52,7 @@ Kudos also to [Rafael Esposito](https://github.com/Raffone17) who was the first 
 
 ![image](https://user-images.githubusercontent.com/75182/149654634-fa9aab4d-ef80-4528-a5d0-fadd364d800c.png)
 
-Of course the bug was promptly fixed since it wasn't that hard :wink;
+Of course the bug was promptly fixed since it wasn't that hard ;-)
 
 Anyway this is part of a commitment we have made: to hear and be promptly reactive to Bug reports and Feature requests.
 
