@@ -42,8 +42,9 @@ export default function Blog(props) {
               <a>
                 ARNEIS
               </a>
-            </Link> (finalist to the
-            <Link>
+            </Link>
+            (finalist to the
+            <Link href='https://opencv.org/opencv-spatial-ai-contest/'>
               <a>OpenCV Spatial AI Contest</a>
             </Link>)
           </li>
