@@ -9,7 +9,7 @@ tags: 	arneis b-arol-o opencv spatial-ai-contest
 
 Welcome to our weekly status report of the [ARNEIS project](https://github.com/B-AROL-O/ARNEIS)!
 
-As [I announced in a previous post](https://gmacario.github.io/posts/2021-12-18-arneis-spatial-ai-finalist)
+As I announced [in a previous post](https://gmacario.github.io/posts/2021-12-18-arneis-spatial-ai-finalist)
 
 > Your team “B-AROL-O Bottling Systems” and project “ARNEIS: Automated Recognizer, Network-Enabled, Items Sorter” have been selected as one of just 50 teams to move on to Phase 2 of OpenCV Spatial AI Contest.
 > Your team name and region are listed on the official webpage at <https://opencv.org/opencv-spatial-ai-contest/​>
@@ -20,13 +20,13 @@ Here is the report of our progress in the ARNEIS project after the end of CW02-2
 
 Well, a lot!
 
-Here is a partial list of the closed Issues and merged Pull Requests which we completed during this week.
+Here is a partial list (closed Issues and merged Pull Requests) of what accomplished during this week:
 
 <!-- TODO: Add screenshot of <https://github.com/orgs/B-AROL-O/projects/1/views/5> -->
 
 ![image](https://user-images.githubusercontent.com/75182/149654151-9f5a62a4-45c5-44ac-89f8-759949a7a5f0.png)
 
-Apologies for the unreadable screenshot -- Unfortunately I had not found a better way for exporting those items from GitHub and include them in this report in a suitable and more readable way.
+Apologies for the unreadable screenshot - unfortunately I couldn't find a better way for exporting those items from GitHub and include them here in a more suitable way.
 
 For this reason I created [a dedicated issue for figuring that out](https://github.com/B-AROL-O/ARNEIS/issues/32):
 
@@ -35,8 +35,6 @@ For this reason I created [a dedicated issue for figuring that out](https://gith
 Suggestions and contributions from the readers are more than welcome!
 
 Although this will not directly impact our achievements for Phase 2 of the OpenCV Spatial AI contest, we really want to streamline our weekly reports in order to be very transparent in our progress, highlight our pain points and possibly get feedbacks and suggestions from our community.
-
-While waiting for some suggestions on how - for instance - create a GANNT diagram from GitHub - if you want to drill down on any specific open or closed issues, just [look at our GitHub repository](https://github.com/B-AROL-O/ARNEIS).
 
 ### Welcome to our first contributors
 
@@ -74,7 +72,9 @@ TODO: Add screenshot of <https://github.com/orgs/B-AROL-O/projects/1/views/1>
 
 ![image](https://user-images.githubusercontent.com/75182/149655818-d9314337-ca4e-4acf-9474-2c10bffce4e4.png)
 
-As usual, if you are interested to learn what we've been doing please click on the "Watch" button at the top right of <https://github.com/B-AROL-O/ARNEIS>
+While waiting for some suggestions on how to - for instance - create a [Gantt chart](https://en.wikipedia.org/wiki/Gantt_chart) from GitHub data, if you want to drill down on any specific open or closed issues, just [look at our GitHub repository](https://github.com/B-AROL-O/ARNEIS).
+
+Also, if you are interested to track what we've been doing please click on the "Watch" button at the top right of <https://github.com/B-AROL-O/ARNEIS>
 
 Talk to you next week!
 
