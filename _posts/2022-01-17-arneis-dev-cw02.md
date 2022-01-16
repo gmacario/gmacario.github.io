@@ -43,9 +43,10 @@ First of all we want to express our gratitude to [Pietro d'Agostino](https://git
 
 <a href="https://github.com/B-AROL-O">![B-AROL-O logo](https://avatars.githubusercontent.com/u/94399304?s=200&v=4)</a>
 
-This is good starting point, but as in all projects there is always room for improvement;  as a matter of fact Pietro is **already** [working on some enhancements](https://github.com/B-AROL-O/ARNEIS/issues/35).
+This is a very good starting point, but like in all projects there is always room for improvement.
+As a matter of fact Pietro is **already** [working on some enhancements](https://github.com/B-AROL-O/ARNEIS/issues/35) of this logo.
 
-Also, here is a challenge for anyone else (even [@pitdagosti](https://github.com/pitdagosti) again...) to [propose a logo for the ARNEIS project](https://github.com/B-AROL-O/ARNEIS/issues/35) as well ;-)
+This example wants to be a challenge for anyone (or even [@pitdagosti](https://github.com/pitdagosti)...) to [propose a logo for the ARNEIS project](https://github.com/B-AROL-O/ARNEIS/issues/35) as well ;-)
 
 Kudos also to [Rafael Esposito](https://github.com/Raffone17) who was the first person outside of the B-AROL-O core team to spot a bug in ARNEIS:
 
@@ -55,7 +56,9 @@ Of course the bug was promptly fixed since it wasn't that hard ;-)
 
 Anyway this is part of a commitment we have made: to hear and be promptly reactive to Bug reports and Feature requests.
 
-So, let't help each other and [submit both on GitHub](https://github.com/B-AROL-O/ARNEIS/issues/new/choose)!
+Please do not think that minor improvements do not matter - it looks like they are valuable [even to Luxonis CEO](https://github.com/luxonis/depthai-hardware/pull/187#issuecomment-1013941261).
+
+So, let't help each other and submit either [Bug Reports and Feature Requests](https://github.com/B-AROL-O/ARNEIS/issues/new/choose) or maybe even [a Pull Request](https://github.com/B-AROL-O/ARNEIS/compare)!
 
 ## Next week plans
 
