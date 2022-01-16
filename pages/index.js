@@ -70,34 +70,6 @@ export default function Blog(props) {
               </a>
             </Link>
           </li>
-          <li>
-            <Link href='https://github.com/gmacario/lxcbench/'>
-              <a>
-                GENIVI LXCBENCH
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link href='https://github.com/gmacario/gm-admintools/'>
-              <a>
-                gm-admintools
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link href='https://github.com/gmacario/vagrant-atlassian'>
-              <a>
-                vagrant-atlassian
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link href='https://github.com/gmacario/vagrant-ubuntu1404'>
-              <a>
-                vagrant-ubuntu1404
-              </a>
-            </Link>
-          </li>
         </ul>
       </div>
     </DefaultLayout>
