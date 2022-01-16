@@ -48,9 +48,9 @@ First of all we want to express our gratitude to [Pietro d'Agostino](https://git
 
 This is good starting point, but all the software projects it can always be improved!
 
-Also, this a challenge for someone else (or even [@pitdagosti](https://github.com/pitdagosti) again...) to [propose a logo for the ARNEIS project](https://github.com/B-AROL-O/ARNEIS/issues/35) as well ;-)
+Also, this a challenge for anyone else (even [@pitdagosti](https://github.com/pitdagosti) again...) to [propose a logo for the ARNEIS project](https://github.com/B-AROL-O/ARNEIS/issues/35) as well ;-)
 
-Kudos also [Rafael Esposito](https://github.com/Raffone17) who was the first person not part of the B-AROL-O core team to spot a bug in ARNEIS:
+Kudos also to [Rafael Esposito](https://github.com/Raffone17) who was the first person outside of the B-AROL-O core team to spot a bug in ARNEIS:
 
 ![image](https://user-images.githubusercontent.com/75182/149654634-fa9aab4d-ef80-4528-a5d0-fadd364d800c.png)
 
@@ -62,6 +62,22 @@ So, let't help each other and [submit both on GitHub](https://github.com/B-AROL-
 
 ## Next week plans
 
+First of all a disclaimer:
+
+<a href="https://www.pinterest.it/pin/104638391317411342/">![If the plan doesn't work](https://i.pinimg.com/564x/2d/cb/3f/2dcb3f8f17e82d18f487a9e333d0bb64.jpg)</a>
+
+That being said, here is our plan for CW03-2022:
+
+<!-- 
 TODO: Add screenshot of <https://github.com/orgs/B-AROL-O/projects/1/views/1>
+-->
+
+![image](https://user-images.githubusercontent.com/75182/149655818-d9314337-ca4e-4acf-9474-2c10bffce4e4.png)
+
+As usual, if you are interested to learn what we've been doing please click on the "Watch" button at the top right of <https://github.com/B-AROL-O/ARNEIS>
+
+Talk to you next week!
+
+Gianpaolo on behalf of the [B-AROL-O Team](https://github.com/B-AROL-O)
 
 <!-- EOF -->
