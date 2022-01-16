@@ -4,7 +4,7 @@ import DefaultLayout from '@layouts/default'
 import Link from 'next/link'
 import { getAllPosts, getConfig } from '@api'
 
-export default function Blog(props) {
+export default function Blog (props) {
   return (
     // Use the DefaultLayout for the homepage
     // Execute the function below for each post of the posts array
@@ -73,7 +73,7 @@ export default function Blog(props) {
 }
 
 // This is called at build time and passes props to the default component (Blog)
-export async function getStaticProps() {
+export async function getStaticProps () {
   const allPosts = await getAllPosts()
   const config = await getConfig()
 
