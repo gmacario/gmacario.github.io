@@ -39,19 +39,23 @@ export default function Blog(props) {
         <ul>
           <li>
             <Link href='https://github.com/B-AROL-O/ARNEIS'>
-              <a>
-                ARNEIS
-              </a>
+              <a>ARNEIS</a>
             </Link>
             (finalist to the
             <Link href='https://opencv.org/opencv-spatial-ai-contest/'>
               <a>OpenCV Spatial AI Contest</a>
             </Link>)
           </li>
-
-
-
-
+          <li>
+            <Link href='https://devpost.com/software/axolotl'>
+              <a>AXOLOTL</a>
+            </Link>
+          </li>
+          <li>
+            <Link href='https://github.com/aquariophilie/blobfishes'>
+              <a>blobfishes</a>
+            </Link>
+          </li>
           <li>
             <Link href='https://github.com/gmacario/easy-build'>
               <a>
