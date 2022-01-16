@@ -46,9 +46,11 @@ First of all we want to express our gratitude to [Pietro d'Agostino](https://git
 
 <a href="https://github.com/B-AROL-O">![B-AROL-O logo](https://avatars.githubusercontent.com/u/94399304?s=200&v=4)</a>
 
-This is good starting point, and there is also room for someone else to [propose a logo for the ARNEIS project](https://github.com/B-AROL-O/ARNEIS/issues/35) as well :wink:
+This is good starting point, but all the software projects it can always be improved!
 
-We also thank [Rafael Esposito]() who was the first person not part of the B-AROL-O team to spot a bug in ARNEIS:
+Also, this a challenge for someone else (or even [@pitdagosti](https://github.com/pitdagosti) again...) to [propose a logo for the ARNEIS project](https://github.com/B-AROL-O/ARNEIS/issues/35) as well ;-)
+
+Kudos also [Rafael Esposito](https://github.com/Raffone17) who was the first person not part of the B-AROL-O core team to spot a bug in ARNEIS:
 
 ![image](https://user-images.githubusercontent.com/75182/149654634-fa9aab4d-ef80-4528-a5d0-fadd364d800c.png)
 
