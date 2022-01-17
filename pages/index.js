@@ -6,8 +6,8 @@ import { getAllPosts, getConfig } from '@api'
 
 export default function Blog (props) {
   return (
-  // Use the DefaultLayout for the homepage
-  // Execute the function below for each post of the posts array
+    // Use the DefaultLayout for the homepage
+    // Execute the function below for each post of the posts array
     <DefaultLayout title={props.title} description={props.description} social={props.social}>
       <div className='prose'>
         <h1>About me:</h1>
@@ -38,6 +38,21 @@ export default function Blog (props) {
         <h2>Some projects I have been working on</h2>
         <ul>
           <li>
+            <Link href='https://github.com/B-AROL-O/ARNEIS'>
+              <a>ARNEIS</a>
+            </Link>
+          </li>
+          <li>
+            <Link href='https://devpost.com/software/axolotl'>
+              <a>AXOLOTL</a>
+            </Link>
+          </li>
+          <li>
+            <Link href='https://github.com/aquariophilie/blobfishes'>
+              <a>blobfishes</a>
+            </Link>
+          </li>
+          <li>
             <Link href='https://github.com/gmacario/easy-build'>
               <a>
                 easy-build
@@ -48,34 +63,6 @@ export default function Blog (props) {
             <Link href='https://github.com/gmacario/easy-jenkins'>
               <a>
                 easy-jenkins
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link href='https://github.com/gmacario/lxcbench/'>
-              <a>
-                GENIVI LXCBENCH
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link href='https://github.com/gmacario/gm-admintools/'>
-              <a>
-                gm-admintools
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link href='https://github.com/gmacario/vagrant-atlassian'>
-              <a>
-                vagrant-atlassian
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link href='https://github.com/gmacario/vagrant-ubuntu1404'>
-              <a>
-                vagrant-ubuntu1404
               </a>
             </Link>
           </li>
