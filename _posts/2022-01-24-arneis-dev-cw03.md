@@ -43,17 +43,30 @@ The updated B-AROL-O logo is now proudly featured on our [GitHub](https://github
 > “Imitation is the sincerest form of flattery” ― Oscar Wilde
 > <!-- that mediocrity can pay to greatness.-->
 
-GitHub is good and fine for developers, but we would like to have a simple and more user-friendly for end-users.
+GitHub is good and fine for developers, but we would like to have a simple and more user-friendly for end users.
 
 Taking inspiration by <https://docs.luxonis.com/> we learned how to leverage the [Sphinx project](https://www.sphinx-doc.org/) and [ReadTheDocs.org](https://readthedocs.org/) to generate a static website for the ARNEIS project.
 
 The result is the following one
 
-<a href="https://arneis.readthedocs.org">![arneis.readthedocs.org](https://user-images.githubusercontent.com/75182/150799340-326048b7-332a-4d85-bacb-3431501f8ae3.png)</a>
+<a href="https://arneis.readthedocs.io">![arneis.readthedocs.io](https://user-images.githubusercontent.com/75182/150799340-326048b7-332a-4d85-bacb-3431501f8ae3.png)</a>
 
+The site <https://arneis.readthedocs.io> is still a little bit rough, but thanks to ReadTheDocs we have already introduced a couple of additional features that are not available on the GitHub.
+
+One of those feature I found most useful is the full text search
+
+![image](https://user-images.githubusercontent.com/75182/150819490-af6363d1-7ce3-47d3-aa74-edfdc7331f01.png)
+
+Additionally, you may export the contents of the site in PDF, HTML or Epub!
+
+![image](https://user-images.githubusercontent.com/75182/150819685-ef061ac4-a211-404f-985b-1bfdf3b0aee6.png)
+
+
+<!--
 ### Keep getting familiar with OAK-D-Lite
 
-> * We are trying to see if we can use 2 different OAK-D-LITE and we opened an issue to the maintainers [[FEAT]: Investigate the feasibility to use 2 OAK-D-Lites at the same time B-AROL-O/ARNEIS#54](https://github.com/B-AROL-O/ARNEIS/issues/54)
+* We are trying to see if we can use 2 different OAK-D-LITE and we opened an issue to the maintainers [[FEAT]: Investigate the feasibility to use 2 OAK-D-Lites at the same time B-AROL-O/ARNEIS#54](https://github.com/B-AROL-O/ARNEIS/issues/54)
+-->
 
 ### But wait, there is more...
 
@@ -70,8 +83,10 @@ Our plan for next week is available on GitHub: <https://github.com/B-AROL-O/ARNE
 
 <!-- TODO: Add screenshot of <https://github.com/orgs/B-AROL-O/projects/1/views/1> -->
 
-Let's see how things will progress...
+If you want to help or just say hello, please get in touch with us through [GitHub](https://github.com/B-AROL-O/ARNEIS) or [Twitter](https://twitter.com/baroloteam).
 
-If you want to help or just say hello, please talk to us on GitHub or Twitter
+Thanks for reading up to here!
+
+Gianpaolo on behalf of the [B-AROL-O Team](https://github.com/b-arol-o).
 
 <!-- EOF -->
