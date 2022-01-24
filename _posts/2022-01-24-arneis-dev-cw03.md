@@ -68,11 +68,11 @@ Additionally, you may export the contents of the site in PDF, HTML or Epub!
 * We are trying to see if we can use 2 different OAK-D-LITE and we opened an issue to the maintainers [[FEAT]: Investigate the feasibility to use 2 OAK-D-Lites at the same time B-AROL-O/ARNEIS#54](https://github.com/B-AROL-O/ARNEIS/issues/54)
 -->
 
-### But wait, there is more...
+### But wait, there is more
 
 As this post is getting long we have no time to talk about some other things which made into the dev-cw03 release. They will likely be the subjects of one of our next posts.
 
-However, if you are impatient and want a heads-up, just have a look at 
+However, if you are impatient and want a heads-up, just have a look at
 
 * [B-AROL-O/ARNEIS#58](https://github.com/B-AROL-O/ARNEIS/pull/58)
 * [B-AROL-O/ARNEIS#83](https://github.com/B-AROL-O/ARNEIS/pull/83)
