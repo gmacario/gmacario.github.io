@@ -34,7 +34,7 @@ Well, we had already anticipated this with a teaser [in our previous weekly post
 
 ([Watch the video on YouTube](https://www.youtube.com/watch?v=BFKyx1COfqk))
 
-You can check the details, including the LDR model, directly [inside ARNEIS git repository](https://github.com/B-AROL-O/ARNEIS/tree/main/mocs/studies).
+You can check the details, including the LDraw file, directly [inside ARNEIS git repository](https://github.com/B-AROL-O/ARNEIS/tree/main/mocs/studies).
 
 ### Problems in sourcing LEGO Set 42100
 
