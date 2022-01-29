@@ -26,6 +26,14 @@ In Sprint dev-cw04 we [closed TODO issues or Pull Requests](https://github.com/B
 
 Let's highlight some of the most relevant things which happened.
 
+### First rendering of the ARNEIS Bottle Conveyor
+
+Well, we had already anticipated this with a teaser [in our previous weekly post](https://gmacario.github.io/posts/2022-01-24-arneis-dev-cw03) and [in a tweet](https://twitter.com/baroloteam/status/1486204084776583178), anyway here is the news:
+
+<a href="https://www.youtube.com/watch?v=BFKyx1COfqk">[![Bottle conveyor 2022-01-22](https://img.youtube.com/vi/BFKyx1COfqk/0.jpg)](https://www.youtube.com/watch?v=BFKyx1COfqk "Bottle conveyor 2022-01-22")</a>
+
+You can check the details, including the LDR model, directly [inside ARNEIS git repository](https://github.com/B-AROL-O/ARNEIS/tree/main/mocs/studies).
+
 ### Problems in sourcing LEGO Set 42100
 
 Phil Nelson from OpenCV informed on that
