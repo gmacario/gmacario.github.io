@@ -36,9 +36,31 @@ You can check the details, including the LDR model, directly [inside ARNEIS git 
 
 ### Problems in sourcing LEGO Set 42100
 
-Phil Nelson from OpenCV informed on that
+When in mid December the ARNEIS project was selected as a finalist for the OpenCV Spatial AI Contest, we promptly submitted the request for [LEGO Set 42100 (Liebherr R 9800 Excavator)](https://www.lego.com/en-it/product/liebherr-r-9800-excavator-42100) which at that time was available from a few local resellers - one of which even offered a 41% discount on its list price.
 
-TODO
+![image](https://user-images.githubusercontent.com/75182/151664835-0c4a324f-47dd-4285-bd4a-5c68c04a4677.png)
+
+Later we were communicated that the requested sets should be purchased and delivered to us directly by the OpenCV Spatial AI Contest organization, threfore we could not get the 41% rebate on the chosen set.
+
+Unfortunately a couple of days ago [Phil Nelson from OpenCV wrote us](https://github.com/B-AROL-O/ARNEIS/issues/7#issuecomment-1024859461) that
+
+> I’ve been trying to track this down online for awhile, it appears the Liebherr R 9800 Excavator set is retired by LEGO.
+
+This is bad news, since we have based all our design and planning of the ARNEIS project under the assumption that we would receive this LEGO Set ASAP.
+
+As of today it looks like there are still a few items left from a couple of vendors on Amazon.it:
+
+![image](https://user-images.githubusercontent.com/75182/151653389-54f26295-4f85-4b64-ae85-6ae13c8fa875.png)
+
+and eBay.it
+
+![image](https://user-images.githubusercontent.com/75182/151653398-edc00489-11db-48fe-b62e-06042d6fed98.png)
+
+but their prices are increasing - most likely because the set is no longer produced - so we need to hurry up.
+
+By the way, at the moment we are not aware of alternate LEGO sets containing so many useful pieces for our design, such as motors, controllers, gears, etc.
+
+Let's hope we can quickly sort this issue out together with Phil and the OpenCV organization.
 
 ## Next week plans
 
