@@ -30,7 +30,9 @@ Let's highlight some of the most relevant things which happened.
 
 Well, we had already anticipated this with a teaser [in our previous weekly post](https://gmacario.github.io/posts/2022-01-24-arneis-dev-cw03) and [in a tweet](https://twitter.com/baroloteam/status/1486204084776583178), anyway here is the news:
 
-<a href="https://www.youtube.com/watch?v=BFKyx1COfqk">[![Bottle conveyor 2022-01-22](https://img.youtube.com/vi/BFKyx1COfqk/0.jpg)](https://www.youtube.com/watch?v=BFKyx1COfqk "Bottle conveyor 2022-01-22")</a>
+[![Bottle conveyor 2022-01-22](https://img.youtube.com/vi/BFKyx1COfqk/0.jpg)](https://www.youtube.com/watch?v=BFKyx1COfqk "Bottle conveyor 2022-01-22")
+
+([Watch the video on YouTube](https://www.youtube.com/watch?v=BFKyx1COfqk))
 
 You can check the details, including the LDR model, directly [inside ARNEIS git repository](https://github.com/B-AROL-O/ARNEIS/tree/main/mocs/studies).
 
