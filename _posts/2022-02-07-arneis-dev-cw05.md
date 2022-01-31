@@ -26,6 +26,13 @@ In Sprint dev-cw05 we [closed TODO issues or Pull Requests](https://github.com/B
 
 TODO
 
+### Training our custom Neural Network
+
+[Gianluca](https://github.com/gteti) has been trying to run the Training of NN on our ubuntu VM and for each issue we have asked Luxonis directly and with their GREAT help we are moving forward.
+[luxonis/depthai-ml-training#17](https://github.com/luxonis/depthai-ml-training/issues/17)
+
+TODO:Screenshot
+
 ## Next week plans
 
 Our plan for next week is available on GitHub: <https://github.com/B-AROL-O/ARNEIS/milestone/12>.
