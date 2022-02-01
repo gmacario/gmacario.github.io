@@ -20,7 +20,7 @@ Here is the report of our progress in the ARNEIS project after the end of CW04-2
 
 ## What did we accomplish this week?
 
-In Sprint dev-cw04 we [closed TODO issues or Pull Requests](https://github.com/B-AROL-O/ARNEIS/milestone/3?closed=1)
+In Sprint dev-cw04 we [closed 21 issues or Pull Requests](https://github.com/B-AROL-O/ARNEIS/milestone/3?closed=1)
 
 <!-- TODO: Add screenshot of <https://github.com/orgs/B-AROL-O/projects/1/views/5> -->
 
@@ -28,7 +28,7 @@ Let's highlight some of the most relevant things which happened.
 
 ### First rendering of the ARNEIS Bottle Conveyor
 
-Well, we had already anticipated this with a teaser [in our previous weekly post](https://gmacario.github.io/posts/2022-01-24-arneis-dev-cw03) and [in a tweet](https://twitter.com/baroloteam/status/1486204084776583178), anyway here is the news:
+Well, we had already anticipated this with a teaser [in our previous weekly post](https://gmacario.github.io/posts/2022-01-24-arneis-dev-cw03) and [in a tweet](https://twitter.com/baroloteam/status/1486204084776583178), anyway here is the actual result that [Alessandro](https://github.com/alv67) achieved so far:
 
 [![Bottle conveyor 2022-01-22](https://img.youtube.com/vi/BFKyx1COfqk/0.jpg)](https://www.youtube.com/watch?v=BFKyx1COfqk "Bottle conveyor 2022-01-22")
 
@@ -50,7 +50,7 @@ Unfortunately a couple of days ago [Phil Nelson from OpenCV wrote us](https://gi
 
 This is bad news, since we have based all our design and planning of the ARNEIS project under the assumption that we would receive this LEGO Set ASAP.
 
-As of today it looks like there are still a few items left from a couple of vendors on Amazon.it:
+At the moment there are still a few items left from a couple of vendors on Amazon.it:
 
 ![image](https://user-images.githubusercontent.com/75182/151653389-54f26295-4f85-4b64-ae85-6ae13c8fa875.png)
 
@@ -60,9 +60,28 @@ and eBay.it
 
 but their prices are increasing - most likely because the set is no longer produced - so we need to hurry up.
 
-By the way, at the moment we are not aware of alternate LEGO sets containing so many useful pieces for our design, such as motors, controllers, gears, etc.
+By the way, at the moment we are not aware of alternate LEGO sets containing so many useful pieces for our design, such as motors, controllers, gears, etc. There have been [some rumours of a replacement set](https://www.brickfanatics.com/it/technic-estate-2022-si-dice-che-sia-il-pi%C3%B9-costoso/) but most likely this will be released in Q3-2022, so this does not fit within the Phase 2 time frame.
 
-Let's hope we can quickly sort this issue out together with Phil and the OpenCV organization.
+We have a constant conversation with Phil and the OpenCV organization in order to have this issue resolved; if you have any suggestions, please follow-up on [ARNEIS/issues/7](https://github.com/B-AROL-O/ARNEIS/issues/7).
+
+### First attempts at recognizing mignon bottles with the OAK-D-Lite
+
+[Gianluca Teti](https://github.com/gteti) - the wannabe AI expert in our team - has been playing with the OAK-D-Lite software for the purpose of recognizing the mignon bottles that will be handled by the ARNEIS system.
+
+He already got some results:
+
+![image](https://user-images.githubusercontent.com/51110452/150135037-d63e327e-09fe-4384-9d58-36086fb443a6.png)
+
+The actual photo shoot took place using this stage:
+
+![photo1642596731](https://user-images.githubusercontent.com/51110452/150135084-27eeea29-5450-42bc-a5f2-266a1dfeb47e.jpeg)
+
+Here are some more details about the stage:
+
+![photo1642596718](https://user-images.githubusercontent.com/51110452/150135077-a100064d-f18e-419f-a48c-9eea85da4a76.jpeg)
+
+In the coming days we will be optimizing the lighting and will update the camera setup to match the actual layout of the ARNEIS conveyor. You may see some preliminary studies [here](https://github.com/B-AROL-O/ARNEIS/issues/89).
+As soon as we finalize the layout, we will be start training a customized Neural Network to recognize the bottle types we will be classifying.
 
 ## Next week plans
 
