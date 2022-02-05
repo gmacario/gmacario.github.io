@@ -35,7 +35,9 @@ You may find details on the upstream issue [luxonis/depthai-ml-training#17](http
 
 TODO:Screenshot
 
-We will soon be testing the Neural Network using the actual custom data based on photos taken to our set of mignon bottles.
+We will soon train the Neural Network using photos taken by the OAK-D-Lite to our set of "mignon" bottles:
+
+![Some mignon bottles](https://user-images.githubusercontent.com/75182/146777189-d154dd14-2f70-4097-a950-b17159fdaaf7.jpg)
 
 In parallel we would like to evaluate [Roboflow](https://roboflow.com/) which - based on the information we collected so far - should simplify and speed up the training process a lot.
 If you have first-hand experience on Roboflow, please report your success stories and/or lessons learned on <https://github.com/B-AROL-O/ARNEIS/issues/123>.
