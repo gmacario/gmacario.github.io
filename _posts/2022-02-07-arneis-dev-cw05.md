@@ -60,8 +60,7 @@ In parallel Gianluca has tried other solutions, one of which - even though a lit
 
 ![Screenshot](https://user-images.githubusercontent.com/51110452/152745900-3eb33a6c-1fa2-45bf-a8a2-b25cc525edbd.png)
 
-You can find the complete HOWTO at <https://arneis.readthedocs.io/en/latest/howto/howto-train-deploy-NN.html>.
-
+You may find the complete HOWTO on <https://arneis.readthedocs.io/>.
 
 
 <!--
@@ -89,7 +88,7 @@ Our plan for next week is available on GitHub: <https://github.com/B-AROL-O/ARNE
 
 Unfortunately we will not be able to progress much further with the mechanical design [until we get the actual LEGO set](https://github.com/B-AROL-O/ARNEIS/issues/7).
 
-On the other hand, we are going to train the ARNEIS Neural Network using photos taken with the OAK-D-Lite to our set of "mignon" bottles:
+On the other hand, we are going to [train the ARNEIS Neural Network](https://github.com/B-AROL-O/ARNEIS/issues/31) using photos taken with the OAK-D-Lite to our set of "mignon" bottles:
 
 ![Some mignon bottles](https://user-images.githubusercontent.com/75182/146777189-d154dd14-2f70-4097-a950-b17159fdaaf7.jpg)
 
