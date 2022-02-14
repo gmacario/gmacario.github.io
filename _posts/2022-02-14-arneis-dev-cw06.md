@@ -20,9 +20,7 @@ Here is the report of our progress in the ARNEIS project after the end of CW06-2
 
 ## What did we accomplish this week?
 
-In Sprint dev-cw06 we [closed TODO issues or Pull Requests](https://github.com/B-AROL-O/ARNEIS/milestone/12?closed=1)
-
-<!-- TODO: Add screenshot of <https://github.com/orgs/B-AROL-O/projects/1/views/5> -->
+In Sprint dev-cw06 we [closed 11 issues or Pull Requests](https://github.com/B-AROL-O/ARNEIS/milestone/12?closed=1)
 
 Let's now dig into some of the major results we achieved during last week.
 
@@ -36,7 +34,7 @@ At that time this set was in full production (there were even rebates so it was 
 We then learned that LEGO retired this set at the end of 2021, so it quickly went out of stock, and also its price increased very quickly.
 Our first purchase order was then canceled as soon as the dealer realized that the last item he had on stock was damaged.
 
-We we now issued a second order from another dealer in Europe and we should have it delivered to our home address in a matter of hours. Let's cross fingers! 
+We recently issued a second order from another dealer in Europe and we should have it delivered to our home address in a matter of hours. Let's cross fingers! 
 
 <!--
 We eventually made it and we secured a [LEGO&reg; Liebherr R9800 Set](https://www.bricklink.com/v2/catalog/catalogitem.page?S=42100-1#T=S&O={%22iconly%22:0}) which should soon arrive in Torino.
@@ -68,7 +66,7 @@ Our plan for next week is available on GitHub: <https://github.com/B-AROL-O/ARNE
 
 <!-- TODO: Add screenshot of <https://github.com/orgs/B-AROL-O/projects/1/views/1> -->
 
-More specifically, during the 2022-02-17 edition of the [OpenCV Weekly Webinar](https://twitter.com/opencvweekly) our team should be interviewed by Phil Nelson, so if you have time please tune in next Thursday at 18:00 CET and say hello to us!
+By the way: during the 2022-02-17 edition of the [OpenCV Weekly Webinar](https://twitter.com/opencvweekly) our team should be interviewed by Phil Nelson, so if you have time please tune in next Thursday at 18:00 CET and say hello to us!
 
 ## That's all, folks
 
