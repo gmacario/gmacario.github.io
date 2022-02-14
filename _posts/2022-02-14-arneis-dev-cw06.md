@@ -34,7 +34,7 @@ At that time this set was in full production (there were even rebates so it was 
 We then learned that LEGO retired this set at the end of 2021, so it quickly went out of stock, and also its price increased very quickly.
 Our first purchase order was then canceled as soon as the dealer realized that the last item he had on stock was damaged.
 
-We recently issued a second order from another dealer in Europe and we should have it delivered to our home address in a matter of hours. Let's cross fingers! 
+We recently issued a second order from another dealer in Europe and we should have it delivered to our home address in a matter of hours. Let's cross fingers!
 
 <!--
 We eventually made it and we secured a [LEGO&reg; Liebherr R9800 Set](https://www.bricklink.com/v2/catalog/catalogitem.page?S=42100-1#T=S&O={%22iconly%22:0}) which should soon arrive in Torino.
