@@ -42,7 +42,7 @@ We eventually made it and we secured a [LEGO&reg; Liebherr R9800 Set](https://ww
 TODO:Photo
 -->
 
-We are eager to spend our nights in putting the pieces together and see wether [Alessandro design of the ARNEIS conveyor](https://github.com/B-AROL-O/ARNEIS/tree/main/mocs/studies) works as expected!
+We are eager to spend our nights in putting the pieces together and see whether [Alessandro design of the ARNEIS conveyor](https://github.com/B-AROL-O/ARNEIS/tree/main/mocs/studies) works as expected!
 
 [![ARNEIS project by B-AROL-O team - WIP](https://img.youtube.com/vi/7qxbT31U5dE/0.jpg)](https://www.youtube.com/watch?v=7qxbT31U5dE "ARNEIS project by B-AROL-O team - WIP")
 
@@ -62,7 +62,7 @@ For this reason we have bootstrapped a tiny [Lightweight Kubernetes cluster](htt
 
 ## Next week plans
 
-Our plan for next week is available on GitHub: <https://github.com/B-AROL-O/ARNEIS/milestone/5>.
+Our plan for next week is [available on GitHub](https://github.com/B-AROL-O/ARNEIS/milestone/5).
 
 <!-- TODO: Add screenshot of <https://github.com/orgs/B-AROL-O/projects/1/views/1> -->
 
