@@ -24,9 +24,19 @@ In Sprint dev-cw07 we [closed TODO issues or Pull Requests](https://github.com/B
 
 <!-- TODO: Add screenshot of <https://github.com/orgs/B-AROL-O/projects/1/views/5> -->
 
+Let's now dig into some of the major results we achieved during last week.
+
+### TODO1
+
 TODO
 
-<!-- TODO: Move here leftovers from dev-cw05 -->
+### TODO2
+
+TODO
+
+### TODO3
+
+TODO
 
 ## Next week plans
 
@@ -36,8 +46,14 @@ Our plan for next week is available on GitHub: <https://github.com/B-AROL-O/ARNE
 
 If you want to help or just say hello, please get in touch with us through [GitHub](https://github.com/B-AROL-O/ARNEIS) or [Twitter](https://twitter.com/baroloteam).
 
-Thanks for reading up to here!
+## That's all, folks
 
-Gianpaolo on behalf of the [B-AROL-O Team](https://github.com/b-arol-o).
+<!-- Thanks for reading up to here! -->
+
+Thanks for reading up to the end of such long post!
+
+If you want to help or just say hello, please get in touch with us through [GitHub](https://github.com/B-AROL-O/ARNEIS) or [Twitter](https://twitter.com/baroloteam).
+
+[Gianpaolo](https://github.com/gmacario) on behalf of the [B-AROL-O Team](https://github.com/b-arol-o).
 
 <!-- EOF -->
