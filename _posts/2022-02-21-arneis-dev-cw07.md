@@ -50,7 +50,7 @@ This will give us some more time to work on the project before the episode. Plea
 
 We released an early version of the [ARNEIS Software Architecture document](https://github.com/B-AROL-O/ARNEIS/blob/main/docs/architecture/arneis-swarch.md) where we describe the components which will be the brain of the ARNEIS system and how those components will be deployed (basically, as microservices on a tiny [Kubernetes](https://kubernetes.io/) cluster).
 
-We will soon focus on the detailed design and how those components talk to each other. As usual, we do not want to reinvent the wheel, so if you feel we can leveraging existing code or you can help us achieve the goal, please get back to us as soon as possible!
+We will soon focus on the detailed design and how those components talk to each other. As usual, we do not want to reinvent the wheel, so if you feel we can leverage existing code or you can help us achieve the goal, please get back to us as soon as possible!
 
 ## Next week plans
 
