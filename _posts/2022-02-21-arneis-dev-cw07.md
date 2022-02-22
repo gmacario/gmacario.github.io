@@ -38,7 +38,7 @@ Here are a few pictures of the ARNEIS conveyor made of actual LEGO bricks accord
 
 Here is a picture showing the movement of the conveyor transporting a few mignon bottles:
 
-![wip-conveyor-03.gif](https://github.com/B-AROL-O/ARNEIS/blob/main/docs/images/wip-conveyor-03.gif)
+![wip-conveyor-03.gif](https://github.com/B-AROL-O/ARNEIS/blob/main/docs/images/wip-conveyor-03.gif?raw=true)
 
 ### Our OpenCV Weekly Webinar postponed
 
