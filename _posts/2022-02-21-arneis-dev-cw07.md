@@ -42,7 +42,7 @@ Here is a picture showing the movement of the conveyor transporting a few mignon
 
 ### Our OpenCV Weekly Webinar postponed
 
-[Phil Nelson communicated](https://github.com/B-AROL-O/ARNEIS/issues/120) that our participation to the [OpenCV Weekly Webinar]() has been replanned for Thursday, 2022-03-24 where we will have the whole episode to present the ARNEIS project.
+[Phil Nelson communicated](https://github.com/B-AROL-O/ARNEIS/issues/120) that our participation to the [OpenCV Weekly Webinar](https://twitter.com/opencvweekly) has been replanned for Thursday, 2022-03-24 where we will have the whole episode to present the ARNEIS project.
 
 This will give us some more time to work on the project before the episode. Please mark the new date on your calendar, and stay tuned for future announcements!
 
