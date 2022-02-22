@@ -20,23 +20,37 @@ Here is the report of our progress in the ARNEIS project after the end of CW07-2
 
 ## What did we accomplish this week?
 
-In Sprint dev-cw07 we [closed TODO issues or Pull Requests](https://github.com/B-AROL-O/ARNEIS/milestone/5?closed=1)
+In Sprint dev-cw07 we [closed 24 issues or Pull Requests](https://github.com/B-AROL-O/ARNEIS/milestone/5?closed=1).
 
 <!-- TODO: Add screenshot of <https://github.com/orgs/B-AROL-O/projects/1/views/5> -->
 
 Let's now dig into some of the major results we achieved during last week.
 
-### TODO1
+### First assemblies of the LEGO Conveyor
 
-TODO
+After [a long and bumpy trip](https://github.com/b-arol-o/arneis/issues/7) we eventually managed to receive our beloved LEGO Set 42100.
 
-### TODO2
+![LEGO Technic 4100 with banana](https://user-images.githubusercontent.com/25162080/154041966-18c4a11b-e9ad-4281-bcf3-08c5b9c8b115.jpeg)
 
-TODO
+Here are a few pictures of the ARNEIS conveyor made of actual LEGO bricks according to [the blueprints](https://github.com/B-AROL-O/ARNEIS/tree/main/mocs/studies):
 
-### TODO3
+![wip-conveyor-01.jpeg](https://raw.githubusercontent.com/B-AROL-O/ARNEIS/main/docs/images/wip-conveyor-01.jpeg)
 
-TODO
+Here is a picture showing the movement of the conveyor transporting a few mignon bottles:
+
+![wip-conveyor-03.gif](https://github.com/B-AROL-O/ARNEIS/blob/main/docs/images/wip-conveyor-03.gif)
+
+### Our OpenCV Weekly Webinar postponed
+
+[Phil Nelson communicated](https://github.com/B-AROL-O/ARNEIS/issues/120) that our participation to the [OpenCV Weekly Webinar]() has been replanned for Thursday, 2022-03-24 where we will have the whole episode to present the ARNEIS project.
+
+This will give us some more time to work on the project before the episode. Please mark the new date on your calendar, and stay tuned for future announcements!
+
+### First release of the ARNEIS Software Architecture
+
+We released an early version of the [ARNEIS Software Architecture document](https://github.com/B-AROL-O/ARNEIS/blob/main/docs/architecture/arneis-swarch.md) where we describe the components which will be the brain of the ARNEIS system and how those components will be deployed (basically, as microservices on a tiny [Kubernetes](https://kubernetes.io/) cluster).
+
+We will soon focus on the detailed design and how those components talk to each other. As usual, we do not want to reinvent the wheel, so if you feel we can leveraging existing code or you can help us achieve the goal, please get back to us as soon as possible!
 
 ## Next week plans
 
