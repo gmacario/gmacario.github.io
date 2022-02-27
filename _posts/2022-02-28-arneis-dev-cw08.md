@@ -30,7 +30,7 @@ Let's now dig into some of the major results we achieved during last week.
 
 Over the last weekend we attended the event "[In un mondo di Bricks](https://facebook.com/events/s/in-un-mondo-di-bricks/2779705722333200/)" organized by [Piemonte Bricks LUG](https://lan.lego.com/clubs/354-piemonte-bricks-lug/) (short for [_LEGO&reg; User Group_](https://arneis.readthedocs.io/en/latest/acronyms.html)) nearby our offices.
 
-Piemonte Bricks is one of the biggest LUGs in Italy which gathers several AFOLs (short for [Adults Fanatic of _LEGO&reg](https://arneis.readthedocs.io/en/latest/acronyms.html)) from Piedmont and has officially been acknowledged by the LEGO&reg; Group&trade;.
+Piemonte Bricks is one of the biggest LUGs in Italy which gathers several AFOLs (short for [_Adults Fanatic of LEGO&reg;_](https://arneis.readthedocs.io/en/latest/acronyms.html)) from Piedmont and has officially been acknowledged by the LEGO&reg; Group&trade;.
 
 The exhibition showcased a few official LEGO&reg; sets (there was even one [Liebherr R 9800](https://arneis.readthedocs.io/en/latest/lego-set-42100)!)
 
@@ -42,7 +42,7 @@ as well as some MOCs (acronym for [_My Own Creation_](https://arneis.readthedocs
 
 I also had a chance of talking with some of the LUG members, including [Silvia Grillo](https://www.facebook.com/silvia.grillo.10) (the [LEGO&reg; Ambassador](https://lan.lego.com/)) and [Lorenzo Brovia](https://www.facebook.com/ilbrovia) to whom I pitched the ARNEIS project and showed them the concept we have been working on.
 
-Silvia was really excited about the project and enthusiastically proposed us to showcase our MOC in one of the next events organized by [Piemonte Bricks LUG](https://www.facebook.com/piemontebricksLUG/) - more specifically:
+Silvia was really excited about the project and enthusiastically proposed us to showcase ARNEIS in one of the next events organized by [Piemonte Bricks LUG](https://www.facebook.com/piemontebricksLUG/) - more specifically:
 
 - [Villaggio Leumann in Bricks 2022](https://github.com/B-AROL-O/ARNEIS/issues/208)
 - [San Mauro Brick Show 2022](https://github.com/B-AROL-O/ARNEIS/issues/130)
@@ -64,13 +64,11 @@ Our plan for next week is available on GitHub: <https://github.com/B-AROL-O/ARNE
 
 <!-- TODO: Add screenshot of <https://github.com/orgs/B-AROL-O/projects/1/views/1> -->
 
-If you want to help or just say hello, please get in touch with us through [GitHub](https://github.com/B-AROL-O/ARNEIS) or [Twitter](https://twitter.com/baroloteam).
-
-## That's all, folks
+<!-- ## That's all, folks -->
 
 <!-- Thanks for reading up to here! -->
 
-Thanks for reading up to the end of such long post!
+<!-- Thanks for reading up to the end of such long post! -->
 
 If you want to help or just say hello, please get in touch with us through [GitHub](https://github.com/B-AROL-O/ARNEIS) or [Twitter](https://twitter.com/baroloteam).
 
