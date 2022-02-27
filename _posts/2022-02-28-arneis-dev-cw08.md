@@ -28,7 +28,7 @@ Let's now dig into some of the major results we achieved during last week.
 
 ### Talks with Piemonte Bricks LUG
 
-Over the last weekend we attended the event "[In un mondo di Bricks](https://facebook.com/events/s/in-un-mondo-di-bricks/2779705722333200/)" organized by [Piemonte Bricks LUG](https://lan.lego.com/clubs/354-piemonte-bricks-lug/) (short for [_LEGO&reg; User Group_](https://arneis.readthedocs.io/en/latest/acronyms.html)) nearby our offices.
+Over the last weekend we attended the event "[In un mondo di Bricks](https://facebook.com/events/s/in-un-mondo-di-bricks/2779705722333200/)" organized by [Piemonte Bricks LUG](https://www.piemontebricks.it/) (short for [_LEGO&reg; User Group_](https://arneis.readthedocs.io/en/latest/acronyms.html)) nearby our offices.
 
 Piemonte Bricks is one of the biggest LUGs in Italy which gathers several AFOLs (short for [_Adults Fanatic of LEGO&reg;_](https://arneis.readthedocs.io/en/latest/acronyms.html)) from Piedmont and has officially been acknowledged by the LEGO&reg; Group&trade;.
 
@@ -40,7 +40,7 @@ as well as some MOCs (acronym for [_My Own Creation_](https://arneis.readthedocs
 
 ![2022-02-27 14 50 02](https://user-images.githubusercontent.com/75182/155892920-4ec40aa5-0ac0-4f49-b9ac-f14ebc413ef0.jpg)
 
-I also had a chance of talking with some of the LUG members, including [Silvia Grillo](https://www.facebook.com/silvia.grillo.10) (the [LEGO&reg; Ambassador](https://lan.lego.com/)) and [Lorenzo Brovia](https://www.facebook.com/ilbrovia) to whom I pitched the ARNEIS project and showed them the concept we have been working on.
+I also had a chance of talking with some of the LUG members, including [Silvia Grillo](https://www.facebook.com/silvia.grillo.10) (the [LEGO&reg; Ambassador](https://lan.lego.com/) of the LUG) and [Lorenzo Brovia](https://www.facebook.com/ilbrovia) to whom I pitched the ARNEIS project and showed them the concept we have been working on.
 
 Silvia was really excited about the project and enthusiastically proposed us to showcase ARNEIS in one of the next events organized by [Piemonte Bricks LUG](https://www.facebook.com/piemontebricksLUG/) - more specifically:
 
