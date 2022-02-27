@@ -20,15 +20,35 @@ Here is the report of our progress in the ARNEIS project after the end of CW08-2
 
 ## What did we accomplish this week?
 
-In Sprint dev-cw08 we [closed TODO issues or Pull Requests](https://github.com/B-AROL-O/ARNEIS/issues?q=is%3Aclosed+milestone%3Adev-cw08)
+In Sprint dev-cw08 we [closed 37 issues or Pull Requests](https://github.com/B-AROL-O/ARNEIS/issues?q=is%3Aclosed+milestone%3Adev-cw08).
 
 <!-- TODO: Add screenshot of <https://github.com/orgs/B-AROL-O/projects/1/views/5> -->
 
 Let's now dig into some of the major results we achieved during last week.
 
-### TODO1
+### Talks with Piemonte Bricks LUG
 
-TODO
+Over the last weekend we attended the event "[In un mondo di Bricks](https://facebook.com/events/s/in-un-mondo-di-bricks/2779705722333200/)" organized by [Piemonte Bricks LUG](https://lan.lego.com/clubs/354-piemonte-bricks-lug/) (short for [_LEGO&reg; User Group_](https://arneis.readthedocs.io/en/latest/acronyms.html)) nearby our offices.
+
+Piemonte Bricks is one of the biggest LUGs in Italy which gathers several AFOLs (short for [Adults Fanatic of _LEGO&reg](https://arneis.readthedocs.io/en/latest/acronyms.html)) from Piedmont and has officially been acknowledged by the LEGO&reg; Group&trade;.
+
+The exhibition showcased a few official LEGO&reg; sets (there was even one [Liebherr R 9800](https://arneis.readthedocs.io/en/latest/lego-set-42100)!)
+
+![2022-02-26 17 15 16](https://user-images.githubusercontent.com/75182/155892860-5a31bcd6-3c4e-4c50-a264-f7bace8e0821.jpg)
+
+as well as some MOCs (acronym for [_My Own Creation_](https://arneis.readthedocs.io/en/latest/acronyms.html)) designed by the LUG members.
+
+![2022-02-27 14 50 02](https://user-images.githubusercontent.com/75182/155892920-4ec40aa5-0ac0-4f49-b9ac-f14ebc413ef0.jpg)
+
+I also had a chance of talking with some of the LUG members, including [Silvia Grillo](https://www.facebook.com/silvia.grillo.10) (the [LEGO&reg; Ambassador](https://lan.lego.com/)) and [Lorenzo Brovia](https://www.facebook.com/ilbrovia) to whom I pitched the ARNEIS project and showed them the concept we have been working on.
+
+Silvia was really excited about the project and enthusiastically proposed us to showcase our MOC in one of the next events organized by [Piemonte Bricks LUG](https://www.facebook.com/piemontebricksLUG/) - more specifically:
+
+- [Villaggio Leumann in Bricks 2022](https://github.com/B-AROL-O/ARNEIS/issues/208)
+- [San Mauro Brick Show 2022](https://github.com/B-AROL-O/ARNEIS/issues/130)
+
+We are very proud of this invitation, but since the quality of the event we have been asked to participate is quite high we need to figure out some details first.
+In any case I promised to get back to her in a few days - hopefully to confirm our participation to one of those events.
 
 ### TODO2
 
