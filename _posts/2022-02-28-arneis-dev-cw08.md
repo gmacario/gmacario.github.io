@@ -68,7 +68,8 @@ Detail of the conveyor while some mignon bottles are flowing through:
 
 ### First attempts at programming LEGO&reg; Technics Bluetooth Hubs
 
-We published [a first draft of a HOWTO](https://arneis.readthedocs.io/en/latest/howto/howto-control-rpi-poweredup.html) which explains how we can control a [LEGO&reg; Technics Bluetooth Hub](https://www.bricklink.com/v2/catalog/catalogitem.page?P=bb0961c01&idColor=86#T=C&C=86) since we have two in our [LEGO Set 42100](https://arneis.readthedocs.io/en/latest/lego-set-42100) which we have selected for the [OpenCV Spatial AI Contest](https://opencv.org/opencv-spatial-ai-contest/).
+We published [a first draft of a HOWTO](https://arneis.readthedocs.io/en/latest/howto/howto-control-rpi-poweredup.html) which explains how we can control a [LEGO&reg; Technics Bluetooth Hub](https://www.bricklink.com/v2/catalog/catalogitem.page?P=bb0961c01&idColor=86#T=C&C=86).
+We have two of them in our [LEGO Set 42100](https://arneis.readthedocs.io/en/latest/lego-set-42100) which we use for the [OpenCV Spatial AI Contest](https://opencv.org/opencv-spatial-ai-contest/).
 
 Additionally, we have been experimenting with PyBricks which allows to run MicroPython scripts directly on the Hub.
 You can find some sample code directly under [the /code folder of the GitHub project github.com/B-AROL-O/ARNEIS](https://github.com/B-AROL-O/ARNEIS/tree/main/code/pybricks-test01).
