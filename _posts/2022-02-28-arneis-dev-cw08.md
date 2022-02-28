@@ -58,16 +58,20 @@ A dedicated angle regulation system is present.
 
 He also completed the path, so the mignon bottles can circle in the conveyor as a precondition to automate the training of the Neural Network.
 
-Here are a few pictures which illustrate the concept - the updated CAD model will be developed in the next days.
-
+Here are some photos which illustrate the concept - the updated CAD model will be released in the next few days.
 
 <img width="789" alt="Schermata 2022-02-27 alle 18 10 54" src="https://user-images.githubusercontent.com/25162080/155892312-163273f9-9819-4a22-a2d6-13e2cd9ebfd2.png">
 
+Detail of the conveyor while some mignon bottles are flowing through:
+
 <img width="649" alt="Schermata 2022-02-27 alle 18 12 54" src="https://user-images.githubusercontent.com/25162080/155892314-46ae256b-e8de-42fc-ae4b-65b02baa8086.png">
 
-### TODO3
+### First attempts at programming LEGO&reg; Technics Bluetooth Hubs
 
-TODO
+We published [a first draft of a HOWTO](https://arneis.readthedocs.io/en/latest/howto/howto-control-rpi-poweredup.html) which explains how we can control a [LEGO&reg; Technics Bluetooth Hub](https://www.bricklink.com/v2/catalog/catalogitem.page?P=bb0961c01&idColor=86#T=C&C=86) since we have two in our [LEGO Set 42100](https://arneis.readthedocs.io/en/latest/lego-set-42100) which we have selected for the [OpenCV Spatial AI Contest](https://opencv.org/opencv-spatial-ai-contest/).
+
+Additionally, we have been experimenting with PyBricks which allows to run MicroPython scripts directly on the Hub.
+You can find some sample code directly under [the /code folder of the GitHub project github.com/B-AROL-O/ARNEIS](https://github.com/B-AROL-O/ARNEIS/tree/main/code/pybricks-test01).
 
 ## Next week plans
 
