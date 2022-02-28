@@ -50,9 +50,20 @@ Silvia was really excited about the project and enthusiastically proposed us to 
 We are very proud of this invitation, but since the quality of the event we have been asked to participate is quite high we need to figure out some details first.
 In any case I promised to get back to her in a few days - hopefully to confirm our participation to one of those events.
 
-### TODO2
+### The MOC is taking shape
 
-TODO
+[Alessandro](https://github.com/alv67) has progressed on the mechanical design of the ARNEIS conveyor and managed to place the OAK-D-Lite using the adapter which was already discussed in a previous post.
+
+A dedicated angle regulation system is present.
+
+He also completed the path, so the mignon bottles can circle in the conveyor as a precondition to automate the training of the Neural Network.
+
+Here are a few pictures which illustrate the concept - the updated CAD model will be developed in the next days.
+
+
+<img width="789" alt="Schermata 2022-02-27 alle 18 10 54" src="https://user-images.githubusercontent.com/25162080/155892312-163273f9-9819-4a22-a2d6-13e2cd9ebfd2.png">
+
+<img width="649" alt="Schermata 2022-02-27 alle 18 12 54" src="https://user-images.githubusercontent.com/25162080/155892314-46ae256b-e8de-42fc-ae4b-65b02baa8086.png">
 
 ### TODO3
 
