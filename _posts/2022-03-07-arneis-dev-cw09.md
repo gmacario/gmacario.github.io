@@ -20,7 +20,7 @@ Here is the report of our progress in the ARNEIS project after the end of CW09-2
 
 ## What did we accomplish this week?
 
-In Sprint dev-cw08 we [closed TODO issues or Pull Requests](https://github.com/B-AROL-O/ARNEIS/issues?q=is%3Aclosed+milestone%3Adev-cw09)
+In Sprint dev-cw09 we [closed TODO issues or Pull Requests](https://github.com/B-AROL-O/ARNEIS/issues?q=is%3Aclosed+milestone%3Adev-cw09)
 
 <!-- TODO: Add screenshot of <https://github.com/orgs/B-AROL-O/projects/1/views/5> -->
 
@@ -46,9 +46,9 @@ Our plan for next week is available on GitHub: <https://github.com/B-AROL-O/ARNE
 
 If you want to help or just say hello, please get in touch with us through [GitHub](https://github.com/B-AROL-O/ARNEIS) or [Twitter](https://twitter.com/baroloteam).
 
-## That's all, folks
+<!-- ## That's all, folks -->
 
-<!-- Thanks for reading up to here! -->
+Thanks for reading up to here!
 
 <!-- Thanks for reading up to the end of such long post! -->
 
