@@ -20,15 +20,19 @@ Here is the report of our progress in the ARNEIS project after the end of CW09-2
 
 ## What did we accomplish this week?
 
-In Sprint dev-cw09 we [closed TODO issues or Pull Requests](https://github.com/B-AROL-O/ARNEIS/issues?q=is%3Aclosed+milestone%3Adev-cw09)
+In Sprint dev-cw09 we [closed 14 issues or Pull Requests](https://github.com/B-AROL-O/ARNEIS/issues?q=is%3Aclosed+milestone%3Adev-cw09)
 
 <!-- TODO: Add screenshot of <https://github.com/orgs/B-AROL-O/projects/1/views/5> -->
 
 Let's now dig into some of the major results we achieved during last week.
 
-### TODO1
+### We got a logo for the ARNEIS Project
 
-TODO
+[Pietro d'Agostino](https://github.com/pitdagosti) who [previously contributed the logo for the B-AROL-O Team](https://github.com/B-AROL-O/ARNEIS/pull/39), surpassed himself and contributed a logo for the ARNEIS project as well:
+
+![ARNEIS_logo](https://user-images.githubusercontent.com/75182/156942800-954dfeff-ff7b-45f3-bb50-e389d3a9655f.png)
+
+At <https://github.com/B-AROL-O/ARNEIS/issues/24> you may find the conversation which ended up in the final logo shown above.
 
 ### TODO2
 
