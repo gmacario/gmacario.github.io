@@ -34,13 +34,27 @@ Let's now dig into some of the major results we achieved during last week.
 
 At <https://github.com/B-AROL-O/ARNEIS/issues/24> you may find the conversation which ended up in the final logo shown above.
 
-### TODO2
+### Released code to pretty-print LEGO BOM
 
-TODO
+You may have noticed that [the ARNEIS documentation site](https://arneis.readthedocs.io/) contains a [detailed list of all the LEGO&reg; pieces](https://arneis.readthedocs.io/en/latest/lego-set-42100/unboxing-lego-set-42100.html) included in the Set 42100 which we have selected to build our MOC.
 
-### TODO3
+![image](https://user-images.githubusercontent.com/75182/156981816-54b4fed9-0114-4eaa-b497-e7de4aa6ab8d.png)
 
-TODO
+You may wonder how we managed to create this page.
+
+The secret is `lego-parts-csv2md`, a [Jupyter notebook](https://github.com/B-AROL-O/ARNEIS/pull/223) developed by [Alessandro](https://github.com/alv67) which is able to parse the Bill Of Material exported from [Stud.io CAD tool](https://www.bricklink.com/v3/studio/download.page) and convert it to a snippet of Markdown code.
+
+Since we believe this tool may be useful to other people as well, we decided to publish the source code under the [Open Source MIT license](https://github.com/B-AROL-O/ARNEIS/blob/main/LICENSE), like all the other contents of the [ARNEIS repository on GitHub](https://github.com/B-AROL-O/ARNEIS).
+
+You may find the source code of `lego-parts-csv2md`, included its usage instructions, under [the `/code` folder of the GitHub repository](https://github.com/B-AROL-O/ARNEIS/tree/main/code/lego-parts-csv2md).
+
+### ARNEIS will be showcased at San Mauro Brick Show 2022
+
+After some internal discussion we eventually accepted the proposal by [Piemonte Bricks LUG](https://www.piemontebricks.it/), therefore we will be showcasing the [ARNEIS Project at the San Mauro Brick Show 2022](https://github.com/B-AROL-O/ARNEIS/issues/130).
+
+If you happend to be around Torino from 9 to 10 April 2022, please mark the event on your calendar so you will be able to see in presence our project!
+
+![San Mauro Brick Show 2022](https://user-images.githubusercontent.com/75182/155898871-e4a5d039-880f-4513-b2ac-50cf9a3b573d.png)
 
 ## Next week plans
 
