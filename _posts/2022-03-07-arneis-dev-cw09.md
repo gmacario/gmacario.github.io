@@ -62,13 +62,9 @@ Our plan for next week is available on GitHub: <https://github.com/B-AROL-O/ARNE
 
 <!-- TODO: Add screenshot of <https://github.com/orgs/B-AROL-O/projects/1/views/1> -->
 
-If you want to help or just say hello, please get in touch with us through [GitHub](https://github.com/B-AROL-O/ARNEIS) or [Twitter](https://twitter.com/baroloteam).
-
 <!-- ## That's all, folks -->
 
-Thanks for reading up to here!
-
-<!-- Thanks for reading up to the end of such long post! -->
+<!-- Thanks for reading up to here! -->
 
 If you want to help or just say hello, please get in touch with us through [GitHub](https://github.com/B-AROL-O/ARNEIS) or [Twitter](https://twitter.com/baroloteam).
 
