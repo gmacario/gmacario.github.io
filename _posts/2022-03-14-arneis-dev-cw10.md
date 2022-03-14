@@ -20,15 +20,17 @@ Here is the report of our progress in the ARNEIS project after the end of CW10-2
 
 ## What did we accomplish this week?
 
-In Sprint dev-cw10 we [closed TODO issues or Pull Requests](https://github.com/B-AROL-O/ARNEIS/issues?q=is%3Aclosed+milestone%3Adev-cw10)
+In Sprint dev-cw10 we [closed 16 issues or Pull Requests](https://github.com/B-AROL-O/ARNEIS/issues?q=is%3Aclosed+milestone%3Adev-cw10) - not many in quantity, but high in quality!
 
 <!-- TODO: Add screenshot of <https://github.com/orgs/B-AROL-O/projects/1/views/5> -->
 
 Let's now dig into some of the major results we achieved during last week.
 
-### TODO1
+### New release of the LEGO&reg; design for ARNEIS
 
-TODO
+Please look at <https://github.com/B-AROL-O/ARNEIS/tree/main/mocs/project> for details
+
+![arneis-conveyor-20220312.gif](https://github.com/B-AROL-O/ARNEIS/raw/main/mocs/project/arneis-conveyor-20220312.gif)
 
 ### TODO2
 
