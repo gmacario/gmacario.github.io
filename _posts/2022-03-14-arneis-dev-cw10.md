@@ -28,9 +28,17 @@ Let's now dig into some of the major results we achieved during last week.
 
 ### New release of the LEGO&reg; design for ARNEIS
 
-Please look at <https://github.com/B-AROL-O/ARNEIS/tree/main/mocs/project> for details
+This conveyor is used to move ["mignon" bottles](https://www.ebay.it/b/Alcolici-mignon-da-collezione/3914/bn_16582158). The main idea is to use a chain where some kind of _pushers_ are used to move bottles over a flat surface.
+
+The chain is not used as a base surface for the bottles due to the difficulty of ensuring that it will stay horizontal during the movement.
+
+A special support is designed to hold the [OAK-D-Lite](https://docs.luxonis.com/projects/hardware/en/latest/pages/DM9095.html) AI Camera used in this project. It is possible to change the tilt of the camera by using the dedicated linear extender arm.
+
+The white wall acts as a background for taking better snapshots of the bottles during their trip on the conveyor.
 
 ![arneis-conveyor-20220312.gif](https://github.com/B-AROL-O/ARNEIS/raw/main/mocs/project/arneis-conveyor-20220312.gif)
+
+Please look at <https://github.com/B-AROL-O/ARNEIS/tree/main/mocs/project> for details.
 
 ### Progress in controlling the LEGO&reg; Powered Up devices
 
