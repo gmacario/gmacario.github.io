@@ -74,9 +74,24 @@ After about 5h of work the MOC is complete
 
 ![2022-03-20-2141-leftovers](https://user-images.githubusercontent.com/75182/159185349-3c987443-ba6c-4744-b7f7-65d1b8894eeb.jpg)
 
-### TODO3
+### Working on a synthetic dataset for training the ARNEIS NN
 
-TODO
+As explained by Satya during the [2022-03-17 OpenCV AI Webinar](https://twitter.com/opencvweekly/status/1504487889630945281), the most effective way improving the recognition rate of the Neural Network is to provide a comprehensive dataset for training.
+
+At the moment we have been using about 500 real pictures taken with the OAK-D-Lite to a subset of the "mignon" bottles we have available. 
+
+During the webinar Satya suggested us to augment the training by developing 3D models of each bottle, slapping hi-res scans of the labels, then use programs such as Unity or Roboflow to generate plenty of syntetic pictures with different orientation, lighting and obstactles in order to reinforce the training algorithm of the Neural Network.
+
+[Stefan Daniel Achirei](https://scholar.google.com/citations?user=z9g3WNcAAAAJ&hl=ro) commented in the chat
+
+> toolkit for generating synthetic data:
+> <https://github.com/Unity-Technologies/com.unity.perception>
+
+This toolkit was presented in [Episode 43 of the OpenCV Weekly Webinar](https://www.youtube.com/watch?v=LGGtF_4v5sQ) a few weeks ago (skip to 45:28 of the video recording):
+
+[![What's New With the OpenCV AI Kit Plugin for Unity w/ Gerard Espona - Weekly Ep #43 - 02/03/22](https://img.youtube.com/vi/LGGtF_4v5sQ/0.jpg)](https://www.youtube.com/watch?v=LGGtF_4v5sQ "What's New With the OpenCV AI Kit Plugin for Unity w/ Gerard Espona - Weekly Ep #43 - 02/03/22")
+
+Please subscribe to [ARNEIS#258](https://github.com/B-AROL-O/ARNEIS/issues/258) if you are interested in the process or can provide suggestions or feedbacks.
 
 ## Next week plans
 
