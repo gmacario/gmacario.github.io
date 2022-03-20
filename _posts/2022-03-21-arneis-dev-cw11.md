@@ -26,11 +26,37 @@ In Sprint dev-cw11 we [closed TODO issues or Pull Requests](https://github.com/B
 
 Let's now dig into some of the major results we achieved during last week.
 
-### TODO1
+### B-AROL-O team at OpenCV Weekly Webinar
 
-TODO
+On Monday, 2022-03-13 Phil Nelson requested us to anticipate our presence to the OpenCV Weekly Webinar of one week, since they had some technical difficulties and the planned TODO.
 
-### TODO2
+After some internal discussion with Alessandro and Gianluca we accepted the challenge, but we had only two days left for preparing the presentation, so we had to cut corners to fill the 1h slot of the webinar.
+
+![image](https://user-images.githubusercontent.com/75182/159136335-12c6b155-d7be-4172-bf84-1a45ef91c181.png)
+
+I hope we did not disappoint the audience. As a matter of fact, by reading the comments in the [recorded video](https://www.linkedin.com/video/event/urn:li:ugcPost:6909587011267891201/) (LinkedIn login required) it looks like our project was well welcomed.
+
+![image](https://user-images.githubusercontent.com/75182/159172049-6ccb1a2e-1b85-439c-b93b-e7d3ee232249.png)
+
+
+According to <https://twitter.com/opencvweekly/status/1504487889630945281>
+we had 101 attendees to the webinar:
+
+![image](https://user-images.githubusercontent.com/75182/159134583-f3d5165d-c3be-44e9-9b6c-429944830bb6.png)
+
+The list includes a few friends and former colleagues, but a lot of other people all over the world attended the Webinar as well and made very interesting questions and suggestions.
+
+We are looking forward to hearing more, and possibly meeting some of them during some local events that our team will be presenting ARNEIS in the near future, such as:
+
+* Saturday, 2022-04-09 and Sunday, 2022-04-10: [San Mauro Brick Show 2022](https://github.com/B-AROL-O/ARNEIS/issues/130)
+* Saturday, 2022-05-28 and Sunday, 2022-05-29: [Expo Mattoncino 6 Pinerolo](https://github.com/B-AROL-O/ARNEIS/issues/213)
+
+Please mark both events on your calendar and - if you happen to be around Torino during those days - don't forget to come and meet us!
+
+
+### Built a second ARNEIS MOC
+
+We managed to get our hands on a second LEGO&reg; 42100 Set.
 
 TODO
 
