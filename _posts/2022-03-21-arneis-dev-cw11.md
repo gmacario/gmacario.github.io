@@ -28,25 +28,31 @@ Let's now dig into some of the major results we achieved during last week.
 
 ### B-AROL-O team at OpenCV Weekly Webinar
 
-On Monday, 2022-03-13 Phil Nelson requested us to anticipate our presence to the OpenCV Weekly Webinar of one week, since they had some technical difficulties and the planned TODO.
+On Monday, 2022-03-13 we got an email from Phil Nelson informing us that due to technical issues the [OpenCV AI Game Show](https://opencv.org/gameshow/) which was supposed to be kicked off on Episode 49 of the [OpenCV Weekly Webinar](https://twitter.com/opencvweekly) had to be postponed to the week after, and proposing to fill in the empty slot and present [ARNEIS](https://github.com/B-AROL-O/ARNEIS) instead.
 
-After some internal discussion with Alessandro and Gianluca we accepted the challenge, but we had only two days left for preparing the presentation, so we had to cut corners to fill the 1h slot of the webinar.
+After some internal discussion with Alessandro and Gianluca we accepted the challenge.
+Unfortunately we had only two days left for preparing the presentation, therefore we had to cut corners and speed up our plan to fill the 1h slot of the webinar.
 
-![image](https://user-images.githubusercontent.com/75182/159136335-12c6b155-d7be-4172-bf84-1a45ef91c181.png)
+Moreover, due to work priorities [Alessandro](https://github.com/alv67) would not be able to attend in person, therefore we decided that I ([Gianpaolo](https://github.com/gmacario)) would introduce the [B-AROL-O Team](https://github.com/B-AROL-O) and the [ARNEIS project](https://github.com/B-AROL-O/ARNEIS) in the first part of the webinar
 
-I hope we did not disappoint the audience. As a matter of fact, by reading the comments in the [recorded video](https://www.linkedin.com/video/event/urn:li:ugcPost:6909587011267891201/) (LinkedIn login required) it looks like our project was well welcomed.
+<a href="https://www.linkedin.com/video/event/urn:li:ugcPost:6909587011267891201/">![image](https://user-images.githubusercontent.com/75182/159136335-12c6b155-d7be-4172-bf84-1a45ef91c181.png)</a>
 
-![image](https://user-images.githubusercontent.com/75182/159172049-6ccb1a2e-1b85-439c-b93b-e7d3ee232249.png)
+... then would leave the stage to [Gianluca](https://github.com/gteti) who would talk about the mechanical design and zoom into the CV algorithm and the current issues we are still trying to solve.
 
+We hope that the people who eventually attended the webinar on Thursday, 2022-03-17 were not disappointed.
+As a matter of fact, by reading the comments in the [recorded video](https://www.linkedin.com/video/event/urn:li:ugcPost:6909587011267891201/) (LinkedIn login required) it looks like our project was well welcomed.
 
-According to <https://twitter.com/opencvweekly/status/1504487889630945281>
-we had 101 attendees to the webinar:
+<a href="https://www.linkedin.com/video/event/urn:li:ugcPost:6909587011267891201/">![image](https://user-images.githubusercontent.com/75182/159172049-6ccb1a2e-1b85-439c-b93b-e7d3ee232249.png)</a>
 
-![image](https://user-images.githubusercontent.com/75182/159134583-f3d5165d-c3be-44e9-9b6c-429944830bb6.png)
+According to [The Zoom recording](https://twitter.com/opencvweekly/status/1504487889630945281) we had more than 100 people online up to the end.
 
-The list includes a few friends and former colleagues, but a lot of other people all over the world attended the Webinar as well and made very interesting questions and suggestions.
+<a href="https://twitter.com/opencvweekly/status/1504487889630945281">![image](https://user-images.githubusercontent.com/75182/159176945-3a84e105-54dd-45ca-8f50-a1fdf425d609.png)</a>
 
-We are looking forward to hearing more, and possibly meeting some of them during some local events that our team will be presenting ARNEIS in the near future, such as:
+Among the attendees we recognized a few friends and former colleagues; however, we were particularly amazed by having so many people from all over the world who joined the event and made very interesting questions and suggestions.
+
+We are very thankful to [Satya](https://twitter.com/LearnOpenCV) and [Phil](https://twitter.com/philnelson) who invited us to the [OpenCV Weekly Webinar](https://twitter.com/opencvweekly), and we are looking forward to hearing more from the community.
+
+Hopefully we will be able to meet some of you in person during one of next events in the coming weeks where we will be showcasing ARNEIS - more specifically:
 
 * Saturday, 2022-04-09 and Sunday, 2022-04-10: [San Mauro Brick Show 2022](https://github.com/B-AROL-O/ARNEIS/issues/130)
 * Saturday, 2022-05-28 and Sunday, 2022-05-29: [Expo Mattoncino 6 Pinerolo](https://github.com/B-AROL-O/ARNEIS/issues/213)
