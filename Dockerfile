@@ -15,8 +15,7 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-RUN npm run build
-RUN npm run test
+RUN npm run build && npm run test
 
 EXPOSE 3000
 CMD [ "npm" , "start" ]
