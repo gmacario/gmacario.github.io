@@ -20,7 +20,7 @@ Here is the report of our progress in the ARNEIS project after the end of CW11-2
 
 ## What did we accomplish this week?
 
-In Sprint dev-cw11 we [closed TODO issues or Pull Requests](https://github.com/B-AROL-O/ARNEIS/issues?q=is%3Aclosed+milestone%3Adev-cw11)
+In Sprint dev-cw11 we [closed 15 issues or Pull Requests](https://github.com/B-AROL-O/ARNEIS/issues?q=is%3Aclosed+milestone%3Adev-cw11).
 
 <!-- TODO: Add screenshot of <https://github.com/orgs/B-AROL-O/projects/1/views/5> -->
 
@@ -64,9 +64,15 @@ Please mark both events on your calendar and - if you happen to be around Torino
 
 ### Built a second ARNEIS MOC
 
-We managed to get our hands on a second LEGO&reg; 42100 Set.
+We managed to get our hands on another [LEGO&reg; 42100 Set](https://arneis.readthedocs.io/en/latest/lego-set-42100/README.html) which we have used to verify the MOC design which Alessandro [released last weeek](https://github.com/B-AROL-O/ARNEIS/tree/main/mocs/project#arneis-conveyor-v20220312).
 
-TODO
+After about 5h of work the MOC is complete
+
+![2022-03-20-2141-moc-complete](https://user-images.githubusercontent.com/75182/159185341-6ee084a1-ad6d-4eee-b0bd-ce83908fc87d.jpg)
+
+... and there are still A LOT of extra parts that we could use to improve the design!
+
+![2022-03-20-2141-leftovers](https://user-images.githubusercontent.com/75182/159185349-3c987443-ba6c-4744-b7f7-65d1b8894eeb.jpg)
 
 ### TODO3
 
