@@ -63,7 +63,7 @@ Please mark both events on your calendar and - if you happen to be around Torino
 
 As explained by Satya during the [2022-03-17 OpenCV AI Webinar](https://twitter.com/opencvweekly/status/1504487889630945281), the most effective way improving the recognition rate of the Neural Network is to provide a comprehensive dataset for training.
 
-At the moment we have been using about 500 real pictures taken with the OAK-D-Lite to a subset of the "mignon" bottles we have available. 
+At the moment we have been using about 500 real pictures taken with the OAK-D-Lite to a subset of the "mignon" bottles we have available.
 
 During the webinar Satya suggested to enhance the dataset for training by developing 3D models of each bottle, slapping hi-res scans of the labels, then use programs such as Unity or Roboflow to generate plenty of syntetic pictures with different orientation, lighting and obstactles in order to reinforce the training algorithm of the Neural Network.
 
