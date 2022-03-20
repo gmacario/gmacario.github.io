@@ -28,7 +28,9 @@ Let's now dig into some of the major results we achieved during last week.
 
 ### B-AROL-O team at OpenCV Weekly Webinar
 
-On Monday, 2022-03-13 we got an email from Phil Nelson informing us that due to technical issues the [OpenCV AI Game Show](https://opencv.org/gameshow/) which was supposed to be kicked off on Episode 49 of the [OpenCV Weekly Webinar](https://twitter.com/opencvweekly) had to be postponed to the week after, and proposing to fill in the empty slot and present [ARNEIS](https://github.com/B-AROL-O/ARNEIS) instead.
+On Monday, 2022-03-13 we got an email from Phil Nelson informing us that due to technical issues the [OpenCV AI Game Show](https://opencv.org/gameshow/)
+which was supposed to be kicked off on Episode 49 of the [OpenCV Weekly Webinar](https://twitter.com/opencvweekly) had to be postponed to the week after,
+and proposing to fill in the empty slot and present [ARNEIS](https://github.com/B-AROL-O/ARNEIS) instead.
 
 After some internal discussion with Alessandro and Gianluca we accepted the challenge.
 Unfortunately we had only two days left for preparing the presentation, therefore we had to cut corners and speed up our plan to fill the 1h slot of the webinar.
