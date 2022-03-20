@@ -90,6 +90,40 @@ To generate static files under `_static`:
 npm run export
 ```
 
+## Deploying using Docker
+
+### Using Docker: Prerequisites
+
+* [Docker Engine](https://www.docker.com/products/container-runtime)
+
+### Build the Docker image
+
+```bash
+docker build -t gmacario/gmacario-github-io .
+```
+
+### Run the Docker container
+
+```bash
+docker run -d -p 3000:3000 gmacario/gmacario-github-io
+```
+
+Verify that the container is up and running
+
+```bash
+docker ps | grep gmacario
+```
+
+Expected result:
+
+```text
+gmacario@gmpowerhorse:~ $ docker ps | grep gmacario
+677454b66068   gmacario/gmacario-github-io            "docker-entrypoint.s…"   10 seconds ago   Up 8 seconds   0.0.0.0:3000->3000/tcp, :::3000->3000/tcp   amazing_euclid
+gmacario@gmpowerhorse:~ $
+```
+
+then open `http://<hostname-or-ip>:3000/` from your browser to preview the site.
+
 ---
 
 ## Copyright and license
