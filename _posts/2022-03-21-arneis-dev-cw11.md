@@ -44,13 +44,13 @@ As a matter of fact, by reading the comments in the [recorded video](https://www
 
 <a href="https://www.linkedin.com/video/event/urn:li:ugcPost:6909587011267891201/">![image](https://user-images.githubusercontent.com/75182/159172049-6ccb1a2e-1b85-439c-b93b-e7d3ee232249.png)</a>
 
-According to [The Zoom recording](https://twitter.com/opencvweekly/status/1504487889630945281) we had more than 100 people who watched the webinar:
+According to [the Zoom recording](https://twitter.com/opencvweekly/status/1504487889630945281) we had more than 100 people who watched the webinar:
 
 <a href="https://twitter.com/opencvweekly/status/1504487889630945281">![image](https://user-images.githubusercontent.com/75182/159225428-5ad3b74b-2d04-43f0-9c82-40927fafc057.png)</a>
 
-Among the attendees we recognized a few friends and former colleagues; however, we were particularly amazed to see so many people from all over the world who joined the event and made very interesting questions and suggestions.
+Among the attendees we recognized a few friends and former colleagues; on the other hand, we were particularly amazed to see so many people from all over the world joining the event and making very interesting questions and suggestions.
 
-We are very thankful to [Satya](https://twitter.com/LearnOpenCV) and [Phil](https://twitter.com/philnelson) who invited us to the [OpenCV Weekly Webinar](https://twitter.com/opencvweekly), and we are looking forward to more community contributions after the project received such exposure.
+We are very thankful to [Satya](https://twitter.com/LearnOpenCV) and [Phil](https://twitter.com/philnelson) who invited us to the [OpenCV Weekly Webinar](https://twitter.com/opencvweekly), and we are looking forward to more community contributions now that the project has received such exposure.
 
 We also hope we will be able to meet some of you in person during one of next events in the coming weeks where we will be showcasing ARNEIS - more specifically:
 
@@ -80,7 +80,7 @@ Please subscribe to [ARNEIS#258](https://github.com/B-AROL-O/ARNEIS/issues/258) 
 
 ### Built a second ARNEIS MOC
 
-We managed to get our hands on another [LEGO&reg; 42100 Set](https://arneis.readthedocs.io/en/latest/lego-set-42100/README.html) which we have used to verify the MOC design which Alessandro [released last weeek](https://github.com/B-AROL-O/ARNEIS/tree/main/mocs/project#arneis-conveyor-v20220312).
+We managed to get our hands on another [LEGO&reg; 42100 Set](https://arneis.readthedocs.io/en/latest/lego-set-42100/README.html) which we have used to verify the building instruction manual of the MOC design which Alessandro [released last weeek](https://github.com/B-AROL-O/ARNEIS/tree/main/mocs/project#arneis-conveyor-v20220312).
 
 After about 5h of work the MOC is complete
 
