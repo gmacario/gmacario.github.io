@@ -26,14 +26,14 @@ Let's now dig into some of the major results we achieved during last week.
 
 ### B-AROL-O Team at the OpenCV Weekly Webinar
 
-On Monday, 2022-03-13 we got an email from [Phil Nelson](https://twitter.com/philnelson) informing us that due to technical issues the [OpenCV AI Game Show](https://opencv.org/gameshow/)
+On Monday, 2022-03-14 we got an email from [Phil Nelson](https://twitter.com/philnelson) informing us that due to technical issues the [OpenCV AI Game Show](https://opencv.org/gameshow/)
 which was supposed to be kicked off on Episode 49 of the [OpenCV Weekly Webinar](https://twitter.com/opencvweekly) had to be postponed to the week after,
 and proposing to fill in the empty slot and present [ARNEIS](https://github.com/B-AROL-O/ARNEIS) instead.
 
 After some internal discussion with Alessandro and Gianluca we accepted the challenge.
-Unfortunately we had only two days left for preparing the presentation, therefore we had to cut corners and speed up our plan for filling the 1h slot of the webinar.
+Unfortunately we had only two days left for the preparation, therefore we had to cut corners and speed up our plan for filling the 1h slot of the webinar.
 
-Moreover, due to work priorities [Alessandro](https://github.com/alv67) would not be able to attend in person, therefore we decided that I ([Gianpaolo](https://github.com/gmacario)) would introduce the [B-AROL-O team](https://github.com/B-AROL-O) and the [ARNEIS project](https://github.com/B-AROL-O/ARNEIS) in the first part of the webinar
+Moreover, due to work priorities [Alessandro](https://github.com/alv67) would not be able to attend in person, so we decided that I ([Gianpaolo](https://github.com/gmacario)) would introduce [B-AROL-O team](https://github.com/B-AROL-O) and the [ARNEIS project](https://github.com/B-AROL-O/ARNEIS) in the first part of the webinar
 
 <a href="https://www.linkedin.com/video/event/urn:li:ugcPost:6909587011267891201/">![image](https://user-images.githubusercontent.com/75182/159136335-12c6b155-d7be-4172-bf84-1a45ef91c181.png)</a>
 
@@ -44,15 +44,15 @@ As a matter of fact, by reading the comments in the [recorded video](https://www
 
 <a href="https://www.linkedin.com/video/event/urn:li:ugcPost:6909587011267891201/">![image](https://user-images.githubusercontent.com/75182/159172049-6ccb1a2e-1b85-439c-b93b-e7d3ee232249.png)</a>
 
-According to [The Zoom recording](https://twitter.com/opencvweekly/status/1504487889630945281) we had more than 100 people online up to the end.
+According to [The Zoom recording](https://twitter.com/opencvweekly/status/1504487889630945281) we had more than 100 people who watched the webinar:
 
-<a href="https://twitter.com/opencvweekly/status/1504487889630945281">![image](https://user-images.githubusercontent.com/75182/159176945-3a84e105-54dd-45ca-8f50-a1fdf425d609.png)</a>
+<a href="https://twitter.com/opencvweekly/status/1504487889630945281">![image](https://user-images.githubusercontent.com/75182/159225428-5ad3b74b-2d04-43f0-9c82-40927fafc057.png)</a>
 
 Among the attendees we recognized a few friends and former colleagues; however, we were particularly amazed to see so many people from all over the world who joined the event and made very interesting questions and suggestions.
 
-We are very thankful to [Satya](https://twitter.com/LearnOpenCV) and [Phil](https://twitter.com/philnelson) who invited us to the [OpenCV Weekly Webinar](https://twitter.com/opencvweekly), and we are looking forward to additional community contributions after the project received such exposure.
+We are very thankful to [Satya](https://twitter.com/LearnOpenCV) and [Phil](https://twitter.com/philnelson) who invited us to the [OpenCV Weekly Webinar](https://twitter.com/opencvweekly), and we are looking forward to more community contributions after the project received such exposure.
 
-We hope we will be able to meet some of you in person during one of next events in the coming weeks where we will be showcasing ARNEIS - more specifically:
+We also hope we will be able to meet some of you in person during one of next events in the coming weeks where we will be showcasing ARNEIS - more specifically:
 
 * Saturday, 2022-04-09 and Sunday, 2022-04-10: [San Mauro Brick Show 2022](https://github.com/B-AROL-O/ARNEIS/issues/130)
 * Saturday, 2022-05-28 and Sunday, 2022-05-29: [Expo Mattoncino 6 Pinerolo](https://github.com/B-AROL-O/ARNEIS/issues/213)
@@ -61,11 +61,11 @@ Please mark both events on your calendar and - if you happen to be around Torino
 
 ### Working on a synthetic dataset for training the ARNEIS NN
 
-As explained by Satya during the [2022-03-17 OpenCV AI Webinar](https://twitter.com/opencvweekly/status/1504487889630945281), the most effective way improving the recognition rate of the Neural Network is to provide a comprehensive dataset for training.
+As explained by Satya during the [2022-03-17 OpenCV AI Webinar](https://twitter.com/opencvweekly/status/1504487889630945281), the most effective way for improving the recognition rate of a Neural Network is to provide a comprehensive dataset for training.
 
-At the moment we have been using about 500 real pictures taken with the OAK-D-Lite to a subset of the "mignon" bottles we have available.
+As we could not find any public dataset for "mignon bottles" like the ones we use in the ARNEIS project, so fare we have been using about 500 real pictures taken with the OAK-D-Lite to a subset of the bottles we have available.
 
-During the webinar Satya suggested to enhance the dataset by developing 3D models of each bottle, slapping hi-res scans of their labels, then use programs such as Unity or Roboflow to generate plenty of synthetic pictures with different orientation, lighting and obstactles in order to reinforce the training algorithm of the Neural Network.
+Satya also suggested to enhance the dataset by developing 3D models of each bottle, slapping hi-res scans of their labels, then use programs such as Unity or Roboflow to generate plenty of synthetic pictures with different orientation, lighting and obstactles in order to reinforce the training algorithm of the Neural Network.
 
 [Stefan Daniel Achirei](https://scholar.google.com/citations?user=z9g3WNcAAAAJ&hl=ro) commented in the chat
 
