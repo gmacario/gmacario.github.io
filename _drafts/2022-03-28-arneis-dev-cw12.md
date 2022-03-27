@@ -48,23 +48,29 @@ TODO: Screenshot
 
 ... oops, I just realized I revealed a trade secret!
 
-We have been repeatedly asked many times the name of the company where Alessandro, Gianluca and myself are employed, but we always declined.
+We have been repeatedly asked to disclose the name of the company where Alessandro, Gianluca and myself are employed, but we have always declined.
 As I explained during [Episode 39 of the OpenCV Weekly Webinar](TODO), 
 we decided to apply to the Spatial AI Contest and have been developing ARNEIS only as a hobby project and outside our working hours, with the only purpose of learning and having fun, and without any corporate support or sponsorship.
 
-Now the secret is officially over, even though some smart people had already figured it out by looking at the letters between the `B` and the `O` in our team name ;-)
+Now the secret is officially over, even though I know that some smart people had already figured it out by looking at the letters between the `B` and the `O` in our team name ;-)
 
-Back to the Arduino Week, the day which personally inspired me most was in fact Day 6 (Saturday, 2022-03-26) where Massimo Banzi and the other guests to invest energy and efforts in learning, tweaking and possibly improving the world for the new generations.
-
-If you have not had a chance of watching the live stream I would recommend to review the recording:
+Back to the Arduino Week, the day which personally inspired me most was in fact Day 6 (Saturday, 2022-03-26) 
 
 [![ARDUINO WEEK 2022 Day 6](https://img.youtube.com/vi/AqgJ17d8UnQ/0.jpg)](https://www.youtube.com/watch?v=AqgJ17d8UnQ?t=0 "ARDUINO WEEK 2022 Day 6")
 
-If three hours are too much, at least start with the presentation of those [three 12-year old students from Sudan](https://youtu.be/AqgJ17d8UnQ?t=7924).
 
-After 6 minutes I am pretty sure you will agree with me:
+[Massimo Banzi](TODO) and his guests urged the audence to invest energy and efforts in learning, tweaking and possibly improving the world for the new generations.
 
-![2022-03-27-arduino-day6-good-job-guys.png](https://pbs.twimg.com/media/FO3vmxnWYAA2xLM?format=jpg&name=large)
+
+[Arduino](TODO) has done this for the last 10 years, and I would dream of doing something similar -- by the way, this is why [ARNEIS artifacts are released under an Open Source license](https://github.com/B-AROL-O/ARNEIS/blob/main/README.md#copyright-and-license).
+
+If you have no time for watching the full recording (3h), at least please watch [this presentation](https://youtu.be/AqgJ17d8UnQ?t=7924)  (2:12:00):
+
+[![ARDUINO WEEK 2022 Day 6](https://user-images.githubusercontent.com/75182/160293521-1faf47b2-1b99-4cdb-80ad-ee8f5b8ad321.png)](https://www.youtube.com/watch?v=AqgJ17d8UnQ?t=7920 "ARDUINO WEEK 2022 Day 6")
+
+I am pretty sure that after 6 minutes you will agree with me:
+
+[![2022-03-27-arduino-day6-good-job-guys.png](https://pbs.twimg.com/media/FO3vmxnWYAA2xLM?format=jpg&name=large)](https://twitter.com/gpmacario/status/1508124989928706048)
 
 
 ## Next week plans
