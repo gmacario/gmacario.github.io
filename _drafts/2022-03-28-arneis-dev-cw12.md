@@ -44,7 +44,7 @@ TODO
 
 I am pretty sure anyone who follows my blog knows what [Arduino](https://www.arduino.cc) is, right?
 
-OK, so the news is that last week the <https://week.arduino.cc/> took place, with dozens of inspiring sessions all over the week, including the interview to [Denis Ruffino](https://it.linkedin.com/in/denis-ruffino-26a6a110) (our manager) on [Day 4 (watch from 1:36:00)](https://www.youtube.com/watch?v=XVgWuTRLklkt=5760).
+OK, so the news is that last week the <https://week.arduino.cc/> took place, with dozens of inspiring sessions all over the week, including the interview to [Denis Ruffino](https://it.linkedin.com/in/denis-ruffino-028a88a) (our manager) on [Day 4 (watch from 1:36:00)](https://youtu.be/XVgWuTRLklk?t=5757).
 
 TODO
 
