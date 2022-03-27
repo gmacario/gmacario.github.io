@@ -36,6 +36,8 @@ TODO
 
 ### TODO3
 
+[List of Gianpaolo blog posts about ARNEIS](https://github.com/gmacario/gmacario.github.io/pulls?q=is%3Apr+is%3Aclosed+label%3A%22topic%3A+ARNEIS%22)
+
 TODO
 
 ## Next week plans
