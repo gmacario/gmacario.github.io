@@ -132,7 +132,8 @@ Disclaimer: [IANAL](https://en.wikipedia.org/wiki/IANAL)
 
 Copyright 2006-2022 [Gianpaolo Macario](https://gmacario.github.io/).
 
-The contents of this repository and the executable distribution are licensed under the terms of the MIT license as detailed in the [LICENSE](LICENSE) file, with the exception of the `_posts` and `_drafts` folders which are licensed under a Creative Commons Attribution-Share Alike 4.0 License. 
+The contents of this repository and the executable distribution are licensed under the terms of the MIT license as detailed in the [LICENSE](LICENSE) file,
+with the exception of the `_posts` and `_drafts` folders which are licensed under a Creative Commons Attribution-Share Alike 4.0 License.
 
 Please refer <https://creativecommons.org/licenses/by-sa/4.0/> for details and the full text of the license.
 
