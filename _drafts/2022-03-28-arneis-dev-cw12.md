@@ -34,7 +34,7 @@ TODO: Screenshot from Telegram/Twitter?
 
 <https://github.com/B-AROL-O/ARNEIS/pull/281>
 
-### Preparing the final submission to the OpenCV Spatial AI Contest 
+### Preparing the final submission to the OpenCV Spatial AI Contest
 
 [List of Gianpaolo blog posts about ARNEIS](https://github.com/gmacario/gmacario.github.io/pulls?q=is%3Apr+is%3Aclosed+label%3A%22topic%3A+ARNEIS%22)
 
@@ -54,7 +54,7 @@ TODO
 
 After [B-AROL-O on Twitter](https://twitter.com/baroloteam) went online, we have been repeatedly asked to disclose the name of the company where [Alessandro](https://github.com/alv67), [Gianluca](https://github.com/gteti) and myself are employed, but we have always declined.
 
-As I explained during [OpenCV Weekly Webinar Episode 49](https://twitter.com/baroloteam/status/1504865479290241026), 
+As I explained during [OpenCV Weekly Webinar Episode 49](https://twitter.com/baroloteam/status/1504865479290241026),
 we decided to apply to the Spatial AI Contest and have been developing ARNEIS only as a hobby project and outside our working hours, with the only purpose of learning and having fun, and without any corporate support or sponsorship.
 
 Now the secret is officially over, even though some smart people already told me they had guessed it from the letters between the "`-`" in our team name ;-)
