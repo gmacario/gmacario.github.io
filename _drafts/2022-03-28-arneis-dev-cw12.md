@@ -20,23 +20,23 @@ Here is the report of our progress in the ARNEIS project after the end of CW11-2
 
 ## What did we accomplish this week?
 
-In Sprint dev-cw12 we [closed TODO issues or Pull Requests](https://github.com/B-AROL-O/ARNEIS/issues?q=is%3Aclosed+milestone%3Adev-cw12)
+In Sprint dev-cw12 we [closed TODO issues or Pull Requests](https://github.com/B-AROL-O/ARNEIS/issues?q=is%3Aclosed+milestone%3Adev-cw12).
 
 <!-- TODO: Add screenshot of <https://github.com/orgs/B-AROL-O/projects/1/views/5> -->
 
 Let's now dig into some of the major results we achieved during last week.
 
-### TODO1
+### ARNEIS System Integration in progress
 
 TODO
 
-### TODO2
-
-TODO
-
-### TODO3
+### Preparing the final submission to the OpenCV Spatial AI Contest 
 
 [List of Gianpaolo blog posts about ARNEIS](https://github.com/gmacario/gmacario.github.io/pulls?q=is%3Apr+is%3Aclosed+label%3A%22topic%3A+ARNEIS%22)
+
+TODO
+
+### Get inspiration from the Arduino Week
 
 TODO
 
