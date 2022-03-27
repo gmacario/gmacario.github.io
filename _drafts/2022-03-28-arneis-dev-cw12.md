@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "ARNEIS project journal - dev-cw18"
+title:  "ARNEIS project journal - dev-cw12"
 date:   2022/03/28
 tags: 	arneis b-arol-o opencv spatial-ai-contest
 ---
