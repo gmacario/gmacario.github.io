@@ -128,7 +128,7 @@ then open `http://<hostname-or-ip>:3000/` from your browser to preview the site.
 
 ## Copyright and license
 
-Copyright 2006-2021 [Gianpaolo Macario](https://gmacario.github.io/).
+Copyright 2006-2022 [Gianpaolo Macario](https://gmacario.github.io/).
 
 The contents of this repository are subject to the [MIT License](LICENSE),
 with the exception of the `_posts` and `_drafts` folders which are licensed as CC BY-SA (Attribution-ShareAlike)
