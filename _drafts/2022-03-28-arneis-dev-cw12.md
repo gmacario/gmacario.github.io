@@ -20,7 +20,7 @@ Here is the report of our progress in the ARNEIS project after the end of CW11-2
 
 ## What did we accomplish this week?
 
-In Sprint dev-cw12 we [closed TODO issues or Pull Requests](https://github.com/B-AROL-O/ARNEIS/issues?q=is%3Aclosed+milestone%3Adev-cw12).
+In Sprint dev-cw12 we [closed 13 issues or Pull Requests](https://github.com/B-AROL-O/ARNEIS/issues?q=is%3Aclosed+milestone%3Adev-cw12).
 
 <!-- TODO: Add screenshot of <https://github.com/orgs/B-AROL-O/projects/1/views/5> -->
 
@@ -29,6 +29,10 @@ Let's now dig into some of the major results we achieved during last week.
 ### ARNEIS System Integration in progress
 
 TODO
+
+TODO: Screenshot from Telegram/Twitter?
+
+<https://github.com/B-AROL-O/ARNEIS/pull/281>
 
 ### Preparing the final submission to the OpenCV Spatial AI Contest 
 
@@ -59,7 +63,7 @@ Back to the Arduino Week, the day which personally  inspired me most was in fact
 
 [![ARDUINO WEEK 2022 Day 6](https://img.youtube.com/vi/AqgJ17d8UnQ/0.jpg)](https://www.youtube.com/watch?v=AqgJ17d8UnQ?t=0 "ARDUINO WEEK 2022 Day 6")
 
-[Massimo Banzi](https://www.linkedin.com/in/massimobanzi/), [David Cuartielles](https://www.linkedin.com/in/david-cuartielles-23bab14/) and the other guests urged the audience to invest energy and efforts in learning, tweaking and sharing the result. The knowledge share that the Open Source fosters may help improve the world for the new generations.
+[Massimo Banzi](https://www.linkedin.com/in/massimobanzi/), [David Cuartielles](https://www.linkedin.com/in/david-cuartielles-23bab14/) and their guests urged the audience to invest energy and efforts in learning, tweaking and sharing the results in the open. This composite share of knowledge helps making impossible things possible, and will contribute to improving the world for the new generations.
 
 [Arduino](https://www.arduino.cc) has been doing this for the last 10 years, and I would dream of being able to do something similar -- by the way, this is why [ARNEIS artifacts are released under an Open Source license](https://github.com/B-AROL-O/ARNEIS/blob/main/README.md#copyright-and-license).
 
