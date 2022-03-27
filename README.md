@@ -128,10 +128,17 @@ then open `http://<hostname-or-ip>:3000/` from your browser to preview the site.
 
 ## Copyright and license
 
-Copyright 2006-2021 [Gianpaolo Macario](https://gmacario.github.io/).
+Disclaimer: [IANAL](https://en.wikipedia.org/wiki/IANAL)
 
-The contents of this repository are subject to the [MIT License](LICENSE),
-with the exception of the `_posts` and `_drafts` folders which are licensed as CC BY-SA (Attribution-ShareAlike)
-as detailed in <https://creativecommons.org/licenses/>.
+Copyright 2006-2022 [Gianpaolo Macario](https://gmacario.github.io/).
+
+The contents of this repository and the executable distribution are licensed under the terms of the MIT license as detailed in the [LICENSE](LICENSE) file,
+with the exception of the `_posts` and `_drafts` folders which are licensed under a Creative Commons Attribution-Share Alike 4.0 License.
+
+Please refer <https://creativecommons.org/licenses/by-sa/4.0/> for details and the full text of the license.
+
+![CC BY-SA 4.0](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)
+
+Please note and acknowledge that any contribution to this repository or derivative work will be subject to the same terms and conditions.
 
 <!-- EOF -->
