@@ -38,31 +38,30 @@ TODO
 
 ### Get inspiration from the Arduino Week
 
+I am pretty sure anyone who follows my blog knows what [Arduino](https://www.arduino.cc) is, right?
+
+OK, so the news is that last week the <https://week.arduino.cc/> took place, with dozens of inspiring sessions all over the week, including the interview to [Denis Ruffino](https://it.linkedin.com/in/denis-ruffino-26a6a110) (our manager) on [Day 4 (watch from 1:36:00)](https://www.youtube.com/watch?v=XVgWuTRLklkt=5760).
+
 TODO
 
-Arduino Week 2022 <https://week.arduino.cc/>.
+<!-- ![OOPS](https://i.pinimg.com/736x/4f/f8/02/4ff802833a423a78314e99fb30ea0b8b.jpg) -->
 
-There were a lot of inspiring sessions all over the week, including the interview to [Denis Ruffino](https://it.linkedin.com/in/denis-ruffino-26a6a110) (our manager) on Day 4 (2022-03-24).
+**... oops, I just realized I revealed a trade secret!**
 
-TODO: Screenshot
+After [B-AROL-O on Twitter](https://twitter.com/baroloteam) went online, we have been repeatedly asked to disclose the name of the company where [Alessandro](https://github.com/alv67), [Gianluca](https://github.com/gteti) and myself are employed, but we have always declined.
 
-... oops, I just realized I revealed a trade secret!
-
-We have been repeatedly asked to disclose the name of the company where Alessandro, Gianluca and myself are employed, but we have always declined.
-As I explained during [Episode 39 of the OpenCV Weekly Webinar](TODO), 
+As I explained during [OpenCV Weekly Webinar Episode 49](https://twitter.com/baroloteam/status/1504865479290241026), 
 we decided to apply to the Spatial AI Contest and have been developing ARNEIS only as a hobby project and outside our working hours, with the only purpose of learning and having fun, and without any corporate support or sponsorship.
 
-Now the secret is officially over, even though I know that some smart people had already figured it out by looking at the letters between the `B` and the `O` in our team name ;-)
+Now the secret is officially over, even though some smart people already told me they had guessed it from the letters between the "`-`" in our team name ;-)
 
-Back to the Arduino Week, the day which personally inspired me most was in fact Day 6 (Saturday, 2022-03-26) 
+Back to the Arduino Week, the day which personally  inspired me most was in fact [Day 6 (Saturday, 2022-03-26)](https://www.youtube.com/watch?v=AqgJ17d8UnQ?t=0) where a few projects from the Arduino community were showcased
 
 [![ARDUINO WEEK 2022 Day 6](https://img.youtube.com/vi/AqgJ17d8UnQ/0.jpg)](https://www.youtube.com/watch?v=AqgJ17d8UnQ?t=0 "ARDUINO WEEK 2022 Day 6")
 
+[Massimo Banzi](https://www.linkedin.com/in/massimobanzi/), [David Cuartielles](https://www.linkedin.com/in/david-cuartielles-23bab14/) and the other guests urged the audience to invest energy and efforts in learning, tweaking and sharing the result. The knowledge share that the Open Source fosters may help improve the world for the new generations.
 
-[Massimo Banzi](TODO) and his guests urged the audence to invest energy and efforts in learning, tweaking and possibly improving the world for the new generations.
-
-
-[Arduino](TODO) has done this for the last 10 years, and I would dream of doing something similar -- by the way, this is why [ARNEIS artifacts are released under an Open Source license](https://github.com/B-AROL-O/ARNEIS/blob/main/README.md#copyright-and-license).
+[Arduino](https://www.arduino.cc) has been doing this for the last 10 years, and I would dream of being able to do something similar -- by the way, this is why [ARNEIS artifacts are released under an Open Source license](https://github.com/B-AROL-O/ARNEIS/blob/main/README.md#copyright-and-license).
 
 If you have no time for watching the full recording (3h), at least please watch [this presentation](https://youtu.be/AqgJ17d8UnQ?t=7924)  (2:12:00):
 
