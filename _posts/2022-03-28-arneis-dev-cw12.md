@@ -22,8 +22,6 @@ Here is the report of our progress in the ARNEIS project after the end of CW11-2
 
 In Sprint dev-cw12 we [closed 13 issues or Pull Requests](https://github.com/B-AROL-O/ARNEIS/issues?q=is%3Aclosed+milestone%3Adev-cw12).
 
-<!-- TODO: Add screenshot of <https://github.com/orgs/B-AROL-O/projects/1/views/5> -->
-
 Let's now dig into some of the major results we achieved during last week.
 
 ### Get inspiration from the Arduino Week
@@ -41,7 +39,7 @@ After [B-AROL-O on Twitter](https://twitter.com/baroloteam) went online, we have
 As I explained during [OpenCV Weekly Webinar Episode 49](https://twitter.com/baroloteam/status/1504865479290241026),
 we decided to apply to the Spatial AI Contest and have been developing ARNEIS only as a hobby project and outside our working hours, with the only purpose of learning and having fun, and without any corporate support or sponsorship.
 
-Now the secret is officially over, even though some smart people already told me they had guessed it from the letters between the "`-`" in our team name ;-)
+Now the secret is officially over, even though some smart people already told me they had guessed it from the letters between the "-" in our team name ;-)
 
 Back to the Arduino Week, the day which personally  inspired me most was in fact [Day 6 (Saturday, 2022-03-26)](https://www.youtube.com/watch?v=AqgJ17d8UnQ?t=0) where a few projects from the Arduino community were showcased
 
@@ -73,33 +71,28 @@ Details in the draft Pull Request: <https://github.com/B-AROL-O/ARNEIS/pull/281>
 
 As we approach to the deadline for the final submission to the OpenCV Spatial AI Context, our team is busy preparing the final report as well as a short video that the selection committee will use to evaluate the project and rank it among the 50 finalists.
 
-The prizes for the three best projects are - to use an understatement as we are used here in Piedmont - "interesting":
+The prizes for the three best projects are - to use an understatement - "interesting":
 
 ![image](https://user-images.githubusercontent.com/75182/160473643-0c71fa5a-154a-4d02-9b58-44168ed17482.png)
 
-
 (Source: <https://opencv.org/opencv-spatial-ai-contest/>)
 
-The prizes are of course a big motivator, but even more important is for us to be able to convey the message that - thanks to the community and help from each other - in a short amount of time as we had it is possible to produce significant results in terms of experience but also fun.
+The prizes are of course a big motivator, but even more important is for us to be able to convey the message that even with the short time as we had during the Contest it is possible to produce significant results, and at the same time grow in experience and have fun. The secret was: learn from the community, share the results and do not fear to fail.
 
-We hope we will soon be able to share the final video. Stay tuned for the next issue of the ARNEIS Project Journal!
+As soon we submit video to the OpenCV Spatial AI Contest we will share it.
+Stay tuned for details in the next issue of the ARNEIS Project Journal!
 
-In the meanwhile you can find the previous posts directly in Gianpaolo blog, or linked from [Twitter:@baroloteam](https://twitter.com/baroloteam).
+In the meanwhile you can find the previous posts directly in Gianpaolo blog, or linked from Twitter: [@baroloteam](https://twitter.com/baroloteam).
 
 <!-- [List of Gianpaolo blog posts about ARNEIS](https://github.com/gmacario/gmacario.github.io/pulls?q=is%3Apr+is%3Aclosed+label%3A%22topic%3A+ARNEIS%22) -->
-
 
 ## Next week plans
 
 Our plan for next week is available on GitHub: <https://github.com/B-AROL-O/ARNEIS/milestone/11>.
 
-<!-- TODO: Add screenshot of <https://github.com/orgs/B-AROL-O/projects/1/views/1> -->
+<!-- Thanks for reading up to here! -->
 
-<!-- ## That's all, folks -->
-
-Thanks for reading up to here!
-
-<!-- Thanks for reading up to the end of such long post! -->
+Thanks for reading up to the end of such long post!
 
 If you want to help or just say hello, please get in touch with us through [GitHub](https://github.com/B-AROL-O/ARNEIS) or [Twitter](https://twitter.com/baroloteam).
 
