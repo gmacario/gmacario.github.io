@@ -26,31 +26,15 @@ In Sprint dev-cw12 we [closed 13 issues or Pull Requests](https://github.com/B-A
 
 Let's now dig into some of the major results we achieved during last week.
 
-### ARNEIS System Integration in progress
-
-TODO
-
-TODO: Screenshot from Telegram/Twitter?
-
-<https://github.com/B-AROL-O/ARNEIS/pull/281>
-
-### Preparing the final submission to the OpenCV Spatial AI Contest
-
-[List of Gianpaolo blog posts about ARNEIS](https://github.com/gmacario/gmacario.github.io/pulls?q=is%3Apr+is%3Aclosed+label%3A%22topic%3A+ARNEIS%22)
-
-TODO
-
 ### Get inspiration from the Arduino Week
 
 I am pretty sure anyone who follows my blog knows what [Arduino](https://www.arduino.cc) is, right?
 
 OK, so the news is that last week the <https://week.arduino.cc/> took place, with dozens of inspiring sessions all over the week, including the interview to [Denis Ruffino](https://it.linkedin.com/in/denis-ruffino-028a88a) (our manager) on [Day 4 (watch from 1:36:00)](https://youtu.be/XVgWuTRLklk?t=5757).
 
-TODO
-
 <!-- ![OOPS](https://i.pinimg.com/736x/4f/f8/02/4ff802833a423a78314e99fb30ea0b8b.jpg) -->
 
-**... oops, I just realized I revealed a trade secret!**
+> **... oops, I just realized I revealed a trade secret!**
 
 After [B-AROL-O on Twitter](https://twitter.com/baroloteam) went online, we have been repeatedly asked to disclose the name of the company where [Alessandro](https://github.com/alv67), [Gianluca](https://github.com/gteti) and myself are employed, but we have always declined.
 
@@ -74,6 +58,35 @@ If you have no time for watching the full recording (3h), at least please watch 
 I am pretty sure that after 6 minutes you will agree with me:
 
 [![2022-03-27-arduino-day6-good-job-guys.png](https://pbs.twimg.com/media/FO3vmxnWYAA2xLM?format=jpg&name=large)](https://twitter.com/gpmacario/status/1508124989928706048)
+
+### ARNEIS System Integration in progress
+
+We are in code freeze process as we approach release 0.1.0 - a.k.a. the first public release of the ARNEIS project.
+
+Here is a picture of the system integration bench of the ARNEIS project.
+
+![2022-03-26-1855-arneis-sysint.jpg](https://github.com/B-AROL-O/ARNEIS/raw/280-feat-arneis-system-integration-for-the-release/docs/images/2022-03-26-1855-arneis-sysint.jpg)
+
+Details in the draft Pull Request: <https://github.com/B-AROL-O/ARNEIS/pull/281>
+
+### Preparing the final submission to the OpenCV Spatial AI Contest
+
+As we approach to the deadline for the final submission to the OpenCV Spatial AI Context, our team is busy preparing the final report as well as a short video that the selection committee will use to evaluate the project and rank it among the 50 finalists.
+
+The prizes for the three best projects are - to use an understatement as we are used here in Piedmont - "interesting":
+
+![image](https://user-images.githubusercontent.com/75182/160473643-0c71fa5a-154a-4d02-9b58-44168ed17482.png)
+
+
+(Source: <https://opencv.org/opencv-spatial-ai-contest/>)
+
+The prizes are of course a big motivator, but even more important is for us to be able to convey the message that - thanks to the community and help from each other - in a short amount of time as we had it is possible to produce significant results in terms of experience but also fun.
+
+We hope we will soon be able to share the final video. Stay tuned for the next issue of the ARNEIS Project Journal!
+
+In the meanwhile you can find the previous posts directly in Gianpaolo blog, or linked from [Twitter:@baroloteam](https://twitter.com/baroloteam).
+
+<!-- [List of Gianpaolo blog posts about ARNEIS](https://github.com/gmacario/gmacario.github.io/pulls?q=is%3Apr+is%3Aclosed+label%3A%22topic%3A+ARNEIS%22) -->
 
 
 ## Next week plans
