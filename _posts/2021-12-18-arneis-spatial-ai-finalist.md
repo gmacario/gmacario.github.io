@@ -27,7 +27,7 @@ This morning I found an email in my inbox which I have been hoping for a long ti
 > * Up to $400 in LEGO bricks to build your project
 > * Access to Intel® DevCloud
 
-Wow! At the end the proposal we submitted a few weeks ago was selected and now we are one of the 50 finalist teams of the [OpenCV Spatial AI Competition](https://opencv.org/opencv-spatial-ai-contest/​)!
+Wow! At the end the proposal we submitted a few weeks ago was selected and now we are one of the 50 finalist teams of the [OpenCV Spatial AI Contest](https://opencv.org/opencv-spatial-ai-contest)!
 
 ## What's next?
 
