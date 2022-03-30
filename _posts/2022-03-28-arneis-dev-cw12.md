@@ -14,9 +14,9 @@ Welcome to our weekly status report of the [ARNEIS project](https://github.com/B
 As [I announced in a previous post](https://gmacario.github.io/posts/2021-12-18-arneis-spatial-ai-finalist)
 
 > Your team “B-AROL-O Bottling Systems” and project “ARNEIS: Automated Recognizer, Network-Enabled, Items Sorter” have been selected as one of just 50 teams to move on to Phase 2 of OpenCV Spatial AI Contest.
-> Your team name and region are listed on the official webpage at <https://opencv.org/opencv-spatial-ai-contest/​>
+> Your team name and region are listed on the official webpage at <https://opencv.org/opencv-spatial-ai-contest/>
 
-Here is the report of our progress in the ARNEIS project after the end of CW11-2022.
+Here is the report of our progress in the ARNEIS project after the end of CW12-2022.
 
 ## What did we accomplish this week?
 
