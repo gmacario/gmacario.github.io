@@ -28,9 +28,13 @@ Let's now dig into some of the major results we achieved during last week.
 
 ### ARNEIS final report submitted to the OpenCV Spatial AI Contest
 
-It was a long and bumpy journey, but eventually we made it!
+It was a long and bumpy journey, but we eventually made it!
 
 ![image](https://user-images.githubusercontent.com/75182/160729999-c74c061b-531a-4fd3-90f2-1698ac249818.png)
+
+I express my warm thank to my friends [Alessandro](https://github.com/alv67) and [Gianluca](https://github.com/gteti) who walked with me in this journey, and apologize all for the harsh comments I made on some [Issues](https://github.com/B-AROL-O/ARNEIS/issues) or [Pull Requests](https://github.com/B-AROL-O/ARNEIS/pulls).
+
+Luckily for me GitHub - contrarily to other Social Media such as [Twitter](https://twitter.com/gpmacario) - allows authors to edit their comments afterwards, so as soon as I happen to read something which I wrote but does not reflect my actual thought and may be mis-interpreted, I will reserve the right to change it :-)
 
 ### ARNEIS OpenCV submission video
 
@@ -48,7 +52,7 @@ Our next milestone will happen on next week-end, when we will be showcasing ARNE
 
 [![IMG-20220323-WA0004](https://user-images.githubusercontent.com/75182/160247180-c4eaea7d-c804-41d7-ac84-f2d59346f0dd.jpg)](https://www.torinotoday.it/eventi/san-mauro-brick-show-9-10-aprile.html)
 
-If you happen to be around Torino on Saturday 9 or Sunday 10 mark your calendar and consider dropping by and saying hello to us.
+If you happen to be around Torino on Saturday 9th or Sunday 10th, please mark your calendar and consider dropping by and saying hello to us.
 Please check <https://github.com/B-AROL-O/ARNEIS/issues/130> for details.
 
 ## Next week plans
