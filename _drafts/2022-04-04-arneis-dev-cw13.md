@@ -42,13 +42,14 @@ Just click on the image to watch the video, or scan the QR Code to know more:
 
 ### Preparing for San Mauro Bricks 2022
 
-Our journey to the OpenCV Spatial AI Contest is now over, but we do not rest on our laurels.
+Our journey with the OpenCV Spatial AI Contest is now over, but we do not rest on our laurels.
 
-Our next milestone is on next week-end where we will be showcasing ARNEIS at a very important event for [LEGO&reg;](https://www.lego.com/) [AFOLs](https://www.facebook.com/AFOL-Adult-Fan-Of-Lego--373554809322775/).
+Our next milestone will happen on next week-end, when we will be showcasing ARNEIS at a very important event for [LEGO&reg;](https://www.lego.com/) [AFOLs](https://www.facebook.com/AFOL-Adult-Fan-Of-Lego--373554809322775/).
 
-![IMG-20220323-WA0004](https://user-images.githubusercontent.com/75182/160247180-c4eaea7d-c804-41d7-ac84-f2d59346f0dd.jpg)
+[![IMG-20220323-WA0004](https://user-images.githubusercontent.com/75182/160247180-c4eaea7d-c804-41d7-ac84-f2d59346f0dd.jpg)](https://www.torinotoday.it/eventi/san-mauro-brick-show-9-10-aprile.html)
 
-Please check <https://github.com/B-AROL-O/ARNEIS/issues/130> for details. If you happen to be around Torino on Saturday 9 or Sunday 10 mark your calendar and consider dropping by and saying hello to us.
+If you happen to be around Torino on Saturday 9 or Sunday 10 mark your calendar and consider dropping by and saying hello to us.
+Please check <https://github.com/B-AROL-O/ARNEIS/issues/130> for details.
 
 ## Next week plans
 
