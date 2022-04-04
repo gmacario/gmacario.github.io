@@ -11,7 +11,7 @@ tags: 	arneis b-arol-o opencv spatial-ai-contest
 Welcome to our weekly status report of the [ARNEIS project](https://github.com/B-AROL-O/ARNEIS)!
 -->
 
-As [I announced in a previous post](https://gmacario.github.io/posts/2021-12-18-arneis-spatial-ai-finalist)
+As [I announced on 2021-12-18](https://gmacario.github.io/posts/2021-12-18-arneis-spatial-ai-finalist)
 
 > Your team “B-AROL-O Bottling Systems” and project “ARNEIS: Automated Recognizer, Network-Enabled, Items Sorter” have been selected as one of just 50 teams to move on to Phase 2 of OpenCV Spatial AI Contest.
 > Your team name and region are listed on the official webpage at <https://opencv.org/opencv-spatial-ai-contest/>
@@ -26,14 +26,11 @@ In Sprint dev-cw13 we [closed 13 issues or Pull Requests](https://github.com/B-A
 
 Let's now dig into some of the major results we achieved during last week.
 
-### ARNEIS submitted to the OpenCV Spatial AI Contest
+### ARNEIS final report submitted to the OpenCV Spatial AI Contest
 
-It was a long and bumpy journey, but we made it!
+It was a long and bumpy journey, but eventually we made it!
 
 ![image](https://user-images.githubusercontent.com/75182/160729999-c74c061b-531a-4fd3-90f2-1698ac249818.png)
-
-<https://youtu.be/xberFEnlyuc>
-
 
 ### ARNEIS OpenCV submission video
 
@@ -47,20 +44,22 @@ Just click on the image to watch the video, or scan the QR Code to know more:
 
 Our journey to the OpenCV Spatial AI Contest is now over, but we do not rest on our laurels.
 
-Our next milestone is on next week-end where we will be showcasing ARNEIS at a very important event for LEGO AFOLs
+Our next milestone is on next week-end where we will be showcasing ARNEIS at a very important event for [LEGO&reg;](https://www.lego.com/) [AFOLs](https://www.facebook.com/AFOL-Adult-Fan-Of-Lego--373554809322775/).
 
-Please see <https://github.com/B-AROL-O/ARNEIS/issues/130> for details and - if you happen to be around Torino - mark your calendar and consider dropping by and saying hello to us.
+![IMG-20220323-WA0004](https://user-images.githubusercontent.com/75182/160247180-c4eaea7d-c804-41d7-ac84-f2d59346f0dd.jpg)
 
-
+Please check <https://github.com/B-AROL-O/ARNEIS/issues/130> for details. If you happen to be around Torino on Saturday 9 or Sunday 10 mark your calendar and consider dropping by and saying hello to us.
 
 ## Next week plans
 
-Our plan for next week is available on GitHub: <https://github.com/B-AROL-O/ARNEIS/milestone/13>.
+As you can see from the [ARNEIS project backlog](https://github.com/B-AROL-O/ARNEIS/issues), even though we submitted the final report to the [OpenCV Spatial AI Contest](https://opencv.org/opencv-spatial-ai-contest/), ARNEIS is not finished - and we are not going to stop caring and improving it.
 
-As you can see from the [ARNEIS project backlog](https://github.com/B-AROL-O/ARNEIS/issues) we have already many ideas for improvement - and we sincerely thank all the people who suggested us possible roads we did not think in advance.
-However we have so many ideas and so little time, so we encourage again your contribution.
+That being said, we have so many ideas and so little time, so we encourage again your contribution.
+We have already many ideas for improvement - and we thank all the people who suggested us possible roads we did not think in advance.
 
-As we said on 2022-03-17 and we like saying, ARNEIS is a fully Open Source Project, so how the project will evolve and improve does not only depend on us!
+At the moment our plan for next week is public documented on GitHub: <https://github.com/B-AROL-O/ARNEIS/milestone/13>.
+
+However - as I said on 2022-03-17 and I keep saying - ARNEIS is a fully Open Source Project, so you have the power to decide how and how fast the project will evolve!
 
 [![Using AI & LEGO to Recognize, Sort, and Package Bottles - OpenCV Weekly Ep 49](https://img.youtube.com/vi/nwAOgkqVJMo/0.jpg)](https://www.youtube.com/watch?v=nwAOgkqVJMo "Using AI & LEGO to Recognize, Sort, and Package Bottles - OpenCV Weekly Ep 49")
 
