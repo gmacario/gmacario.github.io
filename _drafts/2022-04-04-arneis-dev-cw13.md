@@ -20,36 +20,53 @@ Here is the report of our progress in the ARNEIS project after the end of CW13-2
 
 ## What did we accomplish this week?
 
-In Sprint dev-cw13 we [closed TODO issues or Pull Requests](https://github.com/B-AROL-O/ARNEIS/issues?q=is%3Aclosed+milestone%3Adev-cw13)
+In Sprint dev-cw13 we [closed 13 issues or Pull Requests](https://github.com/B-AROL-O/ARNEIS/issues?q=is%3Aclosed+milestone%3Adev-cw13).
 
 <!-- TODO: Add screenshot of <https://github.com/orgs/B-AROL-O/projects/1/views/5> -->
 
 Let's now dig into some of the major results we achieved during last week.
 
-### ARNEIS submitted to the TODO
+### ARNEIS submitted to the OpenCV Spatial AI Contest
 
-TODO
+It was a long and bumpy journey, but we made it!
 
 ![image](https://user-images.githubusercontent.com/75182/160729999-c74c061b-531a-4fd3-90f2-1698ac249818.png)
 
 <https://youtu.be/xberFEnlyuc>
 
 
-### TODO2
+### ARNEIS OpenCV submission video
 
-TODO
+As part of the submission [Alessandro](https://github.com/alv67) has released a 3-minute video which [IMHO](https://www.theatlantic.com/technology/archive/2018/05/there-is-only-one-thing-imho-can-mean/559481/) well summarizes the road from when we submitted the proposal until today.
 
-### TODO3
+Just click on the image to watch the video, or scan the QR Code to know more:
 
-TODO
+[![ARNEIS submission Video draft - v0.5](https://img.youtube.com/vi/qHFRRHWtTqY/0.jpg)](https://www.youtube.com/watch?v=qHFRRHWtTqY "ARNEIS submission Video draft - v0.5")
+
+### Preparing for San Mauro Bricks 2022
+
+Our journey to the OpenCV Spatial AI Contest is now over, but we do not rest on our laurels.
+
+Our next milestone is on next week-end where we will be showcasing ARNEIS at a very important event for LEGO AFOLs
+
+Please see <https://github.com/B-AROL-O/ARNEIS/issues/130> for details and - if you happen to be around Torino - mark your calendar and consider dropping by and saying hello to us.
+
+
 
 ## Next week plans
 
 Our plan for next week is available on GitHub: <https://github.com/B-AROL-O/ARNEIS/milestone/13>.
 
+As you can see from the [ARNEIS project backlog](https://github.com/B-AROL-O/ARNEIS/issues) we have already many ideas for improvement - and we sincerely thank all the people who suggested us possible roads we did not think in advance.
+However we have so many ideas and so little time, so we encourage again your contribution.
+
+As we said on 2022-03-17 and we like saying, ARNEIS is a fully Open Source Project, so how the project will evolve and improve does not only depend on us!
+
+[![Using AI & LEGO to Recognize, Sort, and Package Bottles - OpenCV Weekly Ep 49](https://img.youtube.com/vi/nwAOgkqVJMo/0.jpg)](https://www.youtube.com/watch?v=nwAOgkqVJMo "Using AI & LEGO to Recognize, Sort, and Package Bottles - OpenCV Weekly Ep 49")
+
 <!-- TODO: Add screenshot of <https://github.com/orgs/B-AROL-O/projects/1/views/1> -->
 
-<!-- ## That's all, folks -->
+## That's all, folks
 
 Thanks for reading up to here!
 
