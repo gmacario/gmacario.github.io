@@ -26,17 +26,34 @@ In Sprint dev-cw14 we [closed 15 issues or Pull Requests](https://github.com/B-A
 
 Let's now dig into some of the major results we achieved during last week.
 
-### ARNEIS project is getting known
-
-TODO
-
 ### Meeting with Massimo Banzi (Arduino)
 
-TODO
+On Friday, 2022-04-08 [Alessandro](https://github.com/alv67) and myself made a visit to [Arduino](https://www.arduino.cc/) offices in Torino, hosted in [Toolbox Coworking](https://www.toolboxcoworking.com/).
+During our visit we had the privilege to meet [Massimo Banzi](https://massimobanzi.com/about/), one of the founders of this iconic company and the spirit behind the openess and the innovation of the Makers movement all around the world.
+
+TODO:Photo
+
+Thank again [Achille Montanaro](https://www.linkedin.com/in/achille-montanaro) for managing to juggle with Massimo Banzi hectic agenda and carve out half an hour of his precious time to be able to talk to us!
+
+Massimo Banzi is a real ispiration to us; what he and the other co-founders managed to achieve since 2005 when Arduino (the company) was founded and released all their hardware and software designs under an Open Source license gave us the motivation to apply the same pattern with ARNEIS!
+
+### ARNEIS project is getting known
+
+Thanks to word-of-mouth the ARNEIS project has started to be known outside the OpenCV community where it originated.
+
+It is always amazing to receive messages from friends, neighbours or colleagues who casually discover <https://arneis.readthedocs.io> and come back to us to ask questions, provide feedbacks or simply complimenting us!
+
+As usual, even a constructive criticism is important to us, so please don't be shy, and if you happen to have a login on GitHub please create Issues or submit Pull Requests! If you do not and you do not want to login to GitHub (but we advise you to), ask someone who can ;-)
 
 ### San Mauro Brick Show 2022
 
-TODO
+As previously announced we spent the week-end from 2022-04-09 to 2022-04-10 at San Mauro Torinese, where we had been invited by LEGO User Group Piemonte to exhibit ARNEIS.
+
+As a matter of fact, San Mauro Brick Show even though is quite new, is already one of the most important event for LEGO&reg; AFOLs in Italy, and being there and being able to present the ARNEIS project is yet another recognition we have received and which we have proud of!
+
+Here are a few pictures we took at the event
+
+TODO:Photos
 
 ## Next week plans
 
