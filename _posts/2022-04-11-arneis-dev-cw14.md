@@ -28,14 +28,14 @@ Let's now dig into some of the major results we achieved during last week.
 
 ### Meeting with Massimo Banzi (Arduino)
 
-On Friday, 2022-04-08 [Alessandro](https://github.com/alv67) and myself made a visit to [Arduino](https://www.arduino.cc/) offices in Torino, hosted in [Toolbox Coworking](https://www.toolboxcoworking.com/).
+On Friday, 2022-04-08 [Alessandro](https://github.com/alv67) and myself made a visit to [Arduino offices in Torino](https://blog.arduino.cc/2012/02/22/welcome-officine-arduino-torino/), hosted in [Toolbox Coworking](https://www.toolboxcoworking.com/).
 During our visit we had the privilege to meet [Massimo Banzi](https://massimobanzi.com/about/), one of the founders of this iconic company and the spirit behind the openess and the innovation of the Makers movement all around the world.
 
 TODO:Photo
 
-Thank again [Achille Montanaro](https://www.linkedin.com/in/achille-montanaro) for managing to juggle with Massimo Banzi hectic agenda and carve out half an hour of his precious time to be able to talk to us!
+We are really grateful to [Achille Montanaro](https://www.linkedin.com/in/achille-montanaro) who juggled with Massimo Banzi hectic agenda and managed to carve out half an hour of his precious time to talk to us!
 
-Massimo Banzi is a real ispiration to us; what he and the other co-founders managed to achieve since 2005 when Arduino (the company) was founded and released all their hardware and software designs under an Open Source license gave us the motivation to apply the same pattern with ARNEIS!
+Massimo Banzi is a real ispiration to us; what he and the other co-founders managed to achieve since 2005 when [Arduino](https://www.arduino.cc/) (the company) was founded and released all their hardware and software designs under an Open Source license gave us the motivation to apply the same pattern with ARNEIS!
 
 ### ARNEIS project is getting known
 
@@ -47,13 +47,17 @@ As usual, even a constructive criticism is important to us, so please don't be s
 
 ### San Mauro Brick Show 2022
 
-As previously announced we spent the week-end from 2022-04-09 to 2022-04-10 at San Mauro Torinese, where we had been invited by LEGO User Group Piemonte to exhibit ARNEIS.
+As [previously announced](https://github.com/B-AROL-O/ARNEIS/issues/130) we spent the week-end from 2022-04-09 to 2022-04-10 in San Mauro Torinese, where we had been invited by [Piemonte Bricks LUG](https://www.piemontebricks.it/) to exhibit ARNEIS.
 
-As a matter of fact, San Mauro Brick Show even though is quite new, is already one of the most important event for LEGO&reg; AFOLs in Italy, and being there and being able to present the ARNEIS project is yet another recognition we have received and which we have proud of!
+As a matter of fact, even though it is only at its third edition, San Mauro Brick Show is already one of the most important event for [LEGO&reg; AFOLs](https://en.wiktionary.org/wiki/AFOL) in Italy, and being there and being able to present the ARNEIS project is yet another recognition we have received and which we have proud of!
 
 Here are a few pictures we took at the event
 
 TODO:Photos
+
+and here is [Gianluca](https://github.com/gteti) wearing our [official ARNEIS T-Shirt](https://github.com/B-AROL-O/ARNEIS/issues/121)!
+
+![2022-04-09%2016.41.18.jpg](https://uc48279a72d92404c6a23f473c75.previews.dropboxusercontent.com/p/thumb/ABjzTpf2gIKv4w52TQSeaIIcroypwVBTEKWCNpbtiKdxnDl0pUD3e-uBif4mouHcq4sGpGetrel3u1XAx7W804C-tjsHD2H8SctJ9nktgyC7ZKJ4c4y18I1jRusFy0ouGLHUGG1UXbOqMRCs27mRgNK5FWG0fMF7m7KSA0epgNQgbu_bML1MP8adctiSR6ArqTf3u9_-hlZC4f--3m-fb_dLM7cSJqzJxF7DoS-EGxuBSRQ7Htblf7OhO5suUwWMOrMICda2lfjwRcBnW1xk-BR0dhdA31hFIt_31gfJl1CFUTYHzk5yYRFydIeBrrxrn_bflKMo3cYsZ8N9E7mped-N6hO_jjLv5FiQgfsZ0J10gW-HhPfOdR4-Qp8l8Qf90MCCOVIGYl6gZhns13IRxa-UNvJDC34QERsAL6sF58MZKQ/p.jpeg)
 
 ## Next week plans
 
