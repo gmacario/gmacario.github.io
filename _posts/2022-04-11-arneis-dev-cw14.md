@@ -48,9 +48,9 @@ As usual, even a constructive criticism is important to us, so please don't be s
 
 ### San Mauro Brick Show 2022
 
-As [previously announced](https://github.com/B-AROL-O/ARNEIS/issues/130) we spent the week-end from 2022-04-09 to 2022-04-10 in San Mauro Torinese, where we had been invited by [Piemonte Bricks LUG](https://www.piemontebricks.it/) to exhibit ARNEIS.
+As [previously announced](https://github.com/B-AROL-O/ARNEIS/issues/130) we spent the week-end from 2022-04-09 to 2022-04-10 in San Mauro Torinese, where we had been invited by [Piemonte Bricks LUG](https://www.piemontebricks.it/) to showcase the ARNEIS project.
 
-As a matter of fact, even though it is only at its third edition, San Mauro Brick Show is already one of the most important event for [LEGO&reg; AFOLs](https://en.wiktionary.org/wiki/AFOL) in Italy, and being there and being able to present the ARNEIS project is yet another recognition we have received and which we have proud of!
+As a matter of fact, even though it is only at its third edition, [San Mauro Brick Show](https://www.youtube.com/watch?v=RE2Iz95NlAw) is already one of the most important event for [LEGO&reg; AFOLs](https://en.wiktionary.org/wiki/AFOL) in Italy, and being there and being able to present the ARNEIS project is yet another recognition we have received and which we have proud of!
 
 Here is the trunk of my car filled with all the pieces to bring to the show
 
