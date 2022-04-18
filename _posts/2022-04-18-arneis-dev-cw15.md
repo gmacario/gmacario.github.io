@@ -26,17 +26,29 @@ In Sprint dev-cw15 we [closed 7 issues or Pull Requests](https://github.com/B-AR
 
 Let's now dig into some of the major results we achieved during last week.
 
-### TODO1
+### Scaling up the Kubernetes cluster
 
-TODO
+Our Kubernetes cluster is getting more and more nodes.
 
-### TODO2
+Here is a screenshot of k9s showing the running nodes of the cluster (the two entries marked "NotReady" correspond to devices which had been turned off for planned maintenance):
 
-TODO
+![image](https://user-images.githubusercontent.com/75182/163815503-75c18ed3-b9f4-45be-a9c5-c6502bcf3a1c.png)
 
-### TODO3
+### Testing software stack for Raspberry Pi OS 64-bit
 
-TODO
+A few weeks ago the Raspberry Pi Foundation officially declared that the 64-bit version of the Raspberry Pi OS is out of beta.
+
+For this reasons we have planned a comprehensive plan of tests for migrating the ARNEIS Edge system to this new version of OS.
+
+The HOWTO at <https://arneis.readthedocs.io/en/latest/howto/howto-install-raspios64.html> details the results we obtained running the ARNEIS software stack on the 64-bit version of the Raspberry Pi OS.
+
+### First tests with Arduino Portenta X8
+
+Thanks to our friends at Arduino we were able to get one sample of the recently announced [Arduino Portenta X8](https://www.arduino.cc/pro/hardware/product/portenta-x8) board.
+
+![image](https://user-images.githubusercontent.com/75182/163816076-cc7e33ae-b8ef-4676-bfff-2cfec0b821b4.png)
+
+We have published a HOWTO at <https://arneis.readthedocs.io/en/latest/howto/howto-testing-portenta-x8.html> with some results from our first test trying to run the ARNEIS edge software stack on such powerful board.
 
 ## Next week plans
 
