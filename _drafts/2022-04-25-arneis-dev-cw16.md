@@ -34,17 +34,24 @@ During the [OpenCV Weekly Webinar Ep. 54](https://twitter.com/opencvweekly/statu
 
 It is already a great honor to have gone so far, and especially sharing this achievement together with such outstanding teams!
 
-However, the competition is not yet over, since the committee announced that a special prize will be awarded to the team who will receive most votes in a [public poll on the Internet](https://form.jotform.com/221086334784156).
+However, the competition is not yet over, since the committee announced that a special prize will be awarded to the team who will receive most votes in a [public poll on the internet](https://form.jotform.com/221086334784156).
 
-This is why we are now making a public call to all our friends and supporters: 
+This is why we are now making a public call to all our friends and supporters:
 
-**PLEASE VOTE AND MAKE YOUR FRIENDS VOTE FOR "**Team B-AROL-O - ARNEIS**" [ON THIS SITE](https://form.jotform.com/221086334784156)!**
+**PLEASE VOTE AND MAKE YOUR FRIENDS VOTE FOR "Team B-AROL-O - ARNEIS" [ON THIS SITE](https://form.jotform.com/221086334784156)!**
 
 [![2022-04-21-opencv-spatial-ai-contest-top-10-finalist.png](https://raw.githubusercontent.com/B-AROL-O/ARNEIS/main/docs/images/2022-04-21-opencv-spatial-ai-contest-top-10-finalist.png)](https://form.jotform.com/221086334784156)
 
-### TODO2
+### Preparing for ARNEIS Release 1.0
 
-TODO
+Work is ongoing for Release 1.0 of the ARNEIS project.
+For this reason we are prioritizing bugfixes over new features.
+
+Among the many bugfixes we have closed, [Alessandro](https://github.com/alv67) managed to restore the possibility to download the PDF with all the contents of <https://arneis.readthedocs.io>. 
+
+The complete PDF (as of today 193 pages, for about 45 MB) can be downloaded by simply clicking the corresponding link on the bottom left of the site:
+
+![image](https://user-images.githubusercontent.com/75182/164911642-76a3b787-b002-4df6-85e3-acaa378c1561.png)
 
 ### TODO3
 
