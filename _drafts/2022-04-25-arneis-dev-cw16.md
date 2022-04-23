@@ -26,15 +26,21 @@ In Sprint dev-cw16 we [closed TODO issues or Pull Requests](https://github.com/B
 
 Let's now dig into some of the major results we achieved during last week.
 
-### ARNEIS Top 10 Finalist to the OpenCV Spatial AI Contest
+### ARNEIS Top 10 Finalist of the OpenCV Spatial AI Contest
 
-During Episode 54 of the OpenCV Weekly Webinar we learned that our team was selected as a Top 10 Finalist to the OpenCV Spatial AI Contest!
+During the [OpenCV Weekly Webinar Ep. 54](https://twitter.com/opencvweekly/status/1517171312807989249) we learned that our team was selected as a Top 10 Finalist of the [OpenCV Spatial AI Contest](https://opencv.org/opencv-spatial-ai-contest/) sponsored by Intel and Microsoft - click on the image to watch the full announcement:
 
-TODO: Video
+[![image](https://user-images.githubusercontent.com/75182/164895375-263d5633-e5c9-4036-8135-38a019a64d67.png)](https://twitter.com/i/broadcasts/1lPJqmnrqBLJb)
 
-Now is the time for all our friends and supporters to vote and have friends vote for "Team B-AROL-O - ARNEIS" [on this site](https://form.jotform.com/221086334784156):
+It is already a great honor to have gone so far, and especially sharing this achievement together with such outstanding teams!
 
-[![2022-04-21-opencv-spatial-ai-contest-top-10-finalist.png](docs/images/2022-04-21-opencv-spatial-ai-contest-top-10-finalist.png)](https://form.jotform.com/221086334784156)
+However, the competition is not yet over, since the committee announced that a special prize will be awarded to the team who will receive most votes in a [public poll on the Internet](https://form.jotform.com/221086334784156).
+
+This is why we are now making a public call to all our friends and supporters: 
+
+**PLEASE VOTE AND MAKE YOUR FRIENDS VOTE FOR "**Team B-AROL-O - ARNEIS**" [ON THIS SITE](https://form.jotform.com/221086334784156)!**
+
+[![2022-04-21-opencv-spatial-ai-contest-top-10-finalist.png](https://raw.githubusercontent.com/B-AROL-O/ARNEIS/main/docs/images/2022-04-21-opencv-spatial-ai-contest-top-10-finalist.png)](https://form.jotform.com/221086334784156)
 
 ### TODO2
 
