@@ -26,9 +26,15 @@ In Sprint dev-cw16 we [closed TODO issues or Pull Requests](https://github.com/B
 
 Let's now dig into some of the major results we achieved during last week.
 
-### TODO1
+### ARNEIS Top 10 Finalist to the OpenCV Spatial AI Contest
 
-TODO
+During Episode 54 of the OpenCV Weekly Webinar we learned that our team was selected as a Top 10 Finalist to the OpenCV Spatial AI Contest!
+
+TODO: Video
+
+Now is the time for all our friends and supporters to vote and have friends vote for "Team B-AROL-O - ARNEIS" [on this site](https://form.jotform.com/221086334784156):
+
+[![2022-04-21-opencv-spatial-ai-contest-top-10-finalist.png](docs/images/2022-04-21-opencv-spatial-ai-contest-top-10-finalist.png)](https://form.jotform.com/221086334784156)
 
 ### TODO2
 
