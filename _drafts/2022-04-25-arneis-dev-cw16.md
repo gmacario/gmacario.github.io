@@ -47,15 +47,18 @@ This is why we are now making a public call to all our friends and supporters:
 Work is ongoing for Release 1.0 of the ARNEIS project.
 For this reason we are prioritizing bugfixes over new features.
 
-Among the many bugfixes we have closed, [Alessandro](https://github.com/alv67) managed to restore the possibility to download the PDF with all the contents of <https://arneis.readthedocs.io>. 
+Among the many bugfixes we have closed, [Alessandro](https://github.com/alv67) managed to restore the possibility to download the PDF with all the contents of <https://arneis.readthedocs.io>.
 
 The complete PDF (as of today 193 pages, for about 45 MB) can be downloaded by simply clicking the corresponding link on the bottom left of the site:
 
 ![image](https://user-images.githubusercontent.com/75182/164911642-76a3b787-b002-4df6-85e3-acaa378c1561.png)
 
-### TODO3
+### More progress with the Arduino Portenta X8
 
-TODO
+We made further investigations about the Linux domain available on such powerful piece of hardware.
+
+Please have a look at the HOWTO for details:
+<https://arneis.readthedocs.io/en/latest/howto/howto-testing-portenta-x8.html>
 
 ## Next week plans
 
