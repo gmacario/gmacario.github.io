@@ -20,7 +20,7 @@ Here is the report of our progress in the ARNEIS project after the end of CW16-2
 
 ## What did we accomplish this week?
 
-In Sprint dev-cw16 we [closed TODO issues or Pull Requests](https://github.com/B-AROL-O/ARNEIS/issues?q=is%3Aclosed+milestone%3Adev-cw16).
+In Sprint dev-cw16 we [closed 13 issues or Pull Requests](https://github.com/B-AROL-O/ARNEIS/issues?q=is%3Aclosed+milestone%3Adev-cw16).
 
 <!-- TODO: Add screenshot of <https://github.com/orgs/B-AROL-O/projects/1/views/5> -->
 
