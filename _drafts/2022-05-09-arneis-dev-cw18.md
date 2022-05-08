@@ -29,13 +29,22 @@ In Sprint dev-cw18 we [closed TODO issues or Pull Requests](https://github.com/B
 
 Let's now dig into some of the major results we achieved during last week.
 
-### TODO1
+### B-AROL-O and ARNEIS logos deposited to Proofy
 
-TODO
+While working on full resolution of <https://github.com/B-AROL-O/ARNEIS/issues/282>, we decided to deposit
+B-AROL-O and ARNEIS logos to [Proofy](https://www.proofy.co/):
 
-### TODO2
+<https://app.proofy.co/app/showopera/86955679-eed8-43d8-b2e1-6048355b370b>
 
-TODO
+![image](https://user-images.githubusercontent.com/75182/167300932-6478ac6e-dbd1-415b-a153-a6460b2ce8be.png)
+
+
+### Another contributor to ARNEIS
+
+Let us welcome [Davide Macario](https://github.com/davmacario) who contributed a sketch developed by his brother Filippo to control the ARNEIS conveyor using the LEGO&reg; Control+ app.
+
+Please refer to <https://github.com/B-AROL-O/ARNEIS/pull/296> for details.
+
 
 ### TODO3
 
