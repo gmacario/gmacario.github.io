@@ -13,17 +13,20 @@ Welcome to our weekly status report of the [ARNEIS project](https://github.com/B
 
 As [I announced in a previous post](https://gmacario.github.io/posts/2022-04-25-arneis-dev-cw16)
 
-> During the [OpenCV Weekly Webinar Ep. 54](https://twitter.com/opencvweekly/status/1517171312807989249) we learned that our team was selected as a Top 10 Finalist of the [OpenCV Spatial AI Contest](https://opencv.org/opencv-spatial-ai-contest/) sponsored by Intel and Microsoft.
+> During the [OpenCV Weekly Webinar Ep. 54](https://twitter.com/opencvweekly/status/1517171312807989249)
+> we learned that our team was selected as a Top 10 Finalist of the
+> [OpenCV Spatial AI Contest](https://opencv.org/opencv-spatial-ai-contest/) sponsored by Intel and Microsoft.
 >
 > It is already a great honor to have gone so far, and especially sharing this achievement together with such outstanding teams!
 >
-> However, the competition is not yet over, since the committee announced that a special prize will be awarded to the team who will receive most votes in a [public poll on the internet](https://form.jotform.com/221086334784156).
+> However, the competition is not yet over, since the committee announced that a special prize will be awarded
+> to the team who will receive most votes in a [public poll on the internet](https://form.jotform.com/221086334784156).
 
 Here is the report of our progress in the ARNEIS project after the end of CW18-2022.
 
 ## What did we accomplish this week?
 
-In Sprint dev-cw18 we [closed TODO issues or Pull Requests](https://github.com/B-AROL-O/ARNEIS/issues?q=is%3Aclosed+milestone%3Adev-cw18).
+In Sprint dev-cw18 we [closed 4 issues or Pull Requests](https://github.com/B-AROL-O/ARNEIS/issues?q=is%3Aclosed+milestone%3Adev-cw18).
 
 <!-- TODO: Add screenshot of <https://github.com/orgs/B-AROL-O/projects/1/views/5> -->
 
@@ -46,9 +49,12 @@ Let us welcome [Davide Macario](https://github.com/davmacario) who contributed a
 Please refer to <https://github.com/B-AROL-O/ARNEIS/pull/296> for details.
 
 
-### TODO3
+### Preparation to Expo Mattoncino 6
 
-TODO
+We have started the preparation to "Expo Mattoncino 6", a new exhibition that will take place in Pinerolo on 28 and 29 May.
+
+Please refer to <https://github.com/B-AROL-O/ARNEIS/issues/213> for details.
+
 
 ## Next week plans
 
