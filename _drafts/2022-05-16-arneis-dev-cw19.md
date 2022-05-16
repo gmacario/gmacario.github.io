@@ -23,23 +23,30 @@ Here is the report of our progress in the ARNEIS project after the end of CW19-2
 
 ## What did we accomplish this week?
 
-In Sprint dev-cw19 we [closed TODO issues or Pull Requests](https://github.com/B-AROL-O/ARNEIS/issues?q=is%3Aclosed+milestone%3Adev-cw19).
+In Sprint dev-cw19 we [closed 5 issues or Pull Requests](https://github.com/B-AROL-O/ARNEIS/issues?q=is%3Aclosed+milestone%3Adev-cw19).
 
 <!-- TODO: Add screenshot of <https://github.com/orgs/B-AROL-O/projects/1/views/5> -->
 
 Let's now dig into some of the major results we achieved during last week.
 
-### TODO1
+### Update 3D model of the ARNEIS conveyor
 
-TODO
+[Alessandro](https://github.com/alv67) has updated The 3D model of the ARNEIS conveyor, which now includes the OAK-D-Lite, thanks to the recent contribution of [Marco Maruffi](https://github.com/MarcoMaru).
 
-### TODO2
+![arneis-conveyor-oak-d-lite.png](https://github.com/B-AROL-O/ARNEIS/raw/main/mocs/project/arneis-conveyor-oak-d-lite.png)
 
-TODO
+Please find the updated 3D model in Stud.io and other formats at <https://github.com/B-AROL-O/ARNEIS/tree/main/mocs/project>.
 
-### TODO3
+### Progress with testing Foundries.io
 
-TODO
+I successfully deployed on a Raspberry Pi 4 a target image which I built on FoundriesFactory.
+Please see details at <https://arneis.readthedocs.io/en/latest/howto/howto-getting-started-foundriesio.html>.
+
+### Troubleshooting Bluetooth on Portenta
+
+I eventually managed to scan nearby BLE devices on the Portenta.
+
+See details at <https://github.com/B-AROL-O/ARNEIS/pull/330>.
 
 ## Next week plans
 
