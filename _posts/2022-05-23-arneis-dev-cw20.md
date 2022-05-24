@@ -45,7 +45,7 @@ This is why we are now making a public call to all our friends and supporters:
 
 [![2022-04-21-opencv-spatial-ai-contest-top-10-finalist.png](https://raw.githubusercontent.com/B-AROL-O/ARNEIS/main/docs/images/2022-04-21-opencv-spatial-ai-contest-top-10-finalist.png)](https://form.jotform.com/221086334784156)
 
-### The ARNEIS project hit release 1.0
+### The ARNEIS project hits release 1.0
 
 We have officially released Rel. 1.0 of the ARNEIS project.
 Please find it under <https://github.com/B-AROL-O/ARNEIS/releases>.
