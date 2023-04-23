@@ -119,7 +119,7 @@ $
 
 You may now open the file from Wireshark:
 
-![Screenshot](../public/assets/2023-04-22-btmon-wireshark/2023-04-22-1628-capture.ng.png)
+![Screenshot](../assets/2023-04-22-btmon-wireshark/2023-04-22-1628-capture.ng.png)
 
 You may apply some display filters, for instance [btatt](https://www.wireshark.org/docs/dfref/b/btatt.html) (Bluetooth Attribute Protocol)
 
