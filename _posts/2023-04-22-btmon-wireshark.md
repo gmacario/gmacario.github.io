@@ -1,23 +1,40 @@
 ---
 layout: post
 title: "Sniffing Bluetooth Low Energy packets on Linux"
-date: 2023/04/23
+date: 2023/04/22
 tags: howto ble
 ---
 
-NOTE: **WORK-IN-PROGRESS**
-
 This post explains how to capture Bluetooth Low Energy packets using Open Source tools.
 
-Launch `btmon` on the host acting as central. In our case this is a Raspberry Pi 3B+
+## Prerequisites
+
+- A host acting as BLE central with the following characteristics:
+  - OS: a recent Debian or Ubuntu distribution (tested on a [Raspberry Pi 3B+](https://www.raspberrypi.com/products/raspberry-pi-3-model-b-plus/) running [Raspberry Pi OS](https://www.raspberrypi.com/software/) bullseye)
+  - Package `bluez-utils` installed
+  - A Bluetooth Low Energy adapter supported by the Linux host (tested with the on-board Bluetooth interface of the Raspberry Pi)
+- [Wireshark](https://www.wireshark.org/) installed either on the Linux host or on another machine (in this case the OS may also be Windows or Mac OS)
+
+## Step-by-step instructions
+
+Launch `btmon` on the host acting as BLE central. In our example, open a terminal on the Raspberry Pi and type the following command:
 
 ```bash
-sudo btmon -w btmon-20230422-1600.log
+sudo btmon -w btmon-$(date '+%Y%m%d-%H%M').log
 ```
 
-Now open another terminal and interact with the target of interest.
+This command will create a timestamped file, for instance `btmon-20230422-1600.log`.
+The format of the file is similar to
+[Android btsnoop_hci.log](https://source.android.com/docs/core/connect/bluetooth/verifying_debugging).
 
-For instance, launch `bluetoothctl` and type the following commands:
+Now open another terminal and interact with the BLE device of interest.
+For instance, launch `bluetoothctl`
+
+```bash
+bluetoothctl
+```
+
+and type the following commands:
 
 ```bash
 scan on
@@ -77,11 +94,9 @@ Failed to connect: org.bluez.Error.Failed
 pi@rpi3pgm29:~ $
 ```
 
-From the terminal where you launched `btmon` you should see messages exchanged between the Bluetooth host (i.e. the Raspberry Pi) and the Bluetooth controller.
+The messages exchanged between the Bluetooth host (i.e. the Raspberry Pi) and the Bluetooth controller will be logged on the terminal where you executed the `btmon` command.
 
-```text
-...
-```
+<!-- TODO: Screenshot -->
 
 When you are satisfied with the results, type `^C` to stop btmon and look at the btsnoop file that has been created:
 
@@ -91,7 +106,7 @@ pi@rpi3pgm29:~ $ ls -la btmon-20230422-1600.log
 pi@rpi3pgm29:~ $
 ```
 
-In our case the Raspberry Pi has no display, so you need to dowload file `btmon-20230422-1600.log` from a PC where we have Wireshark installed.
+In our case the Raspberry Pi has no display, so we need to download file `btmon-20230422-1600.log` from a PC where we have Wireshark installed.
 
 ```text
 gmaca@alpha MINGW64 ~/Downloads
@@ -106,7 +121,7 @@ You may now open the file from Wireshark:
 
 ![Screenshot](../public/assets/2023-04-22-btmon-wireshark/2023-04-22-1628-capture.ng.png)
 
-You may apply some display filters, for instance the [btatt](https://www.wireshark.org/docs/dfref/b/btatt.html)
+You may apply some display filters, for instance [btatt](https://www.wireshark.org/docs/dfref/b/btatt.html) (Bluetooth Attribute Protocol)
 
 Wireshark: Analyze > Display Filters...
 
