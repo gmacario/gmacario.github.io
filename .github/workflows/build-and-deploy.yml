@@ -50,114 +50,114 @@ jobs:
           path: ${{ github.workspace }}/_static
           key: ${{ runner.os }}-static-site-${{ github.sha }}
 
-  # stage:
-  #   runs-on: ubuntu-latest
-  #   needs: build
-  #   env:
-  #     heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-  #     heroku_email: ${{ secrets.HEROKU_EMAIL }}
-  #     heroku_app: ${{ secrets.HEROKU_STAGING_APP }}
-  #   if: needs.build.outputs.deploy_staging == 'true'
-  #
-  #   defaults:
-  #     run:
-  #       shell: bash
-  #       working-directory: ./src
-  #
-  #   steps:
-  #     - name: Check secrets 🔐
-  #       run: |
-  #         error_flag=false
-  #         if [[ -z "${heroku_email}" ]]; then
-  #           echo Cannot find heroku mail! Add it to the repo secrets as HEROKU_EMAIL
-  #           error_flag=true
-  #         else
-  #           echo Heroku email found
-  #         fi
-  #         if [[ -z "${heroku_app}" ]]; then
-  #           echo Cannot find heroku deploy app name! Add it to the repo secrets as HEROKU_STAGING_APP
-  #           error_flag=true
-  #         else
-  #           echo Heroku deploy app name found
-  #         fi
-  #         if [[ -z "${heroku_api_key}" ]]; then
-  #           echo Cannot find api key! Add it to the repo secrets as HEROKU_API_KEY
-  #           error_flag=true
-  #         else
-  #           echo Heroku api key found
-  #         fi
-  #         if [ "$error_flag" = true ]; then
-  #           exit 1
-  #         fi
+  stage:
+    runs-on: ubuntu-latest
+    needs: build
+    env:
+      heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+      heroku_email: ${{ secrets.HEROKU_EMAIL }}
+      heroku_app: ${{ secrets.HEROKU_STAGING_APP }}
+    if: needs.build.outputs.deploy_staging == 'true'
 
-  #       working-directory: ${{ github.workspace }}
-  #
-  #     - name: Checkout 🛎️
-  #       uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
-  #       with:
-  #         persist-credentials: false
-  #
-  #     - name: Setup heroku CLI 🛠
-  #       run: |
-  #         curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
-  #         cat >~/.netrc <<EOF
-  #         machine api.heroku.com
-  #             login ${heroku_email}
-  #             password ${heroku_api_key}
-  #         machine git.heroku.com
-  #             login ${heroku_email}
-  #             password ${heroku_api_key}
-  #         EOF
-  #         mkdir heroku
-  #       working-directory: ${{ github.workspace }}
-  #
-  #     - name: Restore build artifacts cache 📦
-  #       uses: actions/cache@v2
-  #       with:
-  #         path: ${{ github.workspace }}/_static
-  #         key: ${{ runner.os }}-static-site-${{ github.sha }}
-  #
-  #     - name: Deploy to heroku 🚀
-  #       run: |
-  #         cp -r .github/tests/* heroku
-  #         cp -r _static heroku
-  #         cd heroku
-  #         cat >.gitignore <<EOF
-  #         node_modules/
-  #         EOF
-  #         cat >Procfile <<EOF
-  #         web: npm install && npm start
-  #         EOF
-  #         git init
-  #         git config --global user.email "${heroku_email}"
-  #         git config --global user.name "Github Action"
-  #         heroku git:remote -a "${heroku_app}"
-  #         heroku login
-  #         git add -A
-  #         git commit -am "make it better"
-  #         git push heroku master --force
-  #       working-directory: ${{ github.workspace }}
-  #
-  #     - name: Create comment on pr 🧾
-  #       uses: mshick/add-pr-comment@v1
-  #       with:
-  #         message: |
-  #           Beep boop. I am a bot 🤖
-  #
-  #           I have built your static site 🛠
-  #           and deployed it in a staging environment 🚢
-  #
-  #           You can check out the result at [${{ env.heroku_app }}.herokuapp.com]( http://${{ env.heroku_app }}.herokuapp.com )
-  #
-  #           And approve (or reject) the results [here](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
-  #
-  #         repo-token: ${{ secrets.GITHUB_TOKEN }}
-  #         repo-token-user-login: "github-actions[bot]" # The user.login for temporary GitHub tokens
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./src
+
+    steps:
+      # - name: Check secrets 🔐
+      #   run: |
+      #     error_flag=false
+      #     if [[ -z "${heroku_email}" ]]; then
+      #       echo Cannot find heroku mail! Add it to the repo secrets as HEROKU_EMAIL
+      #       error_flag=true
+      #     else
+      #       echo Heroku email found
+      #     fi
+      #     if [[ -z "${heroku_app}" ]]; then
+      #       echo Cannot find heroku deploy app name! Add it to the repo secrets as HEROKU_STAGING_APP
+      #       error_flag=true
+      #     else
+      #       echo Heroku deploy app name found
+      #     fi
+      #     if [[ -z "${heroku_api_key}" ]]; then
+      #       echo Cannot find api key! Add it to the repo secrets as HEROKU_API_KEY
+      #       error_flag=true
+      #     else
+      #       echo Heroku api key found
+      #     fi
+      #     if [ "$error_flag" = true ]; then
+      #       exit 1
+      #     fi
+
+      #   working-directory: ${{ github.workspace }}
+
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
+        with:
+          persist-credentials: false
+
+        # - name: Setup heroku CLI 🛠
+        run: |
+          curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
+          cat >~/.netrc <<EOF
+          machine api.heroku.com
+              login ${heroku_email}
+              password ${heroku_api_key}
+          machine git.heroku.com
+              login ${heroku_email}
+              password ${heroku_api_key}
+          EOF
+          mkdir heroku
+        working-directory: ${{ github.workspace }}
+
+      - name: Restore build artifacts cache 📦
+        uses: actions/cache@v2
+        with:
+          path: ${{ github.workspace }}/_static
+          key: ${{ runner.os }}-static-site-${{ github.sha }}
+
+      - name: Deploy to staging 🚀
+        run: |
+          cp -r .github/tests/* heroku
+          cp -r _static heroku
+          cd heroku
+          cat >.gitignore <<EOF
+          node_modules/
+          EOF
+          cat >Procfile <<EOF
+          web: npm install && npm start
+          EOF
+          git init
+          git config --global user.email "${heroku_email}"
+          git config --global user.name "Github Action"
+          # heroku git:remote -a "${heroku_app}"
+          # heroku login
+          git add -A
+          git commit -am "make it better"
+          # git push heroku master --force
+        working-directory: ${{ github.workspace }}
+
+      # - name: Create comment on pr 🧾
+      #   uses: mshick/add-pr-comment@v1
+      #   with:
+      #     message: |
+      #       Beep boop. I am a bot 🤖
+      #
+      #       I have built your static site 🛠
+      #       and deployed it in a staging environment 🚢
+      #
+      #       You can check out the result at [${{ env.heroku_app }}.herokuapp.com]( http://${{ env.heroku_app }}.herokuapp.com )
+      #
+      #       And approve (or reject) the results [here](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
+      #
+      #     repo-token: ${{ secrets.GITHUB_TOKEN }}
+      #     repo-token-user-login: "github-actions[bot]" # The user.login for temporary GitHub tokens
 
   # Only deploy if it's a pull request or a push on main (or master)
   deploy:
     runs-on: ubuntu-latest
-    # needs: stage
+    needs: stage
     #if: ${{ needs.build.outputs.deploy_staging }}
 
     defaults:
