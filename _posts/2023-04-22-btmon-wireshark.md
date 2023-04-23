@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Sniffing Bluetooth Low Energy packets on Linux"
-date: 2022/05/23
+date: 2023/04/23
 tags: howto ble
 ---
 
