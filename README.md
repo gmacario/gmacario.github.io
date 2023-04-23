@@ -58,6 +58,8 @@ Blog posts get compiled to a static website using the commands detailed below.
 To build and test the pages locally, run the npm script
 
 ```sh
+# Workaround for webpack on node 17+ - See https://github.com/webpack/webpack/issues/14532
+export NODE_OPTIONS=--openssl-legacy-provider
 npm run dev
 ```
 
