@@ -13,7 +13,7 @@ This post explains how to capture Bluetooth Low Energy packets using Open Source
   - OS: a recent Debian or Ubuntu distribution (tested on a [Raspberry Pi 3B+](https://www.raspberrypi.com/products/raspberry-pi-3-model-b-plus/) running [Raspberry Pi OS](https://www.raspberrypi.com/software/) bullseye)
   - Package `bluez-utils` installed
   - A Bluetooth Low Energy adapter supported by the Linux host (tested with the on-board Bluetooth interface of the Raspberry Pi)
-- [Wireshark](https://www.wireshark.org/) installed either on the Linux host or on another machine (in this case the OS may also be Windows or Mac OS)
+- [Wireshark](https://www.wireshark.org/) installed either on the Linux host or on another machine (in this case the OS may also be Windows or macOS)
 
 ## Step-by-step instructions
 
