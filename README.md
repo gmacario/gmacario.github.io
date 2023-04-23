@@ -14,7 +14,7 @@ The blog is based on the [Next.js](https://nextjs.org/) framework as explained i
 
 ## Prerequisites
 
-Install Node.js 14.x from <https://nodejs.org/>
+Install Node.js 16.x from <https://nodejs.org/>
 
 To install the dependencies simply run
 
