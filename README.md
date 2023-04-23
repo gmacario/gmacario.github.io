@@ -10,7 +10,7 @@ Automatically published to <https://gmacario.github.io/>
 ## How this site was made
 
 The blog is based on the [Next.js](https://nextjs.org/) framework as explained in
-<https://css-tricks.com/building-a-blog-with-next-js/>
+[Building a Blog with Next.js](https://css-tricks.com/building-a-blog-with-next-js/).
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ npm install
 - Blog posts have to be created under the `_posts` folder.
 - Other content (like images or files) can be added under the `public` directory
 
-### Referencing content under `public\`
+### Referencing content under `/public`
 
 Consider the following directory structure:
 
@@ -48,7 +48,7 @@ Consider the following directory structure:
 You would reference the file as:
 
 ```html
- <a href='../files/example_file.pdf'>example file</a>
+<a href="../files/example_file.pdf">example file</a>
 ```
 
 Blog posts get compiled to a static website using the commands detailed below.
@@ -94,7 +94,7 @@ npm run export
 
 ### Using Docker: Prerequisites
 
-* [Docker Engine](https://www.docker.com/products/container-runtime)
+- [Docker Engine](https://www.docker.com/products/container-runtime)
 
 ### Build the Docker image
 
