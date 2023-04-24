@@ -7,7 +7,7 @@ TODO
 ## Requirements
 
 - A host running a recent Debian-based distribution. Tested on `rpi3bgm28` - a [Raspberry Pi 3 Model B](https://www.raspberrypi.com/products/raspberry-pi-3-model-b/) running [Raspberry Pi OS Lite](https://www.raspberrypi.com/software/) 64-bit (bullseye)
-- A WiFi adapter which supports monitor mode. Tested with a [D-Link DWL-G122](https://support.dlink.com/ProductInfo.aspx?m=DWL-G122) Wireless-G USB Dongle
+- A Wi-Fi adapter which supports monitor mode. Tested with a [D-Link DWL-G122](https://support.dlink.com/ProductInfo.aspx?m=DWL-G122) Wireless-G USB Dongle
 
 ## Step-by-step instructions
 
@@ -108,7 +108,7 @@ gmacario@rpi3bgm28:~ $
 Now insert the [D-Link DWL-G122](https://support.dlink.com/ProductInfo.aspx?m=DWL-G122)
 into one USB port of the Raspberry Pi.
 
-Execute the `iwconfig` command again and verify that the WiFi USB dongle gets recognized.
+Execute the `iwconfig` command again and verify that the Wi-Fi USB dongle gets recognized.
 Take note of the new interface name (in our case, this is `wlan1`):
 
 ```text
@@ -142,7 +142,7 @@ wlan1     IEEE 802.11  ESSID:"Galaxy A32 gpmacario"
 gmacario@rpi3bgm28:~ $
 ```
 
-Launch Kismet and configure it to use new WiFi interface as datasource:
+Launch Kismet and configure it to use new Wi-Fi interface as datasource:
 
 ```bash
 kismet -c wlan1
