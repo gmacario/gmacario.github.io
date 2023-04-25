@@ -290,7 +290,11 @@ browse <https://hashcat.net/cap2hashcat/> and upload the `*.pcap` file.
 The tool will verify the *.pcap file and convert it to a format
 suitable for the [hascat](https://hashcat.net/hashcat/) tool.
 
-See also: <https://www.linkielist.com/hacks/wpa-cracking-from-kismet-sensors/>
+See also: [WPA Cracking from Kismet sensors](https://www.linkielist.com/hacks/wpa-cracking-from-kismet-sensors/) - Linkielist.com, 2020-03-25
+-->
+
+<!--
+See also: [How to Secure Your Home Wireless Infrastructure with Kismet and Python](https://www.freecodecamp.org/news/wireless-security-using-raspberry-pi-4-kismet-and-python/) - Jose Vicente Nunez on freeCodeCamp, 2022-03-02
 -->
 
 <!-- EOF -->
