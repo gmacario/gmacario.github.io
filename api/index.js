@@ -1,7 +1,7 @@
 // api/index.js
 import matter from 'gray-matter'
-import marked from 'marked'
 import yaml from 'js-yaml'
+const marked = require('marked')
 
 // Local function to format date strings
 function formatDate (date) {
@@ -34,7 +34,7 @@ export async function getAllPosts () {
       if (meta.data.date instanceof Date) {
         localDate = formatDate(meta.data.date)
       }
-      if (typeof (meta.data.date) === 'string') {
+      if (typeof meta.data.date === 'string') {
         localDate = formatDate(new Date(meta.data.date.split(' ')[0]))
       }
     } else {
@@ -46,7 +46,7 @@ export async function getAllPosts () {
       // Use the post name as link (with no extension)
       slug: post.replace('.md', ''),
       title: meta.data.title,
-      excerpt: (('excerpt' in meta.data) ? meta.data.excerpt : null),
+      excerpt: 'excerpt' in meta.data ? meta.data.excerpt : null,
       date: localDate
     })
   }
@@ -68,11 +68,11 @@ export async function getPostBySlug (slug) {
   // meta.data contains the metadata
   // meta.content contains the document body
 
-  // The markdown content is pared and converted by 'marked'
-  const content = marked(meta.content)
+  // The markdown content is parsed and converted by 'marked'
+  const content = marked.parse(meta.content)
   return {
     title: meta.data.title,
-    content: content
+    content
   }
 }
 
