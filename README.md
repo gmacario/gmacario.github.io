@@ -10,11 +10,11 @@ Automatically published to <https://gmacario.github.io/>
 ## How this site was made
 
 The blog is based on the [Next.js](https://nextjs.org/) framework as explained in
-<https://css-tricks.com/building-a-blog-with-next-js/>
+[Building a Blog with Next.js](https://css-tricks.com/building-a-blog-with-next-js/).
 
 ## Prerequisites
 
-Install Node.js 14.x from <https://nodejs.org/>
+Install Node.js 16.x from <https://nodejs.org/>
 
 To install the dependencies simply run
 
@@ -27,7 +27,7 @@ npm install
 - Blog posts have to be created under the `_posts` folder.
 - Other content (like images or files) can be added under the `public` directory
 
-### Referencing content under `public\`
+### Referencing content under `/public`
 
 Consider the following directory structure:
 
@@ -48,7 +48,7 @@ Consider the following directory structure:
 You would reference the file as:
 
 ```html
- <a href='../files/example_file.pdf'>example file</a>
+<a href="../files/example_file.pdf">example file</a>
 ```
 
 Blog posts get compiled to a static website using the commands detailed below.
@@ -58,6 +58,8 @@ Blog posts get compiled to a static website using the commands detailed below.
 To build and test the pages locally, run the npm script
 
 ```sh
+# Workaround for webpack on node 17+ - See https://github.com/webpack/webpack/issues/14532
+export NODE_OPTIONS=--openssl-legacy-provider
 npm run dev
 ```
 
@@ -94,7 +96,7 @@ npm run export
 
 ### Using Docker: Prerequisites
 
-* [Docker Engine](https://www.docker.com/products/container-runtime)
+- [Docker Engine](https://www.docker.com/products/container-runtime)
 
 ### Build the Docker image
 
@@ -130,7 +132,7 @@ then open `http://<hostname-or-ip>:3000/` from your browser to preview the site.
 
 Disclaimer: [IANAL](https://en.wikipedia.org/wiki/IANAL)
 
-Copyright 2006-2022 [Gianpaolo Macario](https://gmacario.github.io/).
+Copyright 2006-2023 [Gianpaolo Macario](https://gmacario.github.io/).
 
 The contents of this repository and the executable distribution are licensed under the terms of the MIT license as detailed in the [LICENSE](LICENSE) file,
 with the exception of the `_posts` and `_drafts` folders which are licensed under a Creative Commons Attribution-Share Alike 4.0 License.
