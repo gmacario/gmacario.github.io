@@ -17,6 +17,8 @@ This post explains how to capture Bluetooth Low Energy packets using Open Source
 
 ## Step-by-step instructions
 
+### Create BT Snoop file using btmon
+
 Launch `btmon` on the host acting as BLE central. In our example, open a terminal on the Raspberry Pi and type the following command:
 
 ```bash
@@ -106,6 +108,8 @@ pi@rpi3pgm29:~ $ ls -la btmon-rpi3pgm29-20230422-1600.log
 pi@rpi3pgm29:~ $
 ```
 
+### Analyze BLE packets using Wireshark
+
 In our case the Raspberry Pi has no display, so we need to download file `btmon-hw2228-2023-04-26-1328.pcap` from a PC where we have Wireshark installed.
 
 ```text
@@ -127,26 +131,37 @@ Wireshark: File > Open
 
 ![Screenshot](../assets/2023-04-22-btmon-wireshark/2023-04-26-1406-capture.png)
 
-A useful command to understand which packets have been captured is the following
+Some useful commands to understand which packets have been captured are the following
+
+#### Display Protocol Hierarchy
 
 Wireshark: Statistics > Protocol Hierarchy
 
 ![Screenshot](../assets/2023-04-22-btmon-wireshark/2023-04-26-1407-capture.png)
 
+#### Display Bluetooth Devices
+
 Wireshark: Wireless > Bluetooth Devices
 
 ![Screenshot](../assets/2023-04-22-btmon-wireshark/2023-04-26-1409-capture.png)
+
+#### Display Bluetooth ATT Server Attributes
 
 Wireshark: Wireless > Bluetooth ATT Server Attributes
 
 ![Screenshot](../assets/2023-04-22-btmon-wireshark/2023-04-26-1410-capture.png)
 
+#### Display Bluetooth HCI Summary
+
 Wireshark: Wireless > Bluetooth HCI Summary
 
 ![Screenshot](../assets/2023-04-22-btmon-wireshark/2023-04-26-1411-capture.png)
 
+#### Display Filter: btatt
+
 Wireshark provides a few useful display filters.
-For instance, using [btatt](https://www.wireshark.org/docs/dfref/b/btatt.html) (Bluetooth Attribute Protocol) you can list the services and characteristics supported by the target BLE device.
+
+For instance, with [btatt](https://www.wireshark.org/docs/dfref/b/btatt.html) (Bluetooth Attribute Protocol) you can list the services and characteristics supported by the target BLE device.
 
 Wireshark: Analyze > Display Filters
 
