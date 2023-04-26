@@ -20,10 +20,10 @@ This post explains how to capture Bluetooth Low Energy packets using Open Source
 Launch `btmon` on the host acting as BLE central. In our example, open a terminal on the Raspberry Pi and type the following command:
 
 ```bash
-sudo btmon -w btmon-$(date '+%Y%m%d-%H%M').log
+sudo btmon -w btmon-$(uname -n)-$(date '+%Y%m%d-%H%M').log
 ```
 
-This command will create a timestamped file, for instance `btmon-20230422-1600.log`.
+This command will create a timestamped file, for instance `btmon-rpi3pgm29-20230422-1600.log`.
 The format of the file is similar to
 [Android btsnoop_hci.log](https://source.android.com/docs/core/connect/bluetooth/verifying_debugging).
 
@@ -101,17 +101,17 @@ The messages exchanged between the Bluetooth host (i.e. the Raspberry Pi) and th
 When you are satisfied with the results, type `^C` to stop btmon and look at the btsnoop file that has been created:
 
 ```text
-pi@rpi3pgm29:~ $ ls -la btmon-20230422-1600.log
--rw-r--r-- 1 root root 4690 Apr 22 16:02 btmon-20230422-1600.log
+pi@rpi3pgm29:~ $ ls -la btmon-rpi3pgm29-20230422-1600.log
+-rw-r--r-- 1 root root 4690 Apr 22 16:02 btmon-rpi3pgm2920230422-1600.log
 pi@rpi3pgm29:~ $
 ```
 
-In our case the Raspberry Pi has no display, so we need to download file `btmon-20230422-1600.log` from a PC where we have Wireshark installed.
+In our case the Raspberry Pi has no display, so we need to download file `btmon-hw2228-2023-04-26-1328.pcap` from a PC where we have Wireshark installed.
 
 ```text
 gmaca@alpha MINGW64 ~/Downloads
-$ scp rpi3pgm29:btmon-20230422-1600.log .
-btmon-20230422-1600.log                                               100% 4690   339.5KB/s   00:00
+$ scp rpi3pgm29:btmon-rpi3pgm29-20230422-1600.log .
+btmon-rpi3pgm29-20230422-1600.log                                               100% 4690   339.5KB/s   00:00
 
 gmaca@alpha MINGW64 ~/Downloads
 $
@@ -119,12 +119,39 @@ $
 
 You may now open the file from Wireshark:
 
-![Screenshot](../assets/2023-04-22-btmon-wireshark/2023-04-22-1628-capture.ng.png)
+Launch [Wireshark Portable](https://www.wireshark.org/docs/wsdg_html_chunked/ChToolsPortableApps.html)
 
-You may apply some display filters, for instance [btatt](https://www.wireshark.org/docs/dfref/b/btatt.html) (Bluetooth Attribute Protocol)
+Wireshark: File > Open
 
-Wireshark: Analyze > Display Filters...
+- Filename: `btmon-hw2228-2023-04-26-0837.pcap`
+
+![Screenshot](../assets/2023-04-22-btmon-wireshark/2023-04-26-1406-capture.png)
+
+A useful command to understand which packets have been captured is the following
+
+Wireshark: Statistics > Protocol Hierarchy
+
+![Screenshot](../assets/2023-04-22-btmon-wireshark/2023-04-26-1407-capture.png)
+
+Wireshark: Wireless > Bluetooth Devices
+
+![Screenshot](../assets/2023-04-22-btmon-wireshark/2023-04-26-1409-capture.png)
+
+Wireshark: Wireless > Bluetooth ATT Server Attributes
+
+![Screenshot](../assets/2023-04-22-btmon-wireshark/2023-04-26-1410-capture.png)
+
+Wireshark: Wireless > Bluetooth HCI Summary
+
+![Screenshot](../assets/2023-04-22-btmon-wireshark/2023-04-26-1411-capture.png)
+
+Wireshark provides a few useful display filters.
+For instance, using [btatt](https://www.wireshark.org/docs/dfref/b/btatt.html) (Bluetooth Attribute Protocol) you can list the services and characteristics supported by the target BLE device.
+
+Wireshark: Analyze > Display Filters
 
 - Filter: `btatt`
+
+![Screenshot](../assets/2023-04-22-btmon-wireshark/2023-04-26-1412-capture.png)
 
 <!-- EOF -->
