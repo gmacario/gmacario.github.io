@@ -21,7 +21,7 @@ then [create a new repository](https://github.com/new):
     - .gitignore template: None
   - Choose a license:
     - License: None
-    
+
 then click "Create repository".
 
 Open a shell and type the following commands
