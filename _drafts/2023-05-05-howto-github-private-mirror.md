@@ -1,4 +1,9 @@
-# Creating private forks of a GitHub repository
+---
+layout: post
+title: "Creating private forks of a GitHub repository"
+date: 2023/05/07
+tags: howto github git
+---
 
 ## Problem statement
 
