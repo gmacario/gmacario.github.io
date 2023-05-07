@@ -139,7 +139,7 @@ connect $PERIPHERAL_BT_ADDR
 disconnect
 ```
 
-Apply the following Display Filter on Wireshark to focus on the commands and events involved in the connection and disconnection:
+Apply the following Display Filter to focus on the commands and events involved in the connection and disconnection (NOTE: the filter has been formatted into multiple lines for readability, but should be written in one line on Wireshark):
 
 ```text
 (bthci_cmd.opcode == 0x0005) || \
@@ -153,7 +153,7 @@ Apply the following Display Filter on Wireshark to focus on the commands and eve
     ((bthci_evt.opcode == 0x0405) || \
     (bthci_evt.opcode == 0x0406) || \
     (bthci_evt.opcode == 0x200d) || \
-    (bthci_evt.opcode == 0x2043)) || \\
+    (bthci_evt.opcode == 0x2043))) || \
 (bthci_evt.code == 0x3e && bthci_evt.le_meta_subevent == 0x0a)
 ```
 
