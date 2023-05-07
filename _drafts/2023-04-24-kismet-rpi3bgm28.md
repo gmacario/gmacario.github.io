@@ -1,8 +1,15 @@
-# Running Kismet on a Raspberry Pi
+---
+layout: post
+title: "Running Kismet on a Raspberry Pi"
+date: 2023/04/24
+tags: howto ble wifi kismet raspberry
+---
 
 ## Introduction
 
-TODO
+This post describes how to install [Kismet](https://www.kismetwireless.net/) on a Linux host, then use the program to perform some "network intelligence".
+
+![image](https://user-images.githubusercontent.com/75182/236668176-cfafef6f-2652-422e-a7a6-5c06e84555cc.png)
 
 ## Requirements
 
@@ -12,7 +19,7 @@ TODO
 
 ## Step-by-step instructions
 
-Login to the Raspberry Pi via SSH.
+Login to the Raspberry Pi via SSH:
 
 ```bash
 ssh rpi3bgm28
@@ -21,7 +28,6 @@ ssh rpi3bgm28
 Check the version of the installed OS
 
 ```bash
-
 uname -a
 lsb_release -a
 ```
@@ -40,15 +46,17 @@ Codename:       bullseye
 gmacario@rpi3bgm28:~ $
 ```
 
-In our case we are running [Raspberry Pi OS Lite](https://www.raspberrypi.com/software/)
+In our case we are running [Raspberry Pi OS Lite](https://www.raspberrypi.com/software/):
 
-- System: 64-bit (arch=aarch64).
-- Debian version: 11 (bullseye)
+- System: 64-bit (arch=`aarch64`)
+- Debian Release: 11 (bullseye)
 
 Make sure the distribution is up-to-date
 
 ```bash
-sudo apt-get update && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove --purge
+sudo apt-get update \
+  && sudo apt-get -y dist-upgrade \
+  && sudo apt-get -y autoremove --purge
 ```
 
 Install Kismet following the instructions at <https://www.kismetwireless.net/packages/> (use the one which corresponds to the installed OS)
@@ -79,8 +87,6 @@ Add current user to group `kismet`:
 sudo usermod -aG kismet $USER
 newgrp kismet
 ```
-
-Logout and login to apply the changes.
 
 Logged in as `gmacario@rpi3bgm28`, type `iwconfig` to list the existing Wireless interfaces.
 
@@ -241,7 +247,7 @@ Fill in the requested information, then click "Save".
 >
 > Settings | Continue
 
-TODO
+<!-- TODO -->
 
 ### Runtime censorship
 
@@ -250,7 +256,7 @@ Kismet can be configured to censor some information - such as the last digits of
 Censorship mode can be enabled by adding `?censor=1` to Kismet URL, for instance
 <http://localhost:2501/?censor=1> or <http://rpi3bgm28:2501/?censor=1>
 
-TODO: Screenshot
+<!-- TODO: Screenshot -->
 
 Reference: <https://www.kismetwireless.net/docs/readme/configuring/webserver/>
 
@@ -280,15 +286,19 @@ gmacario@rpi3bgm28:~ $ ls -la Kismet-20230424-12-57-23-1.kismet*
 gmacario@rpi3bgm28:~ $
 ```
 
-You may then open the generated `*.pcap` with a tool such as Wireshark:
+You may then open the generated `*.pcap` file using a suitable tool, for instance [Wireshark](https://www.wireshark.org/).
 
-TODO: Screenshot
+<!-- TODO: Screenshot -->
 
-TODO: After converting `*.kismet` to `*.pcap` using the kismetdb_to_pcap tool,
+### Recovering lost passwords
+
+After converting `*.kismet` to `*.pcap` using the `kismetdb_to_pcap` tool,
 browse <https://hashcat.net/cap2hashcat/> and upload the `*.pcap` file.
 
-The tool will verify the *.pcap file and convert it to a format
-suitable for the [hascat](https://hashcat.net/hashcat/) tool.
+The tool will verify the `*.pcap` file and convert it to a format
+suitable for the [hashcat](https://hashcat.net/hashcat/) tool.
+
+<!-- TODO -->
 
 ## See also
 
