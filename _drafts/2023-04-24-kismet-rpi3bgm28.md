@@ -6,7 +6,8 @@ TODO
 
 ## Requirements
 
-- A host running a recent Debian-based distribution. Tested on `rpi3bgm28` - a [Raspberry Pi 3 Model B](https://www.raspberrypi.com/products/raspberry-pi-3-model-b/) running [Raspberry Pi OS Lite](https://www.raspberrypi.com/software/) 64-bit (bullseye)
+- A host running a recent Debian-based distribution.
+  Tested on `rpi3bgm28` - a [Raspberry Pi 3 Model B](https://www.raspberrypi.com/products/raspberry-pi-3-model-b/) running [Raspberry Pi OS Lite](https://www.raspberrypi.com/software/) 64-bit (bullseye)
 - A Wi-Fi adapter which supports monitor mode. Tested with a [D-Link DWL-G122](https://support.dlink.com/ProductInfo.aspx?m=DWL-G122) Wireless-G USB Dongle
 
 ## Step-by-step instructions
@@ -281,20 +282,17 @@ gmacario@rpi3bgm28:~ $
 
 You may then open the generated `*.pcap` with a tool such as Wireshark:
 
-<!-- TODO: Screenshot -->
+TODO: Screenshot
 
-<!--
 TODO: After converting `*.kismet` to `*.pcap` using the kismetdb_to_pcap tool,
 browse <https://hashcat.net/cap2hashcat/> and upload the `*.pcap` file.
 
 The tool will verify the *.pcap file and convert it to a format
 suitable for the [hascat](https://hashcat.net/hashcat/) tool.
 
-See also: [WPA Cracking from Kismet sensors](https://www.linkielist.com/hacks/wpa-cracking-from-kismet-sensors/) - Linkielist.com, 2020-03-25
--->
+## See also
 
-<!--
-See also: [How to Secure Your Home Wireless Infrastructure with Kismet and Python](https://www.freecodecamp.org/news/wireless-security-using-raspberry-pi-4-kismet-and-python/) - Jose Vicente Nunez on freeCodeCamp, 2022-03-02
--->
+- [WPA Cracking from Kismet sensors](https://www.linkielist.com/hacks/wpa-cracking-from-kismet-sensors/) - Linkielist.com, 2020-03-25
+- [How to Secure Your Home Wireless Infrastructure with Kismet and Python](https://www.freecodecamp.org/news/wireless-security-using-raspberry-pi-4-kismet-and-python/) - Jose Vicente Nunez on freeCodeCamp, 2022-03-02
 
 <!-- EOF -->
