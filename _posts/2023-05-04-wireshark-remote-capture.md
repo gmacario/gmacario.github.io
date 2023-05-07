@@ -165,5 +165,7 @@ Result:
 
 - <https://tshark.dev/capture/dumpcap>
 - [dumpcap(1) Manual Page](https://www.wireshark.org/docs/man-pages/dumpcap.html)
+- [wireshark-filter(4) Manual Page](https://www.wireshark.org/docs/man-pages/wireshark-filter.html)
+- [Wireshark Display Filter Reference](https://www.wireshark.org/docs/dfref/)
 
 <!-- EOF -->
