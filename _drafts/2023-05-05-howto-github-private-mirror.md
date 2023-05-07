@@ -1,11 +1,16 @@
 # HOWTO: Create a private mirror of a GitHub repository
 
+## Problem statement
+
+Sometimes it may be useful or needed to have a private repository on GitHub which is a mirror (or fork) of a public repository.
+GitHub prevents to create private forks of public repository, but the procedure detailed herebelow might be a valid alternative.
+
 Example:
 
 * Public upstream repository: <https://github.com/ObelusFamily/Anythink-Market-kqkg9ci8>
 * Private mirror: <https://github.com/gmacario/Anythink-Market-private>
 
-Step-by-step instructions
+## Step-by-step instructions
 
 Sign in to <https://github.com/>,
 then [create a new repository](https://github.com/new):
