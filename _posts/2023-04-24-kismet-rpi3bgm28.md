@@ -214,7 +214,7 @@ INFO: wlan1 finished configuring wlan1mon, ready to capture
 INFO: Data source 'wlan1' launched successfully
 ```
 
-Browse <http://rpi3gm28:2501> to access Kismet web UI.
+Browse <http://rpi3bgm28:2501> to access Kismet web UI.
 
 The first time you access the web UI you the following dialog box will be displayed:
 
