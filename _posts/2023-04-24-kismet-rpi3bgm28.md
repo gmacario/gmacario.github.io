@@ -216,7 +216,7 @@ INFO: Data source 'wlan1' launched successfully
 
 Browse <http://rpi3bgm28:2501> to access Kismet web UI.
 
-The first time you access the web UI you the following dialog box will be displayed:
+The first time you access the web UI, the following questions will be displayed:
 
 > **Set Login**
 >
@@ -229,9 +229,9 @@ The first time you access the web UI you the following dialog box will be displa
 >
 > Set Login
 >
-> - User name: TODO
-> - Password: TODO
-> - Confirm: TODO
+> - User name: ...
+> - Password: ...
+> - Confirm: ...
 
 Fill in the requested information, then click "Save".
 
@@ -299,6 +299,148 @@ The tool will verify the `*.pcap` file and convert it to a format
 suitable for the [hashcat](https://hashcat.net/hashcat/) tool.
 
 <!-- TODO -->
+
+### (Optional) Add location data to Kismet reports
+
+Reference: <https://www.kismetwireless.net/docs/readme/gps/gps_gpsd/>
+
+If you have a GPS (for instance, [this one](https://www.amazon.com/Receiver-Antenna-Gmouse-Laptop-Navigation/dp/B073P3Y48Q)) available and follow the instruction in this section, you will be able to augment Kismet reports with actual location information.
+
+**NOTE**: WORK-IN-PROGRESS
+
+#### Install GPSD
+
+Following the instructions at <https://gpsd.gitlab.io/gpsd/installation.html>,
+connect a USB GPS into an empty USB port of the Raspberry Pi.
+
+Verify with `sudo dmesg -w` that the GPS is correctly recognized:
+
+```text
+[494743.803508] usb 1-1.2: new full-speed USB device number 5 using dwc_otg
+[494743.905774] usb 1-1.2: New USB device found, idVendor=067b, idProduct=2303, bcdDevice= 3.00
+[494743.905806] usb 1-1.2: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+[494743.905820] usb 1-1.2: Product: USB-Serial Controller
+[494743.905831] usb 1-1.2: Manufacturer: Prolific Technology Inc.
+[494744.259635] usbcore: registered new interface driver usbserial_generic
+[494744.259789] usbserial: USB Serial support registered for generic
+[494744.270315] usbcore: registered new interface driver pl2303
+[494744.270427] usbserial: USB Serial support registered for pl2303
+[494744.270591] pl2303 1-1.2:1.0: pl2303 converter detected
+[494744.277325] usb 1-1.2: pl2303 converter now attached to ttyUSB0
+```
+
+Verify that the character device has been created correctly:
+
+```text
+gmacario@rpi3bgm28:~ $ ls -la /dev/ttyUSB0
+crw-rw---- 1 root dialout 188, 0 May  7 15:15 /dev/ttyUSB0
+gmacario@rpi3bgm28:~ $
+```
+
+If you are not running as root ensure that the user is of the group owning the device:
+
+```bash
+sudo usermod -aG dialout $USER
+newgrp dialout
+```
+
+Make sure you can get data from your GPS (replace `ttyXXX` with the filename of the port detected by `dmesg`):
+
+```bash
+stty -F /dev/ttyXXX ispeed 4800 && cat </dev/ttyXXX
+```
+
+Example:
+
+```text
+gmacario@rpi3bgm28:~ $ stty -F /dev/ttyUSB0 ispeed 4800 && cat </dev/ttyUSB0
+3▒F▒▒f▒▒▒f▒▒▒▒SF6k
+$GPVTG,,T,,M,,N,,K,N*2C
+
+$GPGGA,001012.039,,,,,0,00,,,M,0.0,M,,0000*5E
+
+$GPGSA,A,1,,,,,,,,,,,,,,,*1E
+
+$GPRMC,001012.039,V,,,,,,,291006,,,N*49
+
+$GPVTG,,T,,M,,N,,K,N*2C
+
+$GPGGA,001013.039,,,,,0,00,,,M,0.0,M,,0000*5F
+
+$GPGSA,A,1,,,,,,,,,,,,,,,*1E
+
+$GPRMC,001013.039,V,,,,,,,291006,,,N*48
+
+$GPVTG,,T,,M,,N,,K,N*2C
+
+^C
+gmacario@rpi3bgm28:~ $
+```
+
+Install `gpsd` and `gpsd-clients` (the second package is optional but will make troubleshooting easier):
+
+```bash
+sudo apt install gpsd
+sudo apt install gpsd-clients
+```
+
+Reboot the Raspberry Pi to verify that the GPSD service automatically starts at boot.
+
+#### Test GPSD
+
+Connect to port 2947 on localhost. You should be greeted with a JSON message returning the version of GPSD which is correctly running:
+
+```text
+gmacario@rpi3bgm28:~ $ tailscale nc localhost 2947
+{"class":"VERSION","release":"3.22","rev":"3.22","proto_major":3,"proto_minor":14}
+```
+
+Now start raw and watcher modes. After a few minutes you should start receiving GPS reports:
+
+```text
+?WATCH={"enable":true,"json":true};
+{"class":"DEVICES","devices":[{"class":"DEVICE","path":"/dev/ttyUSB0","activated":"2023-05-07T13:34:29.463Z","native":0,"bps":9600,"parity":"N","stopbits":1,"cycle":1.00}]}
+{"class":"WATCH","enable":true,"json":true,"nmea":false,"raw":0,"scaled":false,"timing":false,"split24":false,"pps":false}
+{"class":"DEVICE","path":"/dev/ttyUSB0","driver":"NMEA0183","activated":"2023-05-07T13:35:03.168Z","native":0,"bps":4800,"parity":"N","stopbits":1,"cycle":1.00}
+{"class":"TPV","device":"/dev/ttyUSB0","mode":1}
+{"class":"TPV","device":"/dev/ttyUSB0","mode":1}
+{"class":"TPV","device":"/dev/ttyUSB0","mode":1}
+{"class":"DEVICE","path":"/dev/ttyUSB0","driver":"SiRF","activated":"2023-05-07T13:35:04.277Z","flags":1,"native":1,"bps":4800,"parity":"N","stopbits":1,"cycle":1.00}
+{"class":"SKY","device":"/dev/ttyUSB0","time":"2026-06-14T00:04:20.040Z","nSat":0,"uSat":0}
+{"class":"TPV","device":"/dev/ttyUSB0","mode":1,"time":"2026-06-14T00:04:20.040Z","ept":0.005}
+{"class":"DEVICE","path":"/dev/ttyUSB0","driver":"SiRF","subtype":"GSW3.2.4-SDK_3.1.00.12-SDK001P1.00 ","activated":"2023-05-07T13:35:05.183Z","flags":1,"native":1,"bps":4800,"parity":"N","stopbits":1,"cycle":1.00}
+{"class":"DEVICE","path":"/dev/ttyUSB0","driver":"SiRF","subtype":"GSW3.2.4-SDK_3.1.00.12-SDK001P1.00 ","activated":"2023-05-07T13:35:05.309Z","flags":1,"native":1,"bps":4800,"parity":"N","stopbits":1,"cycle":1.00}
+{"class":"SKY","device":"/dev/ttyUSB0","time":"2026-06-14T00:04:21.040Z","hdop":0.00,"nSat":0,"uSat":0}
+{"class":"TPV","device":"/dev/ttyUSB0","mode":1,"time":"2026-06-14T00:04:21.040Z","ept":0.005}
+{"class":"DEVICE","path":"/dev/ttyUSB0","driver":"SiRF","subtype":"GSW3.2.4-SDK_3.1.00.12-SDK001P1.00 ","activated":"2023-05-07T13:35:06.463Z","flags":1,"native":1,"bps":4800,"parity":"N","stopbits":1,"cycle":1.00}
+{"class":"SKY","device":"/dev/ttyUSB0","time":"2026-06-14T00:04:22.050Z","hdop":0.00,"nSat":0,"uSat":0}
+{"class":"TPV","device":"/dev/ttyUSB0","mode":1,"time":"2026-06-14T00:04:22.050Z","ept":0.005}
+{"class":"SKY","device":"/dev/ttyUSB0","time":"2026-06-14T00:04:23.040Z","hdop":0.00,"nSat":0,"uSat":0}
+{"class":"TPV","device":"/dev/ttyUSB0","mode":1,"time":"2026-06-14T00:04:23.040Z","ept":0.005}
+```
+
+Type "Ctrl-C" to close the socket.
+
+If you have installed `gpsd-clients`, start the xgps or cgps client.
+
+![image](https://user-images.githubusercontent.com/75182/236681456-e13aba0d-6c98-4dd8-bb66-4b0c07d906fc.png)
+
+### Configure Kismet to use GPSD
+
+Edit file `/etc/kismet/kismet_site.conf` and add the following lines:
+
+```text
+# See https://www.kismetwireless.net/docs/readme/gps/gps_gpsd/
+gps=gpsd:host=localhost,port=2947
+```
+
+```bash
+sudo service kismet restart
+```
+
+You should then have location information on the top right of the web interface:
+
+![image](https://user-images.githubusercontent.com/75182/236682589-2af05653-50df-4e68-aa17-0327b4eef1b8.png)
 
 ## See also
 
