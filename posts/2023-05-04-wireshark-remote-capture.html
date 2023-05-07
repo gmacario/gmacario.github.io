@@ -1,0 +1,135 @@
+<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width"/><meta charSet="utf-8"/><meta name="description" content="Gianpaolo Macario&#x27;s public rants"/><title>Remote capture of BLE packets with Wireshark</title><meta name="next-head-count" content="4"/><link rel="preload" href="/_next/static/css/08fafe92abad983f984c.css" as="style"/><link rel="stylesheet" href="/_next/static/css/08fafe92abad983f984c.css" data-n-g=""/><noscript data-n-css=""></noscript><link rel="preload" href="/_next/static/chunks/webpack-50bee04d1dc61f8adf5b.js" as="script"/><link rel="preload" href="/_next/static/chunks/framework.1a5e6c0bcaecf178eee2.js" as="script"/><link rel="preload" href="/_next/static/chunks/commons.a817edd9b2693fcc6af8.js" as="script"/><link rel="preload" href="/_next/static/chunks/main-daaff4f95c13923f49a5.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/_app-041b1432faef8bf5f62a.js" as="script"/><link rel="preload" href="/_next/static/chunks/b38cc82cec06c0ea8b096def674947a423bb2764.260eb1ac110a53311620.js" as="script"/><link rel="preload" href="/_next/static/chunks/pages/posts/%5Bslug%5D-1c9a30b06d2f3be2ac9c.js" as="script"/></head><body><div id="__next"><main class="h-screen flex flex-col"><header class="py-3 fixed top-0 z-50 flex flex-wrap justify-between w-screen bg-white border-b border-gray-200"><div class="mx-3 py-2 px-4  font-bold text-indigo-500">Gianpaolo Macario&#x27;s blog</div><div class="justify-end"><a class="mr-6 py-2 px-4 inline-block rounded h-full text-indigo-500 hover:text-white hover:bg-indigo-500" href="/">Home</a><a class="mr-6 py-2 px-4 inline-block rounded h-full text-indigo-500 hover:text-white hover:bg-indigo-500" href="/posts">Posts</a></div></header><div class="pt-28 mx-auto w-5/6 break-words flex flex-grow prose prose-indigo hover:prose-black md:prose-lg lg:prose-xl"><article><h1>Remote capture of BLE packets with Wireshark</h1><div class="prose prose-indigo hover:prose-black md:prose-lg lg:prose-xl"><p>This post explains how to use Open Source tools for capturing Bluetooth Low Energy packets on a remote Linux host and display them in real-time on <a href="https://www.wireshark.org/">Wireshark</a>.</p>
+<h2 id="before-you-begin">Before you begin</h2>
+<p>To follow the directions in this guide, you’ll need the following:</p>
+<ul>
+<li>A Linux host (acting as BLE packet capturing device) with the following characteristics:<ul>
+<li>OS: a recent Debian or Ubuntu distribution</li>
+<li>SSH server installed</li>
+<li>Package <code>bluez-utils</code> installed</li>
+<li>A Bluetooth Low Energy adapter supported by the Linux host</li>
+</ul>
+</li>
+<li><a href="https://www.wireshark.org/">Wireshark</a> installed either on the Linux host or on another machine (in this case the OS may also be Windows or macOS)</li>
+</ul>
+<p>Those instructions were tested on the following configuration:</p>
+<ul>
+<li>Packet capturing device (no display): <code>udoox86gm1</code> (Ubuntu 22.04.2 LTS)</li>
+<li>Wireshark running on <code>alpha</code> (Windows 10 Pro)</li>
+</ul>
+<h2 id="reference-documents">Reference documents</h2>
+<ul>
+<li><a href="https://www.wireshark.org/docs/man-pages/sshdump.html">sshdump(1) Manual Page</a></li>
+<li><a href="https://www.comparitech.com/net-admin/tcpdump-capture-wireshark/">How to run a remote packet capture with Wireshark and tcpdump</a></li>
+<li><a href="https://ask.wireshark.org/question/26666/btsnoop-as-pipe-input/">Btsnoop as pipe input?</a> - ask.wireshark.org, 2022-04-07</li>
+<li><a href="https://github.com/wireshark/wireshark/blob/master/doc/extcap_example.py">wireshark/doc/extcap_example.py</a> - wireshark sources</li>
+<li><a href="https://www.tcpdump.org/linktypes.html">Link-Layer Header Types</a> - tcpdump and libpcap</li>
+</ul>
+<h2 id="step-by-step-instructions">Step-by-step instructions</h2>
+<h3 id="install-dumpcap-on-the-remote-capturing-device">Install <code>dumpcap</code> on the remote capturing device</h3>
+<p>ssh gmacario@udoox86gm1</p>
+<pre><code class="language-bash">sudo apt-get update \
+  &amp;&amp; sudo apt-get -y install tshark
+</code></pre>
+<h4 id="list-interfaces-on-the-remote-capturing-device">List interfaces on the remote capturing device</h4>
+<p>ssh gmacario@udoox86gm1</p>
+<pre><code class="language-bash">dumpcap --list-interfaces
+</code></pre>
+<p>Result:</p>
+<pre><code class="language-text">gmacario@udoox86gm1:~$ dumpcap --list-interfaces
+1. enp2s0
+2. tailscale0
+3. docker0
+4. veth0228b18
+5. any
+6. lo (Loopback)
+7. virbr0
+8. wlp3s0
+9. bluetooth0
+10. bluetooth-monitor
+11. nflog
+12. nfqueue
+13. dbus-system
+14. dbus-session
+gmacario@udoox86gm1:~$
+</code></pre>
+<p>Make sure that interface <code>bluetooth-monitor</code> is listed. If not, verify that the <code>bluez</code> package is correctly installed and at least one <code>hcixx</code> interface is listed as a result of the <code>hciconfig -a</code> command.</p>
+<h3 id="launch-wireshark">Launch Wireshark</h3>
+<p>Launch Wireshark on your local machine.</p>
+<p><img src="https://user-images.githubusercontent.com/75182/236686774-5695edf7-7d3d-4b08-b82f-51a1b5492f76.png" alt="image"></p>
+<h4 id="capturing-from-bluetooth-monitor-on-remote-device">Capturing from <code>bluetooth-monitor</code> on remote device</h4>
+<p>Wireshark: Capture &gt; Options...</p>
+<p>Select &quot;SSH remote capture&quot; &gt; Settings</p>
+<ul>
+<li>Tab &quot;Server&quot;<ul>
+<li>Remote SSH server address: <code>udoox86gm1</code></li>
+<li>Remote SSH server port: 22</li>
+</ul>
+</li>
+<li>Tab &quot;Authentication&quot;<ul>
+<li>Remote SSH server username: (none)</li>
+<li>Remote SSH server password: (none)</li>
+<li>Path to SSH private key: (none)</li>
+<li>SSH key passphrase: (none)</li>
+<li>ProxyCommand: (none)</li>
+</ul>
+</li>
+<li>Tab &quot;Capture&quot;<ul>
+<li>Remote interface: <code>bluetooth-monitor</code></li>
+<li>Remote capture command: dumpcap</li>
+<li>Use sudo on the remote machine: (unchecked)</li>
+<li>No promiscuous mode: (unchecked)</li>
+<li>Remote capture filter: (empty)</li>
+<li>Packets to capture: 0</li>
+</ul>
+</li>
+<li>Tap &quot;Debug&quot;<ul>
+<li>Set the log level: Message</li>
+<li>Use a file for debug: (empty)</li>
+</ul>
+</li>
+<li>Save parameter(s) on capture start: Yes</li>
+</ul>
+<p>then click &quot;Save&quot;.</p>
+<p>Wireshark: Capture &gt; Start</p>
+<p>The display on Wireshark gets updated as soon as HCI packets are captured from the remote device.</p>
+<p><img src="https://user-images.githubusercontent.com/75182/236293319-971638cb-5db4-4147-bdd8-cb89727efdb9.png" alt="image"></p>
+<p>You may than execute the usual Wireshark commands, such as apply Display Filters, save the packet trace in a <code>*.pcapng</code> file, etc.</p>
+<h4 id="example-troubleshoot-ble-connections">Example: Troubleshoot BLE connections</h4>
+<p>Execute <code>bluetoothctl</code> on the remote capture device:</p>
+<pre><code class="language-text">gmaca@alpha MINGW64 ~
+$ ssh gmacario@udoox86gm1 bluetoothctl
+[bluetooth]#
+Agent registered
+[CHG] Controller 30:E3:7A:65:25:FB Pairable: yes
+[bluetooth]#
+</code></pre>
+<p>then type the following commands (replace <code>$PERIPHERAL_BT_ADDR</code> with the one of the peripheral you want to try connecting):</p>
+<pre><code class="language-text">scan on
+connect $PERIPHERAL_BT_ADDR
+
+# Wait about 1 minute, then if the connection is still on
+disconnect
+</code></pre>
+<p>Apply the following Display Filter on Wireshark to focus on the commands and events involved in the connection and disconnection:</p>
+<pre><code class="language-text">(bthci_cmd.opcode == 0x0005) || \
+(bthci_cmd.opcode == 0x0405) || \
+(bthci_cmd.opcode == 0x0406) || \
+(bthci_cmd.opcode == 0x200d) || \
+(bthci_cmd.opcode == 0x2043) || \
+(bthci_evt.code == 0x03) || \
+(bthci_evt.code == 0x05) || \
+(bthci_evt.code == 0x0f &amp;&amp; \
+    ((bthci_evt.opcode == 0x0405) || \
+    (bthci_evt.opcode == 0x0406) || \
+    (bthci_evt.opcode == 0x200d) || \
+    (bthci_evt.opcode == 0x2043)) || \\
+(bthci_evt.code == 0x3e &amp;&amp; bthci_evt.le_meta_subevent == 0x0a)
+</code></pre>
+<p>Result:</p>
+<p><img src="https://user-images.githubusercontent.com/75182/236319898-9562e848-ba8b-48ee-9eee-cd4190f087a7.png" alt="image"></p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="https://tshark.dev/capture/dumpcap">https://tshark.dev/capture/dumpcap</a></li>
+<li><a href="https://www.wireshark.org/docs/man-pages/dumpcap.html">dumpcap(1) Manual Page</a></li>
+</ul>
+<!-- EOF --></div></article></div><footer class="h-auto mt-20 bg-gray-100 justify-between border-t border-gray-200"><div class="pt-6 mx-auto  gap-x-6 w-9/12 flex flex-col prose prose-indigo hover:prose-black md:prose-lg lg:prose-xl"><div class="prose-xl"><p class="">gmacario.github.io</p></div><div class="flex flex-col sm:flex-row flex-wrap justify-between md:justify-start"><p class="mr-12 text-gray-600 prose-sm">gmacario.github.io</p><div class="mr-12 flex flex-col justify-start"><p class="text-gray-600 prose-sm flex flex-row"><svg class="MuiSvgIcon-root mr-2" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"></path></svg><a href="https://github.com/gmacario">gmacario</a></p><p class="text-gray-600 prose-sm flex flex-row"><svg class="MuiSvgIcon-root mr-2" focusable="false" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"></path></svg><a href="https://www.twitter.com/gpmacario">gpmacario</a></p></div><p class="mr-12 text-gray-600 prose-sm">Gianpaolo Macario&#x27;s public rants</p></div></div></footer></main></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"post":{"title":"Remote capture of BLE packets with Wireshark","content":"\u003cp\u003eThis post explains how to use Open Source tools for capturing Bluetooth Low Energy packets on a remote Linux host and display them in real-time on \u003ca href=\"https://www.wireshark.org/\"\u003eWireshark\u003c/a\u003e.\u003c/p\u003e\n\u003ch2 id=\"before-you-begin\"\u003eBefore you begin\u003c/h2\u003e\n\u003cp\u003eTo follow the directions in this guide, you’ll need the following:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eA Linux host (acting as BLE packet capturing device) with the following characteristics:\u003cul\u003e\n\u003cli\u003eOS: a recent Debian or Ubuntu distribution\u003c/li\u003e\n\u003cli\u003eSSH server installed\u003c/li\u003e\n\u003cli\u003ePackage \u003ccode\u003ebluez-utils\u003c/code\u003e installed\u003c/li\u003e\n\u003cli\u003eA Bluetooth Low Energy adapter supported by the Linux host\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.wireshark.org/\"\u003eWireshark\u003c/a\u003e installed either on the Linux host or on another machine (in this case the OS may also be Windows or macOS)\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThose instructions were tested on the following configuration:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003ePacket capturing device (no display): \u003ccode\u003eudoox86gm1\u003c/code\u003e (Ubuntu 22.04.2 LTS)\u003c/li\u003e\n\u003cli\u003eWireshark running on \u003ccode\u003ealpha\u003c/code\u003e (Windows 10 Pro)\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2 id=\"reference-documents\"\u003eReference documents\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://www.wireshark.org/docs/man-pages/sshdump.html\"\u003esshdump(1) Manual Page\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.comparitech.com/net-admin/tcpdump-capture-wireshark/\"\u003eHow to run a remote packet capture with Wireshark and tcpdump\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://ask.wireshark.org/question/26666/btsnoop-as-pipe-input/\"\u003eBtsnoop as pipe input?\u003c/a\u003e - ask.wireshark.org, 2022-04-07\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/wireshark/wireshark/blob/master/doc/extcap_example.py\"\u003ewireshark/doc/extcap_example.py\u003c/a\u003e - wireshark sources\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.tcpdump.org/linktypes.html\"\u003eLink-Layer Header Types\u003c/a\u003e - tcpdump and libpcap\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2 id=\"step-by-step-instructions\"\u003eStep-by-step instructions\u003c/h2\u003e\n\u003ch3 id=\"install-dumpcap-on-the-remote-capturing-device\"\u003eInstall \u003ccode\u003edumpcap\u003c/code\u003e on the remote capturing device\u003c/h3\u003e\n\u003cp\u003essh gmacario@udoox86gm1\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003esudo apt-get update \\\n  \u0026amp;\u0026amp; sudo apt-get -y install tshark\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch4 id=\"list-interfaces-on-the-remote-capturing-device\"\u003eList interfaces on the remote capturing device\u003c/h4\u003e\n\u003cp\u003essh gmacario@udoox86gm1\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-bash\"\u003edumpcap --list-interfaces\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eResult:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-text\"\u003egmacario@udoox86gm1:~$ dumpcap --list-interfaces\n1. enp2s0\n2. tailscale0\n3. docker0\n4. veth0228b18\n5. any\n6. lo (Loopback)\n7. virbr0\n8. wlp3s0\n9. bluetooth0\n10. bluetooth-monitor\n11. nflog\n12. nfqueue\n13. dbus-system\n14. dbus-session\ngmacario@udoox86gm1:~$\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eMake sure that interface \u003ccode\u003ebluetooth-monitor\u003c/code\u003e is listed. If not, verify that the \u003ccode\u003ebluez\u003c/code\u003e package is correctly installed and at least one \u003ccode\u003ehcixx\u003c/code\u003e interface is listed as a result of the \u003ccode\u003ehciconfig -a\u003c/code\u003e command.\u003c/p\u003e\n\u003ch3 id=\"launch-wireshark\"\u003eLaunch Wireshark\u003c/h3\u003e\n\u003cp\u003eLaunch Wireshark on your local machine.\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"https://user-images.githubusercontent.com/75182/236686774-5695edf7-7d3d-4b08-b82f-51a1b5492f76.png\" alt=\"image\"\u003e\u003c/p\u003e\n\u003ch4 id=\"capturing-from-bluetooth-monitor-on-remote-device\"\u003eCapturing from \u003ccode\u003ebluetooth-monitor\u003c/code\u003e on remote device\u003c/h4\u003e\n\u003cp\u003eWireshark: Capture \u0026gt; Options...\u003c/p\u003e\n\u003cp\u003eSelect \u0026quot;SSH remote capture\u0026quot; \u0026gt; Settings\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eTab \u0026quot;Server\u0026quot;\u003cul\u003e\n\u003cli\u003eRemote SSH server address: \u003ccode\u003eudoox86gm1\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003eRemote SSH server port: 22\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eTab \u0026quot;Authentication\u0026quot;\u003cul\u003e\n\u003cli\u003eRemote SSH server username: (none)\u003c/li\u003e\n\u003cli\u003eRemote SSH server password: (none)\u003c/li\u003e\n\u003cli\u003ePath to SSH private key: (none)\u003c/li\u003e\n\u003cli\u003eSSH key passphrase: (none)\u003c/li\u003e\n\u003cli\u003eProxyCommand: (none)\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eTab \u0026quot;Capture\u0026quot;\u003cul\u003e\n\u003cli\u003eRemote interface: \u003ccode\u003ebluetooth-monitor\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003eRemote capture command: dumpcap\u003c/li\u003e\n\u003cli\u003eUse sudo on the remote machine: (unchecked)\u003c/li\u003e\n\u003cli\u003eNo promiscuous mode: (unchecked)\u003c/li\u003e\n\u003cli\u003eRemote capture filter: (empty)\u003c/li\u003e\n\u003cli\u003ePackets to capture: 0\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eTap \u0026quot;Debug\u0026quot;\u003cul\u003e\n\u003cli\u003eSet the log level: Message\u003c/li\u003e\n\u003cli\u003eUse a file for debug: (empty)\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eSave parameter(s) on capture start: Yes\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003ethen click \u0026quot;Save\u0026quot;.\u003c/p\u003e\n\u003cp\u003eWireshark: Capture \u0026gt; Start\u003c/p\u003e\n\u003cp\u003eThe display on Wireshark gets updated as soon as HCI packets are captured from the remote device.\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"https://user-images.githubusercontent.com/75182/236293319-971638cb-5db4-4147-bdd8-cb89727efdb9.png\" alt=\"image\"\u003e\u003c/p\u003e\n\u003cp\u003eYou may than execute the usual Wireshark commands, such as apply Display Filters, save the packet trace in a \u003ccode\u003e*.pcapng\u003c/code\u003e file, etc.\u003c/p\u003e\n\u003ch4 id=\"example-troubleshoot-ble-connections\"\u003eExample: Troubleshoot BLE connections\u003c/h4\u003e\n\u003cp\u003eExecute \u003ccode\u003ebluetoothctl\u003c/code\u003e on the remote capture device:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-text\"\u003egmaca@alpha MINGW64 ~\n$ ssh gmacario@udoox86gm1 bluetoothctl\n[bluetooth]#\nAgent registered\n[CHG] Controller 30:E3:7A:65:25:FB Pairable: yes\n[bluetooth]#\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003ethen type the following commands (replace \u003ccode\u003e$PERIPHERAL_BT_ADDR\u003c/code\u003e with the one of the peripheral you want to try connecting):\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-text\"\u003escan on\nconnect $PERIPHERAL_BT_ADDR\n\n# Wait about 1 minute, then if the connection is still on\ndisconnect\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eApply the following Display Filter on Wireshark to focus on the commands and events involved in the connection and disconnection:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"language-text\"\u003e(bthci_cmd.opcode == 0x0005) || \\\n(bthci_cmd.opcode == 0x0405) || \\\n(bthci_cmd.opcode == 0x0406) || \\\n(bthci_cmd.opcode == 0x200d) || \\\n(bthci_cmd.opcode == 0x2043) || \\\n(bthci_evt.code == 0x03) || \\\n(bthci_evt.code == 0x05) || \\\n(bthci_evt.code == 0x0f \u0026amp;\u0026amp; \\\n    ((bthci_evt.opcode == 0x0405) || \\\n    (bthci_evt.opcode == 0x0406) || \\\n    (bthci_evt.opcode == 0x200d) || \\\n    (bthci_evt.opcode == 0x2043)) || \\\\\n(bthci_evt.code == 0x3e \u0026amp;\u0026amp; bthci_evt.le_meta_subevent == 0x0a)\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003eResult:\u003c/p\u003e\n\u003cp\u003e\u003cimg src=\"https://user-images.githubusercontent.com/75182/236319898-9562e848-ba8b-48ee-9eee-cd4190f087a7.png\" alt=\"image\"\u003e\u003c/p\u003e\n\u003ch2 id=\"see-also\"\u003eSee also\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://tshark.dev/capture/dumpcap\"\u003ehttps://tshark.dev/capture/dumpcap\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.wireshark.org/docs/man-pages/dumpcap.html\"\u003edumpcap(1) Manual Page\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c!-- EOF --\u003e"},"config":{"title":"gmacario.github.io","description":"Gianpaolo Macario's public rants","social":{"github":{"name":"gmacario","link":"https://github.com/gmacario"},"twitter":{"name":"gpmacario","link":"https://www.twitter.com/gpmacario"}}}},"__N_SSG":true},"page":"/posts/[slug]","query":{"slug":"2023-05-04-wireshark-remote-capture"},"buildId":"7tCqrHbajLHr4LWMD-j1T","runtimeConfig":{},"isFallback":false,"gsp":true}</script><script nomodule="" src="/_next/static/chunks/polyfills-144e5fa6fafab6397d9c.js"></script><script src="/_next/static/chunks/webpack-50bee04d1dc61f8adf5b.js" async=""></script><script src="/_next/static/chunks/framework.1a5e6c0bcaecf178eee2.js" async=""></script><script src="/_next/static/chunks/commons.a817edd9b2693fcc6af8.js" async=""></script><script src="/_next/static/chunks/main-daaff4f95c13923f49a5.js" async=""></script><script src="/_next/static/chunks/pages/_app-041b1432faef8bf5f62a.js" async=""></script><script src="/_next/static/chunks/b38cc82cec06c0ea8b096def674947a423bb2764.260eb1ac110a53311620.js" async=""></script><script src="/_next/static/chunks/pages/posts/%5Bslug%5D-1c9a30b06d2f3be2ac9c.js" async=""></script><script src="/_next/static/7tCqrHbajLHr4LWMD-j1T/_buildManifest.js" async=""></script><script src="/_next/static/7tCqrHbajLHr4LWMD-j1T/_ssgManifest.js" async=""></script></body></html>
