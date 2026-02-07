@@ -39,7 +39,7 @@ jobs:
         run: |
           npm install
           npm run export
-          cp -r .circleci _static
+          # cp -r .circleci _static
           touch _static/.nojekyll
         working-directory: ${{ github.workspace }}
 
