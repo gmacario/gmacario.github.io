@@ -14,7 +14,7 @@ export default function Blog (props) {
         <h2>Who am I?</h2>
         <ul>
           <li>
-            <Link href='../bio/CV-Europass-20210504-Macario-EN.pdf'>
+            <Link href='../bio/CV-Europass-20260206-Macario-EN.pdf'>
               <a>
                 Gianpaolo Macario - Curriculum Vitae
               </a>
