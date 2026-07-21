@@ -1,37 +1,39 @@
 ---
 title: "About"
-description: "A bit about me and this blog."
+description: "Gianpaolo Macario — software engineer working on embedded Linux and in-vehicle infotainment."
 ---
 
-AstroPaper is a minimal, accessible and SEO-friendly blog theme built with [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/).
+![Gianpaolo Macario](/bio/img_2741.jpg)
 
-![Astro Paper](@/assets/images/astropaper-og.jpg)
+I'm **Gianpaolo Macario**, a software engineer specialising in embedded Linux,
+in-vehicle infotainment (IVI) and open-source tooling.
 
-AstroPaper provides a solid foundation for blogs, or even portfolios\_ with full markdown support, built-in dark mode, and a clean layout that works out-of-the-box.
+I have spent many years working with embedded Linux and IVI, and had the
+privilege of seeing — and helping — Linux evolve from a bold idea into a solid
+foundation for production systems. I was involved in the GENIVI Alliance from
+its inception and served as lead architect of its System Infrastructure Expert
+Group. Along the way I have co-authored research papers and given talks about
+Linux and IVI at universities, customer sites and public events.
 
-The blog posts in this theme also serve as guides, docs or example articles\_ making AstroPaper a flexible starting point for your next content-driven site.
+## Selected projects
 
-## Features
+- [ARNEIS](https://github.com/B-AROL-O/ARNEIS) — a B-AROL-O team project
+- [AXOLOTL](https://devpost.com/software/axolotl)
+- [blobfishes](https://github.com/aquariophilie/blobfishes)
+- [easy-build](https://github.com/gmacario/easy-build)
+- [easy-jenkins](https://github.com/gmacario/easy-jenkins)
 
-AstroPaper comes with a set of useful features that make content publishing easy and effective:
+## Find me elsewhere
 
-- SEO-friendly
-- Fast performance
-- Light & dark mode
-- Highly customizable
-- Organizable blog posts
-- Responsive & accessible
-- Static search with [PageFind](https://pagefind.app/)
-- Automatic social image generation
+- [Curriculum Vitae (PDF)](/bio/CV-Europass-20260206-Macario-EN.pdf)
+- [GitHub](https://github.com/gmacario)
+- [LinkedIn](https://it.linkedin.com/in/gmacario/)
+- [Open Hub](https://www.openhub.net/accounts/gmacario)
+- [X (Twitter)](https://x.com/gpmacario)
 
-and so much more.
+## About this site
 
-## Show your support
-
-If you like [AstroPaper](https://github.com/satnaing/astro-paper), consider giving it a star ⭐️.
-
-Found a bug 🐛 or have an improvement ✨ in mind? Feel free to open an [issue](https://github.com/satnaing/astro-paper/issues), submit a [pull request](https://github.com/satnaing/astro-paper/pulls) or start a [discussion](https://github.com/satnaing/astro-paper/discussions).
-
-If you find this theme helpful, you can also [sponsor me on GitHub](https://github.com/sponsors/satnaing) or [buy me a coffee](https://buymeacoffee.com/satnaing) to show your support — every penny counts.
-
-Kyay zuu! 🙏🏼
+This site is built with [Astro](https://astro.build/) and the
+[AstroPaper](https://github.com/satnaing/astro-paper) theme. The blog archive
+collects a decade of posts migrated from the previous version of the site, with
+their original URLs preserved.

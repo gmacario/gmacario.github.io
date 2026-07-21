@@ -35,7 +35,7 @@ const homePath = getRelativeLocaleUrl(locale, "");
   >
     <section id="hero" class="border-border border-b pt-8 pb-6">
       <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
-        Mingalaba
+        Gianpaolo Macario
       </h1>
       <a
         target="_blank"
@@ -53,20 +53,27 @@ const homePath = getRelativeLocaleUrl(locale, "");
       </a>
 
       <p>
-        AstroPaper is a minimal, responsive, accessible and SEO-friendly Astro
-        blog theme. This theme follows best practices and provides accessibility
-        out of the box. Light and dark mode are supported by default. Moreover,
-        additional color schemes can also be configured.
+        I'm a software engineer focused on <strong>embedded Linux</strong>,{" "}
+        <strong>in-vehicle infotainment</strong> and open-source tooling. Over
+        many years I have watched — and helped — Linux grow from a bold idea into
+        a solid foundation for production systems, including serving as lead
+        architect of the GENIVI Alliance System Infrastructure Expert Group.
       </p>
       <p class="mt-2">
-        Read the blog posts or check{" "}
+        This is my personal home base: my{" "}
         <LinkButton
           class="hover:text-accent underline decoration-dashed underline-offset-4"
-          href="https://github.com/satnaing/astro-paper#readme"
+          href={`${import.meta.env.BASE_URL.replace(/\/?$/, "/")}bio/CV-Europass-20260206-Macario-EN.pdf`}
         >
-          README
+          curriculum vitae (PDF)
+        </LinkButton>, a bit{" "}
+        <LinkButton
+          class="hover:text-accent underline decoration-dashed underline-offset-4"
+          href={getRelativeLocaleUrl(locale, "about")}
+        >
+          about me
         </LinkButton>{" "}
-        for more info.
+        and the technical blog below.
       </p>
       {
         socials.length > 0 && (
