@@ -7,7 +7,7 @@ tags:
   - hackathon
   - teaser
   - blowfishes
-description: "NOTE: This is supposed to be just a teaser of blowfisher."
+description: "A few days ago I joined the DigitalOcean MongoDB Hackathon together with a group of friends."
 ---
 
 <!--
