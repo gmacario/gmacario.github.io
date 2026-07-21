@@ -91,6 +91,10 @@ jobs:
           # ------------------------------------------------------------
           #
           # FILTER_REGEX_EXCLUDE: .*_drafts/.*.md
-          FILTER_REGEX_EXCLUDE: .*(_(drafts|posts)\/20(15|16|17|18).*\.md|.*\.css)
+          #
+          # astro-site/ is the self-contained Astro rebuild (issue #62). It has
+          # its own ESLint/Prettier toolchain (run by its own CI in Phase 4), so
+          # it is excluded from this repo-level Super-Linter.
+          FILTER_REGEX_EXCLUDE: .*(astro-site\/.*|_(drafts|posts)\/20(15|16|17|18).*\.md|.*\.css)
 
 # EOF
