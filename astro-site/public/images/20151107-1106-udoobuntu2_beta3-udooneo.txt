@@ -1,0 +1,419 @@
+=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2015.11.07 11:06:08 =~=~=~=~=~=~=~=~=~=~=~=
+€ß
+
+U-Boot 2014.04-15346-gedd0741 (Oct 27 2015 - 11:18:21)
+
+CPU:   Freescale i.MX6SX rev1.2 at 792 MHz
+CPU:   Temperature 39 C, calibration data: 0x59b50469
+Reset cause: POR
+Board: MX6SX UDOO NEO
+I2C:   ready
+DRAM:  1 GiB
+MMC:   FSL_SDHC: 0, FSL_SDHC: 1
+*** Warning - bad CRC, using default environment
+
+In:    serial
+Out:   serial
+Err:   serial
+Found PFUZE300! deviceid 0x30, revid 0x11
+Net:   CPU Net Initialization Failed
+No ethernet found.
+Normal Boot
+Hit any key to stop autoboot:  3  2  1  0 
+mmc0 is current device
+reading uEnv.txt
+409 bytes read in 9 ms (43.9 KiB/s)
+Running bootscript from mmc ...
+** File not found /var/opt/m4/m4last.fw **
+reading /m4startup.fw
+47396 bytes read in 25 ms (1.8 MiB/s)
+## Starting auxiliary core at 0x84000000 ...
+reading /zImage
+4373664 bytes read in 217 ms (19.2 MiB/s)
+Booting from mmc ...
+reading dts/imx6sx-udoo-neo-hdmi-m4.dtb
+39414 bytes read in 52 ms (739.3 KiB/s)
+Kernel image @ 0x80800000 [ 0x000000 - 0x42bca0 ]
+## Flattened Device Tree blob at 83000000
+   Booting using the fdt blob at 0x83000000
+   Using Device Tree in place at 83000000, end 8300c9f5
+sono entrato in ldo_mode_set
+setto i valori
+valore di vddarm 19
+switch to ldo_bypass mode!
+
+Starting kernel ...
+
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 3.14.28-udooneo-04196-gb15f827 (udoodev@udoodev-qemu) (gcc version 4.8.2 (Ubuntu/Linaro 4.8.2-16ubuntu4) ) #23 SMP PREEMPT Tue Oct 27 11:27:53 CET 2015
+[    0.000000] CPU: ARMv7 Processor [412fc09a] revision 10 (ARMv7), cr=10c53c7d
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000] Machine model: UDoo Neo (based on imx6 SoloX)
+[    0.000000] Reserved memory: reserved region for node 'm4@0x84000000': base 0x84000000, size 8 MiB
+[    0.000000] cma: CMA: reserved 320 MiB at aa000000
+[    0.000000] Memory policy: Data cache writealloc
+[    0.000000] PERCPU: Embedded 8 pages/cpu @bf63c000 s9152 r8192 d15424 u32768
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 257794
+[    0.000000] Kernel command line: console=ttymxc0,115200 root=/dev/mmcblk0p2 rootwait rootfstype=ext4 rw uart_from_osc clk_ignore_unused cpuidle.off=1 consoleblank=0
+[    0.000000] PID hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.000000] Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
+[    0.000000] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
+[    0.000000] Memory: 690208K/1039360K available (5018K kernel code, 332K rwdata, 5656K rodata, 260K init, 384K bss, 349152K reserved, 0K highmem)
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
+[    0.000000]     vmalloc : 0xc0000000 - 0xff000000   (1008 MB)
+[    0.000000]     lowmem  : 0x80000000 - 0xbff00000   (1023 MB)
+[    0.000000]     pkmap   : 0x7fe00000 - 0x80000000   (   2 MB)
+[    0.000000]     modules : 0x7f000000 - 0x7fe00000   (  14 MB)
+[    0.000000]       .text : 0x80008000 - 0x80a74c58   (10676 kB)
+[    0.000000]       .init : 0x80a75000 - 0x80ab63c0   ( 261 kB)
+[    0.000000]       .data : 0x80ab8000 - 0x80b0b330   ( 333 kB)
+[    0.000000]        .bss : 0x80b0b33c - 0x80b6b664   ( 385 kB)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[    0.000000] Preemptible hierarchical RCU implementation.
+[    0.000000] 	RCU restricting CPUs from NR_CPUS=4 to nr_cpu_ids=1.
+[    0.000000] RCU: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=1
+[    0.000000] NR_IRQS:16 nr_irqs:16 16
+[    0.000000] L310 cache controller enabled
+[    0.000000] l2x0: 16 ways, CACHE_ID 0x410000c8, AUX_CTRL 0x32030000, Cache size: 256 kB
+[    0.000000] Switching to timer-based delay loop
+[    0.000007] sched_clock: 32 bits at 3000kHz, resolution 333ns, wraps every 1431655765682ns
+[    0.000631] clocksource_of_init: no matching clocksources found
+[    0.000778] Console: colour dummy device 80x30
+[    0.000801] Calibrating delay loop (skipped), value calculated using timer frequency.. 6.00 BogoMIPS (lpj=30000)
+[    0.000815] pid_max: default: 32768 minimum: 301
+[    0.000950] Security Framework initialized
+[    0.001021] Mount-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.001033] Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.006171] device-tree: Duplicate name in /soc/aips-bus@02200000/spba-bus@02200000/lcdif@02220000, renamed to "display#1"
+[    0.007364] Initializing cgroup subsys devices
+[    0.007380] Initializing cgroup subsys freezer
+[    0.007423] CPU: Testing write buffer coherency: ok
+[    0.007696] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+[    0.007734] Setting up static identity map for 0x804c70b8 - 0x804c7110
+[    0.041934] Brought up 1 CPUs
+[    0.041948] SMP: Total of 1 processors activated.
+[    0.041957] CPU: All CPU(s) started in SVC mode.
+[    0.042562] devtmpfs: initialized
+[    0.045803] VFP support v0.3: implementor 41 architecture 3 part 30 variant 9 rev 4
+[    0.046135] pinctrl core: initialized pinctrl subsystem
+[    0.046472] regulator-dummy: no parameters
+[    0.063860] NET: Registered protocol family 16
+[    0.071157] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.071794] Use WDOG1 as reset source
+[    0.080141] syscon 20c8000.anatop: regmap [mem 0x020c8000-0x020c8fff] registered
+[    0.080487] vdd1p1: 800 <--> 1375 mV at 1100 mV 
+[    0.080845] vdd3p0: 2800 <--> 3150 mV at 3000 mV 
+[    0.081171] vdd2p5: 2100 <--> 2875 mV at 2500 mV 
+[    0.081511] cpu: 725 <--> 1450 mV 
+[    0.081843] vddpcie-phy: 725 <--> 1450 mV 
+[    0.082178] vddsoc: 725 <--> 1450 mV 
+[    0.083954] syscon 20e4000.iomuxc-gpr: regmap [mem 0x020e4000-0x020e7fff] registered
+[    0.086387] syscon 21bc000.ocotp-ctrl: regmap [mem 0x021bc000-0x021bffff] registered
+[    0.086794] syscon 21ac000.romcp: regmap [mem 0x021ac000-0x021affff] registered
+[    0.091607] hw-breakpoint: found 5 (+1 reserved) breakpoint and 1 watchpoint registers.
+[    0.091621] hw-breakpoint: maximum watchpoint size is 4 bytes.
+[    0.092550] imx6sx-pinctrl 20e0000.iomuxc: initialized IMX pinctrl driver
+[    0.093389] 20dc000.gpc supply pu not found, using dummy regulator
+[    0.094105] MU is ready for cross core communication!
+[    0.100196] bio: create slab <bio-0> at 0
+[    0.101255] vref-3v3: 3300 mV 
+[    0.101520] PSU-5V0: 5000 mV 
+[    0.101777] usb_otg1_vbus: 5000 mV 
+[    0.102041] usb_otg2_vbus: 5000 mV 
+[    0.102292] wlan-en-regulator: 1800 mV 
+[    0.103094] SCSI subsystem initialized
+[    0.103389] usbphy_nop1.12 supply vcc not found, using dummy regulator
+[    0.104656] i2c i2c-0: IMX I2C adapter registered
+[    0.105346] i2c i2c-1: IMX I2C adapter registered
+[    0.106046] i2c i2c-2: IMX I2C adapter registered
+[    0.107172] i2c i2c-3: IMX I2C adapter registered
+[    0.107278] Linux video capture interface: v2.00
+[    0.107361] pps_core: LinuxPPS API ver. 1 registered
+[    0.107370] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.107393] PTP clock support registered
+[    0.107903] Advanced Linux Sound Architecture Driver Initialized.
+[    0.108899] Loading modules backported from Linux version v4.1.7-0-g0c5c1f1
+[    0.108911] Backport integrated by backports.git v4.1.1-1-0-g8286954
+[    0.109082] Switched to clocksource mxc_timer1
+[    0.119246] NET: Registered protocol family 2
+[    0.120109] TCP established hash table entries: 8192 (order: 3, 32768 bytes)
+[    0.120191] TCP bind hash table entries: 8192 (order: 4, 65536 bytes)
+[    0.120315] TCP: Hash tables configured (established 8192 bind 8192)
+[    0.120385] TCP: reno registered
+[    0.120401] UDP hash table entries: 512 (order: 2, 16384 bytes)
+[    0.120440] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
+[    0.120714] NET: Registered protocol family 1
+[    0.121043] hw perfevents: enabled with ARMv7 Cortex-A9 PMU driver, 7 counters available
+[    0.122583] Bus freq driver module loaded
+[    0.123330] futex hash table entries: 256 (order: 2, 16384 bytes)
+[    0.130007] VFS: Disk quotas dquot_6.5.2
+[    0.130301] Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)
+[    0.132122] msgmni has been set to 1988
+[    0.135880] io scheduler noop registered
+[    0.135895] io scheduler deadline registered
+[    0.135936] io scheduler cfq registered (default)
+[    0.136413] imx-weim 21b8000.weim: Driver registered.
+[    0.137883] MIPI DSI driver module loaded
+[    0.269897] tda19988 2-0034: Sucessfully initialised chip revision 301
+[    0.280749] mxsfb 2220000.lcdif: failed to find mxc display driver 
+[    0.281269] DISPLAY: Power-on latency exceeded, new value 484334 ns
+[    0.282710] DISPLAY: Power-off latency exceeded, new value 25334 ns
+[    0.298669] Console: switching to colour frame buffer device 160x45
+[    0.342712] tda19988 2-0034: Matching CEA mode is 4 for fb mode 1280x720-60
+[    0.396396] mxsfb 2220000.lcdif: initialized
+[    0.399263] imx-sdma 20ec000.sdma: no iram assigned, using external mem
+[    0.399567] imx-sdma 20ec000.sdma: no event needs to be remapped
+[    0.399794] imx-sdma 20ec000.sdma: loaded firmware 3.1
+[    0.402685] imx-sdma 20ec000.sdma: initialized
+[    0.404328] pfuze100-regulator 0-0008: Full layer: 1, Metal layer: 1
+[    0.404902] pfuze100-regulator 0-0008: FAB: 0, FIN: 0
+[    0.404915] pfuze100-regulator 0-0008: pfuze3000 found.
+[    0.406334] SW1A: 700 <--> 1475 mV at 1175 mV 
+[    0.407694] SW1B: 700 <--> 1475 mV at 1175 mV 
+[    0.408453] SW2: 1500 <--> 1850 mV at 1800 mV 
+[    0.409225] SW3: 900 <--> 1650 mV at 1350 mV 
+[    0.409993] SWBST: 5000 <--> 5150 mV at 5000 mV 
+[    0.410742] VSNVS: 1000 <--> 3000 mV at 3000 mV 
+[    0.410930] VREFDDR: 750 mV 
+[    0.411675] VLDO1: 1800 <--> 3300 mV at 1800 mV 
+[    0.412423] VLDO2: 800 <--> 1550 mV at 1500 mV 
+[    0.413188] VCCSD: 2850 <--> 3300 mV at 3150 mV 
+[    0.413954] V33: 2850 <--> 3300 mV at 3150 mV 
+[    0.414698] VLDO3: 1800 <--> 3300 mV at 1800 mV 
+[    0.415888] VLDO4: 1800 <--> 3300 mV at 1800 mV 
+[    0.416202] Serial: IMX driver
+[    0.416507] 2020000.serial: ttymxc0 at MMIO 0x2020000 (irq = 58, base_baud = 1500000) is a IMX
+[    1.213764] console [ttymxc0] enabled
+[    1.218279] 21ec000.serial: ttymxc2 at MMIO 0x21ec000 (irq = 60, base_baud = 1500000) is a IMX
+[    1.227351] serial: Freescale lpuart driver
+[    1.232849] imx sema4 driver is registered.
+[    1.237427] Install mcc tty driver!
+[    1.241024] 
+[    1.241024] A9 mcc prepares run, MCC version is 002.000
+[    1.247806] IMX MCC TTY driver module loaded
+[    1.252177] [drm] Initialized drm 1.1.0 20060810
+[    1.257233] [drm] Initialized vivante 1.0.0 20120216 on minor 0
+[    1.267508] loop: module loaded
+[    1.274052] 2188000.ethernet supply phy not found, using dummy regulator
+[    1.299552] pps pps0: new PPS source ptp0
+[    1.308496] libphy: fec_enet_mii_bus: probed
+[    1.313514] fec 2188000.ethernet eth0: registered PHC device 0
+[    1.319916] mousedev: PS/2 mouse device common for all mice
+[    1.326344] input: 20cc000.snvs-pwrkey as /devices/soc0/soc.0/2000000.aips-bus/20cc000.snvs-pwrkey/input/input0
+[    1.336801] snvs_pwrkey 20cc000.snvs-pwrkey: i.MX snvs powerkey probed
+[    1.344152] i2c /dev entries driver
+[    1.348391] IR NEC protocol handler initialized
+[    1.353010] IR RC5(x) protocol handler initialized
+[    1.357811] IR RC6 protocol handler initialized
+[    1.362376] IR JVC protocol handler initialized
+[    1.366913] IR Sony protocol handler initialized
+[    1.371553] IR RC5 (streamzap) protocol handler initialized
+[    1.377131] IR SANYO protocol handler initialized
+[    1.381855] IR MCE Keyboard/mouse protocol handler initialized
+[    1.388961] imx2-wdt 20bc000.wdog: IMX2+ Watchdog Timer enabled. timeout=60s (nowayout=0)
+[    1.397478] sdhci: Secure Digital Host Controller Interface driver
+[    1.403698] sdhci: Copyright(c) Pierre Ossman
+[    1.408063] sdhci-pltfm: SDHCI platform and OF driver helper
+[    1.414750] mmc0: no vqmmc regulator found
+[    1.418868] mmc0: no vmmc regulator found
+[    1.459110] mmc0: SDHCI controller on 2194000.usdhc [2194000.usdhc] using ADMA
+[    1.468864] sdhci-esdhc-imx 2198000.usdhc: could not get ultra high speed state, work on normal mode
+[    1.482571] mmc2: no vqmmc regulator found
+[    1.549429] mmc0: host does not support reading read-only switch. assuming write-enable.
+[    1.565837] mmc0: new high speed SDHC card at address e624
+[    1.571862] mmcblk0: mmc0:e624 SU08G 7.40 GiB 
+[    1.577862]  mmcblk0: p1 p2
+[    1.609103] mmc2: SDHCI controller on 2198000.usdhc [2198000.usdhc] using ADMA
+[    1.616778] galcore: clk_get 2d core clock failed, disable 2d/vg!
+[    1.626049] Galcore version 5.0.11.25762
+[    1.649506] sdhci-esdhc-imx 2198000.usdhc: card claims to support voltages below defined range
+[    1.691474] mmc2: queuing unknown CIS tuple 0x91 (3 bytes)
+[    1.710338] mmc2: new high speed SDIO card at address 0001
+[    1.873309] fsl-asrc 2034000.asrc: driver registered
+[    1.884076] imx-tda19988 sound.24: tda19988-codec <-> 202c000.ssi mapping ok
+[    1.892103] nf_conntrack version 0.5.0 (15904 buckets, 63616 max)
+[    1.898975] ip_tables: (C) 2000-2006 Netfilter Core Team
+[    1.904415] TCP: cubic registered
+[    1.907744] NET: Registered protocol family 17
+[    1.912274] Key type dns_resolver registered
+[    1.917283] cpu cpu0: dev_pm_opp_get_opp_count: device OPP not found (-19)
+[    1.939129] failed to register cpuidle driver
+[    1.943538] A9-M4 sema4 num 6, A9-M4 magic number 0x12345678 - 0x12345678.
+[    1.951034] VLDO2: disabling
+[    1.954389] SWBST: disabling
+[    1.957302] usb_otg2_vbus: disabling
+[    1.961092] usb_otg1_vbus: disabling
+[    1.964727] PSU-5V0: disabling
+[    1.967830] vref-3v3: disabling
+[    1.971366] regulator-dummy: disabling
+[    1.975724] drivers/rtc/hctosys.c: unable to open rtc device (rtc0)
+[    1.990975] clk: Not disabling unused clocks
+[    1.995294] ALSA device list:
+[    1.998285]   #0: imx-audio-tda19988
+[    4.181536] random: nonblocking pool is initialized
+[    5.345407] EXT4-fs (mmcblk0p2): recovery complete
+[    5.352761] EXT4-fs (mmcblk0p2): mounted filesystem with ordered data mode. Opts: (null)
+[    5.361287] VFS: Mounted root (ext4 filesystem) on device 179:2.
+[    5.368561] devtmpfs: mounted
+[    5.372015] Freeing unused kernel memory: 260K (80a75000 - 80ab6000)
+[    6.000793] init: plymouth-upstart-bridge main process (84) terminated with status 1
+[    6.008630] init: plymouth-upstart-bridge main process ended, respawning
+[    6.096168] init: plymouth-upstart-bridge main process (94) terminated with status 1
+[    6.108575] init: plymouth-upstart-bridge main process ended, respawning
+[    6.121930] init: ureadahead main process (87) terminated with status 5
+[    6.171650] init: plymouth-upstart-bridge main process (98) terminated with status 1
+[    6.183051] init: plymouth-upstart-bridge main process ended, respawning
+[    6.530798] init: mounted-proc main process (111) terminated with status 1
+[    9.299160] (stk) :ldisc installation timeout
+[   10.299145] (stk) : timed out waiting for ldisc to be un-installed * Starting Mount filesystems on boot[74G[ OK ]
+ * Stopping Send an event to indicate plymouth is up[74G[ OK ]
+ * Starting Signal sysvinit that the rootfs is mounted[74G[ OK ]
+ * Starting Clean /tmp directory[74G[ OK ]
+ * Stopping Clean /tmp directory[74G[ OK ]
+ * Starting Populate and link to /run filesystem[74G[ OK ]
+ * Stopping Populate and link to /run filesystem[74G[ OK ]
+ * Stopping Trac
+k if upstart is running in a container[74G[ OK ]
+ * Starting Initialize or finalize resolvconf[74G[ OK ]
+ * Starting set console keymap[74G[ OK ]
+ * Starting Signal sysvinit that virtual filesystems are mounted[74G[ OK ]
+ * Starting Signal sysvinit that virtual filesystems are mounted[74G[ OK ]
+ * Starting Bridge udev events into upstart[74G[ OK ]
+ * Stopping set console keymap[74G[ OK ]
+ * Starting Signal sysvinit that remote filesystems are mounted[74G[ OK ]
+ * Starting device node and kernel event manager[74G[ OK ]
+ * Starting load modules from /etc/modules[74G[ OK ]
+ * Starting cold plug devices[74G[ OK ]
+ * Starting log initial device creation[74G[ OK ]
+ * Stopping load modules from /etc/modules[74G[ OK ]
+ * Stopping Read required files in advance (for other mountpoints)[74G[ OK ]
+ * Stopping Read required files in advance (for other mountpoints)[74G[ OK ]
+ * Starting configure network device security[74G[ OK ]
+ * Starting set console font[74G[ OK ]
+ * Stopping set console font[74G[ OK ]
+ * Starting userspace bootsplash[74G[ OK ]
+ * Starting configure network device[74G[ OK ]
+ * Stopping userspace bootsplash[74G[ OK ]
+ * Starting Send an event to indicate plymouth is up[74G[ OK ]
+ * Starting Signal sysvinit that local filesystems are mounted[74G[ OK ]
+ * Starting USB Gadget Script[74G[ OK ]
+ * Stopping Mount filesystems on boot[74G[ OK ]
+ * Stopping Send an event to indicate plymouth is up[74G[ OK ]
+[   11.409125] (stk) :ldisc installation timeout
+ * Starting flush early job output to logs[74G[ OK ]
+ * Starting D-Bus system message bus[74G[ OK ]
+ * Stopping flush early job output to logs[74G[ OK ]
+ * Starting SystemD login management service[74G[ OK ]
+ * Starting configure network device security[74G[ OK ]
+ * Starting bluetooth daemon[74G[ OK ]
+[   12.409143] (stk) : timed out waiting for ldisc to be un-installed
+ * Starting Mount network filesystems[74G[ OK ]
+ * Starting Failsafe Boot Delay[74G[ OK ]
+ * Starting system logging daemon[74G[ OK ]
+ * Starting mDNS/DNS-SD daemon[74G[ OK ]
+ * Stopping Mount network filesystems[74G[ OK ]
+[   13.519165] (stk) :ldisc installation timeout
+ * Starting CUPS printing spooler/server[74G[ OK ]
+ * Starting Reload cups, upon starting avahi-daemon to make sure remote queues are populated[74G[ OK ]
+ * Starting configure network device security[74G[ OK ]
+ * Stopping Failsafe Boot Delay[74G[ OK ]
+ * Starting configure network device[74G[ OK ]
+[   14.519169] (stk) : timed out waiting for ldisc to be un-installed
+ * Starting USB Gadget Serial[74G[ OK ]
+ * Starting System V initialisation compatibility[74G[ OK ]
+ * Starting configure network device security[74G[ OK ]
+ * Setting up X socket directories...       [80G * Starting configure network device[74G[ OK ]
+ [74G[ OK ]
+ * Starting configure network device security[74G[ OK ]
+ * Stopping Reload cups, upon starting avahi-daemon to make sure remote queues are populated[74G[ OK ]
+ * Stopping System V initialisation compatibility[74G[ OK ]
+[   15.629155] (stk) :ldisc installation timeout
+ * Starting cups-browsed - Bonjour remote printer browsing daemon[74G[ OK ]
+ * Starting network connection manager[74G[ OK ]
+(stk) : timed out waiting for ldisc to be un-installed
+ * Loading cpufreq kernel modules...       [80G [74G[ OK ]
+ * Starting System V runlevel compatibility[74G[ OK ]
+ * Starting regular background program processing daemon[74G[ OK ]
+ * Starting anac(h)ronistic cron[74G[ OK ]
+ * Starting Freescale autohdmi utility[74G[ OK ]
+ * Starting save kernel messages[74G[ OK ]
+ * Starting configure network device security[74G[ OK ]
+ * Starting OpenSSH server[74G[ OK ]
+ * CPU0...       [80G  * Stopping save kernel messages[74G[ OK ]
+(stk) :ldisc installation timeout
+ * Stopping anac(h)ronistic cron[74G[ OK ]
+ * CPUFreq Utilities: Setting ondemand CPUFreq governor...       [80G [74G[ OK ]
+[   18.739201] (stk) : timed out waiting for ldisc to be un-installed
+ * Stopping Restore Sound Card State[74G[ OK ]
+ * Setting sysfs variables...       [80G * Starting configure network device[74G[ OK ]
+  * Starting configure virtual network devices[74G[ OK ]
+[74G[ OK ]
+Starting very small Busybox based DHCP server: Starting /usr/sbin/udhcpd...
+udhcpd.
+[   19.849149] (stk) :ldisc installation timeout
+UIM SYSFS Node Found at /sys/./devices/soc0/kim.21/install
+Starting uim-sysfs daemon.
+uim:@ main
+uim:install = /sys/./devices/soc0/kim.21/install
+uim:dev_name = /sys/./devices/soc0/kim.21/dev_name
+uim:baud_rate = /sys/./devices/soc0/kim.21/baud_rate
+uim:flow_cntrl = /sys/./devices/soc0/kim.21/flow_cntrl
+uim:begin (stk) : timed out waiting for ldisc to be un-installedpolling...
+
+[   20.858058] Bluetooth: st_register failed -22
+ * Starting NTP server ntpd       [80G [74G[ OK ]
+
+Ubuntu 14.04.3 LTS udooneo ttymxc0
+
+
+default username:password is [udooer:udooer]
+udooneo login: [   40.639745] systemd-udevd[242]: timeout 'accelerometer /devices/virtual/input/input1'
+[   40.699268] systemd-udevd[245]: timeout 'accelerometer /devices/virtual/input/input3'
+
+Ubuntu 14.04.3 LTS udooneo ttymxc0
+
+
+default username:password is [udooer:udooer]
+udooneo login: 
+Ubuntu 14.04.3 LTS udooneo ttymxc0
+
+
+default username:password is [udooer:udooer]
+udooneo login: 
+Ubuntu 14.04.3 LTS udooneo ttymxc0
+
+
+default username:password is [udooer:udooer]
+udooneo login: 
+Ubuntu 14.04.3 LTS udooneo ttymxc0
+
+
+default username:password is [udooer:udooer]
+udooneo login: 
+Ubuntu 14.04.3 LTS udooneo ttymxc0
+
+
+default username:password is [udooer:udooer]
+udooneo login: udooer
+Password: 
+Last login: Thu Jan  1 00:00:31 UTC 1970 on ttymxc0
+Welcome to Ubuntu 14.04.3 LTS (GNU/Linux 3.14.28-udooneo-04196-gb15f827 armv7l)
+
+ * Documentation:  https://help.ubuntu.com/
+udooer@udooneo:~$ s[Ksudo shutdown -h now
+[sudo] password for udooer: 
+
+Broadcast message from udooer@udooneo
+	(/dev/ttymxc0) at 0:17 ...
+
+The system is going down for halt NOW!
+udooer@udooneo:~$ wait-for-state stop/waiting
+ * Stopping rsync daemon rsync       [80G [74G[ OK ]
+Stopping very small Busybox based DHCP server: Stopped /usr/sbin/udhcpd (pid 949).
+udhcpd.
+UIM SYSFS Node Found at /sys/./devices/soc0/kim.21/install
+Stopping uim-sysfs daemon.
+ * Asking all remaining processes to terminate...       [80G [74G[ OK ]
+ * Killing all remaining processes...       [80G [74G[[31mfail[39;49m]
