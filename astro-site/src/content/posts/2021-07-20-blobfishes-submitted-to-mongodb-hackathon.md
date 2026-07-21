@@ -6,7 +6,7 @@ tags:
   - digitalocean
   - hackathon
   - blobfishes
-description: "TODO: Place one beautiful (or ugly?) picture here -->"
+description: "As I anticipated in my previous post a few days ago I joined the DigitalOcean MongoDB Hackathon together with a group of friends."
 ---
 
 <!--

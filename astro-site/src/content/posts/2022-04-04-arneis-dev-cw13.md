@@ -6,7 +6,7 @@ tags:
   - b-arol-o
   - opencv
   - spatial-ai-contest
-description: "Welcome to our weekly status report of the ARNEIS project! -->"
+description: "As I announced on 2021-12-18"
 ---
 
 <!--
