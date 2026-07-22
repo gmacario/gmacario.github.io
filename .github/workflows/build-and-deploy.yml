@@ -1,9 +1,8 @@
-# Build and deploy the Astro site (astro-site/) to GitHub Pages.
+# Build and deploy the Astro site to GitHub Pages.
 #
-# Astro migration, issue #62 Phase 4. This replaces the legacy Next.js
-# export + gh-pages branch deploy. During the migration the Astro project
-# lives in the astro-site/ subdirectory; at the Phase 5 cutover it moves to
-# the repository root and the `path` below becomes ".".
+# Astro migration, issue #62. Replaces the legacy Next.js export + gh-pages
+# branch deploy. The Astro project lives at the repository root, so
+# withastro/action uses its default path (".").
 #
 # NOTE (cutover prerequisite): this workflow deploys via the GitHub Pages
 # "GitHub Actions" source. Before the first production deploy, set
@@ -40,8 +39,6 @@ jobs:
       - name: Build Astro site
         uses: withastro/action@v3
         with:
-          # Astro project lives in the subdirectory during the migration.
-          path: astro-site
           node-version: 22
 
   deploy:

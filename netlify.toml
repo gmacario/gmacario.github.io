@@ -1,12 +1,8 @@
-# Netlify configuration for previewing the Astro rebuild (issue #62; also #180).
+# Netlify configuration (issue #62; also #180).
 #
-# During the migration the Astro project lives in the astro-site/ subdirectory,
-# so `base` points Netlify there and `publish` (relative to base) is dist/.
-# Connect this repository as a Netlify site to get automatic Deploy Previews
-# for pull requests. At the Phase 5 cutover, when astro-site/ moves to the repo
-# root, remove `base` and set publish = "dist".
+# The Astro project lives at the repository root. Connect this repository as a
+# Netlify site to get automatic Deploy Previews for pull requests.
 [build]
-  base = "astro-site"
   command = "npm run build"
   publish = "dist"
 

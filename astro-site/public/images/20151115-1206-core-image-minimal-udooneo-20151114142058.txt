@@ -1,437 +1,0 @@
-=~=~=~=~=~=~=~=~=~=~=~= PuTTY log 2015.11.15 12:07:12 =~=~=~=~=~=~=~=~=~=~=~=
-
-
-
-U-Boot 2014.04 (Nov 14 2015 - 16:02:05)
-
-CPU:   Freescale i.MX6SX rev1.2 at 792 MHz
-CPU:   Temperature 35 C, calibration data: 0x59b50469
-Reset cause: POR
-Board: MX6SX UDOO NEO
-I2C:   ready
-DRAM:  1 GiB
-MMC:   FSL_SDHC: 0, FSL_SDHC: 1
-*** Warning - bad CRC, using default environment
-
-In:    serial
-Out:   serial
-Err:   serial
-Found PFUZE300! deviceid 0x30, revid 0x11
-Net:   CPU Net Initialization Failed
-No ethernet found.
-Normal Boot
-Hit any key to stop autoboot:  3  2  1  0
-mmc0 is current device
-reading uEnv.txt
-** Unable to read file uEnv.txt **
-reading /zImage
-4399520 bytes read in 247 ms (17 MiB/s)
-Booting from mmc ...
-reading imx6sx-udoo-neo-hdmi-m4.dtb
-39414 bytes read in 19 ms (2 MiB/s)
-Kernel image @ 0x80800000 [ 0x000000 - 0x4321a0 ]
-## Flattened Device Tree blob at 83000000
-   Booting using the fdt blob at 0x83000000
-   Using Device Tree in place at 83000000, end 8300c9f5
-sono entrato in ldo_mode_set
-setto i valori
-valore di vddarm 19
-switch to ldo_bypass mode!
-
-Starting kernel ...
-
-[    0.000000] Booting Linux on physical CPU 0x0
-[    0.000000] Linux version 3.14.28_1.0.0_ga-udooboard+gb15f827 (root@148b793524e5) (gcc version 4.9.1 (GCC) ) #1 SMP PREEMPT Sat Nov 14 14:51:58 UTC 2015
-[    0.000000] CPU: ARMv7 Processor [412fc09a] revision 10 (ARMv7), cr=10c53c7d
-[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
-[    0.000000] Machine model: UDoo Neo (based on imx6 SoloX)
-[    0.000000] Reserved memory: reserved region for node 'm4@0x84000000': base 0x84000000, size 8 MiB
-[    0.000000] cma: CMA: reserved 320 MiB at aa000000
-[    0.000000] Memory policy: Data cache writealloc
-[    0.000000] PERCPU: Embedded 8 pages/cpu @bf63c000 s9152 r8192 d15424 u32768
-[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 257794
-[    0.000000] Kernel command line: console=ttymxc0,115200 root=/dev/mmcblk0p2 rootwait rw consoleblank=0
-[    0.000000] PID hash table entries: 4096 (order: 2, 16384 bytes)
-[    0.000000] Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
-[    0.000000] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
-[    0.000000] Memory: 690168K/1039360K available (5058K kernel code, 332K rwdata, 5656K rodata, 260K init, 384K bss, 349192K reserved, 0K highmem)
-[    0.000000] Virtual kernel memory layout:
-[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
-[    0.000000]     fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
-[    0.000000]     vmalloc : 0xc0000000 - 0xff000000   (1008 MB)
-[    0.000000]     lowmem  : 0x80000000 - 0xbff00000   (1023 MB)
-[    0.000000]     pkmap   : 0x7fe00000 - 0x80000000   (   2 MB)
-[    0.000000]     modules : 0x7f000000 - 0x7fe00000   (  14 MB)
-[    0.000000]       .text : 0x80008000 - 0x80a7ec04   (10716 kB)
-[    0.000000]       .init : 0x80a7f000 - 0x80ac03c0   ( 261 kB)
-[    0.000000]       .data : 0x80ac2000 - 0x80b15330   ( 333 kB)
-[    0.000000]        .bss : 0x80b1533c - 0x80b75664   ( 385 kB)
-[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
-[    0.000000] Preemptible hierarchical RCU implementation.
-[    0.000000] 	RCU restricting CPUs from NR_CPUS=4 to nr_cpu_ids=1.
-[    0.000000] RCU: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=1
-[    0.000000] NR_IRQS:16 nr_irqs:16 16
-[    0.000000] L310 cache controller enabled
-[    0.000000] l2x0: 16 ways, CACHE_ID 0x410000c8, AUX_CTRL 0x32030000, Cache size: 256 kB
-[    0.000000] Switching to timer-based delay loop
-[    0.000007] sched_clock: 32 bits at 3000kHz, resolution 333ns, wraps every 1431655765682ns
-[    0.000630] clocksource_of_init: no matching clocksources found
-[    0.000769] Console: colour dummy device 80x30
-[    0.000791] Calibrating delay loop (skipped), value calculated using timer frequency.. 6.00 BogoMIPS (lpj=30000)
-[    0.000805] pid_max: default: 32768 minimum: 301
-[    0.000925] Security Framework initialized
-[    0.000994] Mount-cache hash table entries: 2048 (order: 1, 8192 bytes)
-[    0.001008] Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes)
-[    0.006373] device-tree: Duplicate name in /soc/aips-bus@02200000/spba-bus@02200000/lcdif@02220000, renamed to "display#1"
-[    0.007597] Initializing cgroup subsys devices
-[    0.007612] Initializing cgroup subsys freezer
-[    0.007655] CPU: Testing write buffer coherency: ok
-[    0.007921] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
-[    0.007958] Setting up static identity map for 0x804d0cd0 - 0x804d0d28
-[    0.041934] Brought up 1 CPUs
-[    0.041947] SMP: Total of 1 processors activated.
-[    0.041955] CPU: All CPU(s) started in SVC mode.
-[    0.042519] devtmpfs: initialized
-[    0.045831] VFP support v0.3: implementor 41 architecture 3 part 30 variant 9 rev 4
-[    0.046164] pinctrl core: initialized pinctrl subsystem
-[    0.046509] regulator-dummy: no parameters
-[    0.062092] NET: Registered protocol family 16
-[    0.069401] DMA: preallocated 256 KiB pool for atomic coherent allocations
-[    0.069949] cpuidle: using governor ladder
-[    0.069961] cpuidle: using governor menu
-[    0.070029] Use WDOG1 as reset source
-[    0.078167] syscon 20c8000.anatop: regmap [mem 0x020c8000-0x020c8fff] registered
-[    0.078465] vdd1p1: 800 <--> 1375 mV at 1100 mV
-[    0.078825] vdd3p0: 2800 <--> 3150 mV at 3000 mV
-[    0.079159] vdd2p5: 2100 <--> 2875 mV at 2500 mV
-[    0.079506] cpu: 725 <--> 1450 mV
-[    0.079850] vddpcie-phy: 725 <--> 1450 mV
-[    0.080196] vddsoc: 725 <--> 1450 mV
-[    0.082109] syscon 20e4000.iomuxc-gpr: regmap [mem 0x020e4000-0x020e7fff] registered
-[    0.084663] syscon 21bc000.ocotp-ctrl: regmap [mem 0x021bc000-0x021bffff] registered
-[    0.085076] syscon 21ac000.romcp: regmap [mem 0x021ac000-0x021affff] registered
-[    0.089855] hw-breakpoint: found 5 (+1 reserved) breakpoint and 1 watchpoint registers.
-[    0.089869] hw-breakpoint: maximum watchpoint size is 4 bytes.
-[    0.090889] imx6sx-pinctrl 20e0000.iomuxc: initialized IMX pinctrl driver
-[    0.091696] 20dc000.gpc supply pu not found, using dummy regulator
-[    0.092415] MU is ready for cross core communication!
-[    0.098661] bio: create slab <bio-0> at 0
-[    0.099677] vref-3v3: 3300 mV
-[    0.099945] PSU-5V0: 5000 mV
-[    0.100208] usb_otg1_vbus: 5000 mV
-[    0.100538] usb_otg2_vbus: 5000 mV
-[    0.100805] wlan-en-regulator: 1800 mV
-[    0.101649] SCSI subsystem initialized
-[    0.101938] usbphy_nop1.12 supply vcc not found, using dummy regulator
-[    0.103208] i2c i2c-0: IMX I2C adapter registered
-[    0.103907] i2c i2c-1: IMX I2C adapter registered
-[    0.104633] i2c i2c-2: IMX I2C adapter registered
-[    0.105756] i2c i2c-3: IMX I2C adapter registered
-[    0.105867] Linux video capture interface: v2.00
-[    0.105950] pps_core: LinuxPPS API ver. 1 registered
-[    0.105960] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
-[    0.105984] PTP clock support registered
-[    0.106493] Advanced Linux Sound Architecture Driver Initialized.
-[    0.107510] Loading modules backported from Linux version v4.1.7-0-g0c5c1f1
-[    0.107521] Backport integrated by backports.git v4.1.1-1-0-g8286954
-[    0.107664] Switched to clocksource mxc_timer1
-[    0.117914] NET: Registered protocol family 2
-[    0.118736] TCP established hash table entries: 8192 (order: 3, 32768 bytes)
-[    0.118819] TCP bind hash table entries: 8192 (order: 4, 65536 bytes)
-[    0.118943] TCP: Hash tables configured (established 8192 bind 8192)
-[    0.119014] TCP: reno registered
-[    0.119030] UDP hash table entries: 512 (order: 2, 16384 bytes)
-[    0.119068] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
-[    0.119321] NET: Registered protocol family 1
-[    0.119625] hw perfevents: enabled with ARMv7 Cortex-A9 PMU driver, 7 counters available
-[    0.121150] Bus freq driver module loaded
-[    0.121905] futex hash table entries: 256 (order: 2, 16384 bytes)
-[    0.128798] VFS: Disk quotas dquot_6.5.2
-[    0.129064] Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)
-[    0.130865] msgmni has been set to 1987
-[    0.134646] io scheduler noop registered
-[    0.134660] io scheduler deadline registered
-[    0.134705] io scheduler cfq registered (default)
-[    0.135182] imx-weim 21b8000.weim: Driver registered.
-[    0.136658] MIPI DSI driver module loaded
-[    0.268499] tda19988 2-0034: Sucessfully initialised chip revision 301
-[    0.279205] mxsfb 2220000.lcdif: failed to find mxc display driver
-[    0.279734] DISPLAY: Power-on latency exceeded, new value 490667 ns
-[    0.281684] DISPLAY: Power-off latency exceeded, new value 498000 ns
-[    0.298583] Console: switching to colour frame buffer device 160x45
-[    0.342634] tda19988 2-0034: Matching CEA mode is 4 for fb mode 1280x720-60
-[    0.396377] mxsfb 2220000.lcdif: initialized
-[    0.399273] imx-sdma 20ec000.sdma: no iram assigned, using external mem
-[    0.399583] imx-sdma 20ec000.sdma: no event needs to be remapped
-[    0.399816] imx-sdma 20ec000.sdma: loaded firmware 3.1
-[    0.402692] imx-sdma 20ec000.sdma: initialized
-[    0.404338] pfuze100-regulator 0-0008: Full layer: 1, Metal layer: 1
-[    0.404911] pfuze100-regulator 0-0008: FAB: 0, FIN: 0
-[    0.404926] pfuze100-regulator 0-0008: pfuze3000 found.
-[    0.406351] SW1A: 700 <--> 1475 mV at 1175 mV
-[    0.407738] SW1B: 700 <--> 1475 mV at 1175 mV
-[    0.408509] SW2: 1500 <--> 1850 mV at 1800 mV
-[    0.409273] SW3: 900 <--> 1650 mV at 1350 mV
-[    0.410056] SWBST: 5000 <--> 5150 mV at 5000 mV
-[    0.410817] VSNVS: 1000 <--> 3000 mV at 3000 mV
-[    0.411012] VREFDDR: 750 mV
-[    0.411761] VLDO1: 1800 <--> 3300 mV at 1800 mV
-[    0.412518] VLDO2: 800 <--> 1550 mV at 1500 mV
-[    0.413281] VCCSD: 2850 <--> 3300 mV at 3150 mV
-[    0.414061] V33: 2850 <--> 3300 mV at 3150 mV
-[    0.414816] VLDO3: 1800 <--> 3300 mV at 1800 mV
-[    0.416015] VLDO4: 1800 <--> 3300 mV at 1800 mV
-[    0.416333] Serial: IMX driver
-[    0.416638] 2020000.serial: ttymxc0 at MMIO 0x2020000 (irq = 58, base_baud = 5000000) is a IMX
-[    1.214709] console [ttymxc0] enabled
-[    1.219237] 21ec000.serial: ttymxc2 at MMIO 0x21ec000 (irq = 60, base_baud = 5000000) is a IMX
-[    1.228328] serial: Freescale lpuart driver
-[    1.233817] imx sema4 driver is registered.
-[    1.238482] Install mcc tty driver!
-[    1.242040]
-[    1.242040] A9 mcc prepares run, MCC version is 002.000
-[    1.248852] IMX MCC TTY driver module loaded
-[    1.253192] [drm] Initialized drm 1.1.0 20060810
-[    1.258275] [drm] Initialized vivante 1.0.0 20120216 on minor 0
-[    1.268460] loop: module loaded
-[    1.274896] 2188000.ethernet supply phy not found, using dummy regulator
-[    1.298120] pps pps0: new PPS source ptp0
-[    1.306998] libphy: fec_enet_mii_bus: probed
-[    1.312082] fec 2188000.ethernet eth0: registered PHC device 0
-[    1.318487] mousedev: PS/2 mouse device common for all mice
-[    1.324915] input: 20cc000.snvs-pwrkey as /devices/soc0/soc.0/2000000.aips-bus/20cc000.snvs-pwrkey/input/input0
-[    1.335370] snvs_pwrkey 20cc000.snvs-pwrkey: i.MX snvs powerkey probed
-[    1.342737] i2c /dev entries driver
-[    1.346999] IR NEC protocol handler initialized
-[    1.351626] IR RC5(x) protocol handler initialized
-[    1.356430] IR RC6 protocol handler initialized
-[    1.360996] IR JVC protocol handler initialized
-[    1.365535] IR Sony protocol handler initialized
-[    1.370176] IR RC5 (streamzap) protocol handler initialized
-[    1.375756] IR SANYO protocol handler initialized
-[    1.380482] IR MCE Keyboard/mouse protocol handler initialized
-[    1.387638] imx2-wdt 20bc000.wdog: IMX2+ Watchdog Timer enabled. timeout=60s (nowayout=0)
-[    1.396169] sdhci: Secure Digital Host Controller Interface driver
-[    1.402395] sdhci: Copyright(c) Pierre Ossman
-[    1.406761] sdhci-pltfm: SDHCI platform and OF driver helper
-[    1.413454] mmc0: no vqmmc regulator found
-[    1.417577] mmc0: no vmmc regulator found
-[    1.457691] mmc0: SDHCI controller on 2194000.usdhc [2194000.usdhc] using ADMA
-[    1.467448] sdhci-esdhc-imx 2198000.usdhc: could not get ultra high speed state, work on normal mode
-[    1.481162] mmc2: no vqmmc regulator found
-[    1.547690] mmc0: host does not support reading read-only switch. assuming write-enable.
-[    1.563803] mmc0: new high speed SDHC card at address e624
-[    1.569813] mmcblk0: mmc0:e624 SU08G 7.40 GiB
-[    1.575888]  mmcblk0: p1 p2
-[    1.607686] mmc2: SDHCI controller on 2198000.usdhc [2198000.usdhc] using ADMA
-[    1.615372] galcore: clk_get 2d core clock failed, disable 2d/vg!
-[    1.624646] Galcore version 5.0.11.25762
-[    1.648087] sdhci-esdhc-imx 2198000.usdhc: card claims to support voltages below defined range
-[    1.690035] mmc2: queuing unknown CIS tuple 0x91 (3 bytes)
-[    1.708892] mmc2: new high speed SDIO card at address 0001
-[    1.870587] fsl-asrc 2034000.asrc: driver registered
-[    1.881504] imx-tda19988 sound.24: tda19988-codec <-> 202c000.ssi mapping ok
-[    1.889529] nf_conntrack version 0.5.0 (15903 buckets, 63612 max)
-[    1.896404] ip_tables: (C) 2000-2006 Netfilter Core Team
-[    1.901841] TCP: cubic registered
-[    1.905177] NET: Registered protocol family 17
-[    1.909732] Key type dns_resolver registered
-[    1.914708] cpu cpu0: dev_pm_opp_get_opp_count: device OPP not found (-19)
-[    1.938408] VLDO2: disabling
-[    1.941750] SWBST: disabling
-[    1.944648] usb_otg2_vbus: disabling
-[    1.948301] usb_otg1_vbus: disabling
-[    1.951890] PSU-5V0: disabling
-[    1.954953] vref-3v3: disabling
-[    1.958269] regulator-dummy: disabling
-[    1.963027] drivers/rtc/hctosys.c: unable to open rtc device (rtc0)
-[    1.978426] ALSA device list:
-[    1.981413]   #0: imx-audio-tda19988
-[    2.002815] EXT4-fs (mmcblk0p2): mounting ext3 file system using the ext4 subsystem
-[    2.064877] EXT4-fs (mmcblk0p2): recovery complete
-[    2.071778] EXT4-fs (mmcblk0p2): mounted filesystem with ordered data mode. Opts: (null)
-[    2.079967] VFS: Mounted root (ext3 filesystem) on device 179:2.
-[    2.086081] devtmpfs: mounted
-[    2.089316] Freeing unused kernel memory: 260K (80a7f000 - 80ac0000)
-INIT: version 2.88 booting
-Starting udev
-[    2.553017] udevd[104]: starting version 182
-[    2.883934] EXT4-fs (mmcblk0p2): re-mounted. Opts: data=ordered
-bootlogd: cannot allocate pseudo tty: No such file or directory
-[    3.392160] random: dd urandom read with 86 bits of entropy available
-hwclock: can't open '/dev/misc/rtc': No such file or directory
-Sat Nov 14 16:28:44 UTC 2015
-hwclock: can't open '/dev/misc/rtINIT: Entering runlevel: 5
-Configuring network interfaces... [    4.428665] fec 2188000.ethernet eth0: Freescale FEC PHY driver [Generic PHY] (mii_bus:phy_addr=2188000.ethernet:00, irq=-1)
-udhcpc (v1.22.1) started
-Sending discover...
-[    7.429091] libphy: 2188000.ethernet:00 - Link is Up - 100/Full
-Sending discover...
-[    8.068326] random: nonblocking pool is initialized
-Sending select for 192.168.64.107...
-Lease of 192.168.64.107 obtained, lease time 86400
-/etc/udhcpc.d/50default: Adding DNS 62.101.93.101
-/etc/udhcpc.d/50default: Adding DNS 83.103.25.250
-done.
-hwclock: can't open '/dev/misc/rtc': No such file or directory
-Starting syslogd/klogd: done
-
-Poky (Yocto Project Reference Distro) 1.7.1 udooneo /dev/ttymxc0
-
-udooneo login: root
-root@udooneo:~#INIT: Id "GS0" respawning too fast: disabled for 5 minutes
-
-root@udooneo:~#
-root@udooneo:~#
-root@udooneo:~#
-root@udooneo:~#
-root@udooneo:~#
-root@udooneo:~#
-root@udooneo:~#
-root@udooneo:~# df -h
-Filesystem                Size      Used Available Use% Mounted on
-/dev/root                 6.7M      4.7M      1.6M  75% /
-devtmpfs                337.0M         0    337.0M   0% /dev
-tmpfs                   497.1M     88.0K    497.0M   0% /run
-tmpfs                   497.1M     56.0K    497.1M   0% /var/volatile
-root@udooneo:~# [Hroot@udooneo:~# [J
-root@udooneo:~# [Hroot@udooneo:~# [Jcat /proc/cpuinfo
-processor	: 0
-model name	: ARMv7 Processor rev 10 (v7l)
-Features	: swp half thumb fastmult vfp edsp neon vfpv3 tls vfpd32
-CPU implementer	: 0x41
-CPU architecture: 7
-CPU variant	: 0x2
-CPU part	: 0xc09
-CPU revision	: 10
-
-Hardware	: Freescale i.MX6 SoloX (Device Tree)
-Revision	: 0000
-Serial		: 0000000000000000
-root@udooneo:~# cat /proc/version[Hroot@udooneo:~# cat /proc/version[J
-Linux version 3.14.28_1.0.0_ga-udooboard+gb15f827 (root@148b793524e5) (gcc version 4.9.1 (GCC) ) #1 SMP PREEMPT Sat Nov 14 14:51:58 UTC 2015
-root@udooneo:~# ifconfig -a
-eth0      Link encap:Ethernet  HWaddr 00:C0:08:8C:14:E6
-          inet addr:192.168.64.107  Bcast:192.168.64.255  Mask:255.255.255.0
-          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-          RX packets:254 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:2 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:1000
-          RX bytes:28959 (28.2 KiB)  TX bytes:684 (684.0 B)
-
-lo        Link encap:Local Loopback
-          inet addr:127.0.0.1  Mask:255.0.0.0
-          UP LOOPBACK RUNNING  MTU:65536  Metric:1
-          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:0
-          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
-
-root@udooneo:~# [Hroot@udooneo:~# [Jroot@udooneo:~# ifconfig -a[J
-eth0      Link encap:Ethernet  HWaddr 00:C0:08:8C:14:E6
-          inet addr:192.168.64.107  Bcast:192.168.64.255  Mask:255.255.255.0
-          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-          RX packets:264 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:2 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:1000
-          RX bytes:30071 (29.3 KiB)  TX bytes:684 (684.0 B)
-
-lo        Link encap:Local Loopback
-          inet addr:127.0.0.1  Mask:255.0.0.0
-          UP LOOPBACK RUNNING  MTU:65536  Metric:1
-          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:0
-          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
-
-root@udooneo:~#
-root@udooneo:~#
-root@udooneo:~# ping www.cisco.com
-PING www.cisco.com (95.100.224.170): 56 data bytes
-64 bytes from 95.100.224.170: seq=0 ttl=55 time=7.276 ms
-64 bytes from 95.100.224.170: seq=1 ttl=55 time=7.268 ms
-64 bytes from 95.100.224.170: seq=2 ttl=55 time=7.591 ms
-64 bytes from 95.100.224.170: seq=3 ttl=55 time=7.777 ms
-64 bytes from 95.100.224.170: seq=4 ttl=55 time=7.433 ms
-64 bytes from 95.100.224.170: seq=5 ttl=55 time=22.092 ms
-64 bytes from 95.100.224.170: seq=6 ttl=55 time=7.661 ms
-64 bytes from 95.100.224.170: seq=7 ttl=55 time=7.346 ms
-64 bytes from 95.100.224.170: seq=8 ttl=55 time=8.063 ms
-64 bytes from 95.100.224.170: seq=9 ttl=55 time=7.340 ms
-64 bytes from 95.100.224.170: seq=10 ttl=55 time=7.571 ms
-64 bytes from 95.100.224.170: seq=11 ttl=55 time=7.300 ms
-64 bytes from 95.100.224.170: seq=12 ttl=55 time=7.488 ms
-64 bytes from 95.100.224.170: seq=13 ttl=55 time=8.751 ms
-64 bytes from 95.100.224.170: seq=14 ttl=55 time=8.480 ms
-64 bytes from 95.100.224.170: seq=15 ttl=55 time=7.262 ms
-64 bytes from 95.100.224.170: seq=16 ttl=55 time=7.258 ms
-64 bytes from 95.100.224.170: seq=17 ttl=55 time=7.166 ms
-64 bytes from 95.100.224.170: seq=18 ttl=55 time=7.282 ms
-64 bytes from 95.100.224.170: seq=19 ttl=55 time=7.219 ms
-64 bytes from 95.100.224.170: seq=20 ttl=55 time=7.511 ms
-64 bytes from 95.100.224.170: seq=21 ttl=55 time=7.196 ms
-64 bytes from 95.100.224.170: seq=22 ttl=55 time=7.290 ms
-64 bytes from 95.100.224.170: seq=23 ttl=55 time=7.257 ms
-64 bytes from 95.100.224.170: seq=24 ttl=55 time=8.698 ms
-64 bytes from 95.100.224.170: seq=25 ttl=55 time=7.185 ms
-64 bytes from 95.100.224.170: seq=26 ttl=55 time=7.824 ms
-64 bytes from 95.100.224.170: seq=27 ttl=55 time=7.219 ms
-64 bytes from 95.100.224.170: seq=28 ttl=55 time=7.433 ms
-64 bytes from 95.100.224.170: seq=29 ttl=55 time=7.486 ms
-64 bytes from 95.100.224.170: seq=30 ttl=55 time=7.180 ms
-64 bytes from 95.100.224.170: seq=31 ttl=55 time=7.143 ms
-64 bytes from 95.100.224.170: seq=32 ttl=55 time=7.351 ms
-64 bytes from 95.100.224.170: seq=33 ttl=55 time=7.232 ms
-64 bytes from 95.100.224.170: seq=34 ttl=55 time=7.171 ms
-64 bytes from 95.100.224.170: seq=35 ttl=55 time=7.263 ms
-64 bytes from 95.100.224.170: seq=36 ttl=55 time=7.332 ms
-64 bytes from 95.100.224.170: seq=37 ttl=55 time=8.137 ms
-64 bytes from 95.100.224.170: seq=38 ttl=55 time=7.307 ms
-64 bytes from 95.100.224.170: seq=39 ttl=55 time=7.149 ms
-64 bytes from 95.100.224.170: seq=40 ttl=55 time=7.224 ms
-64 bytes from 95.100.224.170: seq=41 ttl=55 time=7.567 ms
-64 bytes from 95.100.224.170: seq=42 ttl=55 time=7.177 ms
-64 bytes from 95.100.224.170: seq=43 ttl=55 time=7.292 ms
-64 bytes from 95.100.224.170: seq=44 ttl=55 time=7.545 ms
-64 bytes from 95.100.224.170: seq=45 ttl=55 time=7.856 ms
-64 bytes from 95.100.224.170: seq=46 ttl=55 time=7.164 ms
-
---- www.cisco.com ping statistics ---
-47 packets transmitted, 47 packets received, 0% packet loss
-round-trip min/avg/max = 7.143/7.783/22.092 ms
-root@udooneo:~#root@udooneo:~# ping www.cisco.com[J
-root@udooneo:~# ping --help
-BusyBox v1.22.1 (2015-11-14 15:10:10 UTC) multi-call binary.
-
-Usage: ping [OPTIONS] HOST
-
-root@udooneo:~# ping -n 2
-PING 2 (0.0.0.2): 56 data bytes
-ping: sendto: Invalid argument
-root@udooneo:~#root@udooneo:~# ping -n 2[J[J[J[J[J-c 5 www.cisco.om[J[Jcom[Hroot@udooneo:~# ping -c 5 www.cisco.com[J
-PING www.cisco.com (95.100.224.170): 56 data bytes
-64 bytes from 95.100.224.170: seq=0 ttl=55 time=7.091 ms
-64 bytes from 95.100.224.170: seq=1 ttl=55 time=103.499 ms
-64 bytes from 95.100.224.170: seq=2 ttl=55 time=23.828 ms
-64 bytes from 95.100.224.170: seq=3 ttl=55 time=7.683 ms
-64 bytes from 95.100.224.170: seq=4 ttl=55 time=7.321 ms
-
---- www.cisco.com ping statistics ---
-5 packets transmitted, 5 packets received, 0% packet loss
-round-trip min/avg/max = 7.091/29.884/103.499 ms
-root@udooneo:~# shutdown - h[J[Jh now
-root@udooneo:~#INIT: Switching to runlevel: 0
-
-Broadcast message from root@udINIT: Sending processes the TERM signal
-INIT: Sending procehwclock: can't open '/dev/misc/rtc': No such file or directory
-Stopping syslogd/klogd: stopped syslogd (pid 411)
-stopped klogd (pid 413)
-done
-Deconfiguring network interfaces... done.
-Sending all processes the TERM signal...
-Sending all processes the KILL signal...
-Unmounting remote filesystems...
-Deactivating swap...
-Unmounting local filesystems...
-[  508.747576] EXT4-fs (mmcblk0p2): re-mounted. Opts: data=ordered
-[  511.023994] reboot: System halted

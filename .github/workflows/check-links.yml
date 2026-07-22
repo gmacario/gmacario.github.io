@@ -27,7 +27,7 @@ jobs:
       - name: Check links
         uses: gaurav-nelson/github-action-markdown-link-check@v1
         with:
-          folder-path: './_posts, ./_drafts'
+          folder-path: './src/content/posts, ./src/content/pages'
           file-path: './README.md, ./LICENSE'
           use-quiet-mode: yes
 
