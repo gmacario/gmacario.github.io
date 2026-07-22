@@ -1,146 +1,68 @@
 # gmacario.github.io
 
-![Build and deploy](https://github.com/gmacario/gmacario.github.io/actions/workflows/build-and-deploy.yml/badge.svg)
-![Check links](https://github.com/gmacario/gmacario.github.io/actions/workflows/check-links.yml/badge.svg)
+[![Deploy Astro site to GitHub Pages](https://github.com/gmacario/gmacario.github.io/actions/workflows/build-and-deploy.yml/badge.svg)](https://github.com/gmacario/gmacario.github.io/actions/workflows/build-and-deploy.yml)
+[![Check links](https://github.com/gmacario/gmacario.github.io/actions/workflows/check-links.yml/badge.svg)](https://github.com/gmacario/gmacario.github.io/actions/workflows/check-links.yml)
 
-Gianpaolo Macario public website on GitHub.com.
+Gianpaolo Macario's personal website and technical blog — a professional home
+base with a bio/CV landing page and a decade of posts.
 
-Automatically published to <https://gmacario.github.io/>
-
-## How this site was made
-
-The blog is based on the [Next.js](https://nextjs.org/) framework as explained in
-[Building a Blog with Next.js](https://css-tricks.com/building-a-blog-with-next-js/).
+Built with [Astro](https://astro.build/) using the
+[AstroPaper](https://github.com/satnaing/astro-paper) theme.
 
 ## Prerequisites
 
-Install Node.js 16.x from <https://nodejs.org/>
+Node.js 22 (LTS) — see [`.nvmrc`](.nvmrc).
 
-To install the dependencies simply run
+## Local development
 
 ```sh
 npm install
+npm run dev      # http://localhost:4321
 ```
 
-## Adding content to the blog
-
-- Blog posts have to be created under the `_posts` folder.
-- Other content (like images or files) can be added under the `public` directory
-
-### Referencing content under `/public`
-
-Consider the following directory structure:
-
-```txt
-┌  ...
-├  /pages
-|   ├  /pages/posts
-|   ├  /pages/_app.js
-|   └  /pages/index.js
-|
-├  /public
-|   ├  ...
-|   ├  /public/files/example_file.pdf
-|   └  ...
-└  ...
-```
-
-You would reference the file as:
-
-```html
-<a href="../files/example_file.pdf">example file</a>
-```
-
-Blog posts get compiled to a static website using the commands detailed below.
-
-## Run a development server
-
-To build and test the pages locally, run the npm script
+## Build
 
 ```sh
-# Workaround for webpack on node 17+ - See https://github.com/webpack/webpack/issues/14532
-export NODE_OPTIONS=--openssl-legacy-provider
-npm run dev
+npm run build    # astro check + astro build + Pagefind search index -> dist/
+npm run preview
 ```
 
-and follow the instructions.
+## Adding content
 
-## Run tests on the static build
+- Blog posts live in [`src/content/posts/`](src/content/posts) as Markdown.
+  The file name becomes the permalink (`/posts/<filename>`).
+- Standalone pages (e.g. About) live in
+  [`src/content/pages/`](src/content/pages).
+- Images and other static assets go under [`public/`](public) and are
+  referenced with absolute paths (e.g. `/assets/...`, `/images/...`).
 
-To build a production version of the static website and run automated tests, run the npm script
+Site-wide configuration (title, author, social links, etc.) lives in
+[`astro-paper.config.ts`](astro-paper.config.ts).
 
-```sh
-npm run test
-```
+## Deployment
 
-and follow the instructions.
-
-## Deploy the blog
-
-To create an optimized production build run the following commands:
-
-```sh
-npm run build
-npm run start
-```
-
-## Generate static files
-
-To generate static files under `_static`:
-
-```sh
-npm run export
-```
-
-## Deploying using Docker
-
-### Using Docker: Prerequisites
-
-- [Docker Engine](https://www.docker.com/products/container-runtime)
-
-### Build the Docker image
-
-```bash
-docker build -t gmacario/gmacario-github-io .
-```
-
-### Run the Docker container
-
-```bash
-docker run -d -p 3000:3000 gmacario/gmacario-github-io
-```
-
-Verify that the container is up and running
-
-```bash
-docker ps | grep gmacario
-```
-
-Expected result:
-
-```text
-gmacario@gmpowerhorse:~ $ docker ps | grep gmacario
-677454b66068   gmacario/gmacario-github-io            "docker-entrypoint.s…"   10 seconds ago   Up 8 seconds   0.0.0.0:3000->3000/tcp, :::3000->3000/tcp   amazing_euclid
-gmacario@gmpowerhorse:~ $
-```
-
-then open `http://<hostname-or-ip>:3000/` from your browser to preview the site.
-
----
+Pushes to `main` are built and deployed to GitHub Pages by the
+[`build-and-deploy.yml`](.github/workflows/build-and-deploy.yml) workflow
+(via [`withastro/action`](https://github.com/withastro/action) and
+`actions/deploy-pages`). Pull requests are built for verification but not
+deployed.
 
 ## Copyright and license
 
 Disclaimer: [IANAL](https://en.wikipedia.org/wiki/IANAL)
 
-Copyright 2006-2023 [Gianpaolo Macario](https://gmacario.github.io/).
+Copyright 2006-2026 [Gianpaolo Macario](https://gmacario.github.io/).
 
-The contents of this repository and the executable distribution are licensed under the terms of the MIT license as detailed in the [LICENSE](LICENSE) file,
-with the exception of the `_posts` and `_drafts` folders which are licensed under a Creative Commons Attribution-Share Alike 4.0 License.
-
-Please refer <https://creativecommons.org/licenses/by-sa/4.0/> for details and the full text of the license.
+The contents of this repository and the executable distribution are licensed
+under the terms of the MIT license as detailed in the [LICENSE](LICENSE) file,
+with the exception of the `src/content/posts` folder which is licensed under a
+Creative Commons Attribution-Share Alike 4.0 License
+(<https://creativecommons.org/licenses/by-sa/4.0/>).
 
 ![CC BY-SA 4.0](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)
 
-Please note and acknowledge that any contribution to this repository or derivative work will be subject to the same terms and conditions.
+This site uses the [AstroPaper](https://github.com/satnaing/astro-paper) theme
+by Sat Naing, distributed under the MIT license; its notice is retained in
+[LICENSE-AstroPaper](LICENSE-AstroPaper).
 
 <!-- EOF -->

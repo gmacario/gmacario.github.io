@@ -32,8 +32,7 @@ export default defineAstroPaperConfig({
     dynamicOgImage: false,
     showArchives: true,
     showBackButton: true,
-    // Disabled until cutover (Phase 5): during migration the posts live under
-    // astro-site/src/content/posts, so a repo edit URL would point to the wrong path.
+    // "Edit page" links are off for now; can be enabled with the repo edit URL.
     editPost: {
       enabled: false,
     },
