@@ -8,7 +8,10 @@ tags:
   - ai
 featured: true
 description: "Why I rebuilt gmacario.github.io on Astro and AstroPaper, and how I did the whole migration pair-programming with Claude Code."
+ogImage: "../../assets/2026-07-22-migrating-this-blog-to-astro-og.png"
 ---
+
+![Rebuilding gmacario.github.io: from Next.js to Astro](/assets/2026-07-22-migrating-this-blog-to-astro/hero.svg)
 
 This site has just been rebuilt from the ground up on [Astro](https://astro.build/).
 If you are reading this, the migration worked: the URL you clicked still points
