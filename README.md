@@ -2,6 +2,7 @@
 
 [![Deploy Astro site to GitHub Pages](https://github.com/gmacario/gmacario.github.io/actions/workflows/build-and-deploy.yml/badge.svg)](https://github.com/gmacario/gmacario.github.io/actions/workflows/build-and-deploy.yml)
 [![Check links](https://github.com/gmacario/gmacario.github.io/actions/workflows/check-links.yml/badge.svg)](https://github.com/gmacario/gmacario.github.io/actions/workflows/check-links.yml)
+[![Netlify Status](https://app.netlify.com/sites/stoic-newton-ff8d72/status.svg?column=deploys)](https://app.netlify.com/sites/stoic-newton-ff8d72/deploys)
 
 Gianpaolo Macario's personal website and technical blog — a professional home
 base with a bio/CV landing page and a decade of posts.
@@ -41,11 +42,26 @@ Site-wide configuration (title, author, social links, etc.) lives in
 
 ## Deployment
 
-Pushes to `main` are built and deployed to GitHub Pages by the
+### Production
+
+Pushes to `main` are built and deployed to **GitHub Pages** at
+<https://gmacario.github.io/> by the
 [`build-and-deploy.yml`](.github/workflows/build-and-deploy.yml) workflow
 (via [`withastro/action`](https://github.com/withastro/action) and
 `actions/deploy-pages`). Pull requests are built for verification but not
 deployed.
+
+### Staging & Deploy Previews
+
+The same `main` branch is also deployed to **Netlify** at
+<https://blog.gmacario.it/> (connected via the Netlify GitHub integration).
+Netlify serves:
+- A staging copy of the site for each production deploy.
+- **Deploy previews** for every pull request — a unique URL is posted as a PR
+  comment so reviewers can interact with the full built site before merging.
+
+Build configuration is declared in [`netlify.toml`](netlify.toml) (config as
+code); no repository secrets are used for the deploy.
 
 ## Copyright and license
 
