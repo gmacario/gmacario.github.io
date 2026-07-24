@@ -1,0 +1,17 @@
+# Gitleaks fingerprint allowlist (issue #197).
+# One <fingerprint> per line; gitleaks discovers this file at the repo root
+# by default. Each entry below is a reviewed false positive, not a real
+# live secret -- see the comment above each for why.
+
+# A SHA-256-looking hash of an Arduino Yun / OpenWRT device's WiFi admin
+# password, from a `uci show` terminal transcript on the author's own
+# hardware in 2015. It's a hash (not a plaintext credential), tied to one
+# specific, long-decommissioned device, and has been public in this post
+# for a decade.
+src/content/posts/2015-03-22-inspecting-yun-linux-configuration.md:generic-api-key:155
+
+# A Jenkins "initial administrator password" from a local, throwaway
+# Docker Compose demo (easy-jenkins) in a how-to post. This value is a
+# one-time setup token generated fresh per install and invalidated as soon
+# as the setup wizard completes -- not a reusable credential.
+src/content/posts/2017-07-11-install-build-rokers-io.md:generic-api-key:158
