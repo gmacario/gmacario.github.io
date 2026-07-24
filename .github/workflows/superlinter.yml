@@ -17,12 +17,15 @@
 #   @typescript-eslint packages that Super-Linter's image doesn't bundle.
 #   Pointing its generic ESLint validator at that config would recreate
 #   the exact failure that got the old workflow removed.
-# - Existing tuned configs under .github/linters/ (markdown, yaml,
-#   textlint, gitleaks) are auto-discovered (LINTER_RULES_PATH defaults to
-#   .github/linters) and reused as-is; they survived the migration intact.
-# - VALIDATE_GITLEAKS is temporarily disabled: .github/linters/.gitleaks.toml
-#   was written for a much older gitleaks release and needs a full schema
-#   review against the version Super-Linter bundles now. See #197.
+# - Existing tuned configs under .github/linters/ (markdown, yaml, textlint)
+#   are auto-discovered (LINTER_RULES_PATH defaults to .github/linters) and
+#   reused as-is; they survived the migration intact.
+# - .github/linters/.gitleaks.toml is gitleaks' own maintained default
+#   config (vendored verbatim), replacing a hand-rolled ~30-rule config
+#   that needed two schema fixes just to load under current gitleaks and
+#   was never validated further (#197). Two known-safe historical findings
+#   (a hashed device password, a one-time local Jenkins setup token) are
+#   suppressed via /.gitleaksignore rather than by editing the ruleset.
 name: Super-Linter
 
 on:
@@ -60,12 +63,7 @@ jobs:
           VALIDATE_MARKDOWN: true
           VALIDATE_NATURAL_LANGUAGE: true
           VALIDATE_GITHUB_ACTIONS: true
-          # VALIDATE_GITLEAKS is intentionally omitted (not just set to
-          # false): Super-Linter rejects mixing VALIDATE_X=true with
-          # VALIDATE_Y=false in the same run -- since the above use
-          # allow-list style, GITLEAKS must be left out entirely to stay
-          # disabled. .gitleaks.toml needs a schema review against the
-          # bundled gitleaks version first; see #197.
+          VALIDATE_GITLEAKS: true
           # Disabled: Super-Linter formats its own summary with Prettier and
           # picks up this repo's root .prettierrc, which declares
           # prettier-plugin-astro -- a plugin Super-Linter's image doesn't
