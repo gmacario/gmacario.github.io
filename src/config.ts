@@ -6,7 +6,10 @@
  */
 import userConfig from "@/astro-paper.config";
 import type { ResolvedAstroPaperConfig } from "./types/config";
-import { PUBLIC_GOOGLE_SITE_VERIFICATION } from "astro:env/client";
+import {
+  PUBLIC_CLOUDFLARE_BEACON_TOKEN,
+  PUBLIC_GOOGLE_SITE_VERIFICATION,
+} from "astro:env/client";
 
 const DEFAULT_OG_IMAGE = "default-og.jpg";
 
@@ -33,6 +36,11 @@ const config: ResolvedAstroPaperConfig = {
     showBackButton: userConfig.features?.showBackButton ?? true,
     editPost: userConfig.features?.editPost ?? { enabled: false },
     search: userConfig.features?.search ?? "pagefind",
+  },
+  analytics: {
+    cloudflareBeaconToken:
+      userConfig.analytics?.cloudflareBeaconToken ||
+      PUBLIC_CLOUDFLARE_BEACON_TOKEN,
   },
   socials: userConfig.socials ?? [],
   shareLinks: userConfig.shareLinks ?? [],

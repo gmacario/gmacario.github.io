@@ -23,6 +23,19 @@ const {
   canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
 } = Astro.props;
 
+// Cloudflare Web Analytics (#131): cookieless, so no consent banner needed.
+// Skipped in `astro dev` so local browsing isn't counted as real traffic.
+//
+// The beacon sits in <head> with `defer`, so it loads without blocking render.
+// `is:inline` keeps Astro from bundling it, leaving the token on the tag.
+//
+// Caveat: this site uses <ClientRouter /> (view transitions), which swaps the
+// DOM instead of doing full page loads. Confirm in the Cloudflare dashboard
+// that in-site navigations are counted once analytics is live.
+const cfBeaconToken = import.meta.env.PROD
+  ? config.analytics.cloudflareBeaconToken
+  : undefined;
+
 const socialImageURL = new URL(ogImage, Astro.site ?? Astro.url);
 const rssHref = getRelativeLocaleUrl(
   Astro.currentLocale ?? config.site.lang,
@@ -91,6 +104,17 @@ const rssHref = getRelativeLocaleUrl(
         <meta
           name="google-site-verification"
           content={site.googleVerification}
+        />
+      )
+    }
+
+    {
+      cfBeaconToken && (
+        <script
+          is:inline
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon={JSON.stringify({ token: cfBeaconToken })}
         />
       )
     }

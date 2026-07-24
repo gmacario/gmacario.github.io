@@ -81,6 +81,26 @@ Netlify serves:
 Build configuration is declared in [`netlify.toml`](netlify.toml) (config as
 code); no repository secrets are used for the deploy.
 
+## Analytics
+
+The site uses [Cloudflare Web Analytics](https://www.cloudflare.com/web-analytics/),
+which is cookieless and collects no personal data — so the site needs no cookie
+consent banner. Production is hosted on GitHub Pages, which exposes no server
+access logs, so a client-side beacon is the only option available.
+
+To enable it, add the site in the Cloudflare dashboard and set the resulting
+beacon token as a **repository variable** named
+`PUBLIC_CLOUDFLARE_BEACON_TOKEN` (Settings → Secrets and variables → Actions →
+Variables). It is deliberately a variable rather than a secret: Cloudflare
+embeds the token in the page markup, so it is public by design.
+
+The token is read only by the production workflow, which means Netlify staging
+and deploy-preview builds never carry the beacon and their traffic stays out of
+the statistics. When the variable is unset the beacon is omitted entirely and
+no analytics are collected. Setting `analytics.cloudflareBeaconToken` in
+[`astro-paper.config.ts`](astro-paper.config.ts) instead would enable it for
+every build, previews included.
+
 ## Copyright and license
 
 Disclaimer: [IANAL](https://en.wikipedia.org/wiki/IANAL)

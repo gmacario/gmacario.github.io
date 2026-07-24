@@ -76,6 +76,14 @@ export default defineConfig({
         context: "client",
         optional: true,
       }),
+      // Cloudflare Web Analytics beacon token (#131). Not a secret -- it is
+      // embedded in the page markup by design. Set in the production deploy
+      // workflow only, so Netlify previews stay out of the statistics.
+      PUBLIC_CLOUDFLARE_BEACON_TOKEN: envField.string({
+        access: "public",
+        context: "client",
+        optional: true,
+      }),
     },
   },
   experimental: {

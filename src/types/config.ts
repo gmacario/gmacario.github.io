@@ -61,6 +61,21 @@ interface FeaturesConfig {
   search?: "pagefind" | false;
 }
 
+interface AnalyticsConfig {
+  /**
+   * Cloudflare Web Analytics beacon token (issue #131). Cookieless and
+   * privacy-preserving, so it needs no consent banner.
+   *
+   * Prefer setting this via the PUBLIC_CLOUDFLARE_BEACON_TOKEN environment
+   * variable in the production deploy workflow rather than hardcoding it
+   * here: Netlify staging/preview builds don't get that variable, so their
+   * traffic stays out of the production statistics.
+   *
+   * The token is not a secret — Cloudflare embeds it in the page markup.
+   */
+  cloudflareBeaconToken?: string;
+}
+
 interface SocialLink {
   /**
    * Must match an SVG filename in src/assets/icons/socials/.
@@ -96,6 +111,8 @@ interface AstroPaperConfig {
   site: SiteConfig;
   posts?: PostsConfig;
   features?: FeaturesConfig;
+  /** Third-party analytics. Omit entirely to collect no statistics. */
+  analytics?: AnalyticsConfig;
   /** Social profile links shown in header/footer */
   socials?: SocialLink[];
   /** Share links shown on post detail pages */
@@ -121,6 +138,7 @@ export interface ResolvedAstroPaperConfig {
   site: ResolvedSiteConfig;
   posts: Required<PostsConfig>;
   features: Required<FeaturesConfig>;
+  analytics: AnalyticsConfig;
   socials: SocialLink[];
   shareLinks: ShareLink[];
 }

@@ -40,6 +40,14 @@ jobs:
         uses: withastro/action@v3
         with:
           node-version: 22
+        env:
+          # Cloudflare Web Analytics beacon token (#131). Stored as a repository
+          # variable, not a secret: Cloudflare embeds it in the page markup, so
+          # it is public by design. Keeping it here rather than in
+          # astro-paper.config.ts means Netlify staging/preview builds never
+          # receive it, so their traffic stays out of the production statistics.
+          # When the variable is unset the beacon is simply omitted.
+          PUBLIC_CLOUDFLARE_BEACON_TOKEN: ${{ vars.PUBLIC_CLOUDFLARE_BEACON_TOKEN }}
 
   deploy:
     # Deploy to production only from the default branch, never from a PR.
