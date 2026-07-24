@@ -60,9 +60,12 @@ jobs:
           VALIDATE_MARKDOWN: true
           VALIDATE_NATURAL_LANGUAGE: true
           VALIDATE_GITHUB_ACTIONS: true
-          # Temporarily disabled -- .gitleaks.toml needs a schema review
-          # against the bundled gitleaks version; see #197.
-          VALIDATE_GITLEAKS: false
+          # VALIDATE_GITLEAKS is intentionally omitted (not just set to
+          # false): Super-Linter rejects mixing VALIDATE_X=true with
+          # VALIDATE_Y=false in the same run -- since the above use
+          # allow-list style, GITLEAKS must be left out entirely to stay
+          # disabled. .gitleaks.toml needs a schema review against the
+          # bundled gitleaks version first; see #197.
           # Disabled: Super-Linter formats its own summary with Prettier and
           # picks up this repo's root .prettierrc, which declares
           # prettier-plugin-astro -- a plugin Super-Linter's image doesn't
