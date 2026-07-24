@@ -9,6 +9,8 @@ tags:
 description: "This blog post explains in detail how to use the Azure Container Registry (ACR) to publish and distribute Docker images on the cloud."
 ---
 
+## Table of contents
+
 ## Introduction
 
 This blog post explains in detail how to use the [Azure Container Registry](https://azure.microsoft.com/en-us/products/container-registry) (ACR) to publish and distribute Docker images on the cloud.
