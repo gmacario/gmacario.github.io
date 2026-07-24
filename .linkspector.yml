@@ -102,6 +102,7 @@ ignorePatterns:
   - pattern: '^https?://www\.cloudbees\.com/resource/webinar-recording/ondemand-webinar-easy-cicd-kubernetes/thank-you$'
   - pattern: '^https?://udoo\.org/get-started-neo/$'
   - pattern: '^http://100\.84\.'
+  - pattern: '^https?://[^/]*\.ts\.net'
   - pattern: '^https?://blog\.symbl\.ai/'
   - pattern: '^https?://platform\.symbl\.ai/'
   - pattern: '^https?://docs\.symbl\.ai/'
