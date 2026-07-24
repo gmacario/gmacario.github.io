@@ -6,10 +6,11 @@
     "terminology": {
       "exclude": [
         "HTML",
-        "Node(?:js)?",
+        "Node[ .]?js",
         "web[- ]?site(s)?",
-        "docker",
-        "VS Code"
+        "Docker",
+        "Visual ?Studio ?Code",
+        "V[ -]?S[ -]?Code"
       ]
     }
   }
