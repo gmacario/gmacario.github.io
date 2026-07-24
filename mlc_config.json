@@ -1,7 +1,292 @@
-{  
+{
   "ignorePatterns": [
     {
       "pattern": "^http://localhost"
+    },
+    {
+      "pattern": "^https?://127\\.0\\.0\\.1"
+    },
+    {
+      "pattern": "^http://192\\.168\\."
+    },
+    {
+      "pattern": "^http://172\\.19\\."
+    },
+    {
+      "pattern": "^http://adaygmacario\\.local"
+    },
+    {
+      "pattern": "^http://arduino\\.local"
+    },
+    {
+      "pattern": "^http://udooneo-ip-address"
+    },
+    {
+      "pattern": "^http://rpi3bgm28"
+    },
+    {
+      "pattern": "^https?://35\\.195\\."
+    },
+    {
+      "pattern": "^https?://35\\.205\\."
+    },
+    {
+      "pattern": "^http://.*\\.nip\\.io"
+    },
+    {
+      "pattern": "^http://gmacario-nodejs-port"
+    },
+    {
+      "pattern": "^http://node-http-hmi-repository\\.jx"
+    },
+    {
+      "pattern": "^http://mv-linux-powerhorse\\.solarma\\.it"
+    },
+    {
+      "pattern": "^http://local\\.arduino\\.cc"
+    },
+    {
+      "pattern": "^http://www\\.linino\\.org/"
+    },
+    {
+      "pattern": "^http://projects\\.genivi\\.org/"
+    },
+    {
+      "pattern": "^https://at\\.projects\\.genivi\\.org/"
+    },
+    {
+      "pattern": "^http://docs\\.projects\\.genivi\\.org/"
+    },
+    {
+      "pattern": "^http://genivi\\.org/"
+    },
+    {
+      "pattern": "^http://linino\\.org/"
+    },
+    {
+      "pattern": "^http://wiki\\.projects\\.genivi\\.org/"
+    },
+    {
+      "pattern": "^https://git\\.projects\\.genivi\\.org/"
+    },
+    {
+      "pattern": "^http://openelec\\.tv/"
+    },
+    {
+      "pattern": "^http://www\\.openelec\\.tv"
+    },
+    {
+      "pattern": "^http://gnometerminator\\.blogspot\\.it/"
+    },
+    {
+      "pattern": "^http://fablabtorino\\.org/"
+    },
+    {
+      "pattern": "^http://i3p\\.it/"
+    },
+    {
+      "pattern": "^http://it\\.droidcon\\.com/2015/"
+    },
+    {
+      "pattern": "^http://jekyllrb\\.com/"
+    },
+    {
+      "pattern": "^http://kodi\\.tv/"
+    },
+    {
+      "pattern": "^http://torino\\.js\\.org/"
+    },
+    {
+      "pattern": "^http://www\\.treatabit\\.com/"
+    },
+    {
+      "pattern": "^http://local\\.arduino\\.cc/torino/2015/"
+    },
+    {
+      "pattern": "^http://bit\\.ly/"
+    },
+    {
+      "pattern": "^http://slides\\.com/gianpaolomacario/"
+    },
+    {
+      "pattern": "^http://www\\.lottehotel\\.com/"
+    },
+    {
+      "pattern": "^http://www\\.tomake\\.info/"
+    },
+    {
+      "pattern": "^https?://gmacario\\.github\\.io/"
+    },
+    {
+      "pattern": "^https?://arneis\\.readthedocs\\.io"
+    },
+    {
+      "pattern": "^http://store\\.arduino\\.cc/"
+    },
+    {
+      "pattern": "^http://shop\\.udoo\\.org/"
+    },
+    {
+      "pattern": "^http://www\\.udoo\\.org/udoo-neo/"
+    },
+    {
+      "pattern": "^http://www\\.udoo\\.org/downloads/"
+    },
+    {
+      "pattern": "^http://udoo\\.org/"
+    },
+    {
+      "pattern": "^http://repository\\.udoo\\.org/"
+    },
+    {
+      "pattern": "^http://sourceforge\\.net/projects"
+    },
+    {
+      "pattern": "^https?://www\\.kingston\\.com/us/wireless/wireless_readers"
+    },
+    {
+      "pattern": "^https?://rancher\\.com/"
+    },
+    {
+      "pattern": "^http://thenewstack\\.io/"
+    },
+    {
+      "pattern": "^https?://www\\.htpcbeginner\\.com/"
+    },
+    {
+      "pattern": "^https?://dzone\\.com/articles/"
+    },
+    {
+      "pattern": "^https?://build\\.rokers\\.io"
+    },
+    {
+      "pattern": "^https?://api-labs\\.symbl\\.ai"
+    },
+    {
+      "pattern": "^https?://app\\.proofy\\.co/"
+    },
+    {
+      "pattern": "^https?://www\\.toolboxoffice\\.it/"
+    },
+    {
+      "pattern": "^https?://www\\.replicant\\.us"
+    },
+    {
+      "pattern": "^http://www\\.canakit\\.com/"
+    },
+    {
+      "pattern": "^http://dzone\\.com/"
+    },
+    {
+      "pattern": "^https?://openstreets\\.nextthing\\.co"
+    },
+    {
+      "pattern": "^https?://opensource\\.nextthing\\.co"
+    },
+    {
+      "pattern": "^http://security\\.debian\\.org"
+    },
+    {
+      "pattern": "^http://ftp\\.us\\.debian\\.org"
+    },
+    {
+      "pattern": "^http://http\\.debian\\.net"
+    },
+    {
+      "pattern": "^https?://rubygems\\.org"
+    },
+    {
+      "pattern": "^https?://apt\\.dockerproject\\.org"
+    },
+    {
+      "pattern": "^https?://dl\\.dropboxusercontent\\.com/"
+    },
+    {
+      "pattern": "^http://getchip\\.com/pages/chip"
+    },
+    {
+      "pattern": "^https?://free-electrons\\.com/"
+    },
+    {
+      "pattern": "^https?://docs\\.rancher\\.com/os/"
+    },
+    {
+      "pattern": "^https?://github.com/CyanogenMod/"
+    },
+    {
+      "pattern": "^http://www\\.debian\\.org/"
+    },
+    {
+      "pattern": "^http://www\\.kali\\.org/"
+    },
+    {
+      "pattern": "^http://www\\.virtualbox\\.org/"
+    },
+    {
+      "pattern": "^https?://docs\\.oracle\\.com/javase/8/docs/$"
+    },
+    {
+      "pattern": "^http://dl\\.google\\.com/android/android-sdk_r24\\.1\\.2-linux\\.tgz$"
+    },
+    {
+      "pattern": "^http://fibasile\\.github\\.io/"
+    },
+    {
+      "pattern": "^https?://vapor-ware\\.github\\.io/"
+    },
+    {
+      "pattern": "^http://tigervnc\\.org/"
+    },
+    {
+      "pattern": "^https?://blog\\.gmacario\\.it/"
+    },
+    {
+      "pattern": "^https?://necurity\\.co\\.uk/"
+    },
+    {
+      "pattern": "^http://www\\.sciamannalucio\\.it/"
+    },
+    {
+      "pattern": "^http://www\\.360logica\\.com/blog/email-notification-in-jenkins/$"
+    },
+    {
+      "pattern": "^http://ch\\.ege\\.io/"
+    },
+    {
+      "pattern": "^https?://www\\.torinotoday\\.it/eventi/"
+    },
+    {
+      "pattern": "^http://www\\.piemontebricks\\.it/"
+    },
+    {
+      "pattern": "^https?://www\\.brickfanatics\\.com/it/technic-estate-2022-si-dice-che-sia-il-piu-costoso/$"
+    },
+    {
+      "pattern": "^https?://udoo\\.hackster\\.io/"
+    },
+    {
+      "pattern": "^https?://www\\.linkielist\\.com/"
+    },
+    {
+      "pattern": "^https?://youtube-dl\\.org/"
+    },
+    {
+      "pattern": "^http://goo\\.gl/"
+    },
+    {
+      "pattern": "^https?://console\\.cloud\\.google\\.com/kubernetes/list$"
+    },
+    {
+      "pattern": "^https?://devpost\\.com/software/axolotl$"
+    },
+    {
+      "pattern": "^https?://www\\.cloudbees\\.com/resource/webinar-recording/ondemand-webinar-easy-cicd-kubernetes/thank-you$"
+    },
+    {
+      "pattern": "^https?://udoo\\.org/get-started-neo/$"
+    },
+    {
+      "pattern": "^http://100\\.84\\."
     }
   ]
 }
