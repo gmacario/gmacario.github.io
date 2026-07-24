@@ -38,6 +38,13 @@ export default defineAstroPaperConfig({
     },
     search: "pagefind",
   },
+  analytics: {
+    // Cloudflare Web Analytics (#131). The token is intentionally NOT set here:
+    // it is supplied by the PUBLIC_CLOUDFLARE_BEACON_TOKEN environment variable
+    // in .github/workflows/build-and-deploy.yml, so only production GitHub Pages
+    // builds carry the beacon and Netlify previews stay out of the statistics.
+    // Setting `cloudflareBeaconToken` here would enable it everywhere instead.
+  },
   socials: [
     { name: "github", url: "https://github.com/gmacario" },
     { name: "x", url: "https://x.com/gpmacario" },
