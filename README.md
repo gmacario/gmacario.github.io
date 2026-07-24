@@ -2,6 +2,7 @@
 
 [![Deploy Astro site to GitHub Pages](https://github.com/gmacario/gmacario.github.io/actions/workflows/build-and-deploy.yml/badge.svg)](https://github.com/gmacario/gmacario.github.io/actions/workflows/build-and-deploy.yml)
 [![Check links](https://github.com/gmacario/gmacario.github.io/actions/workflows/check-links.yml/badge.svg)](https://github.com/gmacario/gmacario.github.io/actions/workflows/check-links.yml)
+[![Super-Linter](https://github.com/gmacario/gmacario.github.io/actions/workflows/superlinter.yml/badge.svg)](https://github.com/gmacario/gmacario.github.io/actions/workflows/superlinter.yml)
 [![Netlify Status](https://img.shields.io/badge/netlify-%E2%86%92%20check-blue?style=flat-square&logo=netlify)](https://app.netlify.com/sites/gmacario-blog/deploys)
 
 Gianpaolo Macario's personal website and technical blog — a professional home
@@ -31,7 +32,7 @@ npm run preview
 ## Adding content
 
 - Blog posts live in [`src/content/posts/`](src/content/posts) as Markdown.
-  The file name becomes the permalink (`/posts/<filename>`).
+  The filename becomes the permalink (`/posts/<filename>`).
 - Standalone pages (e.g. About) live in
   [`src/content/pages/`](src/content/pages).
 - Images and other static assets go under [`public/`](public) and are
@@ -39,6 +40,23 @@ npm run preview
 
 Site-wide configuration (title, author, social links, etc.) lives in
 [`astro-paper.config.ts`](astro-paper.config.ts).
+
+## Code quality
+
+- `npm run lint` runs ESLint (`eslint.config.js`) over the Astro/TypeScript
+  source.
+- [`superlinter.yml`](.github/workflows/superlinter.yml) runs
+  [Super-Linter](https://github.com/super-linter/super-linter) on changed
+  files (YAML, JSON, Markdown, natural-language prose, GitHub Actions syntax,
+  and secret scanning via gitleaks). Its configuration lives under
+  [`.github/linters/`](.github/linters). JavaScript/TypeScript/Astro sources
+  are intentionally left to `npm run lint` above rather than Super-Linter,
+  since its bundled ESLint doesn't have the project's own plugins
+  (`eslint-plugin-astro`, `@typescript-eslint`) available.
+- [`check-links.yml`](.github/workflows/check-links.yml) checks outbound
+  links in posts and pages with
+  [linkspector](https://github.com/UmbrellaDocs/linkspector)
+  (`.linkspector.yml`).
 
 ## Deployment
 

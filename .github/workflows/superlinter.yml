@@ -1,0 +1,77 @@
+---
+# Lint the repository with Super-Linter
+# (https://github.com/super-linter/super-linter).
+#
+# Re-introduced after the Astro migration (issue #124/#62/#188 dropped the
+# previous workflow because its JavaScript/TypeScript "standard" linters
+# fought the Astro toolchain: they used a bundled tsconfig that didn't
+# include AstroPaper's files). This version is deliberately scoped:
+#
+# - VALIDATE_ALL_CODEBASE is false, so only files changed in a push/PR are
+#   checked. The repo carries a decade of migrated blog posts that were
+#   never linted by this tool; scanning only diffs avoids a flood of
+#   unrelated legacy findings on unrelated changes.
+# - JavaScript/TypeScript/Astro sources are intentionally NOT validated
+#   here: they're linted by the project's own `npm run lint`
+#   (eslint.config.js), which depends on eslint-plugin-astro and
+#   @typescript-eslint packages that Super-Linter's image doesn't bundle.
+#   Pointing its generic ESLint validator at that config would recreate
+#   the exact failure that got the old workflow removed.
+# - Existing tuned configs under .github/linters/ (markdown, yaml,
+#   textlint, gitleaks) are auto-discovered (LINTER_RULES_PATH defaults to
+#   .github/linters) and reused as-is; they survived the migration intact.
+# - VALIDATE_GITLEAKS is temporarily disabled: .github/linters/.gitleaks.toml
+#   was written for a much older gitleaks release and needs a full schema
+#   review against the version Super-Linter bundles now. See #197.
+name: Super-Linter
+
+on:
+  push:
+  pull_request:
+
+permissions: { }
+
+jobs:
+  lint:
+    name: Lint code base
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read
+      statuses: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+        with:
+          # Super-Linter needs full history to diff changed files when
+          # VALIDATE_ALL_CODEBASE is false.
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Super-Linter
+        uses: super-linter/super-linter@v8.7.0 # x-release-please-version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BRANCH: main
+          VALIDATE_ALL_CODEBASE: false
+          VALIDATE_YAML: true
+          VALIDATE_JSON: true
+          VALIDATE_MARKDOWN: true
+          VALIDATE_NATURAL_LANGUAGE: true
+          VALIDATE_GITHUB_ACTIONS: true
+          # VALIDATE_GITLEAKS is intentionally omitted (not just set to
+          # false): Super-Linter rejects mixing VALIDATE_X=true with
+          # VALIDATE_Y=false in the same run -- since the above use
+          # allow-list style, GITLEAKS must be left out entirely to stay
+          # disabled. .gitleaks.toml needs a schema review against the
+          # bundled gitleaks version first; see #197.
+          # Disabled: Super-Linter formats its own summary with Prettier and
+          # picks up this repo's root .prettierrc, which declares
+          # prettier-plugin-astro -- a plugin Super-Linter's image doesn't
+          # have installed, crashing summary generation. Per-linter results
+          # still post as individual commit statuses without this.
+          ENABLE_GITHUB_ACTIONS_STEP_SUMMARY: false
+          ENABLE_GITHUB_PULL_REQUEST_SUMMARY_COMMENT: false
+
+# EOF
