@@ -287,6 +287,66 @@
     },
     {
       "pattern": "^http://100\\.84\\."
+    },
+    {
+      "pattern": "^https?://blog\\.symbl\\.ai/"
+    },
+    {
+      "pattern": "^https?://platform\\.symbl\\.ai/"
+    },
+    {
+      "pattern": "^https?://docs\\.symbl\\.ai/"
+    },
+    {
+      "pattern": "^https?://opencv\\.org/opencv-spatial-ai-contest/"
+    },
+    {
+      "pattern": "^https?://twitter\\.com/opencvweekly"
+    },
+    {
+      "pattern": "^https?://github\\.com/MarcoMaru/"
+    },
+    {
+      "pattern": "^https?://www\\.piemontebricks\\.it/"
+    },
+    {
+      "pattern": "^https?://www\\.lego\\.com/"
+    },
+    {
+      "pattern": "^https?://www\\.ebay\\.it/"
+    },
+    {
+      "pattern": "^https?://scholar\\.google\\.com/"
+    },
+    {
+      "pattern": "^https?://scontent\\.fmxp10-1\\.fna\\.fbcdn\\.net/"
+    },
+    {
+      "pattern": "^https?://www\\.raspberrypi\\.com/products/raspberry-pi-3-model-b-plus/"
+    },
+    {
+      "pattern": "^https?://www\\.raspberrypi\\.com/software/"
+    },
+    {
+      "pattern": "^https?://source\\.android\\.com/docs/core/connect/bluetooth/verifying_debugging"
+    },
+    {
+      "pattern": "^/assets/"
+    },
+    {
+      "pattern": "\\.(jpg|jpeg|png|gif|svg|webp)$"
+    },
+    {
+      "pattern": "\\.json$"
+    },
+    {
+      "pattern": "^/images/"
+    },
+    {
+      "pattern": "^/bio/"
+    },
+    {
+      "pattern": "^TODO$"
     }
   ]
 }
