@@ -7,7 +7,9 @@
       "exclude": [
         "HTML",
         "Node(?:js)?",
-        "web[- ]?site(s)?"
+        "web[- ]?site(s)?",
+        "docker",
+        "VS Code"
       ]
     }
   }
