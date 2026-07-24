@@ -3,7 +3,7 @@ title: "About"
 description: "Gianpaolo Macario — Senior Software Architect at AROL Group, working on embedded systems, IoT and open-source tooling."
 ---
 
-![Gianpaolo Macario](/bio/img_2741.jpg)
+<img src="/bio/img_2741.jpg" alt="Gianpaolo Macario" width="200" />
 
 I'm **Gianpaolo Macario**, a software architect specialising in embedded
 systems, IoT and open-source tooling.
@@ -26,18 +26,26 @@ about Linux and IVI at universities, customer sites and public events.
 
 ## Selected projects
 
-- [FREISA](https://github.com/B-AROL-O/FREISA) — I lead this B-AROL-O team
-  project building a four-legged robot for intelligent sprinkler automation.
-  It has since grown into FREISA-GPT, an AI-powered interactive companion
-  integrating an open-weight LLM for voice commands and physical robot
-  actions on ROS2. FREISA won the Grand Prize at the OpenCV AI Competition
-  2023, was a finalist at the OpenAI Open Model Hackathon, and was featured
-  in The MagPi Magazine and Tom's Hardware.
+- [FREISA](https://github.com/B-AROL-O/FREISA) — a four-legged robot for
+  intelligent sprinkler automation, which I lead within the B-AROL-O team.
+  Now evolved into FREISA-GPT, an LLM-powered companion on ROS2; Grand Prize
+  winner at the OpenCV AI Competition 2023 and a finalist at the OpenAI Open
+  Model Hackathon.
 - [ARNEIS](https://github.com/B-AROL-O/ARNEIS) — a B-AROL-O team project
-- [AXOLOTL](https://devpost.com/software/axolotl)
-- [blobfishes](https://github.com/aquariophilie/blobfishes)
-- [easy-build](https://github.com/gmacario/easy-build)
-- [easy-jenkins](https://github.com/gmacario/easy-jenkins)
+  simulating an Industry 4.0 bottle-sorting machine, combining OpenCV spatial
+  AI, LEGO Technic hardware and a hybrid Kubernetes cluster spanning Azure
+  and edge Raspberry Pis; finalist at the OpenCV Spatial AI Contest.
+- [AXOLOTL](https://devpost.com/software/axolotl) — a wine-bottle
+  traceability app generating QR codes linked to Confluence pages, built for
+  Atlassian's Codegeist 2021 hackathon.
+- [blobfishes](https://github.com/aquariophilie/blobfishes) — a
+  deliberately-ugly Node.js/MongoDB/Docker web app built for the
+  DigitalOcean MongoDB Hackathon.
+- [easy-build](https://github.com/gmacario/easy-build) — Dockerfiles for
+  rebuilding embedded software distributions such as AOSP, OpenWrt and the
+  Yocto Project.
+- [easy-jenkins](https://github.com/gmacario/easy-jenkins) — deploys a
+  Jenkins CI/CD stack via docker-machine and docker-compose.
 
 ## Find me elsewhere
 
