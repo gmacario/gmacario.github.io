@@ -23,17 +23,13 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Run linkspector
+        uses: umbrelladocs/action-linkspector@v1
         with:
-          node-version: "22"
-
-      - name: Install linkspector
-        run: npm install -g @umbrelladocs/linkspector
-
-      - name: Check links
-        run: linkspector check
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-review
+          fail_level: any
 
 # EOF
