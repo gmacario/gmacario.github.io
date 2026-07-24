@@ -2,7 +2,7 @@
 
 [![Deploy Astro site to GitHub Pages](https://github.com/gmacario/gmacario.github.io/actions/workflows/build-and-deploy.yml/badge.svg)](https://github.com/gmacario/gmacario.github.io/actions/workflows/build-and-deploy.yml)
 [![Check links](https://github.com/gmacario/gmacario.github.io/actions/workflows/check-links.yml/badge.svg)](https://github.com/gmacario/gmacario.github.io/actions/workflows/check-links.yml)
-[![Netlify Status](https://app.netlify.com/sites/stoic-newton-ff8d72/status.svg?column=deploys)](https://app.netlify.com/sites/stoic-newton-ff8d72/deploys)
+[![Netlify Status](https://app.netlify.com/sites/gmacario-blog/status.svg?column=deploys)](https://app.netlify.com/sites/gmacario-blog/deploys)
 
 Gianpaolo Macario's personal website and technical blog — a professional home
 base with a bio/CV landing page and a decade of posts.
