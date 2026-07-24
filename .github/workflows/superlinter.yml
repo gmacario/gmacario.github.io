@@ -1,5 +1,6 @@
 ---
-# Lint the repository with Super-Linter (https://github.com/super-linter/super-linter).
+# Lint the repository with Super-Linter
+# (https://github.com/super-linter/super-linter).
 #
 # Re-introduced after the Astro migration (issue #124/#62/#188 dropped the
 # previous workflow because its JavaScript/TypeScript "standard" linters
@@ -25,7 +26,7 @@ on:
   push:
   pull_request:
 
-permissions: {}
+permissions: { }
 
 jobs:
   lint:
@@ -57,5 +58,12 @@ jobs:
           VALIDATE_NATURAL_LANGUAGE: true
           VALIDATE_GITHUB_ACTIONS: true
           VALIDATE_GITLEAKS: true
+          # Disabled: Super-Linter formats its own summary with Prettier and
+          # picks up this repo's root .prettierrc, which declares
+          # prettier-plugin-astro -- a plugin Super-Linter's image doesn't
+          # have installed, crashing summary generation. Per-linter results
+          # still post as individual commit statuses without this.
+          ENABLE_GITHUB_ACTIONS_STEP_SUMMARY: false
+          ENABLE_GITHUB_PULL_REQUEST_SUMMARY_COMMENT: false
 
 # EOF

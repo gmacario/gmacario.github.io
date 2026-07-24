@@ -32,7 +32,7 @@ npm run preview
 ## Adding content
 
 - Blog posts live in [`src/content/posts/`](src/content/posts) as Markdown.
-  The file name becomes the permalink (`/posts/<filename>`).
+  The filename becomes the permalink (`/posts/<filename>`).
 - Standalone pages (e.g. About) live in
   [`src/content/pages/`](src/content/pages).
 - Images and other static assets go under [`public/`](public) and are
