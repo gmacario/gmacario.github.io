@@ -106,13 +106,17 @@ az acr check-health --name arolgroup
 # az acr credential show --name arolgroup
 ```
 
-TODO: Understand why the last (commented) command returns an error:
+The last (commented) command above fails at this point in the walkthrough,
+because the registry's admin account isn't enabled yet:
 
 ```text
 macario [ ~ ]$ az acr credential show --name arolgroup
 Run 'az acr update -n arolgroup --admin-enabled true' to enable admin first.
 macario [ ~ ]$
 ```
+
+The error message says exactly what to do — see "Enable the registry admin
+account" further down in this post.
 
 <!-- (2024-05-21 12:29 CEST) -->
 
@@ -452,16 +456,16 @@ Get the IP address of the Azure container instance using the az container show c
 az container show --resource-group learn-acr-rg --name acr-tasks --query ipAddress.ip --output table
 ```
 
-Result:
-
-```text
-TODO
-```
+Result: this step could not be completed in my subscription, because the
+container deployment above failed with an authorization error. When it
+succeeds, this command prints the container's public IP address.
 
 In a separate browser tab, navigate to the IP address of the container.
-If everything is configured correctly, you should see the following web page:
+If everything is configured correctly, you should see a simple web page
+confirming the container is up and running.
 
-TODO
+*(No screenshot here, since my container instance never started — see the
+authorization error above.)*
 
 ### Exercise - Replicate a container image to different Azure regions
 
@@ -469,11 +473,16 @@ TODO
 
 (5 min)
 
-TODO
+This exercise shows how to replicate a registry to a second Azure region for
+lower latency and better resiliency. *(Not run against my own subscription,
+following the authorization error above — the steps below follow the
+referenced Microsoft Learn module.)*
 
 #### Create a replicated region for an Azure Container Registry
 
-TODO
+Azure Container Registry supports **geo-replication**: push an image once and
+pull it from a regional replica closer to where it's deployed, reducing
+latency for multi-region deployments.
 
 Replicate your registry to another region using the `az acr replication create` command. In this example, we replicate to the `japaneast` region.
 
@@ -481,9 +490,9 @@ Replicate your registry to another region using the `az acr replication create` 
 az acr replication create --registry $ACR_NAME --location japaneast
 ```
 
-Your output should look similar to the following condensed example output:
-
-TODO
+*(Output not captured here — see the [referenced Microsoft Learn
+module](https://learn.microsoft.com/en-us/training/modules/build-and-store-container-images/5-replicate-container-image)
+for a full example.)*
 
 View all the container image replicas using the `az acr replication list` command.
 
@@ -491,13 +500,13 @@ View all the container image replicas using the `az acr replication list` comman
 az acr replication list --registry $ACR_NAME --output table
 ```
 
-Your output should look similar to the following example output:
+*(Output not captured here — the table lists each replicated region and its
+provisioning status.)*
 
-TODO
+You can also use the Azure portal to view your container images by navigating to your container registry and selecting `Replications`.
 
-You can also use the Azure portal to view your container images by navigating to your container registry and selecting `Replications`:
-
-TODO
+*(Screenshot not captured here — the pane lists each region and its sync
+status.)*
 
 #### Clean up resources
 
