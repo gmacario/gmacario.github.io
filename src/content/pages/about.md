@@ -26,6 +26,13 @@ about Linux and IVI at universities, customer sites and public events.
 
 ## Selected projects
 
+- [FREISA](https://github.com/B-AROL-O/FREISA) — I lead this B-AROL-O team
+  project building a four-legged robot for intelligent sprinkler automation.
+  It has since grown into FREISA-GPT, an AI-powered interactive companion
+  integrating an open-weight LLM for voice commands and physical robot
+  actions on ROS2. FREISA won the Grand Prize at the OpenCV AI Competition
+  2023, was a finalist at the OpenAI Open Model Hackathon, and was featured
+  in The MagPi Magazine and Tom's Hardware.
 - [ARNEIS](https://github.com/B-AROL-O/ARNEIS) — a B-AROL-O team project
 - [AXOLOTL](https://devpost.com/software/axolotl)
 - [blobfishes](https://github.com/aquariophilie/blobfishes)
