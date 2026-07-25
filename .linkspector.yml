@@ -136,6 +136,7 @@ ignorePatterns:
   - pattern: '^https?://www\.raspberrypi\.com/products/raspberry-pi-3-model-b/'
   - pattern: '^https?://www\.arduino\.cc/pro/hardware/product/portenta-x8'
   - pattern: '^https?://[^/]*\.linkedin\.com/'
+  - pattern: '^https?://dash\.cloudflare\.com/'
 
 userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36'
 followRedirects: true
