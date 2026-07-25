@@ -1,6 +1,6 @@
 ---
 title: "Ditching Google Analytics: a beginner's guide to Cloudflare Web Analytics"
-pubDatetime: 2026-07-24T00:00:00+02:00
+pubDatetime: 2026-07-25T00:00:00+02:00
 tags:
   - analytics
   - privacy
