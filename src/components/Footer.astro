@@ -1,7 +1,9 @@
 ---
 import type { HTMLAttributes } from "astro/types";
+import { getRelativeLocaleUrl } from "astro:i18n";
 import Socials from "./Socials.astro";
 import { useTranslations } from "@/i18n";
+import config from "@/config";
 
 type Props = {
   noMarginTop?: boolean;
@@ -9,7 +11,8 @@ type Props = {
 
 const { noMarginTop = false, class: className, ...attrs } = Astro.props;
 
-const t = useTranslations(Astro.currentLocale);
+const locale = Astro.currentLocale ?? config.site.lang;
+const t = useTranslations(locale);
 const currentYear = new Date().getFullYear();
 ---
 
@@ -25,6 +28,13 @@ const currentYear = new Date().getFullYear();
       <span>{t.footer.copyright} &#169; {currentYear}</span>
       <span class="hidden sm:inline">&nbsp;|&nbsp;</span>
       <span>{t.footer.allRightsReserved}</span>
+      <span class="hidden sm:inline">&nbsp;|&nbsp;</span>
+      <a
+        href={getRelativeLocaleUrl(locale, "privacy-policy")}
+        class="hover:text-accent underline-offset-4 hover:underline"
+      >
+        {t.footer.privacyPolicy}
+      </a>
     </div>
   </div>
 </footer>
