@@ -38,6 +38,7 @@ const t = useTranslations(locale);
       transition:persist
       data-backurl={backUrl}
       data-bundle-path={pagefindBundlePath}
+      data-search-label={t.pages.searchTitle}
     >
     </div>
   </Main>
@@ -100,6 +101,10 @@ const t = useTranslations(locale);
       // Reset search param if search input is cleared
       const searchInput = document.querySelector(".pagefind-ui__search-input");
       const clearButton = document.querySelector(".pagefind-ui__search-clear");
+      // The widget only sets `title`, which screen readers don't reliably
+      // announce as a label -- add an explicit aria-label too.
+      const searchLabel = pageFindSearch?.dataset?.searchLabel;
+      if (searchLabel) searchInput?.setAttribute("aria-label", searchLabel);
       searchInput?.addEventListener("input", resetSearchParam);
       clearButton?.addEventListener("click", resetSearchParam);
 

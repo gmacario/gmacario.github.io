@@ -11,6 +11,7 @@ import { unified } from "@astrojs/markdown-remark";
 import remarkToc from "remark-toc";
 import remarkCollapse from "remark-collapse";
 import rehypeCallouts from "rehype-callouts";
+import { rehypeTaskListA11y } from "./src/utils/rehypeTaskListA11y";
 import {
   transformerNotationDiff,
   transformerNotationHighlight,
@@ -41,10 +42,13 @@ export default defineConfig({
         remarkToc,
         [remarkCollapse, { test: "Table of contents" }],
       ],
-      rehypePlugins: [rehypeCallouts],
+      rehypePlugins: [rehypeCallouts, rehypeTaskListA11y],
     }),
     shikiConfig: {
-      themes: { light: "min-light", dark: "night-owl" },
+      // "min-light" was replaced with Shiki's purpose-built accessible theme:
+      // its comment-token color (#c2c3c5 on white) failed WCAG AA contrast
+      // (1.76:1, needs 4.5:1). github-light-high-contrast passes (5.04:1).
+      themes: { light: "github-light-high-contrast", dark: "night-owl" },
       defaultColor: false,
       wrap: false,
       transformers: [
