@@ -11,17 +11,17 @@ description: "Here are my notes while deploying Jenkins X on a Kubernetes cluste
 
 <!-- markdown-link-check-disable -->
 
-### Introduction
+## Introduction
 
 Here are my notes while deploying Jenkins X on a Kubernetes cluster on GCP.
 
 The commands in this page have been tested on host "nemo" (Ubuntu 18.04.1 LTS 64-bit).
 
-### References
+## References
 
 * <https://jenkins-x.io/getting-started/>
 
-### Create cluster on GCP
+## Create cluster on GCP
 
 <!-- 2018-10-09 09:47 CEST -->
 
@@ -206,9 +206,9 @@ To create a new microservice from a quickstart: jx create quickstart
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 ```
 
-### Inspecting the products of `jx create cluster gke`
+## Inspecting the products of `jx create cluster gke`
 
-#### Kubernetes cluster
+### Kubernetes cluster
 
 Logged as `gmacario@cloudshell`
 
@@ -225,13 +225,13 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 ```
 
-#### Others
+### Others
 
 * Jenkins instance: <http://jenkins.jx.35.241.213.226.nip.io/>
 * GitHub repository for staging environment: <https://github.com/gmacario/environment-tonguetree-staging>
 * GitHub repository for production environment: <https://github.com/gmacario/environment-tonguetree-production>
 
-#### Run `jx diagnose` as gmacario@cloudshell
+### Run `jx diagnose` as gmacario@cloudshell
 
 <!-- 2018-10-09 11:39 CEST -->
 
@@ -320,7 +320,7 @@ Finished printing diagnostic information.
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$:
 ```
 
-#### Run `jx compliance` as gmacario@cloudshell
+### Run `jx compliance` as gmacario@cloudshell
 
 <!-- 2018-10-09 11:42 CEST -->
 
@@ -535,7 +535,7 @@ PASSED [sig-storage] Subpath Atomic writer volumes should support subpaths with 
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 ```
 
-### Control cluster from nemo
+## Control cluster from nemo
 
 Browse <https://console.cloud.google.com> > Kubernetes Engine > Clusters
 
@@ -546,7 +546,7 @@ Browse <https://console.cloud.google.com> > Kubernetes Engine > Clusters
 
 Reference: <https://cloud.google.com/sdk/gcloud/reference/container/clusters/get-credentials>
 
-#### List Kubernetes clusters on GCP
+### List Kubernetes clusters on GCP
 
 Logged as `gpmacario@nemo`
 
@@ -563,7 +563,7 @@ tonguetree  europe-west1-b  1.9.7-gke.6     35.195.217.164  n1-standard-2  1.9.7
 gpmacario@nemo:~ $
 ```
 
-#### Get credentials for GKE cluster "tonguetree"
+### Get credentials for GKE cluster "tonguetree"
 
 Logged as gpmacario@nemo
 
@@ -580,7 +580,7 @@ kubeconfig entry generated for tonguetree.
 gpmacario@nemo:~ $
 ```
 
-#### run `kubectl cluster-info`
+### run `kubectl cluster-info`
 
 Command
 
@@ -603,7 +603,7 @@ To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
 gpmacario@nemo:~ $
 ```
 
-#### Run `kubectl get nodes`
+### Run `kubectl get nodes`
 
 Command
 
@@ -622,7 +622,7 @@ gke-tonguetree-default-pool-5c0fe7ba-xj5l   Ready    <none>   68m   v1.9.7-gke.6
 gpmacario@nemo:~ $
 ```
 
-#### Run `kubectl get namespaces`
+### Run `kubectl get namespaces`
 
 Command
 
@@ -644,7 +644,7 @@ kube-system     Active   75m
 gpmacario@nemo:~ $
 ```
 
-#### Run `kubectl get services -n jx`
+### Run `kubectl get services -n jx`
 
 Command
 
@@ -670,7 +670,7 @@ nexus                           ClusterIP   10.27.243.12    <none>        80/TCP
 gpmacario@nemo:~ $
 ```
 
-#### Run `kubectl proxy`
+### Run `kubectl proxy`
 
 Command
 
@@ -683,7 +683,7 @@ gpmacario@nemo:~ $ kubectl proxy
 Starting to serve on 127.0.0.1:8001
 ```
 
-#### Display Kubernetes dashboard
+### Display Kubernetes dashboard
 
 Logged as `gpmacario@nemo`,
 browse <http://127.0.0.1:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy>
@@ -708,9 +708,9 @@ kubectl config view | grep access-token
 
 and click "SIGN IN".
 
-### Trying `jx` commands from nemo
+## Trying `jx` commands from nemo
 
-#### Install the `jx` binary
+### Install the `jx` binary
 
 Reference: <https://jenkins-x.io/getting-started/install/>
 
@@ -722,7 +722,7 @@ curl -L https://github.com/jenkins-x/jx/releases/download/v1.3.399/jx-linux-amd6
 sudo mv jx /usr/local/bin
 ```
 
-#### Display jx help
+### Display jx help
 
 ```
 gpmacario@nemo:~ $ jx
@@ -798,7 +798,7 @@ Use "jx options" for a list of global command-line options (applies to all comma
 gpmacario@nemo:~ $
 ```
 
-#### Run `jx --version`
+### Run `jx --version`
 
 Command
 
@@ -814,7 +814,7 @@ gpmacario@nemo:~ $ jx --version
 gpmacario@nemo:~ $
 ```
 
-#### Run `jx diagnose` as gpmacario@nemo
+### Run `jx diagnose` as gpmacario@nemo
 
 Command
 
@@ -862,13 +862,13 @@ The current requirements are:
 gpmacario@nemo:~ $
 ```
 
-### Summary
+## Summary
 
 This post explained how to set up a Jenkins X instance on Google Cloud Platform.
 
 Stay tuned for future posts on the subject!
 
-### See also
+## See also
 
 * <https://jenkins-x.io/>
 * <https://jenkins.io/projects/jenkins-x/>

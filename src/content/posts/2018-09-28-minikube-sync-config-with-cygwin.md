@@ -12,7 +12,7 @@ description: "I have Cygwin64 installed on my laptop which is running Windows 7 
 
 <!-- markdown-link-check-disable -->
 
-### The Problem
+## The Problem
 
 I have [Cygwin64](https://www.cygwin.com/) installed on my laptop which is running Windows 7 and I use both Windows CMD as well as Cygwin bash.
 
@@ -44,7 +44,7 @@ kubectl:
 C:\Users\GPMacario>
 ```
 
-### Troubleshooting
+## Troubleshooting
 
 By default Minikube stores its configuration in a `.minikube` directory under your home folder.
 
@@ -57,7 +57,7 @@ After looking through the Minikube documentation I found <https://github.com/kub
 
 > **MINIKUBE_HOME** - (string) sets the path for the .minikube directory that minikube uses for state/configuration
 
-### Solution
+## Solution
 
 Start > Computer > Properties > Advanced > Environment Variables
 

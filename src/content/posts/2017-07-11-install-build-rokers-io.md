@@ -15,7 +15,7 @@ description: "This blog post details the steps I made to install the build.roker
 
 This blog post details the steps I made to install the [build.rokers.io](https://build.rokers.io/) server on [AWS](https://aws.amazon.com/) using [Docker](https://www.docker.com/) and [easy-jenkins](https://github.com/gmacario/easy-jenkins).
 
-### Prepare the AWS instance
+## Prepare the AWS instance
 
 <!-- 2017-06-30 18:00 CEST -->
 
@@ -55,7 +55,7 @@ Verify that the following requisites are met:
 * OS: Ubuntu 16.04.2 LTS 64-bit
 
 
-### Prepare the guest OS on build.rokers.io
+## Prepare the guest OS on build.rokers.io
 
 Logged as ubuntu@build.rokers.io and make sure that the guest OS is up-to-date
 
@@ -101,7 +101,7 @@ swapon -a
 Reboot to make sure all the changes are applied
 
 
-### Install Docker and docker-compose
+## Install Docker and docker-compose
 
 Logged as ubuntu@build.rokers.io, install Docker
 
@@ -132,7 +132,7 @@ docker-compose --version
 ```
 
 
-### Install easy-jenkins
+## Install easy-jenkins
 
 Logged as ubuntu@build.rokers.io, install and run easy-jenkins
 
@@ -160,7 +160,7 @@ ubuntu@ip-172-31-26-128:~/github/gmacario/easy-jenkins$
 ```
 
 
-### Expose Jenkins through https
+## Expose Jenkins through https
 
 <!-- 2017-07-04 06:30 CEST -->
 
@@ -179,7 +179,7 @@ docker-compose up -d
 
 The Jenkins dashboard should be now be accessible as <https://build.rokers.io/>.
 
-#### Alternative: Tunnel through SSH
+### Alternative: Tunnel through SSH
 
 Since port 9080/tcp on build.rokers.io is firewalled, type the following commands on your laptop to create a SSH tunnel to <http://build.rokers.io:9080/>
 
@@ -195,7 +195,7 @@ You will then be able to access the Jenkins dashboard as <http://localhost:29080
 **NOTE**: Although SSH tunnel may be sufficient for most of the use-cases, in order to use GitHub based authentication you need to expose the Jenkins Dashboard through https as explained in the section above.
 
 
-### Complete setup of Jenkins
+## Complete setup of Jenkins
 
 Now browse `${JENKINS_URL}` (<https://build.rokers.io/> or <http://localhost:29080/> if the SSH tunnel was used instead) and complete the configuration of easy-jenkins:
 
@@ -224,7 +224,7 @@ Browse `${JENKINS_URL}` > Manage Jenkins > Configure System
 **TODO**: Configure mail server used by Jenkins - see <http://www.360logica.com/blog/email-notification-in-jenkins/>
 
 
-### Configure login to Jenkins using GitHub credentials
+## Configure login to Jenkins using GitHub credentials
 
 <!-- 2017-07-06 14:00 CEST -->
 
@@ -281,7 +281,7 @@ then add each single GitHub user/group you want to enable.
 Browse `${JENKINS_URL}` > Manage Jenkins > Configure Global Security > Security Realm
 
 
-### Build rokers-image-base
+## Build rokers-image-base
 
 <!-- 2017-07-11 14:10 CEST -->
 

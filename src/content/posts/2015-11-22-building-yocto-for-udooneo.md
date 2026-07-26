@@ -13,13 +13,13 @@ description: "In a previous post I described how to run a prebuilt Yocto Project
 
 <!-- markdown-link-check-disable -->
 
-### Introduction
+## Introduction
 
 In [a previous post](http://bit.ly/1Puczzk) I described how to run a prebuilt [Yocto Project](https://www.yoctoproject.org/) image on my [UDOO Neo](http://www.udoo.org/udoo-neo/).
 
 This post explains how to build the micro SD card image directly from sources.
 
-### References
+## References
 
 * <https://github.com/gmacario/genivi-demo-platform/tree/dev-udooneo-fido>
 

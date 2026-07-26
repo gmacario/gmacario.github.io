@@ -8,7 +8,7 @@ description: "After a few months of uninterrupted service, my Arduino Yun starte
 
 <!-- markdown-link-check-disable -->
 
-### The problem
+## The problem
 
 After a few months of uninterrupted service, my [Arduino Yun](https://www.arduino.cc/en/Main/ArduinoBoardYun) started rebooting every couple of minutes.
 
@@ -66,7 +66,7 @@ Arduino Yun (ar9331) U-boot
 
 Notice the error message `  129.650000] Removing MTD device #3 (rootfs_data) with use count 1`
 
-### Try Failsafe mode
+## Try Failsafe mode
 
 Just after the Yun reboots, press `ENTER` to stop at U-boot prompt.
 
@@ -186,7 +186,7 @@ root@(none):/#
 
 OK, overlayfs was not mounted.
 
-### Try zeroing `/dev/mtd3`
+## Try zeroing `/dev/mtd3`
 
 <!-- 2017-01-26 19:03 CET -->
 
@@ -205,7 +205,7 @@ root@(none):/# exit
 Please reboot system when done with failsafe network logins
 ```
 
-### Retry boot after zeroing `/dev/mtd3`
+## Retry boot after zeroing `/dev/mtd3`
 
 ```
 ...
@@ -244,7 +244,7 @@ Press the [f] key and hit [enter] to enter failsafe mode
 [   14.390000] sd 0:0:0:0: [sda] Attached SCSI removable disk
 ```
 
-### Reflash the OpenWrt-Yun image on the Yun
+## Reflash the OpenWrt-Yun image on the Yun
 
 <!-- 2017-01-27 13:00 CET -->
 
@@ -281,7 +281,7 @@ setenv serverip 192.168.12.20;
 setenv ipaddr 192.168.12.201;
 ```
 
-#### Reflashing Kernel
+### Reflashing Kernel
 
 <!-- 2017-01-27 12:24 CET -->
 
@@ -325,7 +325,7 @@ done
 ar7240>
 ```
 
-#### Reflashing OpenWrt-Yun
+### Reflashing OpenWrt-Yun
 
 <!-- 2017-01-27 12:31 CET -->
 
@@ -385,7 +385,7 @@ done
 ar7240>
 ```
 
-#### Rebooting
+### Rebooting
 
 <!-- 2017-01-27 12:34 CET -->
 
@@ -451,7 +451,7 @@ root@Arduino:~#
 
 
 ----------------------------
-### Alternative: Nuke `/overlay`
+## Alternative: Nuke `/overlay`
 
 <!-- 2017-03-03 16:32 -->
 

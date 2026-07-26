@@ -17,7 +17,7 @@ The only prerequisite is that host and target are connected via IP networking.
 
 Notice that nc is implemented as part of BusyBox, so there is a high chance that this tool is available inside your embedded target filesystem.
 
-### Example: Copy a tarball from the host to the target
+## Example: Copy a tarball from the host to the target
 
 In this example, let us create a tarball with the `/etc` directory of the host and transfer it to the target:
 

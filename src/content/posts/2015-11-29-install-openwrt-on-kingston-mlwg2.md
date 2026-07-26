@@ -11,11 +11,11 @@ description: "This blog post explains how to install OpenWrt on the Kingston Mob
 
 <!-- markdown-link-check-disable -->
 
-### Introduction
+## Introduction
 
 This blog post explains how to install [OpenWrt](https://openwrt.org/) on the [Kingston Mobilelite Wireless MLWG2](http://www.kingston.com/us/wireless/wireless_readers).
 
-### Download OpenWrt image for MLWG2
+## Download OpenWrt image for MLWG2
 Download Chaos Chalmer 15.05 for mlwg2 from <https://downloads.openwrt.org/chaos_calmer/15.05/ramips/mt7620/>
 
 File: <https://downloads.openwrt.org/chaos_calmer/15.05/ramips/mt7620/openwrt-15.05-ramips-mt7620-mlwg2-squashfs-sysupgrade.bin>
@@ -33,7 +33,7 @@ gmacario@ITM-GMACARIO-W7 ~/Downloads
 $
 ```
 
-### Prepare the install media
+## Prepare the install media
 
 Plug a FAT32-formatted USB pendrive on the host and put the following files:
 
@@ -186,7 +186,7 @@ wlan0     Link encap:Ethernet  HWaddr 00:26:B7:08:E0:A2
 root@OpenWrt:/#
 ```
 
-### OpenWrt - First Login
+## OpenWrt - First Login
 
 See <https://wiki.openwrt.org/doc/howto/firstlogin>
 
@@ -194,7 +194,7 @@ Configure your host to connect to 192.168.1.1 using the local network
 
 TODO
 
-### Reconfigure networking
+## Reconfigure networking
 
 From the serial console use the uci command to take a static IP address in your local network and use Google DNS (replace x and y appropriately)
 
@@ -283,7 +283,7 @@ $ sudo nmap <device_ip>
 
 Stay tuned for future posts on some interesting uses of OpenWrt on my MLWG2!
 
-### See also
+## See also
 
 * <https://wiki.openwrt.org/toh/kingston/mlwg2>
 * <https://github.com/gmacario/kingston-mlwg2-hack/wiki/Login-to-a-command-shell-on-MLWG2>

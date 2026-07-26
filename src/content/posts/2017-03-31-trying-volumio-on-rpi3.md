@@ -11,7 +11,7 @@ description: "This blog post explains my experiences with the Volumio Music Play
 This blog post explains my experiences with the [Volumio](https://volumio.org/)
 Music Player on a Raspberry Pi 3.
 
-### Prepare the SD-Card image
+## Prepare the SD-Card image
 
 See <https://volumio.org/get-started/>
 
@@ -157,7 +157,7 @@ volumio@volumio:~$ ps axfw
 volumio@volumio:~$
 ```
 
-### See also
+## See also
 
 * <https://www.volumio.org/>
 * <https://github.com/VOLUMIO>

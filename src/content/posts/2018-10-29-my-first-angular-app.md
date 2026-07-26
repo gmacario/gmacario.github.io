@@ -12,7 +12,7 @@ description: "This article explains how to install and create a simple Angular.j
 
 <!-- 2018-10-16 12:29 CEST -->
 
-### Introduction
+## Introduction
 
 This article explains how to install and create a simple [Angular.js](https://angular.io/) application.
 

@@ -12,7 +12,7 @@ description: "This article explains how to deploy a simple Node.JS application o
 
 <!-- markdown-link-check-disable -->
 
-### Introduction
+## Introduction
 
 This article explains how to deploy a simple [Node.JS](https://nodejs.org/) application on a [Kubernetes](https://kubernetes.io/) cluster using [Jenkins X](https://jenkins-x.io/).
 
@@ -22,12 +22,12 @@ The following instructions have been tested on host "nemo" (Ubuntu 18.04.1 LTS 6
 
 We will create our sample application using Jenkins X Quickstart. Quickstarts are pre-made applications you can start a project from, instead of starting from scratch.
 
-### References
+## References
 
 * <https://jenkins-x.io/getting-started/>
 * <https://gmacario.github.io/howto/kubernetes/gcp/jenkins/2018/10/09/install-jenkinsx-on-gcp.html>
 
-### Prerequisites
+## Prerequisites
 
 * The `jx` binary is installed and available from your shell
 * Jenkins X properly configured
@@ -38,7 +38,7 @@ Select the proper GCP project (in our case, `kubernetes-workshop-218213`)
 
 Click on the "Activate Cloud Shell" icon.
 
-#### Reinstalling the `jx` binary
+### Reinstalling the `jx` binary
 
 <!-- 2018-10-15 12:21 CEST -->
 
@@ -53,7 +53,7 @@ export PATH=$PATH:~/.jx/bin
 echo 'export PATH=$PATH:~/.jx/bin' >> ~/.bashrc
 ```
 
-#### Verify that jx is correctly configured
+### Verify that jx is correctly configured
 
 <!-- 2018-10-15 16:17 CEST -->
 
@@ -154,7 +154,7 @@ Finished printing diagnostic information.
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 ```
 
-### Create quickstart application `node-http-hmi-repository`
+## Create quickstart application `node-http-hmi-repository`
 
 <!-- 2018-10-12 16:51CEST -->
 
@@ -272,7 +272,7 @@ Creating GitHub webhook for gmacario/node-http-hmi-repository for url http://jen
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 ```
 
-#### Run `jx status`
+### Run `jx status`
 
 <!-- 2018-10-15 16:21 CEST -->
 
@@ -290,7 +290,7 @@ Jenkins X checks passed for Cluster(gke_kubernetes-workshop-218213_europe-west1-
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 ```
 
-#### Run `jx console`
+### Run `jx console`
 
 <!-- 2018-10-15 16:21 CEST -->
 
@@ -312,7 +312,7 @@ You should find three pipelines:
 * gmacario/environment-howlernoon-staging
 * gmacario/node-http-hmi-repository
 
-#### Run `jx get build logs`
+### Run `jx get build logs`
 
 <!-- 2018-10-15 16:23 CEST -->
 
@@ -331,7 +331,7 @@ Inspect each of the above pipelines and make sure that all of them
 have completed successfully.
 
 
-### Preview the application
+## Preview the application
 
 <!-- 2018-10-15 16:23 CEST -->
 
@@ -346,7 +346,7 @@ production Production  Permanent   Manual  jx-production 200           https://g
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 ```
 
-#### Preview the staging environment
+### Preview the staging environment
 
 <!-- 2018-10-15 16:23 CEST -->
 
@@ -369,7 +369,7 @@ In tab "Kubernetes services", filter by "Service Type: Ingress"
 Browse the staging environment of "node-http-hmi-repository" at
 <http://node-http-hmi-repository.jx-staging.35.195.140.178.nip.io/>
 
-#### Preview the production environment
+### Preview the production environment
 
 For the time being no applications have been deployed to the production environment:
 
@@ -382,9 +382,9 @@ gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 As demonstrated by the `jx get environment` command above,
 the deployment to the production environment is configured to be performed manually.
 
-### Typical application development workflow
+## Typical application development workflow
 
-#### Create an issue to node-http-hmi-repository
+### Create an issue to node-http-hmi-repository
 
 <!-- 2018-10-12 17:21 CEST -->
 
@@ -406,7 +406,7 @@ gmacario@cloudshell:~/node-http-hmi-repository (kubernetes-workshop-218213)$
 
 Double check: <https://github.com/gmacario/node-http-hmi-repository/issues>
 
-#### Create a development branch
+### Create a development branch
 
 <!-- 2018-10-12 17:23 CEST -->
 
@@ -424,7 +424,7 @@ Now if we installed the "[hub](https://hub.github.com/)" tool,
 we could create a Pull Request directly from the Command Line.
 Otherwise we can just do it from the GitHub web interface.
 
-#### Create a Pull Request to node-http-hmi-repository
+### Create a Pull Request to node-http-hmi-repository
 
 Browse <https://github.com/gmacario/node-http-hmi-repository>
 and create a Pull Request from the branch you have just pushed
@@ -527,7 +527,7 @@ gmacario/node-http-hmi-repository/PR-2 #1                     64h31m13s    1m43s
 gmacario@cloudshell:~/node-http-hmi-repository (kubernetes-workshop-218213)$
 ```
 
-#### Creating a devpod
+### Creating a devpod
 
 <!-- 2018-10-15 10:18 CEST -->
 
@@ -633,7 +633,7 @@ INFO[0000] listening                                     bind=127.0.0.1 port=403
 INFO[0003] syncthing listening                           port=8384 syncthing=localhost
 ```
 
-#### Promote to production
+### Promote to production
 
 <!-- 2018-10-16 10:30 CEST -->
 
@@ -684,11 +684,11 @@ Browse the production environment of "node-http-hmi-repository" at
 <http://node-http-hmi-repository.jx-production.35.195.140.178.nip.io/>
 
 
-### Things which do not yet work as expected
+## Things which do not yet work as expected
 
 <!-- FIXME: Browsing theia URL returns "403 Service Unavailable" -->
 
-#### Browse Monocular instance
+### Browse Monocular instance
 
 ```shell
 jx open
@@ -718,7 +718,7 @@ TODO
 -->
 
 <!--
-#### Run `TODO`
+### Run `TODO`
 
 Command
 
@@ -735,13 +735,13 @@ TODO
 TODO TODO
 -->
 
-### Summary
+## Summary
 
 This article explained how to perform CI/CD of a Node.JS web application on a Kubernetes cluster using Jenkins X.
 
 Jenkins X is quite recent and therefore presents a few rough edges as the list of [issues on GitHub](https://github.com/jenkins-x/jx/issues) can testify, however it shows great potential to represent a very helpful tool for making the journey of application developers to Kubernetes smoother.
 
-### See also
+## See also
 
 * <https://jenkins-x.io/>
 * <https://jenkins.io/projects/jenkins-x/>

@@ -10,7 +10,7 @@ description: "This blog post illustrates some tests I made running the GENIVI De
 
 This blog post illustrates some tests I made running the [GENIVI Development Platform](https://at.projects.genivi.org/wiki/pages/viewpage.action?pageId=11567210) on a [Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/).
 
-### Build the GDP image from sources
+## Build the GDP image from sources
 
 Built the image using the folllowing configuration:
 
@@ -23,13 +23,13 @@ Built the image using the folllowing configuration:
 
 Build artifacts: <http://mv-linux-powerhorse.solarma.it:9080/blue/organizations/jenkins/gmacario%2Fmy-genivi-pipelines/detail/build-gdp-master-raspberrypi3/15/artifacts>
 
-### Prepare the microSD card
+## Prepare the microSD card
 
 Download file `gdp-src-build/tmp/deploy/images/raspberrypi3/genivi-dev-platform-raspberrypi3-20170510130900.rootfs.rpi-sdimg` (1.2 GB)
 
 Run [Win32 Disk Imager](https://sourceforge.net/projects/win32diskimager/) to write the image to a SanDisk 8 GiB microSDHC.
 
-### Run GDP on the RPi3
+## Run GDP on the RPi3
 
 Run PuTTY (COM7:115200,8,n,1) to log RPi3 serial console messages
 

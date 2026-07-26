@@ -15,13 +15,13 @@ This blog post details my first experiences with the [EspoTek Labrador](https://
 
 Most notably, both hardware and software are Open Source!
 
-### References
+## References
 
 * Labrador campaign on CrowdSupply: <https://www.crowdsupply.com/espotek/labrador>
 * (Draft) Documentation on [Google Drive](https://drive.google.com/drive/u/1/folders/0B7U0ulRLHf8cRVBkeFc2SHpUOGs)
 * All design files for the Labrador can be found on GitHub: <https://github.com/espotek/Labrador>
 
-### Installing Application Software
+## Installing Application Software
 
 Here are the steps to install the software on my laptop itm-gpaolo-w10 (MS Windows 10)
 
@@ -145,7 +145,7 @@ Click "Next >" when requested, until you get the following
 
 Click "Finish".
 
-### Connecting the Labrador
+## Connecting the Labrador
 
 You can plug your Labrador into a breadboard and also connect +5V and GND to the power rail.
 
@@ -159,7 +159,7 @@ The red LED on the Labrador should turn on.
 
 Open the Windows Device Manager to verify that the device is recognize, then launch the Labrador application software.
 
-### See also
+## See also
 
 * <https://github.com/tardate/LittleArduinoProjects/tree/master/Equipment/Labrador> - excellent notes by another backer
 

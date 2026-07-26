@@ -24,7 +24,7 @@ and [PersistentVolumeClaims](https://cloud.google.com/kubernetes-engine/docs/con
 **NOTE**: This deployment is not meant for production use cases as it uses single instance WordPress and MySQL Pods.
 I will discuss how to deploy a redundant configuration of web front-end and database in a future post.
 
-### References
+## References
 
 The instructions documented in this article were based on the following resources:
 
@@ -32,13 +32,13 @@ The instructions documented in this article were based on the following resource
 * <https://cloud.google.com/kubernetes-engine/docs/tutorials/persistent-disk>
 * <https://github.com/GoogleCloudPlatform/kubernetes-engine-samples>
 
-### Prerequisites
+## Prerequisites
 
 Access to a [Kubernetes cluster](https://console.cloud.google.com/kubernetes/list) already created on the Google Cloud Platform
 
-### Step 1: Preparation
+## Step 1: Preparation
 
-#### Check prerequisites
+### Check prerequisites
 
 Let us assume we have already created a GKE cluster and started a Cloud Shell
 
@@ -60,7 +60,7 @@ gke-howlernoon-default-pool-844aa4f7-mrv2   Ready     <none>    1d        v1.9.7
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 ```
 
-#### Clone kubernetes-engine-samples repository
+### Clone kubernetes-engine-samples repository
 
 Logged as gmacario@cloudshell, clone the GKE samples repository:
 
@@ -90,7 +90,7 @@ gmacario@cloudshell:~/github/GoogleCloudPlatform/kubernetes-engine-samples/wordp
 ```
 
 
-### Step 2: Create PersistentVolumeClaims and PersistentVolumes
+## Step 2: Create PersistentVolumeClaims and PersistentVolumes
 
 Logged as gmacario@cloudshell, create the PersistentVolumeClaims required for the deployments:
 
@@ -155,9 +155,9 @@ wordpress-volumeclaim   Bound     pvc-be4103f6-d147-11e8-8172-42010a8401ee   200
 gmacario@cloudshell:~/github/GoogleCloudPlatform/kubernetes-engine-samples/wordpress-persistent-disks (kubernetes-workshop-218213)$
 ```
 
-### Step 3: Set up MySQL
+## Step 3: Set up MySQL
 
-#### Create a Secret for MySQL Password
+### Create a Secret for MySQL Password
 
 Logged as gmacario@cloudshell, run the following command (and replace `YOUR_PASSWORD` with a passphrase of your choice):
 
@@ -174,7 +174,7 @@ gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 ```
 
 
-#### Deploy MySQL
+### Deploy MySQL
 
 Logged as gmacario@cloudshell, use the `mysql.yaml` manifest file to deploy the single instance MySQL application running on port `3306`:
 
@@ -239,7 +239,7 @@ mysql-d55697945-h7thb   1/1       Running   0          1m
 gmacario@cloudshell:~/github/GoogleCloudPlatform/kubernetes-engine-samples/wordpress-persistent-disks (kubernetes-workshop-218213)$
 ```
 
-#### Create MySQL service
+### Create MySQL service
 
 Logged as gmacario@cloudshell, create a Service to expose the MySQL container and make it accessible from the `wordpress` container you are going to create.
 
@@ -287,9 +287,9 @@ mysql     ClusterIP   10.35.247.32   <none>        3306/TCP   52s
 gmacario@cloudshell:~/github/GoogleCloudPlatform/kubernetes-engine-samples/wordpress-persistent-disks (kubernetes-workshop-218213)$
 ```
 
-### Step 4: Set up WordPress
+## Step 4: Set up WordPress
 
-#### Deploy WordPress
+### Deploy WordPress
 
 Logged as gmacario@cloudshell
 
@@ -356,7 +356,7 @@ wordpress-7dd5cbc5d5-tr9ht   1/1       Running   0          1m
 gmacario@cloudshell:~/github/GoogleCloudPlatform/kubernetes-engine-samples/wordpress-persistent-disks (kubernetes-workshop-218213)$
 ```
 
-#### Expose WordPress service
+### Expose WordPress service
 
 <!-- 2018-10-16 16:35 CEST -->
 
@@ -404,7 +404,7 @@ gmacario@cloudshell:~/github/GoogleCloudPlatform/kubernetes-engine-samples/wordp
 
 So the `wordpress` service will be publicly available as <http://35.205.34.119:80>
 
-### Step 5: Visit your new WordPress blog
+## Step 5: Visit your new WordPress blog
 
 After finding out the IP address of your blog, point your browser to this IP address and you will see the WordPress installation screen as follows:
 
@@ -431,7 +431,7 @@ After the initial configuration of WordPress is complete, the following page wil
 
 ![wordpress-04](/images/2018-10-16-wordpress-04.png "Wordpress-04")
 
-### Step 6 (Optional) Test data persistence on failure
+## Step 6 (Optional) Test data persistence on failure
 
 <!-- 2018-10-17 10:43 CEST -->
 
@@ -471,7 +471,7 @@ wordpress-7dd5cbc5d5-tr9ht   1/1       Running   0          19h       10.32.2.16
 gmacario@cloudshell:~ (kubernetes-workshop-218213)$
 ```
 
-### Step 7: Updating application images
+## Step 7: Updating application images
 
 The following commands will update the WordPress container image:
 
@@ -484,7 +484,7 @@ kubectl apply -f wordpress.yaml
 
 The Deployment controller will cause a new Pod to be created, while the old one will be terminated.
 
-### Cleaning up
+## Cleaning up
 
 Logged as gmacario@cloudshell, delete the `wordpress` and `mysql` services:
 
@@ -520,7 +520,7 @@ type the following command to delete it:
 gcloud container clusters delete xxx
 ```
 
-### Summary
+## Summary
 
 This article explained how to deploy WordPress with a MySQL backend on a Kubernetes cluster on GCP.
 

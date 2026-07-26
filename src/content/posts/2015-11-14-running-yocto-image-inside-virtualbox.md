@@ -22,7 +22,7 @@ The Yocto project provides support for building VMDK (VMware Disk) images, which
 
 The support for building native VDI (VirtualBox Disk Image) was added after the release 1.8 (fido) of Yocto project which I tested when preparing this article.
 
-### Building a VMDK image
+## Building a VMDK image
 
 Build a `*-qemux86-64.vmdk` image from branch `dev-qemux86-64` of <https://github.com/gmacario/genivi-demo-platform>
 
@@ -39,7 +39,7 @@ The important configuration to be added to `conf/local.conf` is the following li
 IMAGE_FSTYPES += "vmdk"
 ```
 
-### Running the VMDK image
+## Running the VMDK image
 
 From the Oracle VM VirtualBox Manager, create a new Virtual Machine
 

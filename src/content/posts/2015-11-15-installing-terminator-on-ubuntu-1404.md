@@ -19,7 +19,7 @@ If you are one (like myself) who
 
 then [Gnome Terminator](http://gnometerminator.blogspot.it/p/introduction.html) is the program you probably need.
 
-### Install Terminator package in Ubuntu (or Debian)
+## Install Terminator package in Ubuntu (or Debian)
 
 Terminator is now a native package of Debian and Ubuntu
 
@@ -29,7 +29,7 @@ $ sudo apt-get install terminator
 
 Notice that this may be not the most recent version.
 
-### Install Terminator using Ubuntu PPA
+## Install Terminator using Ubuntu PPA
 
 You may get the very latest Terminator from Ubuntu PPA:
 
@@ -39,13 +39,13 @@ $ sudo apt-get update
 $ sudo apt-get install terminator
 ```
 
-### Run Terminator inside a container
+## Run Terminator inside a container
 
 You may also choose run Terminator inside a Docker container.
 
 I will explore this option in a future post. Stay tuned!
 
-### See also
+## See also
 
 * [Gnome Terminator Home Page](http://gnometerminator.blogspot.it/)
 * [Terminator in Launchpad](https://launchpad.net/terminator)

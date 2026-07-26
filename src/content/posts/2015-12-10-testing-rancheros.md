@@ -12,11 +12,11 @@ description: "My first steps trying RancherOS."
 
 <!-- markdown-link-check-disable -->
 
-### Introduction
+## Introduction
 
 My first steps trying [RancherOS](http://rancher.com/rancher-os/).
 
-### References
+## References
 
 * <https://medium.com/devs-foodit/pimp-my-jenkins-continuous-delivery-dashboard-edition-229463755730>
 * <http://rancher.com/deploying-a-scalable-jenkins-cluster-with-docker-and-rancher/>
@@ -25,7 +25,7 @@ My first steps trying [RancherOS](http://rancher.com/rancher-os/).
 * <https://github.com/rancher/os>
 * <http://docs.rancher.com/os/quick-start-guide/>
 
-### Launching RancherOS using Vagrant
+## Launching RancherOS using Vagrant
 
 (adapted from <http://docs.rancher.com/os/quick-start-guide/>)
 
@@ -57,9 +57,9 @@ $ vagrant ssh
 [rancher@rancher-01 ~]$
 ```
 
-### A first look at RancherOS
+## A first look at RancherOS
 
-#### Check kernel version
+### Check kernel version
 
 ```
 [rancher@rancher-01 ~]$ uname -a
@@ -67,7 +67,7 @@ Linux rancher-01 4.2.3-rancher #1 SMP Wed Oct 14 11:25:04 UTC 2015 x86_64 GNU/Li
 [rancher@rancher-01 ~]$
 ```
 
-#### Inspect disk usage
+### Inspect disk usage
 
 ```
 [rancher@rancher-01 ~]$ sudo df -h
@@ -116,7 +116,7 @@ shm                      64.0M         0     64.0M   0% /dev/shm
 [rancher@rancher-01 ~]$
 ```
 
-#### Check network interfaces
+### Check network interfaces
 
 ```
 [root@rancher-01 ~]$ ifconfig
@@ -176,7 +176,7 @@ veth0196292 Link encap:Ethernet  HWaddr FE:49:55:09:12:AA
 [root@rancher-01 ~]$
 ```
 
-#### Check Docker version
+### Check Docker version
 
 ```
 [rancher@rancher-01 ~]$ docker version
@@ -198,7 +198,7 @@ Server:
 [rancher@rancher-01 ~]$
 ```
 
-#### Inspect running system containers
+### Inspect running system containers
 
 Notice that `system-docker ps` fails unless it is run as `root`.
 
@@ -218,7 +218,7 @@ logout
 [rancher@rancher-01 ~]$
 ```
 
-#### Run Ubuntu inside a container
+### Run Ubuntu inside a container
 
 ```
 [rancher@rancher-01 ~]$ docker run -it ubuntu
@@ -231,7 +231,7 @@ Codename:       trusty
 root@f2180b351d1b:/#
 ```
 
-#### Run nginx inside a container
+### Run nginx inside a container
 
 ```
 [rancher@rancher-01 ~]$ ifconfig eth1 | grep "inet addr"
@@ -243,7 +243,7 @@ root@f2180b351d1b:/#
 
 Now logged as gmacario@itm-gmacario-w7, browse <http://172.19.8.101:8000/>
 
-#### Deploy a system service container
+### Deploy a system service container
 
 ```
 [rancher@rancher-01 ~]$ sudo system-docker run -d --net=host --name busydash husseingalal/busydash
