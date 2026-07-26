@@ -36,6 +36,7 @@ export default {
   footer: {
     copyright: "Copyright",
     allRightsReserved: "All rights reserved.",
+    privacyPolicy: "Privacy & Cookie Policy",
   },
   pages: {
     tagTitle: "Tag",
