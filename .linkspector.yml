@@ -122,6 +122,7 @@ ignorePatterns:
   - pattern: '\.json$'
   - pattern: '^/images/'
   - pattern: '^/bio/'
+  - pattern: '^/posts/'
   - pattern: '^TODO$'
   - pattern: '^https?://github\.com/MarcoMaru$'
   - pattern: '^https?://stud\.io/'
