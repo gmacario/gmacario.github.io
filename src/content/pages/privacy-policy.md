@@ -29,8 +29,8 @@ pages, referrers and country-level location — and does not track individual
 visitors across sessions or sites. You can read Cloudflare's own [privacy
 policy](https://www.cloudflare.com/privacypolicy/) for details on how it
 processes this data. See also [this
-post](/posts/cloudflare-web-analytics-instead-of-google-analytics/) for why
-Cloudflare Web Analytics was chosen over Google Analytics.
+post](/posts/2026-07-25-cloudflare-web-analytics-instead-of-google-analytics/)
+for why Cloudflare Web Analytics was chosen over Google Analytics.
 
 ## Comments
 
