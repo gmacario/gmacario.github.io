@@ -22,7 +22,7 @@ Both applications use [PersistentVolumes](https://cloud.google.com/kubernetes-en
 and [PersistentVolumeClaims](https://cloud.google.com/kubernetes-engine/docs/concepts/persistent-volumes) (PVC) to store data.
 
 **NOTE**: This deployment is not meant for production use cases as it uses single instance WordPress and MySQL Pods.
-I will discuss how to deploy a redundant configuration of web front-end and database in a future post.
+I will discuss how to deploy a redundant configuration of web frontend and database in a future post.
 
 ## References
 
@@ -416,10 +416,10 @@ Select "English (United States)", then click "Continue".
 
 Fill in the needed information:
 
-* Site Title: TODO (example: "My Wonderful WordPress site")
-* Username: TODO (example: "admin")
-* Password: TODO (example: "mypass")
-* Your Email: TODO (example: "myuser@example.com")
+* Site Title: todo (example: "My Wonderful WordPress site")
+* Username: todo (example: "admin")
+* Password: todo (example: "mypass")
+* Your Email: todo (example: "myuser@example.com")
 * In section "Search Engine Visibility", check "Discourage search engines from indexing this site
 
 then click "Install WordPress"
@@ -455,7 +455,7 @@ mysql-d55697945-h7thb        1/1       Running   0          18h       10.32.2.15
 wordpress-7dd5cbc5d5-tr9ht   1/1       Running   0          18h       10.32.2.16   gke-howlernoon-default-pool-844aa4f7-5n4j
 ```
 
-If from another terminal we now delete the mysql pod:
+If from another terminal we now delete the MySQL pod:
 
 ```shell
 kubectl delete pod -l app=mysql

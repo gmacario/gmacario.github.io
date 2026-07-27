@@ -161,7 +161,7 @@ build@4f3caf384331:~/shared/my-gdp-build01$
 
 <!-- 2015-04-24 11:45 CEST  -->
 
-Perform the build of the sdk
+Perform the build of the SDK
 
 ```
 TODO
@@ -170,7 +170,7 @@ TODO
 Result: TODO
 
 
-------------------------
+-------------------------
 
 (2015-04-24 14:55 CEST)
 
@@ -318,8 +318,9 @@ build@4f3caf384331:~/shared/my-gdp-build02$
 ```
 
 
----------------------
-# Build GDP
+-------------------------
+
+## Build GDP
 
 (2015-04-25 16:00 CEST)
 

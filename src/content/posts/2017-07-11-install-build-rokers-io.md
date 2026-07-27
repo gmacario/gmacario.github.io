@@ -216,7 +216,7 @@ Browse `${JENKINS_URL}` > Manage Jenkins > Configure System
 
 * Jenkins Location
   - Jenkins URL: <https://build.rokers.io/>
-  - System Admin e-mail address: (fill in the administrative email provided during the creation of Jenkins user `admin`)
+  - System Admin email address: (fill in the administrative email provided during the creation of Jenkins user `admin`)
 
 * GitHub Pull Requests
   - Jenkins URL: <https://build.rokers.io/>
@@ -241,7 +241,7 @@ Visit <https://github.com/settings/applications/new> to create a GitHub applicat
 
 then click **Register application**
 
-Keep the result page open, and take note of the following values (they will be used to configure the Github Authentication Plugin as explained in the following section)
+Keep the result page open, and take note of the following values (they will be used to configure the GitHub Authentication Plugin as explained in the following section)
 
 * Client ID: xxx
 * Client Secret: yyy
@@ -252,7 +252,7 @@ Browse `${JENKINS_URL}` > Manage Jenkins > Configure Global Security
   * TCP port for JNLP agents: Fixed: 50000
   * Disable remember me: No
   * Access Control
-    - Security Realm: Github Authentication Plugin
+    - Security Realm: GitHub Authentication Plugin
       - Global GitHub OAuth Settings
         - GitHub Web URI: `https://github.com`
         - GitHub API URI: `https://api.github.com`
@@ -289,8 +289,8 @@ Create pipeline for building `rokers-image-base` from sources:
 
 * Click **Open Blue Ocean**
 * Click **Create a new Pipeline**
-* Where do you store the code? **Github**
-* Paste your Github access token, then click **Connect**
+* Where do you store the code? **GitHub**
+* Paste your GitHub access token, then click **Connect**
 * Which organization does the repository belong to? **robotrokers** (if you are not a member of "robotrokers", choose the organization where your forked project `robotrokers/rokers-yocto-distro`)
 * Create a single Pipeline or discover all Pipelines? **New Pipeline**
 * Choose a repository: **rokers-yocto-distro**, then click **Create Pipeline**

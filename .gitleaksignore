@@ -2,6 +2,15 @@
 # One <fingerprint> per line; gitleaks discovers this file at the repo root
 # by default. Each entry below is a reviewed false positive, not a real
 # live secret -- see the comment above each for why.
+#
+# Each finding is listed TWICE: once with the repo-relative path (for a
+# plain local `gitleaks detect` run from the repo root) and once prefixed
+# with /github/workspace/ (Super-Linter v8.7.0's container checkout path,
+# which is what actually appears in its GITLEAKS output -- confirmed via
+# PR #204 CI, where the relative-only entries silently failed to suppress
+# a finding the first time Super-Linter re-scanned one of these files).
+# Fingerprints are exact-string matches, so both forms are needed until
+# gitleaks or Super-Linter offer a path-independent allowlist mechanism.
 
 # A SHA-256-looking hash of an Arduino Yun / OpenWRT device's WiFi admin
 # password, from a `uci show` terminal transcript on the author's own
@@ -9,9 +18,11 @@
 # specific, long-decommissioned device, and has been public in this post
 # for a decade.
 src/content/posts/2015-03-22-inspecting-yun-linux-configuration.md:generic-api-key:155
+/github/workspace/src/content/posts/2015-03-22-inspecting-yun-linux-configuration.md:generic-api-key:155
 
 # A Jenkins "initial administrator password" from a local, throwaway
 # Docker Compose demo (easy-jenkins) in a how-to post. This value is a
 # one-time setup token generated fresh per install and invalidated as soon
 # as the setup wizard completes -- not a reusable credential.
 src/content/posts/2017-07-11-install-build-rokers-io.md:generic-api-key:158
+/github/workspace/src/content/posts/2017-07-11-install-build-rokers-io.md:generic-api-key:158

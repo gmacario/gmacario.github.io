@@ -31,6 +31,7 @@ Downloading file `stable-server-b149-Hynix_8G_MLC.chp` (312 MB)
 
 See <https://docs.getchip.com/chip.html#wifi-connection>
 
+<!-- markdownlint-disable-next-line MD026 -- trailing "." is part of "C.H.I.P.", not sentence punctuation -->
 ## Install TINC on C.H.I.P.
 
 Based on the instructions at <https://github.com/gmacario/tinc-ninuxto/blob/master/configuring-tinc-ninuxto-on-udoobuntu2.md>
@@ -50,7 +51,7 @@ sudo apt update && sudo apt -y dist-upgrade
 sudo reboot
 ```
 
-As soon as the host is up and running, remote login via SSH as chip@chipgm32, then install TINC and other required pacakges
+As soon as the host is up and running, remote login via SSH as chip@chipgm32, then install TINC and other required packages
 
 ```script
 sudo apt -y install git rsync tinc

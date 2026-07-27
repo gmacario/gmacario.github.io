@@ -431,6 +431,7 @@ and create a Pull Request from the branch you have just pushed
 
 From <https://github.com/gmacario/node-http-hmi-repository/pull/2>
 
+<!-- markdownlint-disable-next-line MD059 -- direct quote of the PR comment's exact wording -->
 > PR built and available in a preview environment **gmacario-node-http-hmi-repository-pr-2** [here](http://node-http-hmi-repository.jx-gmacario-node-http-hmi-repository-pr-2.35.195.52.165.nip.io/)
 
 After the PR is merged to master, the change will be deployed to the staging environment.

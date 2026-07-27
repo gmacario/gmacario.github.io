@@ -23,11 +23,38 @@ MD007:
   indent: 2                   # Unordered list indentation
 MD013:
   line_length: 400            # Line length 80 is far to short
+  code_blocks: false           # Terminal transcripts routinely exceed any
+                                # reasonable prose limit on a single output
+                                # line (e.g. a long gpg/apt-key trace); that's
+                                # not a prose-formatting problem.
+MD014: false                  # Dollar signs before commands without showing
+                               # output. This blog's tutorial posts are full
+                               # of `$ command` shell transcripts predating
+                               # this rule; disabled rather than editing a
+                               # decade of terminal sessions to fake it.
 MD026:
   punctuation: ".,;:!。，；:"  # List of not allowed
 MD029: false                  # Ordered list item prefix
 MD033: false                  # Allow inline HTML
+MD034: false                  # Bare URLs. Overwhelmingly false-positives on
+                               # `user@host` shell prompts in terminal
+                               # transcripts, which look URL-shaped but
+                               # aren't links.
 MD036: false                  # Emphasis used instead of a heading
+MD040: false                  # Fenced code blocks should declare a language.
+                               # Real value (enables syntax highlighting) but
+                               # ~250 pre-existing violations across migrated
+                               # posts predate this rule; retrofitting them is
+                               # tracked as a follow-up, not blocking every PR
+                               # that happens to touch an old post.
+MD046: false                  # Code block style consistency (fenced vs
+                               # indented) within a single document. A decade
+                               # of posts mix both from being edited across
+                               # different eras; not a meaningful signal on
+                               # this content.
+MD060: false                  # Markdown table column/pipe spacing style.
+                               # Too pedantic for hand-formatted historical
+                               # tables; not worth reformatting them.
 
 #################
 # Rules by tags #

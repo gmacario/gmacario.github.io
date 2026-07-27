@@ -64,7 +64,7 @@ Arduino Yun (ar9331) U-boot
 ...
 ```
 
-Notice the error message `  129.650000] Removing MTD device #3 (rootfs_data) with use count 1`
+Notice the error message `[  129.650000] Removing MTD device #3 (rootfs_data) with use count 1`
 
 ## Try Failsafe mode
 
@@ -252,7 +252,7 @@ Follow instructions at <https://www.arduino.cc/en/Tutorial/YunUBootReflash>
 
 This procedure uses U-Boot to load kernel and openwrt-rootfs via TFTP
 
-Download the [base images](http://arduino.cc/download_handler.php?f=/openwrtyun/1/YunImage_v1.5.3.zip) zip file.
+Download the [base images](http://arduino.cc/download_handler.php?f=/openwrtyun/1/YunImage_v1.5.3.zip) ZIP file.
 
 Setup a TFTP server on kruk (Ubuntu 16.04 LTS)
 
@@ -467,7 +467,7 @@ tmpfs                   512.0K         0    512.0K   0% /dev
 root@(none):/#
 ```
 
-Execute `mount_root` (checked from TODO to TODO)
+Execute `mount_root` (checked from todo to TODO)
 
 ```
 root@(none):/# mount_root

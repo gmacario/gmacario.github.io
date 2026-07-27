@@ -14,9 +14,9 @@ description: "I have Cygwin64 installed on my laptop which is running Windows 7 
 
 ## The Problem
 
-I have [Cygwin64](https://www.cygwin.com/) installed on my laptop which is running Windows 7 and I use both Windows CMD as well as Cygwin bash.
+I have [Cygwin64](https://www.cygwin.com/) installed on my laptop which is running Windows 7 and I use both Windows CMD as well as Cygwin Bash.
 
-Logged in a Cygwin64 bash shell as gpmacario@HW2457, after doing
+Logged in a Cygwin64 Bash shell as gpmacario@HW2457, after doing
 
 ```shell
 minikube start
@@ -48,10 +48,10 @@ C:\Users\GPMacario>
 
 By default Minikube stores its configuration in a `.minikube` directory under your home folder.
 
-Unfortunately (as of v0.29) Minikube is not Cygwin64-aware and interprets the home directory differently depending on whether it was launched from Windows CMD or Cygwin bash.
+Unfortunately (as of v0.29) Minikube is not Cygwin64-aware and interprets the home directory differently depending on whether it was launched from Windows CMD or Cygwin Bash.
 
 * On Windows: `C:\Users\GPMacario`
-* On Cygwin bash: `C:\cygwin64\home\gpmacario`
+* On Cygwin Bash: `C:\cygwin64\home\gpmacario`
 
 After looking through the Minikube documentation I found <https://github.com/kubernetes/minikube/blob/master/docs/env_vars.md>:
 
@@ -67,7 +67,7 @@ and set environment variable `MINIKUBE_HOME`
 MINIKUBE_HOME=C:\cygwin64\home\gpmacario\.minikube
 ```
 
-In this way when launched from Windows CMD, minikube will find its configuration files in the same directory where they were stored when launched from Cygwin bash:
+In this way when launched from Windows CMD, minikube will find its configuration files in the same directory where they were stored when launched from Cygwin Bash:
 
 Start > cmd
 

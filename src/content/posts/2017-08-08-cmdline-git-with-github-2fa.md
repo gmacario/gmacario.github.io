@@ -9,7 +9,7 @@ description: "After enabling two-factor authentication on my GitHub account it s
 
 <!-- markdown-link-check-disable -->
 
-After enabling [two-factor authentication on my GitHub account](https://help.github.com/articles/securing-your-account-with-two-factor-authentication-2fa/) it seemed I became unable to push my local repositories from command-line git using the https transport.
+After enabling [two-factor authentication on my GitHub account](https://help.github.com/articles/securing-your-account-with-two-factor-authentication-2fa/) it seemed I became unable to push my local repositories from command-line Git using the https transport.
 
 I was simply wrong, here what I did to fix the issue.
 
@@ -19,8 +19,8 @@ Two-factor authentication in GitHub works by replacing your GitHub password with
 
 To create a Personal Access Token, browse <https://github.com/settings/tokens>, then click "Generate new token".
 
-* Provide a Token description, i.e. "git @my-linux-laptop"
-* Select scopes. Select "repo" to have full control of private repositories
+* Provide a Token description, i.e. "Git @my-linux-laptop"
+* Select scopes. Select "repository" to have full control of private repositories
 * Click "Generate token"
 
 Now from the command line perform some actions which require user authentication, for instance clone a private repository
@@ -31,7 +31,7 @@ git clone https://github.com/myuser/my-private-repo
 
 Alternatively, clone (via https) a repository you own, then commit a simple change and do `git push`.
 
-In either case git will request your GitHub credentials before proceeding.
+In either case Git will request your GitHub credentials before proceeding.
 
 When requested for "Username" type your GitHub username (in my case, "gmacario"):
 

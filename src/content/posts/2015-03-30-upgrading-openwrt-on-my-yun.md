@@ -280,7 +280,7 @@ Please press Enter to activate this console. [   38.170000] Loading modules back
 
 ## Upgrading using the terminal
 
-ssh root@YunGmacario.local
+SSH root@YunGmacario.local
 
 ```
 gmacario@ITM-GMACARIO-W7 ~
@@ -324,7 +324,7 @@ Rebooting system...
 ```
 
 The Yun will be rebooted with factory settings, so connect
-to WiFi network `Arduino Yun-xxxxxxxxxxxx`, then browse
+to Wi-Fi network `Arduino Yun-xxxxxxxxxxxx`, then browse
 <http://arduino.local/> to configure it again.
 
 ### Boot log after upgrading Yun

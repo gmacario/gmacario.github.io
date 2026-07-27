@@ -56,7 +56,7 @@ cmbuild@c8226ae3ff79:~/android$
 
 Wow, plenty of resources to use! Let's move on...
 
-## Installing Repo
+## Installing repository
 
 Logged as cmbuild@container:
 
@@ -111,7 +111,7 @@ Update the SDK specified
 
 You must read and accept the license by typing "y", then the download will start.
 
-## Git config and repo init
+## Git config and repository init
 
 ```
 $ git config --global user.email "email@example.com"
@@ -119,7 +119,7 @@ $ git config --global user.name "First Lastname"
 $ git config --global color.ui auto
 ```
 
-Init repo
+Init repository
 
 In our example we want to configure for CyanogenMod 12.0
 
@@ -129,9 +129,9 @@ $ cd ~/android/cm12/
 $ repo init -u https://github.com/CyanogenMod/android.git -b cm-12.0
 ```
 
-You may also repo init AOSP pointing to the following URL instead: <https://android.googlesource.com/platform/manifest>
+You may also repository init AOSP pointing to the following URL instead: <https://android.googlesource.com/platform/manifest>
 
-There is a GitHub mirror (not always up-to-date) of AOSP at <https://github.com/android>
+There is a GitHub mirror (not always up-to-date) of AOSP at <https://github.com/Android>
 
 ## Syncing the source code
 

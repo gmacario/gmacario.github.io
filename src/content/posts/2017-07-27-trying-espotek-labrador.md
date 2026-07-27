@@ -29,7 +29,7 @@ Download file `EspoTek Labrador.exe` from Google Drive > "Windows(xxx)"
 
 **NOTE**: The software is based on Qt and the sources are available at <https://github.com/espotek/Labrador> - even though the repository is a little bit messy at the moment - See <https://github.com/EspoTek/Labrador/issues/8>
 
-Double click `EspoTek Labrador.exe` to launch the EspoTek Labrador Setup
+Double-click `EspoTek Labrador.exe` to launch the EspoTek Labrador Setup
 
 > Welcome to the Prerequisites Setup Wizard
 >
