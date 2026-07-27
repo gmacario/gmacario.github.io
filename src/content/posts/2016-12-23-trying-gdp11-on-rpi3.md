@@ -11,11 +11,11 @@ description: "I wrote a couple of notes trying the Release 11 of the GENIVI Deve
 
 <!-- markdown-link-check-disable -->
 
-### Introduction
+## Introduction
 
 I wrote a couple of notes trying the Release 11 of the [GENIVI Development Platform](https://at.projects.genivi.org/wiki/x/aoCw) on a [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/).
 
-### Writing the SD-Card with GDP-11 for Raspberry Pi 3
+## Writing the SD-Card with GDP-11 for Raspberry Pi 3
 
 <!-- 2016-12-22 16:00 CET -->
 
@@ -91,7 +91,7 @@ Then use Win32DiskImager on your host to write file `gdp-11-rpi1.sdimg` to a bla
 
 Unmount the SD-Card before removing it from the laptop.
 
-### Booting GDP-11 on the Raspberry Pi 3
+## Booting GDP-11 on the Raspberry Pi 3
 
 1. Insert the microSD with GDP-11 image into the Raspberry Pi 3 microSD-Card slot.
 2. Connect a HDMI display to the Raspberry Pi using a HDMI cable
@@ -102,7 +102,7 @@ Unmount the SD-Card before removing it from the laptop.
 
 After a few seconds you should see the GDP Home Page on the HDMI display.
 
-### Inspect the target
+## Inspect the target
 
 Discover the IP address that was assigned by your router to the Raspberry Pi 3 (for instance, I used the [Fing](https://www.fing.io/) app from an Android phone connected via Wi-Fi to the same router). In my case, this is `192.168.12.105`
 
@@ -116,7 +116,7 @@ Last login: Fri Dec 23 13:03:44 2016 from 192.168.12.101
 root@raspberrypi3:~#
 ```
 
-#### Inspect `/proc/cpuinfo`
+### Inspect `/proc/cpuinfo`
 
 ```
 root@raspberrypi3:~# cat /proc/cpuinfo
@@ -166,7 +166,7 @@ Serial          : 0000000053213f76
 root@raspberrypi3:~#
 ```
 
-#### Inspect `/proc/version`
+### Inspect `/proc/version`
 
 ```
 root@raspberrypi3:~# cat /proc/version
@@ -174,7 +174,7 @@ Linux version 4.4.16 (go@cb359f7478a8) (gcc version 5.3.0 (GCC) ) #1 SMP Fri Dec
 root@raspberrypi3:~#
 ```
 
-#### Inspect `/proc/meminfo`
+### Inspect `/proc/meminfo`
 
 ```
 root@raspberrypi3:~# cat /proc/meminfo
@@ -217,7 +217,7 @@ CmaFree:          133780 kB
 root@raspberrypi3:~#
 ```
 
-#### Inspect MicroSD card layout
+### Inspect MicroSD card layout
 
 Result of `lsbok`
 
@@ -283,7 +283,7 @@ root@raspberrypi3:~#
 | /dev/mmcblk0p1 | 40M  | W95 FAT32    | bootcode.bin, kernel, DTB, etc. |
 | /dev/mmcblk0p2 | 1.1G | Linux (ext4) | rootfs |
 
-#### Inspect `df -h`
+### Inspect `df -h`
 
 ```
 root@raspberrypi3:~# df -h
@@ -299,7 +299,7 @@ tmpfs            87M   72K   87M   1% /run/user/0
 root@raspberrypi3:~#
 ```
 
-#### Inspect DOS partition on MicroSD
+### Inspect DOS partition on MicroSD
 
 ```
 root@raspberrypi3:~# mkdir /tmp/boot
@@ -332,7 +332,7 @@ root@raspberrypi3:~# umount /tmp/boot
 root@raspberrypi3:~#
 ```
 
-#### Inspect installed version of Qt
+### Inspect installed version of Qt
 
 ```
 root@raspberrypi3:~# rpm -qa | grep qt | sort
@@ -374,7 +374,7 @@ qtwebkit-qmlplugins-5.6.0+git0+71136c9621-r0.cortexa7hf_neon_vfpv4
 root@raspberrypi3:~#
 ```
 
-### See also
+## See also
 
 * [GENIVI Development Platform](https://at.projects.genivi.org/wiki/x/aoCw)
 * [Raspberry Pi 2 and 3 setup and software installation](https://at.projects.genivi.org/wiki/x/fomw)

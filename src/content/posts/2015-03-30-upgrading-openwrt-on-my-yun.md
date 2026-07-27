@@ -11,7 +11,7 @@ description: "ssh root@YunGmacario.local"
 
 Read instructions at <http://arduino.cc/en/Tutorial/YunSysupgrade>
 
-### Required material
+## Required material
 
 * Arduino Yun
 * One USB-to-microUSB cable
@@ -20,7 +20,7 @@ Read instructions at <http://arduino.cc/en/Tutorial/YunSysupgrade>
 * Internet connectivity to download the Yun Sysupgrade image
 * A microSD card reader to plug into your laptop
 
-### Preparation
+## Preparation
 
 * Insert the microSD card into the SD-card reader of the laptop. Format it to FAT32 if it was unformatted.
 * Download the OpenWrt-Yun upgrade image from <http://arduino.cc/en/Main/Software>
@@ -44,7 +44,7 @@ Read instructions at <http://arduino.cc/en/Tutorial/YunSysupgrade>
 * Press the "YUN RST" button on your Yun
 * Watch the Serial Monitor for your Linux boot log
 
-#### Boot log before upgrading Yun
+### Boot log before upgrading Yun
 
 ```
 Speed set to 250000
@@ -278,9 +278,9 @@ Please press Enter to activate this console. [   38.170000] Loading modules back
 [   53.840000] wlan0: associated
 ```
 
-### Upgrading using the terminal
+## Upgrading using the terminal
 
-ssh root@YunGmacario.local
+SSH root@YunGmacario.local
 
 ```
 gmacario@ITM-GMACARIO-W7 ~
@@ -324,10 +324,10 @@ Rebooting system...
 ```
 
 The Yun will be rebooted with factory settings, so connect
-to WiFi network `Arduino Yun-xxxxxxxxxxxx`, then browse
+to Wi-Fi network `Arduino Yun-xxxxxxxxxxxx`, then browse
 <http://arduino.local/> to configure it again.
 
-#### Boot log after upgrading Yun
+### Boot log after upgrading Yun
 
 ```
 Speed set to 250000

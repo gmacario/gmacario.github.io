@@ -18,13 +18,13 @@ The GENIVI DLT viewer is a Qt5 application available in source at <http://projec
 
 Read the [INSTALL.txt](http://git.projects.genivi.org/?p=dlt-viewer.git;a=blob;f=INSTALL.txt;h=aa9f66ef82a1acd3df56ab97be74bf884a4eb0a9;hb=HEAD) file to check the main project dependencies - basically, a recent Qt5 Software Development Kit.
 
-### Installing Qt5 SDK (including Qt Creator and MinGW)
+## Installing Qt5 SDK (including Qt Creator and MinGW)
 
 <!-- (2016-01-08 09:51) -->
 
 Browse <http://www.qt.io/download-open-source/> > Download Now
 
-Double click `qt-unified-windows-x86-2.0.2-2-online.exe`
+Double-click `qt-unified-windows-x86-2.0.2-2-online.exe`
 
 > Welcome to the Qt online installer
 >
@@ -86,7 +86,7 @@ Click "Finish"
 
 The Qt Creator main window should then be displayed.
 
-### (optional) Get familiar with Qt Creator
+## (optional) Get familiar with Qt Creator
 
 Inside Qt Creator, click on the "Welcome" icon, then "Get Started Now"
 
@@ -94,7 +94,7 @@ Help > IDE Overview | Qt Creator Manual
 
 Read page "Using Version Control Systems"
 
-#### Create a sample Qt project
+### Create a sample Qt project
 
 Qt Creator: File > New file or Project...
 
@@ -158,15 +158,15 @@ Click "Finish"
 
 Type "Ctrl-R" to run the application
 
-### Configure Git inside Qt Creator
+## Configure Git inside Qt Creator
 
 Qt Creator: Options > Version Control > Git
 
 * Prepend to PATH: `E:\cygwin64\bin` (was `E:\cygwin\bin`)
 
-### Clone GENIVI DLT Viewer sources from git
+## Clone GENIVI DLT Viewer sources from Git
 
-TODO: How to clone a git repository from Qt Creator?
+TODO: How to clone a Git repository from Qt Creator?
 
 Start a Cygwin terminal
 
@@ -177,7 +177,7 @@ $ git clone git://git.projects.genivi.org/dlt-viewer.git
 
 Inside Qt Creator: File > Open File or Project...
 
-* File name: `C:\User\gmacario\Documents\dlt-viewer\BuildDltViewer.pro`
+* Filename: `C:\User\gmacario\Documents\dlt-viewer\BuildDltViewer.pro`
 
 > Configure Project
 >

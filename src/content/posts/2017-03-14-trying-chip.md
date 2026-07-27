@@ -10,7 +10,7 @@ description: "This blog post explains my experiences with C.H.I.P. - the World's
 
 This blog post explains my experiences with [C.H.I.P.](https://getchip.com/pages/chip) - the World's First $9 Computer.
 
-### Reflash CHIP
+## Reflash CHIP
 
 Browse <http://flash.getchip.com/>
 
@@ -27,11 +27,12 @@ Downloading file `stable-server-b149-Hynix_8G_MLC.chp` (312 MB)
 > * NAND:Hynix 8G MLC
 > * MD5 Hash: 165e3a2a2c9353e06b98136beac777eb
 
-### Manually configure Wi-Fi from command line
+## Manually configure Wi-Fi from command line
 
 See <https://docs.getchip.com/chip.html#wifi-connection>
 
-### Install TINC on C.H.I.P.
+<!-- markdownlint-disable-next-line MD026 -- trailing "." is part of "C.H.I.P.", not sentence punctuation -->
+## Install TINC on C.H.I.P.
 
 Based on the instructions at <https://github.com/gmacario/tinc-ninuxto/blob/master/configuring-tinc-ninuxto-on-udoobuntu2.md>
 
@@ -50,7 +51,7 @@ sudo apt update && sudo apt -y dist-upgrade
 sudo reboot
 ```
 
-As soon as the host is up and running, remote login via SSH as chip@chipgm32, then install TINC and other required pacakges
+As soon as the host is up and running, remote login via SSH as chip@chipgm32, then install TINC and other required packages
 
 ```script
 sudo apt -y install git rsync tinc
@@ -105,7 +106,7 @@ Submit a Pull Request to https://github.com/gmacario/tinc-ninuxto with the follo
 
 After the PR is merged, update the gmacario/tinc-ninuxto repository in all your peer nodes (i.e. tincgw21, rpi3gm23) to make sure the new node is recognized.
 
-##### Test connectivity to tinc-ninuxto
+### Test connectivity to tinc-ninuxto
 
 Try connecting to TINC network ninuxto
 
@@ -113,7 +114,7 @@ Try connecting to TINC network ninuxto
 sudo tincd -n ninuxto --no-detach -d7
 ```
 
-##### Automatically start tinc at boot
+### Automatically start tinc at boot
 
 Type the following commands to have TINC network `ninuxto` active at boot:
 
@@ -122,7 +123,7 @@ echo "ninuxto" | sudo tee -a /etc/tinc/nets.boot
 sudo service tinc restart
 ```
 
-### Install Docker on TINC
+## Install Docker on TINC
 
 See <https://blog.hypriot.com/post/docker-supported-on-chip-computer/>
 
@@ -499,7 +500,7 @@ sudo usermod -aG docker chip
 
 Logout and login to apply the changes
 
-#### Run your first Docker Container on chipgm32
+### Run your first Docker Container on chipgm32
 
 Logged as chip@chipgm32
 
@@ -525,7 +526,7 @@ root@chipgm32:~#
 
 Now browse <http://192.168.64.206/> and verfiy that the webserver is up and running:
 
-### Install docker-compose on chipgm32
+## Install docker-compose on chipgm32
 
 <!-- 2071-03-13 15:24 CET -->
 
@@ -562,7 +563,7 @@ pi@rpi3gm23:~ $
 ```
 
 
-### Run Portainer on chipgm32
+## Run Portainer on chipgm32
 
 See <https://blog.hypriot.com/post/new-docker-ui-portainer/>
 
@@ -584,7 +585,7 @@ docker-compose up -d
 
 Browse <http://192.168.64.206:9000> to access Portainer web UI.
 
-### Configure Wi-Fi from command line
+## Configure Wi-Fi from command line
 
 <!-- 2017-03-14 15:25 CET -->
 
@@ -610,7 +611,7 @@ Logged as chip@chipgm32, list available Wi-Fi networks
 nmcli device wifi list
 ```
 
-#### Connect to a password-protected Wi-Fi network
+### Connect to a password-protected Wi-Fi network
 
 Logged as chip@chipgm32, type the following command
 
@@ -618,7 +619,7 @@ Logged as chip@chipgm32, type the following command
 sudo nmcli device wifi connect '(your wifi network name/SSID)' password '(your wifi password)' ifname wlan0
 ```
 
-#### Connect to a hidden Wi-Fi network
+### Connect to a hidden Wi-Fi network
 
 Connect to a password-protected Wi-Fi network with the following commnand
 (reference: <http://stackoverflow.com/questions/35476428/how-to-connect-to-hidden-wifi-network-using-nmcli>)
@@ -637,7 +638,7 @@ nmcli device status
 ```
 
 
-### See also
+## See also
 
 * C.H.I.P. Documentation: <https://docs.getchip.com/chip.html>
 

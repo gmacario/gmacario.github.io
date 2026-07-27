@@ -13,17 +13,17 @@ description: "Here are a few notes when I tried a prebuilt Yocto Project 2.0 cor
 
 <!-- markdown-link-check-disable -->
 
-### Introduction
+## Introduction
 
 Here are a few notes when I tried a prebuilt [Yocto Project](https://www.yoctoproject.org/) 2.0 core-image-full-cmdline image on my [UDOO Neo](http://www.udoo.org/udoo-neo/).
 
-### References
+## References
 
 * Forum thread: <http://udoo.org/forum/threads/yocto-on-udoo-neo.2965/>
 - Sources: <https://github.com/graugans/meta-fsl-arm-extra/tree/master-udooneo?files=1>
 - Blog: <http://ch.ege.io/blog/categories/udoo/>
 
-### Step-by-step instructions
+## Step-by-step instructions
 
 - Download [Yocto image for UDOO NEO - 20151109191206](https://www.dropbox.com/s/a1qng0ukoqynift/core-image-full-cmdline-udooneo-20151109191206.rootfs.sdcard.gz?dl=0)
 
@@ -45,9 +45,9 @@ Here are a few notes when I tried a prebuilt [Yocto Project](https://www.yoctopr
   root@udooneo:~#
   ```
 
-### Some commands to inspect the target
+## Some commands to inspect the target
 
-#### df -h
+### df -h
 
 ```
 root@udooneo:~# df -h
@@ -59,7 +59,7 @@ tmpfs           498M  168K  498M   1% /var/volatile
 root@udooneo:~#
 ```
 
-#### cat /proc/cpuinfo
+### cat /proc/cpuinfo
 
 ```
 root@udooneo:~# cat /proc/cpuinfo
@@ -78,7 +78,7 @@ Serial          : 0000000000000000
 root@udooneo:~#
 ```
 
-#### cat /proc/version
+### cat /proc/version
 
 ```
 root@udooneo:~# cat /proc/version

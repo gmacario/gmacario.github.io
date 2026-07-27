@@ -13,7 +13,7 @@ Here are a few notes which I took when attending the [Cyanogen Workshop](http://
 
 The workshop was led by [Abhisek Devkota](https://twitter.com/ciwrl), Senior Engineering and Community Manager at Cyanogen Inc., who was extremely good in driving the workshop forward and answered a lot of questions from the audience.
 
-### Preparing the development environment
+## Preparing the development environment
 
 Due to some issues when creating the VPS instances that were going to the participants I instead used one machine which I had already available. That had the additional benefit to make sure I could reproduce all the steps - including provisioning the build environment!
 
@@ -56,7 +56,7 @@ cmbuild@c8226ae3ff79:~/android$
 
 Wow, plenty of resources to use! Let's move on...
 
-### Installing Repo
+## Installing repository
 
 Logged as cmbuild@container:
 
@@ -64,7 +64,7 @@ Logged as cmbuild@container:
     $ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
     $ chmod a+x ~/bin/repo
 
-### Installing the Android SDK
+## Installing the Android SDK
 
 Download the latest version of the Android SDK for Linux (24.1.2 as of 2015-04-10)
 
@@ -93,7 +93,7 @@ END
 Then logout from the container and launch `./run.sh` again to make sure
 the environment variables are set correctly.
 
-### Using the Android SDK
+## Using the Android SDK
 
 You should have the `android` command in PATH, therefore you may do the following:
 
@@ -111,7 +111,7 @@ Update the SDK specified
 
 You must read and accept the license by typing "y", then the download will start.
 
-### Git config and repo init
+## Git config and repository init
 
 ```
 $ git config --global user.email "email@example.com"
@@ -119,7 +119,7 @@ $ git config --global user.name "First Lastname"
 $ git config --global color.ui auto
 ```
 
-Init repo
+Init repository
 
 In our example we want to configure for CyanogenMod 12.0
 
@@ -129,11 +129,11 @@ $ cd ~/android/cm12/
 $ repo init -u https://github.com/CyanogenMod/android.git -b cm-12.0
 ```
 
-You may also repo init AOSP pointing to the following URL instead: <https://android.googlesource.com/platform/manifest>
+You may also repository init AOSP pointing to the following URL instead: <https://android.googlesource.com/platform/manifest>
 
-There is a GitHub mirror (not always up-to-date) of AOSP at <https://github.com/android>
+There is a GitHub mirror (not always up-to-date) of AOSP at <https://github.com/Android>
 
-### Syncing the source code
+## Syncing the source code
 
 <!-- Start: 2015-04-10 20:53 CEST -->
 
@@ -188,7 +188,7 @@ cmbuild@c8226ae3ff79:~/android/cm12$ du -sh
 cmbuild@c8226ae3ff79:~/android/cm12$
 ```
 
-### Choose your device
+## Choose your device
 
 Source the `envsetup.sh` script to setup build environment
 
@@ -322,7 +322,7 @@ OUT_DIR=/home/cmbuild/android/cm12/out
 cmbuild@c8226ae3ff79:~/android/cm12$
 ```
 
-### Get the proprietary stuff
+## Get the proprietary stuff
 
 Look inside the device directory
 
@@ -347,7 +347,7 @@ They are actually trying to recreate one by one the working binaries
 from sources.
 -->
 
-### Invoke brunch
+## Invoke brunch
 
 <!-- Start: 2015-04-11 00:02 CEST -->
 
@@ -406,7 +406,7 @@ cmbuild@c8226ae3ff79:~/android/cm12$
 
 <!-- End: TODO -->
 
-### Inspecting build results
+## Inspecting build results
 
 Inspecting contents of output directory:
 

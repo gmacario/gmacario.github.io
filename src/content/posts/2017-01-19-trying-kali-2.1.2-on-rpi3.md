@@ -12,7 +12,7 @@ This blog post explains my experiences with [Kali Linux 2.1.2](http://www.kali.o
 
 Following instructions at YouTube Video: [Kali Linux on Raspberry Pi 3](https://www.youtube.com/watch?v=6xXnUGR_e4E) (8:11)
 
-### Format MicroSD-card with Kali Linux image for RPi 2 / 3
+## Format MicroSD-card with Kali Linux image for RPi 2 / 3
 
 Browse <https://www.kali.org/> > Downloads > Kali ARM images
 
@@ -87,7 +87,7 @@ Last login: Mon Jan  9 15:19:54 2017 from 192.168.64.112
 root@kali:~#
 ```
 
-### Install VNC Server on Kali Linux
+## Install VNC Server on Kali Linux
 
 Watch YouTube video: [How to Remote Access Linux on Raspberry Pi 2](https://www.youtube.com/watch?v=ZR-ztmJ7mks) (17:13)
 
@@ -157,7 +157,7 @@ root@kali:!#
 
 **Issue 2**: Copy-and-paste does not seem to work (it worked with tightvncserver)
 
-### Resize Root Partition
+## Resize Root Partition
 
 Logged as root@kali.lan
 
@@ -167,7 +167,7 @@ apt-get -y install gparted
 
 Then type `gparted` and resize the partition to use all the available space on the MicroSD.
 
-### Install all Kali Linux tools
+## Install all Kali Linux tools
 
 ```
 apt-get install kali-linux-full
@@ -175,7 +175,7 @@ apt-get install kali-linux-full
 
 **NOTE**: Depending on network speed, the above command may take a few hours to complete
 
-### Links
+## Links
 
 * Kali Linux: <https://kali.org/>
 * Metasploitable 2: <https://sourceforge.net/projects/metasploitable/files/Metasploitable2/>

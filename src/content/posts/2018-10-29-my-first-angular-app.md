@@ -12,9 +12,9 @@ description: "This article explains how to install and create a simple Angular.j
 
 <!-- 2018-10-16 12:29 CEST -->
 
-### Introduction
+## Introduction
 
-This article explains how to install and create a simple [Angular.js](https://angular.io/) application.
+This article explains how to install and create a simple [Angular](https://angular.io/) application.
 
 The following instructions have been tested on my laptop "HW2457" running [MS Windows 7 64-bit](https://en.wikipedia.org/wiki/Windows_7) and [Cygwin 64-bit](https://cygwin.com/index.html), and have also been reproduced on hosts running [Ubuntu 18.04.1 LTS 64-bit](https://www.ubuntu.com/).
 
@@ -26,7 +26,7 @@ Follow the instructions at <https://nodejs.org/> to install  [Node.js](https://n
 
 <!-- 2018-10-29 09:41 CET -->
 
-Logged as `gpmacario@hw2457`, start a Cygwin bash shell and verify that the `node` and `npm` commands have been installed correctly:
+Logged as `gpmacario@hw2457`, start a Cygwin Bash shell and verify that the `node` and `npm` commands have been installed correctly:
 
 ```
 gpmacario@HW2457:~ $ node --version
@@ -73,7 +73,7 @@ TODO
 
 ### Step 2: Create a workspace and initial application
 
-Type the `ng new <appname>` command to create a new workspace and the initial Angular.js application:
+Type the `ng new <appname>` command to create a new workspace and the initial Angular application:
 
 ```shell
 ng new my-first-angular-app
@@ -162,7 +162,7 @@ drwxr-xr-x+ 1 gpmacario AROL+Group(513)      0 29 ott 09.46 src
 gpmacario@HW2457:~/github/gmacario/my-first-angular-app (master)$
 ```
 
-This is the right time to backup your local git repository to a remote server - in my case, I used [GitHub](https://github.com).
+This is the right time to backup your local Git repository to a remote server - in my case, I used [GitHub](https://github.com).
 
 Login to <https://github.com> and create a new repository under your user profile - for instance I did the following:
 
@@ -170,7 +170,7 @@ Login to <https://github.com> and create a new repository under your user profil
 * Repository name: `my-first-angular-app`
 * Description: `My first Angular.js application`
 * Visibility: Public
-* Initialize this repository with a README: No
+* Initialize this repository with a readme: No
 
 then click "Create repository".
 If everything is OK, GitHub will show the next steps to publish the project. In my case:
@@ -226,9 +226,9 @@ For instance, if you modify file `src/app/app.component.html` replacing "Here ar
 
 ### What next?
 
-This concludes the installation of Angular.js on your laptop.
+This concludes the installation of Angular on your laptop.
 
-To learn about the features of the Angular.js framework, you may watch the 33 screencasts of the "Build your first Angular app" course which is freely available at <https://scrimba.com/g/gyourfirstangularapp>.
+To learn about the features of the Angular framework, you may watch the 33 screencasts of the "Build your first Angular app" course which is freely available at <https://scrimba.com/g/gyourfirstangularapp>.
 
 <!-- markdown-link-check-enable -->
 <!-- EOF -->
