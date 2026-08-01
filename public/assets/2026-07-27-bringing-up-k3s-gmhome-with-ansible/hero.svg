@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="k3s-gmhome: a 3-node HA k3s cluster on Raspberry Pi 5, brought up with Ansible">
+  <rect width="1200" height="630" fill="#fefbfb"/>
+  <rect x="56" y="60" width="1092" height="514" rx="10" fill="#ecebeb" stroke="#000" stroke-width="4"/>
+  <rect x="40" y="44" width="1092" height="514" rx="10" fill="#fefbfb" stroke="#000" stroke-width="4"/>
+
+  <g font-family="ui-monospace, 'Google Sans Code', 'Cascadia Code', 'DejaVu Sans Mono', monospace">
+    <text x="88" y="130" font-size="30" fill="#666" letter-spacing="1">k3s-gmhome</text>
+
+    <!-- Rack unit 1 -->
+    <g>
+      <rect x="88" y="168" width="640" height="76" rx="6" fill="#1f2430" stroke="#000" stroke-width="3"/>
+      <circle cx="118" cy="206" r="9" fill="#3ddc72"/>
+      <text x="148" y="216" font-size="30" font-weight="700" fill="#f4f4f4">rpi5gm51</text>
+      <text x="420" y="216" font-size="22" fill="#9aa0a6">4 GiB · control-plane</text>
+    </g>
+
+    <!-- Rack unit 2 -->
+    <g>
+      <rect x="88" y="260" width="640" height="76" rx="6" fill="#1f2430" stroke="#000" stroke-width="3"/>
+      <circle cx="118" cy="298" r="9" fill="#3ddc72"/>
+      <text x="148" y="308" font-size="30" font-weight="700" fill="#f4f4f4">rpi5gm52</text>
+      <text x="420" y="308" font-size="22" fill="#9aa0a6">8 GiB · control-plane</text>
+    </g>
+
+    <!-- Rack unit 3 -->
+    <g>
+      <rect x="88" y="352" width="640" height="76" rx="6" fill="#1f2430" stroke="#000" stroke-width="3"/>
+      <circle cx="118" cy="390" r="9" fill="#3ddc72"/>
+      <text x="148" y="400" font-size="30" font-weight="700" fill="#f4f4f4">rpi5gm53</text>
+      <text x="420" y="400" font-size="22" fill="#9aa0a6">16 GiB · control-plane</text>
+    </g>
+
+    <!-- kube-vip virtual IP tag, bracketing the three master nodes -->
+    <path d="M 748 168 h 40 v 260 h -40" fill="none" stroke="#006cac" stroke-width="4"/>
+    <rect x="792" y="270" width="220" height="56" rx="6" fill="#006cac"/>
+    <text x="812" y="306" font-size="24" font-weight="700" fill="#ffffff">kube-vip VIP</text>
+
+    <text x="88" y="466" font-size="36" fill="#2a2a2a" font-weight="700">3-node HA k3s cluster, stood up with Ansible</text>
+    <text x="88" y="504" font-size="24" fill="#666">Raspberry Pi 5 &#183; kube-vip &#183; MetalLB &#183; Ansible Vault</text>
+    <text x="792" y="540" font-size="26" font-weight="700" fill="#1a1a1a">gmacario.github.io</text>
+  </g>
+</svg>

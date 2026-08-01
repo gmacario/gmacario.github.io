@@ -6,7 +6,6 @@ tags:
   - blog
   - migration
   - ai
-featured: true
 description: "Why I rebuilt gmacario.github.io on Astro and AstroPaper, and how I did the whole migration pair-programming with Claude Code."
 ogImage: "../../assets/2026-07-22-migrating-this-blog-to-astro-og.png"
 ---
