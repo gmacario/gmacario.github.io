@@ -145,6 +145,11 @@ host groups:
       become: true
 ```
 
+None of this would have come together as quickly without
+[Davide Macario](https://github.com/davmacario), whose own internal writeup on
+the same topic was a huge source of inspiration for how I approached the whole
+bring-up.
+
 All the actual tuning lives in `inventory/group_vars/k3s_gmhome.yml`, which is
 a trimmed-down copy of the collection's own sample vars file. The interesting
 choices:
