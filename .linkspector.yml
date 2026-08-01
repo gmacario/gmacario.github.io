@@ -137,6 +137,8 @@ ignorePatterns:
   - pattern: '^https?://www\.raspberrypi\.com/products/raspberry-pi-3-model-b/'
   - pattern: '^https?://www\.arduino\.cc/pro/hardware/product/portenta-x8'
   - pattern: '^https?://arduino\.cc/download_handler\.php'
+  - pattern: '^https?://(www\.)?fing\.io/fingbox/$'
+  - pattern: '^https?://www\.indiegogo\.com/projects/fingbox-network-security-wi-fi-troubleshooting/'
   - pattern: '^https?://[^/]*\.linkedin\.com/'
   - pattern: '^https?://dash\.cloudflare\.com/'
 
