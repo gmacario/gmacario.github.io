@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="UDOO Neo + Volumio: turning a small board into a networked music player">
+  <rect width="1200" height="630" fill="#fefbfb"/>
+  <rect x="56" y="60" width="1092" height="514" rx="10" fill="#ecebeb" stroke="#000" stroke-width="4"/>
+  <rect x="40" y="44" width="1092" height="514" rx="10" fill="#fefbfb" stroke="#000" stroke-width="4"/>
+
+  <g font-family="ui-monospace, 'Google Sans Code', 'Cascadia Code', 'DejaVu Sans Mono', monospace">
+    <text x="88" y="130" font-size="30" fill="#666" letter-spacing="1">UDOO Neo</text>
+
+    <!-- Equalizer bars -->
+    <g fill="#006cac">
+      <rect x="88" y="270" width="46" height="120" rx="4"/>
+      <rect x="150" y="220" width="46" height="170" rx="4"/>
+      <rect x="212" y="180" width="46" height="210" rx="4"/>
+      <rect x="274" y="240" width="46" height="150" rx="4"/>
+      <rect x="336" y="160" width="46" height="230" rx="4"/>
+      <rect x="398" y="200" width="46" height="190" rx="4"/>
+      <rect x="460" y="260" width="46" height="130" rx="4"/>
+      <rect x="522" y="200" width="46" height="190" rx="4"/>
+      <rect x="584" y="230" width="46" height="160" rx="4"/>
+      <rect x="646" y="180" width="46" height="210" rx="4"/>
+      <rect x="708" y="250" width="46" height="140" rx="4"/>
+    </g>
+    <line x1="88" y1="392" x2="754" y2="392" stroke="#000" stroke-width="3"/>
+
+    <text x="88" y="466" font-size="36" fill="#2a2a2a" font-weight="700">Trying Volumio on a UDOO Neo</text>
+    <text x="88" y="504" font-size="24" fill="#666">SD-card image &#183; network discovery &#183; web UI</text>
+    <text x="792" y="540" font-size="26" font-weight="700" fill="#1a1a1a">gmacario.github.io</text>
+  </g>
+</svg>
