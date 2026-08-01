@@ -68,5 +68,5 @@ a basic setup log rather than a full walkthrough of the interface.
 
 ## References
 
-- <https://www.volumio.org/>
+- <https://volumio.org/>
 - <https://github.com/VOLUMIO>
