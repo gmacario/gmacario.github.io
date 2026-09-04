@@ -11,7 +11,12 @@ featured: true
 description: "How I used Ansible and the community k3s-ansible collection to bring up a 3-node, highly-available k3s cluster on Raspberry Pi 5 hardware — kube-vip, MetalLB, Ansible Vault, and a couple of bugs found along the way."
 ---
 
-![k3s-gmhome: a 3-node HA k3s cluster on Raspberry Pi 5, brought up with Ansible](/assets/2026-07-27-bringing-up-k3s-gmhome-with-ansible/hero.svg)
+![Photo of the k3s-gmhome rack: three Raspberry Pi 5 nodes (rpi5gm51, rpi5gm52, rpi5gm53) in individual carrier trays, cabled down to the PoE+ switch below](/assets/2026-07-27-bringing-up-k3s-gmhome-with-ansible/rack-photo.jpg)
+
+The actual rack: the three carrier trays in the middle are `rpi5gm51`, `rpi5gm52`
+and `rpi5gm53` (labelled left to right), each with its own Ethernet drop to the
+PoE+ switch mounted below them. The hub above the nodes is unrelated USB/dock
+hardware sharing the same enclosure.
 
 I've been slowly rebuilding my home lab (`gmhome`) around a proper, reproducible
 Ansible codebase instead of a pile of one-off SSH sessions. The centerpiece is
