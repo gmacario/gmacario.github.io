@@ -46,6 +46,10 @@ about Linux and IVI at universities, customer sites and public events.
   Yocto Project.
 - [easy-jenkins](https://github.com/gmacario/easy-jenkins) — deploys a
   Jenkins CI/CD stack via docker-machine and docker-compose.
+- [publish-md-pdf](https://github.com/B-AROL-O/publish-md-pdf) — a
+  Dockerized CLI and GitHub Action that renders Markdown to A4 PDF via
+  pandoc and WeasyPrint, with support for rendered Mermaid diagrams and
+  round-tripping to/from Confluence Storage Format.
 
 ## Find me elsewhere
 
