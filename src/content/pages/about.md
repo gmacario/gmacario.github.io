@@ -12,7 +12,7 @@ I'm currently **Senior Software Architect and Site Manager** at
 [AROL Group](https://www.arol.com/), where I'm technically responsible for
 the R&D site in Turin, Italy. Recent projects include an on-premise agentic
 LLM system that supports the sales team, and a BLE-based sensor network for
-instrumenting capping machinery. I'm also cofounder and CTO of
+instrumenting capping machinery. I'm also Managing Partner and CTO of
 [SOLARMA](https://www.solarma.it/), a small company designing and operating
 photovoltaic systems.
 
