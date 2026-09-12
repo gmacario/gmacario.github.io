@@ -61,6 +61,20 @@ cd LOCAL_WORKDIR
 git clone REPOSITORY_URL
 ```
 
+## Install the Dev Container CLI
+
+Check whether the `devcontainer` CLI is already installed:
+
+```bash
+devcontainer --version
+```
+
+If the command isn't found, install it via `npm` (requires Node.js):
+
+```bash
+npm install -g @devcontainers/cli
+```
+
 ## Enter the Dev Container
 
 Make sure the Dev Container is up and running, then list its properties:
