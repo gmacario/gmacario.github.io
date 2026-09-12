@@ -84,7 +84,8 @@ Logged into the Dev Container, make sure `tmux` is installed:
 # Ubuntu
 which tmux || (sudo apt-get update && sudo apt-get -y install tmux)
 
-# TODO: Omarchy
+# Omarchy
+which tmux || sudo pacman -S --noconfirm tmux
 ```
 
 Attach to a running `tmux` session, or create a new one:
