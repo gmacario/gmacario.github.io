@@ -52,8 +52,8 @@ that the host OS is now up to date.
 ## Clone the git workspace
 
 Use the tool you prefer (Visual Studio Code, the command line, etc.) to clone
-the git repository at `REPOSITORY_URL` into `LOCAL_WORKDIR`. From the command
-line:
+the git repository at `REPOSITORY_URL` into `LOCAL_WORKDIR` of `REMOTE_HOST`.
+From the command line:
 
 ```bash
 mkdir -p LOCAL_WORKDIR
@@ -63,7 +63,7 @@ git clone REPOSITORY_URL
 
 ## Install the Dev Container CLI
 
-Check whether the `devcontainer` CLI is already installed:
+Check whether the `devcontainer` CLI is already installed on `REMOTE_HOST`:
 
 ```bash
 devcontainer --version
@@ -77,7 +77,7 @@ npm install -g @devcontainers/cli
 
 ## Enter the Dev Container
 
-Make sure the Dev Container is up and running, then list its properties:
+Make sure that the Dev Container is up and running on `REMOTE_HOST`, then list its properties:
 
 ```bash
 cd LOCAL_WORKDIR
@@ -93,13 +93,13 @@ devcontainer exec bash
 
 ## Run `tmux` in the Dev Container
 
-Logged into the Dev Container, make sure `tmux` is installed:
+Logged into the Dev Container, make sure that the `tmux` command is available, otherwise install it:
 
 ```bash
-# REMOTE_HOST running Ubuntu
+# Dev Container based on Debian (i.e. Ubuntu)
 which tmux || (sudo apt-get update && sudo apt-get -y install tmux)
 
-# REMOTE_HOST running Omarchy
+# Dev Container based on Arch (i.e. Omarchy)
 which tmux || sudo pacman -S --noconfirm tmux
 ```
 
