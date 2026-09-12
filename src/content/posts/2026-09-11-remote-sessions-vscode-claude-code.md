@@ -20,7 +20,7 @@ This HOWTO is generic, in the following sections you should replace the followin
 
 - `REMOTE_HOST`: hostname or IP address of the remote Linux server, reachable over SSH
 - `REMOTE_USER`: my own SSH user on that host
-- `REPOSITORY_URL`: the git repository containing the project's Dev Container
+- `REPOSITORY_URL`: the Git repository containing the project's Dev Container
 - `LOCAL_WORKDIR`: where that repository is cloned on `REMOTE_HOST`
 
 The command were tested on several `REMOTE_HOST`s running different Linux-based Operating systems, such as [Ubuntu 24.x server](https://ubuntu.com/server) or [Omarchy Quattro](https://omarchy.org/).
@@ -49,10 +49,10 @@ sudo reboot
 Wait until the server comes back online, then log in via SSH again and verify
 that the host OS is now up to date.
 
-## Clone the git workspace
+## Clone the Git workspace
 
 Use the tool you prefer (Visual Studio Code, the command line, etc.) to clone
-the git repository at `REPOSITORY_URL` into `LOCAL_WORKDIR` of `REMOTE_HOST`.
+the Git repository at `REPOSITORY_URL` into `LOCAL_WORKDIR` of `REMOTE_HOST`.
 From the command line:
 
 ```bash
@@ -150,7 +150,7 @@ The first time you launch the `claude` command, a setup wizard runs:
 
 ## Enable Claude Code Remote Control
 
-Back at the bash prompt inside the Dev Container, type `claude remote`:
+Back at the Bash prompt inside the Dev Container, type `claude remote`:
 
 ```
 $ claude remote
@@ -181,7 +181,7 @@ Choose [1/2] (default: 1):
 ```
 
 Choose the option you prefer — I selected **2** (`worktree`) so that each
-session gets an isolated git worktree.
+session gets an isolated Git worktree.
 
 <!-- SCREENSHOT 10: spawn mode selection -->
 
