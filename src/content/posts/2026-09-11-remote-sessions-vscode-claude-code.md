@@ -16,13 +16,14 @@ without losing any context. Claude Code's **Remote Control** feature, combined
 with a VS Code Dev Container and a `tmux` session on the remote host, does
 exactly that. Here's the setup, step by step.
 
-This HOWTO is generic, but was tested with the following configuration:
+This HOWTO is generic, in the following sections you should replace the following placeholders:
 
-- `REMOTE_HOST`: a remote Ubuntu server, reachable over SSH
-- `REMOTE_HOST_OS`: Ubuntu 24.04.5 LTS
+- `REMOTE_HOST`: hostname or IP address of the remote Linux server, reachable over SSH
 - `REMOTE_USER`: my own SSH user on that host
 - `REPOSITORY_URL`: the git repository containing the project's Dev Container
 - `LOCAL_WORKDIR`: where that repository is cloned on `REMOTE_HOST`
+
+The command were tested on several `REMOTE_HOST`s running different Linux-based Operating systems, such as [Ubuntu 24.x server](https://ubuntu.com/server) or [Omarchy Quattro](https://omarchy.org/).
 
 ## Login to the remote host
 
@@ -81,10 +82,10 @@ devcontainer exec bash
 Logged into the Dev Container, make sure `tmux` is installed:
 
 ```bash
-# Ubuntu
+# REMOTE_HOST running Ubuntu
 which tmux || (sudo apt-get update && sudo apt-get -y install tmux)
 
-# Omarchy
+# REMOTE_HOST running Omarchy
 which tmux || sudo pacman -S --noconfirm tmux
 ```
 
