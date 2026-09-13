@@ -218,5 +218,5 @@ remote session stays open even if the SSH connection to `REMOTE_HOST`
 terminates or the client reboots.
 
 From here, you can pick the very same session back up from the Code tab in the
-Claude mobile app, from `claude.ai/code` in a browser, or from another
+Claude mobile app, from <https://claude.ai/code> in a browser, or from another
 terminal — the work in progress, and Claude's context, are all still there.
