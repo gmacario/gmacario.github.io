@@ -143,15 +143,11 @@ The first time you launch the `claude` command, a setup wizard runs:
 
 2. Select a login method and follow the instructions.
 
-   <!-- SCREENSHOT 4: wizard - select login method -->
-
-   ![alt text](image.png)
+   ![Claude Code setup wizard: selecting a login method (Claude account, Anthropic Console, or a 3rd-party platform)](/assets/2026-09-11-remote-sessions-vscode-claude-code/wizard-login-method.png)
 
 3. If everything is OK, you should get a confirmation message.
 
-   <!-- SCREENSHOT 5: wizard - success message -->
-
-   ![alt text](image-1.png)
+   ![Claude Code setup wizard: login successful confirmation message](/assets/2026-09-11-remote-sessions-vscode-claude-code/wizard-login-success.png)
 
 4. Press **Enter** to continue and read the security notes.
 
