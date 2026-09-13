@@ -25,7 +25,7 @@ This HOWTO is generic, in the following sections you should replace the followin
 
 The command were tested on several `REMOTE_HOST`s running different Linux-based Operating systems, such as [Ubuntu 24.x server](https://ubuntu.com/server) or [Omarchy Quattro](https://omarchy.org/).
 
-## Prerequisite
+## Prerequisites
 
 Launch [Visual Studio Code](https://code.visualstudio.com/) on your local machine and install
 these two extensions from the Extensions view (`Ctrl+Shift+X` / `Cmd+Shift+X`):
@@ -119,6 +119,8 @@ Attach to a running `tmux` session, or create a new one:
 tmux
 ```
 
+Your terminal will display one tmux window as shown:
+
 ![Terminal showing a tmux session started inside the Dev Container, at the shell prompt](/assets/2026-09-11-remote-sessions-vscode-claude-code/tmux-session.png)
 
 ## Configure Claude Code
@@ -128,6 +130,8 @@ Make sure Claude Code is installed in the Dev Container:
 ```bash
 which claude || curl -fsSL https://claude.ai/install.sh | bash
 ```
+
+Claude Code will be installed if it was not found. When the installation is complete, the following message will be displayed on the terminal:
 
 ![Terminal showing Claude Code successfully installed, with its version and install location](/assets/2026-09-11-remote-sessions-vscode-claude-code/claude-install.png)
 
