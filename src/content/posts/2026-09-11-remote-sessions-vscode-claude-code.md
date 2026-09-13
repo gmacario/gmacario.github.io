@@ -25,6 +25,16 @@ This HOWTO is generic, in the following sections you should replace the followin
 
 The command were tested on several `REMOTE_HOST`s running different Linux-based Operating systems, such as [Ubuntu 24.x server](https://ubuntu.com/server) or [Omarchy Quattro](https://omarchy.org/).
 
+## Prerequisite
+
+Launch [Visual Studio Code](https://code.visualstudio.com/) on your local machine and install
+these two extensions from the Extensions view (`Ctrl+Shift+X` / `Cmd+Shift+X`):
+
+- [Remote - SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh) —
+  lets VS Code connect to `REMOTE_HOST` over SSH and work with its filesystem directly.
+- [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) —
+  lets VS Code open the project's Dev Container once you're connected to `REMOTE_HOST`.
+
 ## Login to the remote host
 
 Login to the remote server via SSH:
