@@ -109,7 +109,7 @@ Attach to a running `tmux` session, or create a new one:
 tmux
 ```
 
-<!-- SCREENSHOT 1: terminal after running `tmux` inside the Dev Container -->
+![Terminal showing a tmux session started inside the Dev Container, at the shell prompt](/assets/2026-09-11-remote-sessions-vscode-claude-code/tmux-session.png)
 
 ## Configure Claude Code
 
@@ -119,13 +119,13 @@ Make sure Claude Code is installed in the Dev Container:
 which claude || curl -fsSL https://claude.ai/install.sh | bash
 ```
 
-<!-- SCREENSHOT 2: result of the `which claude` / install check -->
+![Terminal showing Claude Code successfully installed, with its version and install location](/assets/2026-09-11-remote-sessions-vscode-claude-code/claude-install.png)
 
 The first time you launch the `claude` command, a setup wizard runs:
 
 1. Select your preferred text style.
 
-   <!-- SCREENSHOT 3: wizard - select text style -->
+   ![Claude Code setup wizard: choosing a text style, with a live preview of syntax highlighting](/assets/2026-09-11-remote-sessions-vscode-claude-code/wizard-text-style.png)
 
 2. Select a login method and follow the instructions.
 
@@ -137,16 +137,15 @@ The first time you launch the `claude` command, a setup wizard runs:
 
 4. Press **Enter** to continue and read the security notes.
 
-   <!-- SCREENSHOT 6: wizard - press Enter to continue -->
-   <!-- SCREENSHOT 7: wizard - security notes -->
+   ![Claude Code setup wizard: the security notes screen, with a prompt to press Enter to continue](/assets/2026-09-11-remote-sessions-vscode-claude-code/wizard-security-notes.png)
 
 5. Read and select **Yes, I trust this folder** to continue.
 
-   <!-- SCREENSHOT 8: wizard - trust this folder prompt -->
+   ![Claude Code setup wizard: prompt to trust the current folder, listing the pre-approved tool permissions](/assets/2026-09-11-remote-sessions-vscode-claude-code/trust-folder-prompt.png)
 
 6. Type `Ctrl-C` twice to exit Claude Code and return to the command prompt.
 
-   <!-- SCREENSHOT 9: back at the bash prompt after Ctrl-C twice -->
+   ![Terminal back at the Bash prompt after exiting Claude Code with Ctrl-C twice](/assets/2026-09-11-remote-sessions-vscode-claude-code/bash-prompt-after-exit.png)
 
 ## Enable Claude Code Remote Control
 
@@ -183,22 +182,22 @@ Choose [1/2] (default: 1):
 Choose the option you prefer — I selected **2** (`worktree`) so that each
 session gets an isolated Git worktree.
 
-<!-- SCREENSHOT 10: spawn mode selection -->
+![Terminal showing Remote Control launching in spawn mode, with the same-dir/worktree choice](/assets/2026-09-11-remote-sessions-vscode-claude-code/spawn-mode-selection.png)
 
 As suggested, you may type **space** to show a QR code:
 
-<!-- SCREENSHOT 11: QR code -->
+![Terminal showing the QR code to scan for continuing the session from another device](/assets/2026-09-11-remote-sessions-vscode-claude-code/qr-code.png)
 
 You can either scan the QR code or open the URL displayed in the terminal to
 continue coding from another device.
 
 You may be asked to sign in again to verify your device:
 
-<!-- SCREENSHOT 12: device verification sign-in -->
+![Browser dialog asking to sign in again to verify the device for Remote Control](/assets/2026-09-11-remote-sessions-vscode-claude-code/device-verification.png)
 
 The session will stay open until the `claude remote` command is terminated:
 
-<!-- SCREENSHOT 13: session stays open -->
+![Browser showing the Claude Code session still running and ready for input](/assets/2026-09-11-remote-sessions-vscode-claude-code/session-stays-open.png)
 
 **Note:** because `claude remote` was launched from inside a `tmux` window, the
 remote session stays open even if the SSH connection to `REMOTE_HOST`
