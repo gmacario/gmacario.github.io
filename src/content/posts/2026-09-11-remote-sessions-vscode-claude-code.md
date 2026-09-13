@@ -145,9 +145,13 @@ The first time you launch the `claude` command, a setup wizard runs:
 
    <!-- SCREENSHOT 4: wizard - select login method -->
 
+   ![alt text](image.png)
+
 3. If everything is OK, you should get a confirmation message.
 
    <!-- SCREENSHOT 5: wizard - success message -->
+
+   ![alt text](image-1.png)
 
 4. Press **Enter** to continue and read the security notes.
 
