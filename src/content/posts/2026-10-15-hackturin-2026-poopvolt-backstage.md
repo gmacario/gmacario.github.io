@@ -142,6 +142,8 @@ kept it under control:
    reviewed like code and are shared by every agent, whichever vendor it comes
    from.
 
+![Another debugging session, outdoors in the courtyard: Lorenzo crouching over the prototype board and his laptop, with Giacomo looking on from the left and Federico, in a white sweatshirt, on the right](/assets/2026-10-15-hackturin-2026-poopvolt-backstage/team-debugging-outdoors.jpg)
+
 ## Honesty as a feature
 
 If you read the PoopVolt readme you will notice an unusual amount of
