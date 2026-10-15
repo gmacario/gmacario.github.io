@@ -64,6 +64,8 @@ people _directing_ agents could.
 We did not plan a formal division of labour, but one emerged quickly, and each
 of us ended up pairing with a different kind of agent.
 
+![Federico, Giacomo and Lorenzo hacking at the team desk during hackTurin 2026: laptops, the prototype boards, a multimeter and a screwdriver bit set spread across the table](/assets/2026-10-15-hackturin-2026-poopvolt-backstage/team-hacking.jpg)
+
 **Lorenzo** stayed close to the metal. The firmware commits are his: Grove
 sensor diagnostics on the UNO Q Base Shield, the PN532 NFC reader over the
 shield UART, panel current on `A1`, streaming readings from the MCU to Linux over
