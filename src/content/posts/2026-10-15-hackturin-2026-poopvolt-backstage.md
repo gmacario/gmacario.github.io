@@ -141,7 +141,7 @@ kept it under control:
 
 ## Honesty as a feature
 
-If you read the PoopVolt README you will notice an unusual amount of
+If you read the PoopVolt readme you will notice an unusual amount of
 qualification: "proposed", "replayed", "simulated", "remains to verify". That
 was deliberate. Coding agents are very good at producing confident text, and a
 hackathon pitch is the perfect place for confident text to drift away from
