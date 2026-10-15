@@ -73,7 +73,7 @@ humans did most of the work, measuring and writing down what they measured: the
 repository even records that the LM2596 step-down converter could not supply
 5 V from the LiPo battery.
 
-![Bench prototype: Arduino UNO Q with Base Shield, Grove LCD showing temperature, humidity and light, NFC reader, light sensor, small solar panel and LiPo charger taped on a cardboard sheet](/assets/2026-10-15-hackturin-2026-poopvolt-backstage/prototype-bench.jpg)
+![Lorenzo assembling the PoopVolt hardware at hackTurin 2026: wiring a battery charger board next to the Grove modules, with the Grove current sensor documentation open on the laptop, a multimeter and a screwdriver bit set on the desk](/assets/2026-10-15-hackturin-2026-poopvolt-backstage/lorenzo-assembling-hardware.jpg)
 
 **Giacomo** owned the story: the pitch, the architecture documents, the
 company offer and, at the end, the film. He worked largely with Codex (you can
