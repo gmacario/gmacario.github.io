@@ -39,7 +39,7 @@ jobs:
       - name: Build Astro site
         uses: withastro/action@v6
         with:
-          node-version: 22
+          node-version: 24
         env:
           # Cloudflare Web Analytics beacon token (#131). Stored as a repository
           # variable, not a secret: Cloudflare embeds it in the page markup, so
