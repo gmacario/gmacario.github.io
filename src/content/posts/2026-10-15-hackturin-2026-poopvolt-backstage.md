@@ -156,7 +156,7 @@ So we made the distinction part of the rules. The
 [project status](https://github.com/B-AROL-O/hackturin-2026/blob/main/docs/project-status.md)
 page lists what works today and what is still a proposal. The data on every
 chart is labelled measured, replayed or simulated. When we discussed our
-progress with Matteo Stoppa of Coesa, one of the mentors, on Saturday and
+progress with [Matteo Stoppa](https://www.linkedin.com/in/matteo-stoppa) of Coesa, one of the mentors, on Saturday and
 Sunday, the Devpost draft was updated to say "discussed with", not "validated
 by". Once the rules were written down, the agents applied them to the documents
 they touched, just like the linter rules.
