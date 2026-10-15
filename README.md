@@ -13,7 +13,7 @@ Built with [Astro](https://astro.build/) using the
 
 ## Prerequisites
 
-Node.js 22 (LTS) — see [`.nvmrc`](.nvmrc).
+Node.js 24 (LTS) — see [`.nvmrc`](.nvmrc).
 
 ## Local development
 
