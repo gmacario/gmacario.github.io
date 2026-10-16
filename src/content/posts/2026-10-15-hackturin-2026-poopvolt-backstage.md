@@ -2,6 +2,7 @@
 title: "hackTurin 2026: the backstage of PoopVolt, built by four humans and their coding agents"
 pubDatetime: 2026-10-15T00:00:00+02:00
 featured: true
+ogImage: "../../assets/2026-10-15-hackturin-2026-poopvolt-backstage-og.jpg"
 tags:
   - hackathon
   - hackturin
