@@ -2,6 +2,7 @@
 title: "Agenthon 2026: one day, one breadstick, one GenAI campaign"
 pubDatetime: 2026-11-22T00:00:00+01:00
 featured: true
+ogImage: "../../assets/2026-11-22-agenthon-2026-si-divide-si-condivide-og.jpg"
 tags:
   - hackathon
   - agenthon
@@ -11,6 +12,8 @@ tags:
   - claude-code
 description: 'How the B-AROL-O team designed and produced, almost entirely with generative AI, a full advertising campaign for the Rubatà breadsticks of Grissinificio Feyles in one day at the GDG Torino "Build with AI" Agenthon: the idea, what we delivered, how we built it and what I would keep for the next hackathon.'
 ---
+
+![Web banner from our campaign: a woman hands a bundle of Rubatà breadsticks to a smiling friend at the door of a home aperitivo, beside the headline «Portate qualcosa da dividere.», the Il Classico carton and the claim «Si divide. Si condivide.»](/assets/2026-11-22-agenthon-2026-si-divide-si-condivide/hero-16x9.jpg)
 
 On Saturday 21 November 2026 the [B-AROL-O team](https://github.com/B-AROL-O)
 ([Alessio Chessa](https://github.com/aleche28),
