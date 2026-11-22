@@ -89,8 +89,10 @@ is a Christmas story, from 1968 to today, and the snap is not in it.
 That is what a few hours of generating, picking takes and editing do to a plan.
 Some shots did not come out as we had pictured them, others came out better
 than expected and pulled the story in a new direction, and at some point the
-clock decides for you. I don't see it as a failure: the spot still tells the
-sharing, and the stills carry the snap, so we let each do its part.
+clock decides for you. The spot still tells the sharing, and the stills carry
+the snap. But the jury noticed the gap: their main criticism was that the
+spot did not feel aligned enough with the rest of the campaign. It is a fair
+point, and it is the first lesson below.
 
 ![Social post, 1:1: the die-cut wheat-ear window of the Il Classico carton](/assets/2026-11-22-agenthon-2026-si-divide-si-condivide/social-finestra-1x1.jpg)
 
@@ -125,12 +127,20 @@ knobbly, irregular breadsticks, never thin smooth ones; no hands rolling dough
 and no "hand-rolled" claims; no awards, dates or figures that the client's kit
 did not state.
 
-## What I would keep for the next hackathon
+## Lessons for the next hackathon
 
+- **Make the GitHub repository the single source of truth, for everyone and
+  every tool.** The concept lock, the storyboard and the brand rules lived in
+  our repository, but not all the work flowed through it. If every team member,
+  and every tool and agent they use, had read from and written back to the same
+  repository, the changes to the spot would have been visible to the rest of the
+  campaign as they happened, and the spot would have stayed closer to it.
 - **Lock the concept early.** The 12:00 freeze turned the afternoon into
   production instead of debate, even if the spot then found its own way.
-- **Treat the storyboard as a starting point.** Generative video does not always
-  give you the shot you asked for; leave room for the takes that surprise you.
+- **Treat the storyboard as a starting point, and share the changes.**
+  Generative video does not always give you the shot you asked for, so leave
+  room for the takes that surprise you, but write the new direction down where
+  the whole team can see it.
 - **Start long generations before lunch.** Video clips rendered while we ate.
 - **Know the submission mechanics.** The portal took a Google Drive folder and
   recorded each file's timestamp at 17:00, so we froze the folder at 16:45 and
@@ -144,9 +154,10 @@ did not state.
 
 <!-- TODO: say in a sentence or two how the pitch and the awards went, and anything that surprised you about the jury or the other teams -->
 
-We did not make the podium, but we left with a complete, brand-safe campaign
-that Feyles could run as it is, and a format that extends to the other seven
-Rubatà flavours with a new snap each.
+We did not make the podium. The jury's main criticism, as I said above, was that
+the spot was not aligned enough with the rest of the campaign. Still, we left
+with a complete, brand-safe campaign that Feyles could run as it is, and a
+format that extends to the other seven Rubatà flavours with a new snap each.
 
 Thanks to GDG Torino for organising the day, to Demetra for the Track 2 brief,
 to Feyles for trusting a room full of hackers with their brand, and to Alessio
