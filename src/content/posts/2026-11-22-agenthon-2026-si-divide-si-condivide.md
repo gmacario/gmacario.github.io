@@ -57,28 +57,40 @@ does not need to explain sharing; it only has to show the snap.
 **Claim:** _«Si divide. Si condivide.»_ (It breaks. It's shared.)
 
 Early research had suggested three Christmas concepts across several product
-lines. We dropped them all for one hero pack, the sky-blue Il Classico carton
-with its die-cut wheat-ear window, and one gesture. A 26-second spot has no room
-for a catalogue tour.
+lines. At the concept lock we set them aside for one hero pack, the sky-blue Il
+Classico carton with its die-cut wheat-ear window, and one gesture. As you will
+read below, Christmas found its way back in by the end of the day.
 
 ![Hero ad: two hands snapping one Rubatà on a sky-blue background, with the headline «Spezzatelo. È fatto apposta.»](/assets/2026-11-22-agenthon-2026-si-divide-si-condivide/hero-ad-4x5.jpg)
 
 ## What we made
 
-- **The spot**, about 26 seconds in 8 beats, in 16:9 and 9:16. It opens on the
-  sound of a snap with no music, goes back to the ear of wheat and the oven, and
-  ends at an aperitivo table where the breadsticks pass from hand to hand until
-  the carton is empty: _«Uno diventa due. Poi finiscono.»_
+- **The spot**, about 30 seconds: a Christmas story of sharing, from 1968 to
+  today, starring Il Cioccorubatà fondente.
   [Watch it here](https://drive.google.com/file/d/1k-UAqDOfcPWlhVR_IKaYoMYq0grGPlYI/view).
 - **A social set** of five post concepts in 9:16, 4:5 and 1:1, with a
   friend-tag prompt, _«A chi va l'altra metà?»_ ("Who gets the other half?"),
-  and a six-slide carousel retelling the spot.
+  and a six-slide carousel that tells the snap story from the storyboard.
 - **Web and print**: banners, a home page hero, display ads, a poster, a
   billboard, a bus shelter in Turin, a magazine page and a gift tag.
 - **The hero ad**, _«Spezzatelo. È fatto apposta.»_ ("Snap it. It's made for
   that."), in three formats.
 - **The project sheet and tools list**, which the brief counted as deliverables
   in their own right.
+
+### A note on the spot
+
+If you compare the spot with the storyboard we wrote at noon, you will notice
+they are not quite the same film. The plan was eight beats around the snap: a
+breadstick broken between two hands, the ear of wheat, the oven, Turin's arcades
+and an aperitivo table where the carton empties. What came out of the afternoon
+is a Christmas story, from 1968 to today, and the snap is not in it.
+
+That is what a few hours of generating, picking takes and editing do to a plan.
+Some shots did not come out as we had pictured them, others came out better
+than expected and pulled the story in a new direction, and at some point the
+clock decides for you. I don't see it as a failure: the spot still tells the
+sharing, and the stills carry the snap, so we let each do its part.
 
 ![Social post, 1:1: the die-cut wheat-ear window of the Il Classico carton](/assets/2026-11-22-agenthon-2026-si-divide-si-condivide/social-finestra-1x1.jpg)
 
@@ -92,8 +104,7 @@ final cut.
 
 - **Images:** Nano Banana 2 on Vertex AI, always with the official pack photos
   as references.
-- **Video:** Google Veo 3.1 on Vertex AI, whose native audio gave us the
-  breadstick snaps.
+- **Video:** Google Veo 3.1 on Vertex AI, with its native audio.
 - **Voice and music:** ElevenLabs, with a pronunciation dictionary so that the
   voiceover says «Rubatà» like someone from Turin.
 - **Editing:** HeyGen HyperFrames and FFmpeg.
@@ -116,8 +127,10 @@ did not state.
 
 ## What I would keep for the next hackathon
 
-- **Lock the concept early and mean it.** The 12:00 freeze turned the afternoon
-  into production instead of debate.
+- **Lock the concept early.** The 12:00 freeze turned the afternoon into
+  production instead of debate, even if the spot then found its own way.
+- **Treat the storyboard as a starting point.** Generative video does not always
+  give you the shot you asked for; leave room for the takes that surprise you.
 - **Start long generations before lunch.** Video clips rendered while we ate.
 - **Know the submission mechanics.** The portal took a Google Drive folder and
   recorded each file's timestamp at 17:00, so we froze the folder at 16:45 and
