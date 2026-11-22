@@ -13,7 +13,9 @@ tags:
 description: 'How the B-AROL-O team designed and produced, almost entirely with generative AI, a full advertising campaign for the Rubatà breadsticks of Grissinificio Feyles in one day at the GDG Torino "Build with AI" Agenthon: the idea, what we delivered, how we built it and what I would keep for the next hackathon.'
 ---
 
-![Web banner from our campaign: a woman hands a bundle of Rubatà breadsticks to a smiling friend at the door of a home aperitivo, beside the headline «Portate qualcosa da dividere.», the Il Classico carton and the claim «Si divide. Si condivide.»](/assets/2026-11-22-agenthon-2026-si-divide-si-condivide/hero-16x9.jpg)
+![The B-AROL-O team at work at the Agenthon: Luca on the left and Alessio on the right, sitting at a table in Feat. House, with Gianpaolo's laptop in the centre showing the team's GitHub repository](/assets/2026-11-22-agenthon-2026-si-divide-si-condivide/team-at-work.jpg)
+
+_Luca (left) and Alessio (right) at work at Feat. House, with my laptop in the centre._
 
 On Saturday 21 November 2026 the [B-AROL-O team](https://github.com/B-AROL-O)
 ([Alessio Chessa](https://github.com/aleche28),
@@ -22,8 +24,6 @@ On Saturday 21 November 2026 the [B-AROL-O team](https://github.com/B-AROL-O)
 ["Build with AI" Agenthon](https://agenthon.gdgtorino.it/). We picked Track 2,
 GenAI for marketing, and at 10:28 the brief appeared on the participant portal.
 At 17:00 the submission froze. This is what happened in between.
-
-<!-- TODO: add a photo from the day, if you have one -->
 
 ## The brief
 
@@ -93,6 +93,8 @@ clock decides for you. The spot still tells the sharing, and the stills carry
 the snap. But the jury noticed the gap: their main criticism was that the
 spot did not feel aligned enough with the rest of the campaign. It is a fair
 point, and it is the first lesson below.
+
+![Web banner from our campaign: a woman hands a bundle of Rubatà breadsticks to a smiling friend at the door of a home aperitivo, beside the headline «Portate qualcosa da dividere.», the Il Classico carton and the claim «Si divide. Si condivide.»](/assets/2026-11-22-agenthon-2026-si-divide-si-condivide/web-banner-16x9.jpg)
 
 ![Social post, 1:1: the die-cut wheat-ear window of the Il Classico carton](/assets/2026-11-22-agenthon-2026-si-divide-si-condivide/social-finestra-1x1.jpg)
 
