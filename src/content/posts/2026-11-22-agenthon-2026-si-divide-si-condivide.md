@@ -1,7 +1,7 @@
 ---
 title: "Agenthon 2026: one day, one breadstick, one GenAI campaign"
 pubDatetime: 2026-11-22T00:00:00+01:00
-draft: true
+featured: true
 tags:
   - hackathon
   - agenthon
