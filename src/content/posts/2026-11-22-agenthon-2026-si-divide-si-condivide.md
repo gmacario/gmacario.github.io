@@ -157,8 +157,6 @@ did not state.
 
 ## How it went
 
-<!-- TODO: say in a sentence or two how the pitch and the awards went, and anything that surprised you about the jury or the other teams -->
-
 We did not make the podium. The jury's main criticism, as I said above, was that
 the spot was not aligned enough with the rest of the campaign. Still, we left
 with a complete, brand-safe campaign that Feyles could run as it is, and a
