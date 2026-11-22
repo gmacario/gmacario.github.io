@@ -10,20 +10,23 @@ tags:
   - genai
   - marketing
   - claude-code
-description: 'How the B-AROL-O team designed and produced, almost entirely with generative AI, a full advertising campaign for the Rubatà breadsticks of Grissinificio Feyles in one day at the GDG Torino "Build with AI" Agenthon: the idea, what we delivered, how we built it and what I would keep for the next hackathon.'
+description: 'How the B-AROL-O team, with a guest, designed and produced, almost entirely with generative AI, a full advertising campaign for the Rubatà breadsticks of Grissinificio Feyles in one day at the GDG Torino "Build with AI" Agenthon: the idea, what we delivered, how we built it and what I would keep for the next hackathon.'
 ---
 
 ![The B-AROL-O team at work at the Agenthon: Luca on the left and Alessio on the right, sitting at a table in Feat. House, with Gianpaolo's laptop in the centre showing the team's GitHub repository](/assets/2026-11-22-agenthon-2026-si-divide-si-condivide/team-at-work.jpg)
 
 _Luca (left) and Alessio (right) at work at Feat. House, with my laptop in the centre._
 
-On Saturday 21 November 2026 the [B-AROL-O team](https://github.com/B-AROL-O)
-([Alessio Chessa](https://github.com/aleche28),
-[Luca Frigato](https://github.com/FrigaZzz) and I) spent the day at
+On Saturday 21 November 2026 I spent the day at
 [Feat. House](https://feat.house/) in Turin for the GDG Torino
-["Build with AI" Agenthon](https://agenthon.gdgtorino.it/). We picked Track 2,
-GenAI for marketing, and at 10:28 the brief appeared on the participant portal.
-At 17:00 the submission froze. This is what happened in between.
+["Build with AI" Agenthon](https://agenthon.gdgtorino.it/), together with
+[Alessio Chessa](https://github.com/aleche28), my teammate in the
+[B-AROL-O team](https://github.com/B-AROL-O), and
+[Luca Frigato](https://github.com/FrigaZzz), who joined us as a guest. Luca
+brings strong experience in generative AI, and we had already worked with him
+in some previous hackathons. We picked Track 2, GenAI for marketing, and at
+10:28 the brief appeared on the participant portal. At 17:00 the submission
+froze. This is what happened in between.
 
 ## The brief
 
