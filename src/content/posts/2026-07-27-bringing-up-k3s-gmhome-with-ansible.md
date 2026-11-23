@@ -7,7 +7,6 @@ tags:
   - kubernetes
   - raspberry-pi5
   - homelab
-featured: true
 description: "How I used Ansible and the community k3s-ansible collection to bring up a 3-node, highly-available k3s cluster on Raspberry Pi 5 hardware — kube-vip, MetalLB, Ansible Vault, and a couple of bugs found along the way."
 ---
 
